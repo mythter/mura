@@ -1,0 +1,6 @@
+[book]
+authors = ["Anton"]
+language = "en"
+multilingual = false
+src = "src"
+title = "mythter"
