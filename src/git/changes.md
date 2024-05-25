@@ -1,79 +1,79 @@
 # Changes
 
-## DELETE changes in Workspace
+### DELETE changes in Workspace
 
 new
 
-```bash
+```shell
 git restore <file>
 ```
 
 old
 
-```bash
+```shell
 git checkout -- <file>
 ```
 
-```bash
+```shell
 git checkout <file>
 ```
 
-## DELETE all changes
+### DELETE all changes
 
 new
 
-```bash
+```shell
 git restore .
 ```
 
 old
 
-```bash
+```shell
 git checkout .
 ```
 
-## MOVE changes from Index (staging area) to Workspace
+### MOVE changes from Index (staging area) to Workspace
 
 new
 
-```bash
+```shell
 git restore --staged <file>
 ```
 
 old
 
-```bash
+```shell
 git reset <file>
 ```
 
-```bash
+```shell
 git reset HEAD <file>
 ```
 
-## UNSTAGE all changes
+### UNSTAGE all changes
 
 new
 
-```bash
+```shell
 git restore --staged .
 ```
 
 common
 
-```bash
+```shell
 git reset
 ```
 
 old
 
-```bash
+```shell
 git reset HEAD
 ```
 
-## DELETE all changes in Index and Workspace
+### DELETE all changes in Index and Workspace
 
 common
 
-```bash
+```shell
 git reset --hard HEAD
 ```
