@@ -1,6 +1,6 @@
-# Areas
+# Changes
 
-## **УДАЛЕНИЕ** изменений в **Workspace** (рабочая область)
+## DELETE changes in Workspace
 
 new
 
@@ -18,7 +18,7 @@ git checkout -- <file>
 git checkout <file>
 ```
 
-## Удаление всех изменений
+## DELETE all changes
 
 new
 
@@ -32,7 +32,7 @@ old
 git checkout .
 ```
 
-## **ПЕРЕНОС** изменений из **Index** (stage область) в **Workspace** (рабочая область)
+## MOVE changes from Index (staging area) to Workspace
 
 new
 
@@ -50,7 +50,7 @@ git reset <file>
 git reset HEAD <file>
 ```
 
-## Отмена всех изменений
+## UNSTAGE all changes
 
 new
 
@@ -70,7 +70,7 @@ old
 git reset HEAD
 ```
 
-## **УДАЛЕНИЕ** всех изменений в Index и Workspace
+## DELETE all changes in Index and Workspace
 
 common
 
