@@ -1,5 +1,7 @@
 # Summary
 
-- [Chapter 1](./chapter_1.md)
-- [Nested example](nested/README.md)
-    - [Sub-chapter](nested/sub-chapter.md)
+- [Git](./git/index.md)
+    - [Areas](git/areas.md)
+    - [Branches](git/branches.md)
+    - [Commits](git/commits.md)
+    - [Stash](git/stash.md)
