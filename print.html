@@ -175,6 +175,45 @@
                 <div id="content" class="content">
                     <main>
                         <div style="break-before: page; page-break-before: always;"></div><h1 id="areas"><a class="header" href="#areas">Areas</a></h1>
+<h2 id="УДАЛЕНИЕ-изменений-в-workspace-рабочая-область"><a class="header" href="#УДАЛЕНИЕ-изменений-в-workspace-рабочая-область"><strong>УДАЛЕНИЕ</strong> изменений в <strong>Workspace</strong> (рабочая область)</a></h2>
+<p>new</p>
+<pre><code class="language-bash">git restore &lt;file&gt;
+</code></pre>
+<p>old</p>
+<pre><code class="language-bash">git checkout -- &lt;file&gt;
+</code></pre>
+<pre><code class="language-bash">git checkout &lt;file&gt;
+</code></pre>
+<h2 id="Удаление-всех-изменений"><a class="header" href="#Удаление-всех-изменений">Удаление всех изменений</a></h2>
+<p>new</p>
+<pre><code class="language-bash">git restore .
+</code></pre>
+<p>old</p>
+<pre><code class="language-bash">git checkout .
+</code></pre>
+<h2 id="ПЕРЕНОС-изменений-из-index-stage-область-в-workspace-рабочая-область"><a class="header" href="#ПЕРЕНОС-изменений-из-index-stage-область-в-workspace-рабочая-область"><strong>ПЕРЕНОС</strong> изменений из <strong>Index</strong> (stage область) в <strong>Workspace</strong> (рабочая область)</a></h2>
+<p>new</p>
+<pre><code class="language-bash">git restore --staged &lt;file&gt;
+</code></pre>
+<p>old</p>
+<pre><code class="language-bash">git reset &lt;file&gt;
+</code></pre>
+<pre><code class="language-bash">git reset HEAD &lt;file&gt;
+</code></pre>
+<h2 id="Отмена-всех-изменений"><a class="header" href="#Отмена-всех-изменений">Отмена всех изменений</a></h2>
+<p>new</p>
+<pre><code class="language-bash">git restore --staged .
+</code></pre>
+<p>common</p>
+<pre><code class="language-bash">git reset
+</code></pre>
+<p>old</p>
+<pre><code class="language-bash">git reset HEAD
+</code></pre>
+<h2 id="УДАЛЕНИЕ-всех-изменений-в-index-и-workspace"><a class="header" href="#УДАЛЕНИЕ-всех-изменений-в-index-и-workspace"><strong>УДАЛЕНИЕ</strong> всех изменений в Index и Workspace</a></h2>
+<p>common</p>
+<pre><code class="language-bash">git reset --hard HEAD
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="branches"><a class="header" href="#branches">Branches</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="commits"><a class="header" href="#commits">Commits</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="stash"><a class="header" href="#stash">Stash</a></h1>
