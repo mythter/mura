@@ -89,7 +89,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="git/index.html"><strong aria-hidden="true">1.</strong> Git</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="git/changes.html"><strong aria-hidden="true">1.1.</strong> Changes</a></li><li class="chapter-item expanded "><a href="git/branches.html"><strong aria-hidden="true">1.2.</strong> Branches</a></li><li class="chapter-item expanded "><a href="git/commits.html"><strong aria-hidden="true">1.3.</strong> Commits</a></li><li class="chapter-item expanded "><a href="git/stash.html"><strong aria-hidden="true">1.4.</strong> Stash</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="git/index.html"><strong aria-hidden="true">1.</strong> Git</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="git/changes.html"><strong aria-hidden="true">1.1.</strong> Changes</a></li><li class="chapter-item expanded "><a href="git/commits.html"><strong aria-hidden="true">1.2.</strong> Commits</a></li><li class="chapter-item expanded "><a href="git/branches.html"><strong aria-hidden="true">1.3.</strong> Branches</a></li><li class="chapter-item expanded "><a href="git/stash.html"><strong aria-hidden="true">1.4.</strong> Stash</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -179,48 +179,104 @@
                     <main>
                         <h1 id="git"><a class="header" href="#git">Git</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="changes"><a class="header" href="#changes">Changes</a></h1>
-<h2 id="delete-changes-in-workspace"><a class="header" href="#delete-changes-in-workspace">DELETE changes in Workspace</a></h2>
+<h3 id="delete-changes-in-workspace"><a class="header" href="#delete-changes-in-workspace">DELETE changes in Workspace</a></h3>
 <p>new</p>
-<pre><code class="language-bash">git restore &lt;file&gt;
+<pre><code class="language-shell">git restore &lt;file&gt;
 </code></pre>
 <p>old</p>
-<pre><code class="language-bash">git checkout -- &lt;file&gt;
+<pre><code class="language-shell">git checkout -- &lt;file&gt;
 </code></pre>
-<pre><code class="language-bash">git checkout &lt;file&gt;
+<pre><code class="language-shell">git checkout &lt;file&gt;
 </code></pre>
-<h2 id="delete-all-changes"><a class="header" href="#delete-all-changes">DELETE all changes</a></h2>
+<h3 id="delete-all-changes"><a class="header" href="#delete-all-changes">DELETE all changes</a></h3>
 <p>new</p>
-<pre><code class="language-bash">git restore .
+<pre><code class="language-shell">git restore .
 </code></pre>
 <p>old</p>
-<pre><code class="language-bash">git checkout .
+<pre><code class="language-shell">git checkout .
 </code></pre>
-<h2 id="move-changes-from-index-staging-area-to-workspace"><a class="header" href="#move-changes-from-index-staging-area-to-workspace">MOVE changes from Index (staging area) to Workspace</a></h2>
+<h3 id="move-changes-from-index-staging-area-to-workspace"><a class="header" href="#move-changes-from-index-staging-area-to-workspace">MOVE changes from Index (staging area) to Workspace</a></h3>
 <p>new</p>
-<pre><code class="language-bash">git restore --staged &lt;file&gt;
+<pre><code class="language-shell">git restore --staged &lt;file&gt;
 </code></pre>
 <p>old</p>
-<pre><code class="language-bash">git reset &lt;file&gt;
+<pre><code class="language-shell">git reset &lt;file&gt;
 </code></pre>
-<pre><code class="language-bash">git reset HEAD &lt;file&gt;
+<pre><code class="language-shell">git reset HEAD &lt;file&gt;
 </code></pre>
-<h2 id="unstage-all-changes"><a class="header" href="#unstage-all-changes">UNSTAGE all changes</a></h2>
+<h3 id="unstage-all-changes"><a class="header" href="#unstage-all-changes">UNSTAGE all changes</a></h3>
 <p>new</p>
-<pre><code class="language-bash">git restore --staged .
+<pre><code class="language-shell">git restore --staged .
 </code></pre>
 <p>common</p>
-<pre><code class="language-bash">git reset
+<pre><code class="language-shell">git reset
 </code></pre>
 <p>old</p>
-<pre><code class="language-bash">git reset HEAD
+<pre><code class="language-shell">git reset HEAD
 </code></pre>
-<h2 id="delete-all-changes-in-index-and-workspace"><a class="header" href="#delete-all-changes-in-index-and-workspace">DELETE all changes in Index and Workspace</a></h2>
+<h3 id="delete-all-changes-in-index-and-workspace"><a class="header" href="#delete-all-changes-in-index-and-workspace">DELETE all changes in Index and Workspace</a></h3>
 <p>common</p>
-<pre><code class="language-bash">git reset --hard HEAD
+<pre><code class="language-shell">git reset --hard HEAD
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="commits"><a class="header" href="#commits">Commits</a></h1>
+<h3 id="undo-the-last-commit-and-move-changes-to-workspace-changes-in-staging-area-will-also-move-to-workspace---mixed-by-default"><a class="header" href="#undo-the-last-commit-and-move-changes-to-workspace-changes-in-staging-area-will-also-move-to-workspace---mixed-by-default">Undo the last commit and move changes to Workspace (changes in staging area will also move to Workspace) (<em>--mixed</em> by default)</a></h3>
+<pre><code class="language-shell">git reset HEAD^
+</code></pre>
+<h3 id="undo-the-last-commit-and-move-changes-to-the-index"><a class="header" href="#undo-the-last-commit-and-move-changes-to-the-index">Undo the last commit and move changes to the Index</a></h3>
+<pre><code class="language-shell">git reset --soft HEAD^
+</code></pre>
+<h3 id="undo-the-last-commit-and-delete-changes-uncommitted-ones-too"><a class="header" href="#undo-the-last-commit-and-delete-changes-uncommitted-ones-too">Undo the last commit and DELETE changes (uncommitted ones too)</a></h3>
+<pre><code class="language-shell">git reset --hard HEAD^
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="branches"><a class="header" href="#branches">Branches</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="commits"><a class="header" href="#commits">Commits</a></h1>
+<h2 id="creating"><a class="header" href="#creating">CREATING</a></h2>
+<h3 id="create-a-branch"><a class="header" href="#create-a-branch">Create a branch</a></h3>
+<pre><code class="language-shell">git branch &lt;branch-name&gt;
+</code></pre>
+<h3 id="create-a-branch-and-switch-to-it"><a class="header" href="#create-a-branch-and-switch-to-it">Create a branch and switch to it</a></h3>
+<p>common</p>
+<pre><code class="language-shell">git checkout -b &lt;branch-name&gt; 
+</code></pre>
+<p>new</p>
+<pre><code class="language-shell">git switch -c &lt;branch-name&gt;
+</code></pre>
+<h3 id="if-there-is-a-remote-branch-but-you-need-to-create-a-local-one-and-link-to-the-remote-one-if-there-is-already-a-local-one-with-the-same-name-then-it-will-link-to-the-remote-one"><a class="header" href="#if-there-is-a-remote-branch-but-you-need-to-create-a-local-one-and-link-to-the-remote-one-if-there-is-already-a-local-one-with-the-same-name-then-it-will-link-to-the-remote-one">If there is a remote branch, but you need to create a local one and link to the remote one (if there is already a local one with the same name, then it will link to the remote one)</a></h3>
+<pre><code class="language-shell">git branch --track &lt;local-branch&gt; origin/&lt;remote-branch&gt;
+</code></pre>
+<pre><code class="language-shell">git branch -f &lt;local-branch&gt; origin/&lt;remote-branch&gt;
+</code></pre>
+<h3 id="if-there-is-a-local-branch-and-you-need-to-create-a-remote-one-with-tracking"><a class="header" href="#if-there-is-a-local-branch-and-you-need-to-create-a-remote-one-with-tracking">If there is a local branch and you need to create a remote one with tracking</a></h3>
+<pre><code class="language-shell">git push -u origin &lt;branch-name&gt;
+</code></pre>
+<h2 id="moving"><a class="header" href="#moving">MOVING</a></h2>
+<h3 id="move-branch-pointer-to-a-different-commit-destination-commit-can-be-a-branch-name"><a class="header" href="#move-branch-pointer-to-a-different-commit-destination-commit-can-be-a-branch-name">Move branch pointer to a different commit (<em>destination-commit</em> can be a branch name)</a></h3>
+<pre><code class="language-shell">git reset --hard &lt;destination-commit&gt;
+</code></pre>
+<pre><code class="language-shell">git branch –f &lt;branch-name&gt; &lt;destination-commit&gt;
+</code></pre>
+<h2 id="deleting"><a class="header" href="#deleting">DELETING</a></h2>
+<h3 id="delete-remote-branch-remote-name-usually-origin"><a class="header" href="#delete-remote-branch-remote-name-usually-origin">DELETE remote branch (<em>remote-name</em> usually <em>origin</em>)</a></h3>
+<pre><code class="language-shell">git push -d &lt;remote-name&gt; &lt;branch-name&gt;
+</code></pre>
+<h3 id="delete-local-branch"><a class="header" href="#delete-local-branch">DELETE local branch</a></h3>
+<pre><code class="language-shell">git branch -d &lt;branch-name&gt;
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="stash"><a class="header" href="#stash">Stash</a></h1>
+<h3 id="save-changes"><a class="header" href="#save-changes">Save changes</a></h3>
+<pre><code class="language-shell">git stash save “description”
+</code></pre>
+<h3 id="view-stash-content"><a class="header" href="#view-stash-content">View stash content</a></h3>
+<pre><code class="language-shell">git stash list
+</code></pre>
+<h3 id="get-content-from-stash-and-delete-from-there"><a class="header" href="#get-content-from-stash-and-delete-from-there">Get content from stash (and delete from there)</a></h3>
+<pre><code class="language-shell">git stash pop
+</code></pre>
+<h3 id="get-content-from-stash-and-leave-it-there"><a class="header" href="#get-content-from-stash-and-leave-it-there">Get content from stash (and leave it there)</a></h3>
+<pre><code class="language-shell">git stash apply
+</code></pre>
+<h3 id="delete-stash-contents"><a class="header" href="#delete-stash-contents">Delete stash contents</a></h3>
+<pre><code class="language-shell">git stash drop
+</code></pre>
 
                     </main>
 
