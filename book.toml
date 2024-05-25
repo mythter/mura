@@ -6,4 +6,4 @@ src = "src"
 title = "mura"
 
 [build]
-build-dir = "gh-pages"
+build-dir = "book"
