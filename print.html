@@ -89,7 +89,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="git/index.html"><strong aria-hidden="true">1.</strong> Git</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="git/areas.html"><strong aria-hidden="true">1.1.</strong> Areas</a></li><li class="chapter-item expanded "><a href="git/branches.html"><strong aria-hidden="true">1.2.</strong> Branches</a></li><li class="chapter-item expanded "><a href="git/commits.html"><strong aria-hidden="true">1.3.</strong> Commits</a></li><li class="chapter-item expanded "><a href="git/stash.html"><strong aria-hidden="true">1.4.</strong> Stash</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="git/index.html"><strong aria-hidden="true">1.</strong> Git</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="git/changes.html"><strong aria-hidden="true">1.1.</strong> Changes</a></li><li class="chapter-item expanded "><a href="git/branches.html"><strong aria-hidden="true">1.2.</strong> Branches</a></li><li class="chapter-item expanded "><a href="git/commits.html"><strong aria-hidden="true">1.3.</strong> Commits</a></li><li class="chapter-item expanded "><a href="git/stash.html"><strong aria-hidden="true">1.4.</strong> Stash</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -148,6 +148,9 @@
                         <a href="print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
+                        <a href="https://github.com/mythter/mura" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
 
                     </div>
                 </div>
@@ -174,8 +177,9 @@
 
                 <div id="content" class="content">
                     <main>
-                        <div style="break-before: page; page-break-before: always;"></div><h1 id="areas"><a class="header" href="#areas">Areas</a></h1>
-<h2 id="УДАЛЕНИЕ-изменений-в-workspace-рабочая-область"><a class="header" href="#УДАЛЕНИЕ-изменений-в-workspace-рабочая-область"><strong>УДАЛЕНИЕ</strong> изменений в <strong>Workspace</strong> (рабочая область)</a></h2>
+                        <h1 id="git"><a class="header" href="#git">Git</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="changes"><a class="header" href="#changes">Changes</a></h1>
+<h2 id="delete-changes-in-workspace"><a class="header" href="#delete-changes-in-workspace">DELETE changes in Workspace</a></h2>
 <p>new</p>
 <pre><code class="language-bash">git restore &lt;file&gt;
 </code></pre>
@@ -184,14 +188,14 @@
 </code></pre>
 <pre><code class="language-bash">git checkout &lt;file&gt;
 </code></pre>
-<h2 id="Удаление-всех-изменений"><a class="header" href="#Удаление-всех-изменений">Удаление всех изменений</a></h2>
+<h2 id="delete-all-changes"><a class="header" href="#delete-all-changes">DELETE all changes</a></h2>
 <p>new</p>
 <pre><code class="language-bash">git restore .
 </code></pre>
 <p>old</p>
 <pre><code class="language-bash">git checkout .
 </code></pre>
-<h2 id="ПЕРЕНОС-изменений-из-index-stage-область-в-workspace-рабочая-область"><a class="header" href="#ПЕРЕНОС-изменений-из-index-stage-область-в-workspace-рабочая-область"><strong>ПЕРЕНОС</strong> изменений из <strong>Index</strong> (stage область) в <strong>Workspace</strong> (рабочая область)</a></h2>
+<h2 id="move-changes-from-index-staging-area-to-workspace"><a class="header" href="#move-changes-from-index-staging-area-to-workspace">MOVE changes from Index (staging area) to Workspace</a></h2>
 <p>new</p>
 <pre><code class="language-bash">git restore --staged &lt;file&gt;
 </code></pre>
@@ -200,7 +204,7 @@
 </code></pre>
 <pre><code class="language-bash">git reset HEAD &lt;file&gt;
 </code></pre>
-<h2 id="Отмена-всех-изменений"><a class="header" href="#Отмена-всех-изменений">Отмена всех изменений</a></h2>
+<h2 id="unstage-all-changes"><a class="header" href="#unstage-all-changes">UNSTAGE all changes</a></h2>
 <p>new</p>
 <pre><code class="language-bash">git restore --staged .
 </code></pre>
@@ -210,7 +214,7 @@
 <p>old</p>
 <pre><code class="language-bash">git reset HEAD
 </code></pre>
-<h2 id="УДАЛЕНИЕ-всех-изменений-в-index-и-workspace"><a class="header" href="#УДАЛЕНИЕ-всех-изменений-в-index-и-workspace"><strong>УДАЛЕНИЕ</strong> всех изменений в Index и Workspace</a></h2>
+<h2 id="delete-all-changes-in-index-and-workspace"><a class="header" href="#delete-all-changes-in-index-and-workspace">DELETE all changes in Index and Workspace</a></h2>
 <p>common</p>
 <pre><code class="language-bash">git reset --hard HEAD
 </code></pre>
