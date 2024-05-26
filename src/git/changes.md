@@ -18,7 +18,7 @@ git checkout -- <file>
 git checkout <file>
 ```
 
-### DELETE all changes
+### DELETE all changes in Workspace
 
 new
 
@@ -32,7 +32,17 @@ old
 git checkout .
 ```
 
-### MOVE changes from Index (staging area) to Workspace
+### DELETE all changes in Index and Workspace
+
+```shell
+git reset --hard
+```
+
+```shell
+git reset --hard HEAD
+```
+
+### UNSTAGE some changes (MOVE from Index (staging area) to Workspace)
 
 new
 
@@ -68,12 +78,4 @@ old
 
 ```shell
 git reset HEAD
-```
-
-### DELETE all changes in Index and Workspace
-
-common
-
-```shell
-git reset --hard HEAD
 ```
