@@ -5,3 +5,4 @@
     - [Commits](git/commits.md)
     - [Branches](git/branches.md)
     - [Stash](git/stash.md)
+    - [Worktrees](git/worktrees.md)
