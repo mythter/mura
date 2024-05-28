@@ -58,7 +58,7 @@ git push -d <remote-name> <branch-name>
 ```
 
 \
-Don't forget to do a `git fetch --all --prune` on other machines after deleting the remote branch on the server.
+Don't forget to do a `git fetch --all --prune` or `git fetch --all -p` on other machines after deleting the remote branch on the server.
 After deleting the local branch with `git branch -d` and deleting the remote branch with `git push -d origin` other machines may still have "obsolete tracking branches" (to see them do `git branch -a`). To get rid of these do `git fetch --all --prune`
 
 ### DELETE local branch
