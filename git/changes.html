@@ -189,14 +189,19 @@
 </code></pre>
 <pre><code class="language-shell">git checkout &lt;file&gt;
 </code></pre>
-<h3 id="delete-all-changes"><a class="header" href="#delete-all-changes">DELETE all changes</a></h3>
+<h3 id="delete-all-changes-in-workspace"><a class="header" href="#delete-all-changes-in-workspace">DELETE all changes in Workspace</a></h3>
 <p>new</p>
 <pre><code class="language-shell">git restore .
 </code></pre>
 <p>old</p>
 <pre><code class="language-shell">git checkout .
 </code></pre>
-<h3 id="move-changes-from-index-staging-area-to-workspace"><a class="header" href="#move-changes-from-index-staging-area-to-workspace">MOVE changes from Index (staging area) to Workspace</a></h3>
+<h3 id="delete-all-changes-in-index-and-workspace"><a class="header" href="#delete-all-changes-in-index-and-workspace">DELETE all changes in Index and Workspace</a></h3>
+<pre><code class="language-shell">git reset --hard
+</code></pre>
+<pre><code class="language-shell">git reset --hard HEAD
+</code></pre>
+<h3 id="unstage-some-changes-move-from-index-staging-area-to-workspace"><a class="header" href="#unstage-some-changes-move-from-index-staging-area-to-workspace">UNSTAGE some changes (MOVE from Index (staging area) to Workspace)</a></h3>
 <p>new</p>
 <pre><code class="language-shell">git restore --staged &lt;file&gt;
 </code></pre>
@@ -214,10 +219,6 @@
 </code></pre>
 <p>old</p>
 <pre><code class="language-shell">git reset HEAD
-</code></pre>
-<h3 id="delete-all-changes-in-index-and-workspace"><a class="header" href="#delete-all-changes-in-index-and-workspace">DELETE all changes in Index and Workspace</a></h3>
-<p>common</p>
-<pre><code class="language-shell">git reset --hard HEAD
 </code></pre>
 
                     </main>

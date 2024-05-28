@@ -194,14 +194,19 @@
 </code></pre>
 <pre><code class="language-shell">git checkout &lt;file&gt;
 </code></pre>
-<h3 id="delete-all-changes"><a class="header" href="#delete-all-changes">DELETE all changes</a></h3>
+<h3 id="delete-all-changes-in-workspace"><a class="header" href="#delete-all-changes-in-workspace">DELETE all changes in Workspace</a></h3>
 <p>new</p>
 <pre><code class="language-shell">git restore .
 </code></pre>
 <p>old</p>
 <pre><code class="language-shell">git checkout .
 </code></pre>
-<h3 id="move-changes-from-index-staging-area-to-workspace"><a class="header" href="#move-changes-from-index-staging-area-to-workspace">MOVE changes from Index (staging area) to Workspace</a></h3>
+<h3 id="delete-all-changes-in-index-and-workspace"><a class="header" href="#delete-all-changes-in-index-and-workspace">DELETE all changes in Index and Workspace</a></h3>
+<pre><code class="language-shell">git reset --hard
+</code></pre>
+<pre><code class="language-shell">git reset --hard HEAD
+</code></pre>
+<h3 id="unstage-some-changes-move-from-index-staging-area-to-workspace"><a class="header" href="#unstage-some-changes-move-from-index-staging-area-to-workspace">UNSTAGE some changes (MOVE from Index (staging area) to Workspace)</a></h3>
 <p>new</p>
 <pre><code class="language-shell">git restore --staged &lt;file&gt;
 </code></pre>
@@ -219,10 +224,6 @@
 </code></pre>
 <p>old</p>
 <pre><code class="language-shell">git reset HEAD
-</code></pre>
-<h3 id="delete-all-changes-in-index-and-workspace"><a class="header" href="#delete-all-changes-in-index-and-workspace">DELETE all changes in Index and Workspace</a></h3>
-<p>common</p>
-<pre><code class="language-shell">git reset --hard HEAD
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="commits"><a class="header" href="#commits">Commits</a></h1>
 <h3 id="undo-the-last-commit-and-move-changes-to-workspace-changes-in-staging-area-will-also-move-to-workspace---mixed-by-default"><a class="header" href="#undo-the-last-commit-and-move-changes-to-workspace-changes-in-staging-area-will-also-move-to-workspace---mixed-by-default">Undo the last commit and move changes to Workspace (changes in staging area will also move to Workspace) (<em>--mixed</em> by default)</a></h3>
@@ -265,7 +266,7 @@
 <pre><code class="language-shell">git push -d &lt;remote-name&gt; &lt;branch-name&gt;
 </code></pre>
 <p><br />
-Don't forget to do a <code>git fetch --all --prune</code> on other machines after deleting the remote branch on the server.
+Don't forget to do a <code>git fetch --all --prune</code> or <code>git fetch --all -p</code> on other machines after deleting the remote branch on the server.
 After deleting the local branch with <code>git branch -d</code> and deleting the remote branch with <code>git push -d origin</code> other machines may still have "obsolete tracking branches" (to see them do <code>git branch -a</code>). To get rid of these do <code>git fetch --all --prune</code></p>
 <h3 id="delete-local-branch"><a class="header" href="#delete-local-branch">DELETE local branch</a></h3>
 <pre><code class="language-shell">git branch -d &lt;branch-name&gt;
@@ -296,6 +297,26 @@ After deleting the local branch with <code>git branch -d</code> and deleting the
 <pre><code class="language-shell">git stash drop
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="worktrees"><a class="header" href="#worktrees">Worktrees</a></h1>
+<h3 id="show-all-worktrees"><a class="header" href="#show-all-worktrees">Show all worktrees</a></h3>
+<pre><code class="language-shell">git worktree list
+</code></pre>
+<h2 id="create"><a class="header" href="#create">CREATE</a></h2>
+<h3 id="create-a-worktree-for-an-existing-branch-using-the-same-name-as-the-working-directory"><a class="header" href="#create-a-worktree-for-an-existing-branch-using-the-same-name-as-the-working-directory">Create a worktree for an existing branch using the same name as the working directory</a></h3>
+<pre><code class="language-shell">git worktree add path/to/folder/&lt;existing-branch-name&gt;
+</code></pre>
+<h3 id="create-a-worktree-for-an-existing-branch-using-a-different-name-than-the-working-directory"><a class="header" href="#create-a-worktree-for-an-existing-branch-using-a-different-name-than-the-working-directory">Create a worktree for an existing branch using a different name than the working directory</a></h3>
+<pre><code class="language-shell">git worktree add path/to/folder/ &lt;existing-branch-name&gt;
+</code></pre>
+<h3 id="create-a-worktree-with-a-new-branch-using-the-same-name-as-the-working-directory"><a class="header" href="#create-a-worktree-with-a-new-branch-using-the-same-name-as-the-working-directory">Create a worktree with a new branch using the same name as the working directory</a></h3>
+<pre><code class="language-shell">git worktree add -b &lt;new-branch-name&gt; path/to/folder/&lt;new-branch-name&gt;
+</code></pre>
+<h3 id="create-a-worktree-with-a-new-branch-using-a-different-name-than-the-working-directory"><a class="header" href="#create-a-worktree-with-a-new-branch-using-a-different-name-than-the-working-directory">Create a worktree with a new branch using a different name than the working directory</a></h3>
+<pre><code class="language-shell">git worktree add -b &lt;new-branch-name&gt; path/to/folder/
+</code></pre>
+<h2 id="delete"><a class="header" href="#delete">DELETE</a></h2>
+<h2 id="remove-a-worktree"><a class="header" href="#remove-a-worktree">Remove a worktree</a></h2>
+<pre><code class="language-shell">git worktree remove path/to/folder/
+</code></pre>
 
                     </main>
 

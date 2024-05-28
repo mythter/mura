@@ -180,6 +180,26 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="worktrees"><a class="header" href="#worktrees">Worktrees</a></h1>
+<h3 id="show-all-worktrees"><a class="header" href="#show-all-worktrees">Show all worktrees</a></h3>
+<pre><code class="language-shell">git worktree list
+</code></pre>
+<h2 id="create"><a class="header" href="#create">CREATE</a></h2>
+<h3 id="create-a-worktree-for-an-existing-branch-using-the-same-name-as-the-working-directory"><a class="header" href="#create-a-worktree-for-an-existing-branch-using-the-same-name-as-the-working-directory">Create a worktree for an existing branch using the same name as the working directory</a></h3>
+<pre><code class="language-shell">git worktree add path/to/folder/&lt;existing-branch-name&gt;
+</code></pre>
+<h3 id="create-a-worktree-for-an-existing-branch-using-a-different-name-than-the-working-directory"><a class="header" href="#create-a-worktree-for-an-existing-branch-using-a-different-name-than-the-working-directory">Create a worktree for an existing branch using a different name than the working directory</a></h3>
+<pre><code class="language-shell">git worktree add path/to/folder/ &lt;existing-branch-name&gt;
+</code></pre>
+<h3 id="create-a-worktree-with-a-new-branch-using-the-same-name-as-the-working-directory"><a class="header" href="#create-a-worktree-with-a-new-branch-using-the-same-name-as-the-working-directory">Create a worktree with a new branch using the same name as the working directory</a></h3>
+<pre><code class="language-shell">git worktree add -b &lt;new-branch-name&gt; path/to/folder/&lt;new-branch-name&gt;
+</code></pre>
+<h3 id="create-a-worktree-with-a-new-branch-using-a-different-name-than-the-working-directory"><a class="header" href="#create-a-worktree-with-a-new-branch-using-a-different-name-than-the-working-directory">Create a worktree with a new branch using a different name than the working directory</a></h3>
+<pre><code class="language-shell">git worktree add -b &lt;new-branch-name&gt; path/to/folder/
+</code></pre>
+<h2 id="delete"><a class="header" href="#delete">DELETE</a></h2>
+<h2 id="remove-a-worktree"><a class="header" href="#remove-a-worktree">Remove a worktree</a></h2>
+<pre><code class="language-shell">git worktree remove path/to/folder/
+</code></pre>
 
                     </main>
 
