@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Stash - mura</title>
+        <title>Line endings - mura</title>
 
 
         <!-- Custom HTML head -->
@@ -88,7 +88,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="../git/index.html"><strong aria-hidden="true">1.</strong> Git</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../git/changes.html"><strong aria-hidden="true">1.1.</strong> Changes</a></li><li class="chapter-item expanded "><a href="../git/commits.html"><strong aria-hidden="true">1.2.</strong> Commits</a></li><li class="chapter-item expanded "><a href="../git/branches.html"><strong aria-hidden="true">1.3.</strong> Branches</a></li><li class="chapter-item expanded "><a href="../git/stash.html" class="active"><strong aria-hidden="true">1.4.</strong> Stash</a></li><li class="chapter-item expanded "><a href="../git/worktrees.html"><strong aria-hidden="true">1.5.</strong> Worktrees</a></li><li class="chapter-item expanded "><a href="../git/line_endings.html"><strong aria-hidden="true">1.6.</strong> Line endings</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../git/index.html"><strong aria-hidden="true">1.</strong> Git</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../git/changes.html"><strong aria-hidden="true">1.1.</strong> Changes</a></li><li class="chapter-item expanded "><a href="../git/commits.html"><strong aria-hidden="true">1.2.</strong> Commits</a></li><li class="chapter-item expanded "><a href="../git/branches.html"><strong aria-hidden="true">1.3.</strong> Branches</a></li><li class="chapter-item expanded "><a href="../git/stash.html"><strong aria-hidden="true">1.4.</strong> Stash</a></li><li class="chapter-item expanded "><a href="../git/worktrees.html"><strong aria-hidden="true">1.5.</strong> Worktrees</a></li><li class="chapter-item expanded "><a href="../git/line_endings.html" class="active"><strong aria-hidden="true">1.6.</strong> Line endings</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -150,7 +150,7 @@
                         <a href="https://github.com/mythter/mura" title="Git repository" aria-label="Git repository">
                             <i id="git-repository-button" class="fa fa-github"></i>
                         </a>
-                        <a href="https://github.com/mythter/mura/edit/main/src/git/stash.md" title="Suggest an edit" aria-label="Suggest an edit">
+                        <a href="https://github.com/mythter/mura/edit/main/src/git/line_endings.md" title="Suggest an edit" aria-label="Suggest an edit">
                             <i id="git-edit-button" class="fa fa-edit"></i>
                         </a>
 
@@ -179,34 +179,25 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="stash"><a class="header" href="#stash">Stash</a></h1>
-<h3 id="save-changes"><a class="header" href="#save-changes">Save changes</a></h3>
-<pre><code class="language-shell">git stash save “description”
+                        <h1 id="line-endings"><a class="header" href="#line-endings">Line endings</a></h1>
+<p>The <code>git config core.autocrlf</code> command is used to change how Git handles line endings. It takes a single argument.</p>
+<pre><code class="language-shell">git config --global core.autocrlf input|true|false
 </code></pre>
-<h3 id="view-stash-content"><a class="header" href="#view-stash-content">View stash content</a></h3>
-<pre><code class="language-shell">git stash list
-</code></pre>
-<h3 id="get-content-from-stash-and-delete-from-there"><a class="header" href="#get-content-from-stash-and-delete-from-there">Get content from stash (and delete from there)</a></h3>
-<pre><code class="language-shell">git stash pop
-</code></pre>
-<h3 id="get-content-from-stash-and-leave-it-there"><a class="header" href="#get-content-from-stash-and-leave-it-there">Get content from stash (and leave it there)</a></h3>
-<pre><code class="language-shell">git stash apply
-</code></pre>
-<h3 id="delete-stash-contents"><a class="header" href="#delete-stash-contents">Delete stash contents</a></h3>
-<pre><code class="language-shell">git stash drop
-</code></pre>
-
+<br>
+<div class="table-wrapper"><table><thead><tr><th>autocrlf</th><th>commit, add</th><th>checkout</th><th>When to Use</th></tr></thead><tbody>
+<tr><td>input</td><td>CRLF -&gt; LF</td><td>LF -&gt; LF</td><td>Unix, MacOS</td></tr>
+<tr><td>true</td><td>CRLF -&gt; LF</td><td>LF -&gt; CRLF</td><td>Windows</td></tr>
+<tr><td>false</td><td>-</td><td>-</td><td>Single platform</td></tr>
+</tbody></table>
+</div>
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../git/branches.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../git/worktrees.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="../git/worktrees.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
-                            </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -214,13 +205,10 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../git/branches.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../git/worktrees.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="../git/worktrees.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
-                    </a>
             </nav>
 
         </div>
