@@ -39,3 +39,11 @@ git worktree add -b <new-branch-name> path/to/folder/
 ```shell
 git worktree remove path/to/folder/
 ```
+
+or [(link)](https://stackoverflow.com/questions/39707402/why-does-git-worktree-add-create-a-branch-and-can-i-delete-it)
+
+```shell
+rm -rf path/to/worktree
+git worktree prune
+git branch -D <branch-name>
+```
