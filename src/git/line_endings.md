@@ -10,6 +10,6 @@ git config --global core.autocrlf input|true|false
 
 | autocrlf | commit, add | checkout    | When to Use                  |
 |----------|-------------|-------------|------------------------------|
-| input    | CRLF -> LF  | LF -> LF    | Unix, MacOS                  |
-| true     | CRLF -> LF  | LF -> CRLF  | Windows                      |
+| input    | CRLF → LF   | LF → LF     | Unix, MacOS                  |
+| true     | CRLF → LF   | LF → CRLF   | Windows                      |
 | false    |      -      |      -      | Single platform              |
