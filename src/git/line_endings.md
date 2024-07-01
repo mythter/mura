@@ -8,7 +8,7 @@ git config --global core.autocrlf input|true|false
 
 <br>
 
-| autocrlf | commit, add | checkout    | When to Use                  |
+| autocrlf | commit      | checkout    | When to Use                  |
 |----------|-------------|-------------|------------------------------|
 | input    | CRLF → LF   |      -      | Unix, MacOS                  |
 | true     | CRLF → LF   | LF → CRLF   | Windows                      |
