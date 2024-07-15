@@ -85,3 +85,17 @@ longer
 ```shell
 git branch --delete --remotes <remote>/<branch>
 ```
+
+## RENAMING
+
+Rename current branch
+
+```shell
+git branch -m <branch_name>
+```
+
+Rename another branch
+
+```shell
+git branch -m  <oldbranch_name> <new_branch_name>
+```
