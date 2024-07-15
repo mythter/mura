@@ -11,6 +11,7 @@ git branch <branch-name>
 ### Create a branch and switch to it
 
 common
+
 ```shell
 git checkout -b <branch-name> 
 ```

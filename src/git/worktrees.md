@@ -34,7 +34,7 @@ git worktree add -b <new-branch-name> path/to/folder/
 
 ## DELETE
 
-## Remove a worktree
+### Remove a worktree
 
 ```shell
 git worktree remove path/to/folder/
