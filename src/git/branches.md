@@ -38,6 +38,18 @@ git branch -f <local-branch> origin/<remote-branch>
 git push -u origin <branch-name>
 ```
 
+### If there are both local and remote branches and you need to make tracking
+
+```shell
+git branch -u origin/<remote-branch-name> <local-branch-name>
+```
+
+### If you need to remove tracking
+
+```shell
+git branch --unset-upstream <branch-name>
+```
+
 ## MOVING
 
 ### Move branch pointer to a different commit (*destination-commit* can be a branch name)
