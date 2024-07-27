@@ -25,6 +25,12 @@ jobs:
           
       - name: Build Book
         run: mdbook build
+
+      - name: Uploading files to gh-pages branch
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: book
           
       - name: Setup Pages
         uses: actions/configure-pages@v4
