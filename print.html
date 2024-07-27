@@ -89,7 +89,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="git/index.html"><strong aria-hidden="true">1.</strong> Git</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="git/changes.html"><strong aria-hidden="true">1.1.</strong> Changes</a></li><li class="chapter-item expanded "><a href="git/commits.html"><strong aria-hidden="true">1.2.</strong> Commits</a></li><li class="chapter-item expanded "><a href="git/branches.html"><strong aria-hidden="true">1.3.</strong> Branches</a></li><li class="chapter-item expanded "><a href="git/stash.html"><strong aria-hidden="true">1.4.</strong> Stash</a></li><li class="chapter-item expanded "><a href="git/worktrees.html"><strong aria-hidden="true">1.5.</strong> Worktrees</a></li><li class="chapter-item expanded "><a href="git/line_endings.html"><strong aria-hidden="true">1.6.</strong> Line endings</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="git/index.html"><strong aria-hidden="true">1.</strong> Git</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="git/changes.html"><strong aria-hidden="true">1.1.</strong> Changes</a></li><li class="chapter-item expanded "><a href="git/commits.html"><strong aria-hidden="true">1.2.</strong> Commits</a></li><li class="chapter-item expanded "><a href="git/branches.html"><strong aria-hidden="true">1.3.</strong> Branches</a></li><li class="chapter-item expanded "><a href="git/log.html"><strong aria-hidden="true">1.4.</strong> Log</a></li><li class="chapter-item expanded "><a href="git/stash.html"><strong aria-hidden="true">1.5.</strong> Stash</a></li><li class="chapter-item expanded "><a href="git/worktrees.html"><strong aria-hidden="true">1.6.</strong> Worktrees</a></li><li class="chapter-item expanded "><a href="git/remotes.html"><strong aria-hidden="true">1.7.</strong> Remotes</a></li><li class="chapter-item expanded "><a href="git/line_endings.html"><strong aria-hidden="true">1.8.</strong> Line endings</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -226,11 +226,14 @@
 <pre><code class="language-shell">git reset HEAD
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="commits"><a class="header" href="#commits">Commits</a></h1>
-<h3 id="undo-the-last-commit-and-move-changes-to-workspace-changes-in-staging-area-will-also-move-to-workspace---mixed-by-default"><a class="header" href="#undo-the-last-commit-and-move-changes-to-workspace-changes-in-staging-area-will-also-move-to-workspace---mixed-by-default">Undo the last commit and move changes to Workspace (changes in staging area will also move to Workspace) (<em>--mixed</em> by default)</a></h3>
+<h3 id="undo-the-last-commit-and-move-changes-to-working-directory-changes-in-staging-area-will-also-move-to-working-directory---mixed-by-default"><a class="header" href="#undo-the-last-commit-and-move-changes-to-working-directory-changes-in-staging-area-will-also-move-to-working-directory---mixed-by-default">Undo the last commit and move changes to Working Directory (changes in staging area will also move to Working Directory) (<em>--mixed</em> by default)</a></h3>
 <pre><code class="language-shell">git reset HEAD^
 </code></pre>
 <h3 id="undo-the-last-commit-and-move-changes-to-the-index"><a class="header" href="#undo-the-last-commit-and-move-changes-to-the-index">Undo the last commit and move changes to the Index</a></h3>
 <pre><code class="language-shell">git reset --soft HEAD^
+</code></pre>
+<h3 id="undo-the-last-commit-and-move-changes-to-the-working-directory"><a class="header" href="#undo-the-last-commit-and-move-changes-to-the-working-directory">Undo the last commit and move changes to the Working Directory</a></h3>
+<pre><code class="language-shell">git reset --mixed HEAD^
 </code></pre>
 <h3 id="undo-the-last-commit-and-delete-changes-uncommitted-ones-too"><a class="header" href="#undo-the-last-commit-and-delete-changes-uncommitted-ones-too">Undo the last commit and DELETE changes (uncommitted ones too)</a></h3>
 <pre><code class="language-shell">git reset --hard HEAD^
@@ -247,13 +250,24 @@
 <p>new</p>
 <pre><code class="language-shell">git switch -c &lt;branch-name&gt;
 </code></pre>
-<h3 id="if-there-is-a-remote-branch-but-you-need-to-create-a-local-one-and-link-to-the-remote-one-if-there-is-already-a-local-one-with-the-same-name-then-it-will-link-to-the-remote-one"><a class="header" href="#if-there-is-a-remote-branch-but-you-need-to-create-a-local-one-and-link-to-the-remote-one-if-there-is-already-a-local-one-with-the-same-name-then-it-will-link-to-the-remote-one">If there is a remote branch, but you need to create a local one and link to the remote one (if there is already a local one with the same name, then it will link to the remote one)</a></h3>
+<h3 id="if-there-is-a-remote-branch-but-you-need-to-create-a-local-one-and-link-to-the-remote-one"><a class="header" href="#if-there-is-a-remote-branch-but-you-need-to-create-a-local-one-and-link-to-the-remote-one">If there is a remote branch, but you need to create a local one and link to the remote one</a></h3>
 <pre><code class="language-shell">git branch --track &lt;local-branch&gt; origin/&lt;remote-branch&gt;
 </code></pre>
+<pre><code class="language-shell">git branch &lt;local-branch&gt; origin/&lt;remote-branch&gt;
+</code></pre>
+<pre><code class="language-shell">git checkout -b &lt;local-branch&gt; origin/&lt;remote-branch&gt;
+</code></pre>
+<p>If there is already a local one with the same name, then it will link to the remote one</p>
 <pre><code class="language-shell">git branch -f &lt;local-branch&gt; origin/&lt;remote-branch&gt;
 </code></pre>
 <h3 id="if-there-is-a-local-branch-and-you-need-to-create-a-remote-one-with-tracking"><a class="header" href="#if-there-is-a-local-branch-and-you-need-to-create-a-remote-one-with-tracking">If there is a local branch and you need to create a remote one with tracking</a></h3>
 <pre><code class="language-shell">git push -u origin &lt;branch-name&gt;
+</code></pre>
+<h3 id="if-there-are-both-local-and-remote-branches-and-you-need-to-make-tracking"><a class="header" href="#if-there-are-both-local-and-remote-branches-and-you-need-to-make-tracking">If there are both local and remote branches and you need to make tracking</a></h3>
+<pre><code class="language-shell">git branch -u origin/&lt;remote-branch-name&gt; &lt;local-branch-name&gt;
+</code></pre>
+<h3 id="if-you-need-to-remove-tracking"><a class="header" href="#if-you-need-to-remove-tracking">If you need to remove tracking</a></h3>
+<pre><code class="language-shell">git branch --unset-upstream &lt;branch-name&gt;
 </code></pre>
 <h2 id="moving"><a class="header" href="#moving">MOVING</a></h2>
 <h3 id="move-branch-pointer-to-a-different-commit-destination-commit-can-be-a-branch-name"><a class="header" href="#move-branch-pointer-to-a-different-commit-destination-commit-can-be-a-branch-name">Move branch pointer to a different commit (<em>destination-commit</em> can be a branch name)</a></h3>
@@ -280,9 +294,48 @@ After deleting the local branch with <code>git branch -d</code> and deleting the
 <p>longer</p>
 <pre><code class="language-shell">git branch --delete --remotes &lt;remote&gt;/&lt;branch&gt;
 </code></pre>
+<h2 id="renaming"><a class="header" href="#renaming">RENAMING</a></h2>
+<p>Rename current branch</p>
+<pre><code class="language-shell">git branch -m &lt;branch_name&gt;
+</code></pre>
+<p>Rename another branch</p>
+<pre><code class="language-shell">git branch -m  &lt;oldbranch_name&gt; &lt;new_branch_name&gt;
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="log"><a class="header" href="#log">Log</a></h1>
+<h2 id="filter"><a class="header" href="#filter">Filter</a></h2>
+<h3 id="by-number"><a class="header" href="#by-number">By number</a></h3>
+<pre><code class="language-shell">git log -&lt;number&gt;
+</code></pre>
+<h3 id="by-date"><a class="header" href="#by-date">By date</a></h3>
+<pre><code class="language-shell">git log --since=yyyy-mm-dd
+</code></pre>
+<pre><code class="language-shell">git log --until="3 days ago"
+</code></pre>
+<pre><code class="language-shell">git log --after=2.weeks --before=3.days
+</code></pre>
+<h3 id="by-author"><a class="header" href="#by-author">By author</a></h3>
+<pre><code class="language-shell">git log --author="Name"
+</code></pre>
+<h3 id="by-commit-message-pattern"><a class="header" href="#by-commit-message-pattern">By commit message pattern</a></h3>
+<pre><code class="language-shell">git log --grep="pattern"
+</code></pre>
+<h3 id="by-commits-range"><a class="header" href="#by-commits-range">By commits range</a></h3>
+<pre><code class="language-shell">git log &lt;SHA&gt;..&lt;SHA&gt;
+</code></pre>
+<h3 id="by-file-name"><a class="header" href="#by-file-name">By file name</a></h3>
+<pre><code class="language-shell">git log &lt;file_name&gt;
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="stash"><a class="header" href="#stash">Stash</a></h1>
 <h3 id="save-changes"><a class="header" href="#save-changes">Save changes</a></h3>
-<pre><code class="language-shell">git stash save “description”
+<p>new</p>
+<pre><code class="language-shell">git stash
+</code></pre>
+<pre><code class="language-shell">git stash push
+</code></pre>
+<pre><code class="language-shell">git stash push -m "message"
+</code></pre>
+<p>old</p>
+<pre><code class="language-shell">git stash save "message"
 </code></pre>
 <h3 id="view-stash-content"><a class="header" href="#view-stash-content">View stash content</a></h3>
 <pre><code class="language-shell">git stash list
@@ -314,13 +367,27 @@ After deleting the local branch with <code>git branch -d</code> and deleting the
 <pre><code class="language-shell">git worktree add -b &lt;new-branch-name&gt; path/to/folder/
 </code></pre>
 <h2 id="delete"><a class="header" href="#delete">DELETE</a></h2>
-<h2 id="remove-a-worktree"><a class="header" href="#remove-a-worktree">Remove a worktree</a></h2>
+<h3 id="remove-a-worktree"><a class="header" href="#remove-a-worktree">Remove a worktree</a></h3>
 <pre><code class="language-shell">git worktree remove path/to/folder/
 </code></pre>
 <p>or <a href="https://stackoverflow.com/questions/39707402/why-does-git-worktree-add-create-a-branch-and-can-i-delete-it">(link)</a></p>
 <pre><code class="language-shell">rm -rf path/to/worktree
 git worktree prune
 git branch -D &lt;branch-name&gt;
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="remotes"><a class="header" href="#remotes">Remotes</a></h1>
+<h2 id="add-remote"><a class="header" href="#add-remote">Add remote</a></h2>
+<pre><code class="language-shell">git remote add origin &lt;repository_url&gt;
+</code></pre>
+<h2 id="view-remote"><a class="header" href="#view-remote">View remote</a></h2>
+<p>View remote name</p>
+<pre><code class="language-shell">git remote
+</code></pre>
+<p>View more info about remote</p>
+<pre><code class="language-shell">git remote -v
+</code></pre>
+<h2 id="delete-remote"><a class="header" href="#delete-remote">Delete remote</a></h2>
+<pre><code class="language-shell">git remote rm origin
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="line-endings"><a class="header" href="#line-endings">Line endings</a></h1>
 <p>The <code>git config core.autocrlf</code> command is used to change how Git handles line endings. It takes a single argument.</p>

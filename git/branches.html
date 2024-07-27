@@ -88,7 +88,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="../git/index.html"><strong aria-hidden="true">1.</strong> Git</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../git/changes.html"><strong aria-hidden="true">1.1.</strong> Changes</a></li><li class="chapter-item expanded "><a href="../git/commits.html"><strong aria-hidden="true">1.2.</strong> Commits</a></li><li class="chapter-item expanded "><a href="../git/branches.html" class="active"><strong aria-hidden="true">1.3.</strong> Branches</a></li><li class="chapter-item expanded "><a href="../git/stash.html"><strong aria-hidden="true">1.4.</strong> Stash</a></li><li class="chapter-item expanded "><a href="../git/worktrees.html"><strong aria-hidden="true">1.5.</strong> Worktrees</a></li><li class="chapter-item expanded "><a href="../git/line_endings.html"><strong aria-hidden="true">1.6.</strong> Line endings</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../git/index.html"><strong aria-hidden="true">1.</strong> Git</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../git/changes.html"><strong aria-hidden="true">1.1.</strong> Changes</a></li><li class="chapter-item expanded "><a href="../git/commits.html"><strong aria-hidden="true">1.2.</strong> Commits</a></li><li class="chapter-item expanded "><a href="../git/branches.html" class="active"><strong aria-hidden="true">1.3.</strong> Branches</a></li><li class="chapter-item expanded "><a href="../git/log.html"><strong aria-hidden="true">1.4.</strong> Log</a></li><li class="chapter-item expanded "><a href="../git/stash.html"><strong aria-hidden="true">1.5.</strong> Stash</a></li><li class="chapter-item expanded "><a href="../git/worktrees.html"><strong aria-hidden="true">1.6.</strong> Worktrees</a></li><li class="chapter-item expanded "><a href="../git/remotes.html"><strong aria-hidden="true">1.7.</strong> Remotes</a></li><li class="chapter-item expanded "><a href="../git/line_endings.html"><strong aria-hidden="true">1.8.</strong> Line endings</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -191,13 +191,24 @@
 <p>new</p>
 <pre><code class="language-shell">git switch -c &lt;branch-name&gt;
 </code></pre>
-<h3 id="if-there-is-a-remote-branch-but-you-need-to-create-a-local-one-and-link-to-the-remote-one-if-there-is-already-a-local-one-with-the-same-name-then-it-will-link-to-the-remote-one"><a class="header" href="#if-there-is-a-remote-branch-but-you-need-to-create-a-local-one-and-link-to-the-remote-one-if-there-is-already-a-local-one-with-the-same-name-then-it-will-link-to-the-remote-one">If there is a remote branch, but you need to create a local one and link to the remote one (if there is already a local one with the same name, then it will link to the remote one)</a></h3>
+<h3 id="if-there-is-a-remote-branch-but-you-need-to-create-a-local-one-and-link-to-the-remote-one"><a class="header" href="#if-there-is-a-remote-branch-but-you-need-to-create-a-local-one-and-link-to-the-remote-one">If there is a remote branch, but you need to create a local one and link to the remote one</a></h3>
 <pre><code class="language-shell">git branch --track &lt;local-branch&gt; origin/&lt;remote-branch&gt;
 </code></pre>
+<pre><code class="language-shell">git branch &lt;local-branch&gt; origin/&lt;remote-branch&gt;
+</code></pre>
+<pre><code class="language-shell">git checkout -b &lt;local-branch&gt; origin/&lt;remote-branch&gt;
+</code></pre>
+<p>If there is already a local one with the same name, then it will link to the remote one</p>
 <pre><code class="language-shell">git branch -f &lt;local-branch&gt; origin/&lt;remote-branch&gt;
 </code></pre>
 <h3 id="if-there-is-a-local-branch-and-you-need-to-create-a-remote-one-with-tracking"><a class="header" href="#if-there-is-a-local-branch-and-you-need-to-create-a-remote-one-with-tracking">If there is a local branch and you need to create a remote one with tracking</a></h3>
 <pre><code class="language-shell">git push -u origin &lt;branch-name&gt;
+</code></pre>
+<h3 id="if-there-are-both-local-and-remote-branches-and-you-need-to-make-tracking"><a class="header" href="#if-there-are-both-local-and-remote-branches-and-you-need-to-make-tracking">If there are both local and remote branches and you need to make tracking</a></h3>
+<pre><code class="language-shell">git branch -u origin/&lt;remote-branch-name&gt; &lt;local-branch-name&gt;
+</code></pre>
+<h3 id="if-you-need-to-remove-tracking"><a class="header" href="#if-you-need-to-remove-tracking">If you need to remove tracking</a></h3>
+<pre><code class="language-shell">git branch --unset-upstream &lt;branch-name&gt;
 </code></pre>
 <h2 id="moving"><a class="header" href="#moving">MOVING</a></h2>
 <h3 id="move-branch-pointer-to-a-different-commit-destination-commit-can-be-a-branch-name"><a class="header" href="#move-branch-pointer-to-a-different-commit-destination-commit-can-be-a-branch-name">Move branch pointer to a different commit (<em>destination-commit</em> can be a branch name)</a></h3>
@@ -224,6 +235,13 @@ After deleting the local branch with <code>git branch -d</code> and deleting the
 <p>longer</p>
 <pre><code class="language-shell">git branch --delete --remotes &lt;remote&gt;/&lt;branch&gt;
 </code></pre>
+<h2 id="renaming"><a class="header" href="#renaming">RENAMING</a></h2>
+<p>Rename current branch</p>
+<pre><code class="language-shell">git branch -m &lt;branch_name&gt;
+</code></pre>
+<p>Rename another branch</p>
+<pre><code class="language-shell">git branch -m  &lt;oldbranch_name&gt; &lt;new_branch_name&gt;
+</code></pre>
 
                     </main>
 
@@ -233,7 +251,7 @@ After deleting the local branch with <code>git branch -d</code> and deleting the
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="../git/stash.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../git/log.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -247,7 +265,7 @@ After deleting the local branch with <code>git branch -d</code> and deleting the
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="../git/stash.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../git/log.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
