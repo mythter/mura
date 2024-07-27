@@ -22,11 +22,21 @@ new
 git switch -c <branch-name>
 ```
 
-### If there is a remote branch, but you need to create a local one and link to the remote one (if there is already a local one with the same name, then it will link to the remote one)
+### If there is a remote branch, but you need to create a local one and link to the remote one
 
 ```shell
 git branch --track <local-branch> origin/<remote-branch>
 ```
+
+```shell
+git branch <local-branch> origin/<remote-branch>
+```
+
+```shell
+git checkout -b <local-branch> origin/<remote-branch>
+```
+
+If there is already a local one with the same name, then it will link to the remote one
 
 ```shell
 git branch -f <local-branch> origin/<remote-branch>
