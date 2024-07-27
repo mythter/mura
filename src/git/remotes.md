@@ -6,6 +6,12 @@
 git remote add origin <repository_url>
 ```
 
+## Change remote
+
+```shell
+git remote set-url origin <repository_url>
+```
+
 ## View remote
 
 View remote name
