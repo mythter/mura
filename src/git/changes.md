@@ -1,48 +1,28 @@
 # Changes
 
-### DELETE changes in Workspace
+## STAGE
 
-new
-
-```shell
-git restore <file>
-```
-
-old
+### Stage all changes
 
 ```shell
-git checkout -- <file>
+git add .
 ```
+
+### Stage changes in interactive mode
 
 ```shell
-git checkout <file>
+git add -i
 ```
 
-### DELETE all changes in Workspace
-
-new
+### Stage changes in patch mode
 
 ```shell
-git restore .
+git add -p
 ```
 
-old
+## UNSTAGE
 
-```shell
-git checkout .
-```
-
-### DELETE all changes in Index and Workspace
-
-```shell
-git reset --hard
-```
-
-```shell
-git reset --hard HEAD
-```
-
-### UNSTAGE some changes (MOVE from Index (staging area) to Workspace)
+### Unstage some changes (MOVE from Index (staging area) to Workspace)
 
 new
 
@@ -60,7 +40,7 @@ git reset <file>
 git reset HEAD <file>
 ```
 
-### UNSTAGE all changes
+### Unstage all changes
 
 new
 
@@ -78,4 +58,48 @@ old
 
 ```shell
 git reset HEAD
+```
+
+## DELETE
+
+### Delete changes in Workspace
+
+new
+
+```shell
+git restore <file>
+```
+
+old
+
+```shell
+git checkout -- <file>
+```
+
+```shell
+git checkout <file>
+```
+
+### Delete all changes in Workspace
+
+new
+
+```shell
+git restore .
+```
+
+old
+
+```shell
+git checkout .
+```
+
+### Delete all changes in Index and Workspace
+
+```shell
+git reset --hard
+```
+
+```shell
+git reset --hard HEAD
 ```
