@@ -1,6 +1,6 @@
 # Branches
 
-## CREATING
+## CREATE
 
 ### Create a branch
 
@@ -60,7 +60,7 @@ git branch -u origin/<remote-branch-name> <local-branch-name>
 git branch --unset-upstream <branch-name>
 ```
 
-## MOVING
+## MOVE
 
 ### Move branch pointer to a different commit (*destination-commit* can be a branch name)
 
@@ -72,7 +72,7 @@ git reset --hard <destination-commit>
 git branch –f <branch-name> <destination-commit>
 ```
 
-## DELETING
+## DELETE
 
 ### DELETE remote branch (*remote-name* usually *origin*)
 
@@ -102,22 +102,60 @@ git branch -D <branch-name>
 git branch -dr <remote>/<branch>
 ```
 
-longer
+long
 
 ```shell
 git branch --delete --remotes <remote>/<branch>
 ```
 
-## RENAMING
+## RENAME
 
-Rename current branch
+### Rename current branch
 
 ```shell
 git branch -m <branch_name>
 ```
 
-Rename another branch
+### Rename another branch
 
 ```shell
 git branch -m  <oldbranch_name> <new_branch_name>
+```
+
+## VIEW
+
+### View merged branches
+
+```shell
+git branch --merged
+```
+
+View merged remote branches
+
+```shell
+git branch -r --merged
+```
+
+### View no merged branches
+
+```shell
+git branch --no-merged
+```
+
+## PRUNING
+
+```shell
+git remote prune origin
+```
+
+short
+
+```shell
+git fetch -p
+```
+
+long
+
+```shell
+git fetch --prune
 ```
