@@ -40,7 +40,7 @@ git log --grep="pattern"
 git log <SHA>..<SHA>
 ```
 
-### By file name
+### By file name (only shows commits that changed that file)
 
 ```shell
 git log <file_name>
