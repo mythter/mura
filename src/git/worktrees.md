@@ -1,11 +1,5 @@
 # Worktrees
 
-### Show all worktrees
-
-```shell
-git worktree list
-```
-
 ## CREATE
 
 ### Create a worktree for an existing branch using the same name as the working directory
@@ -30,6 +24,14 @@ git worktree add -b <new-branch-name> path/to/folder/<new-branch-name>
 
 ```shell
 git worktree add -b <new-branch-name> path/to/folder/
+```
+
+## VIEW
+
+### Show all worktrees
+
+```shell
+git worktree list
 ```
 
 ## DELETE
