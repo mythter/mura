@@ -1,6 +1,6 @@
 # Stash
 
-### Save changes
+## SAVE
 
 new
 
@@ -22,11 +22,13 @@ old
 git stash save "message"
 ```
 
-### View stash content
+## VIEW
 
 ```shell
 git stash list
 ```
+
+## EJECT
 
 ### Get content from stash (and delete from there)
 
@@ -40,7 +42,7 @@ git stash pop
 git stash apply
 ```
 
-### Delete stash contents
+## DELETE
 
 ```shell
 git stash drop
