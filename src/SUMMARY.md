@@ -8,4 +8,5 @@
     - [Stash](git/stash.md)
     - [Worktrees](git/worktrees.md)
     - [Remotes](git/remotes.md)
+    - [Tags](git/tags.md)
     - [Line endings](git/line_endings.md)
