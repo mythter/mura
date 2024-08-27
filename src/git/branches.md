@@ -142,7 +142,7 @@ git branch -r --merged
 git branch --no-merged
 ```
 
-## PRUNING
+## PRUNE
 
 ```shell
 git remote prune origin
