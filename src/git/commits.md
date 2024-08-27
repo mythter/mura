@@ -23,3 +23,17 @@ git reset --mixed HEAD^
 ```shell
 git reset --hard HEAD^
 ```
+
+## CHERRY PICK
+
+### Copy one commit to current branch
+
+```shell
+git cherry-pick <SHA>
+```
+
+### Copy range of commits to current branch
+
+```shell
+git cherry-pick <SHA>..<SHA>
+```
