@@ -29,6 +29,7 @@
         <link rel="stylesheet" href="../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/css/language-picker.css">
 
     </head>
     <body class="sidebar-visible no-js">
@@ -44,11 +45,9 @@
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
-
                 if (theme.startsWith('"') && theme.endsWith('"')) {
                     localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
                 }
-
                 if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
                     localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
                 }
@@ -88,11 +87,9 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="../git/index.html"><strong aria-hidden="true">1.</strong> Git</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../git/changes.html"><strong aria-hidden="true">1.1.</strong> Changes</a></li><li class="chapter-item expanded "><a href="../git/commits.html"><strong aria-hidden="true">1.2.</strong> Commits</a></li><li class="chapter-item expanded "><a href="../git/branches.html"><strong aria-hidden="true">1.3.</strong> Branches</a></li><li class="chapter-item expanded "><a href="../git/log.html"><strong aria-hidden="true">1.4.</strong> Log</a></li><li class="chapter-item expanded "><a href="../git/stash.html"><strong aria-hidden="true">1.5.</strong> Stash</a></li><li class="chapter-item expanded "><a href="../git/worktrees.html"><strong aria-hidden="true">1.6.</strong> Worktrees</a></li><li class="chapter-item expanded "><a href="../git/remotes.html"><strong aria-hidden="true">1.7.</strong> Remotes</a></li><li class="chapter-item expanded "><a href="../git/line_endings.html" class="active"><strong aria-hidden="true">1.8.</strong> Line endings</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../git/index.html"><strong aria-hidden="true">1.</strong> Git</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../git/branches.html"><strong aria-hidden="true">1.1.</strong> Branches</a></li><li class="chapter-item "><a href="../git/changes.html"><strong aria-hidden="true">1.2.</strong> Changes</a></li><li class="chapter-item "><a href="../git/commits.html"><strong aria-hidden="true">1.3.</strong> Commits</a></li><li class="chapter-item "><a href="../git/config.html"><strong aria-hidden="true">1.4.</strong> Config</a></li><li class="chapter-item expanded "><a href="../git/line_endings.html" class="active"><strong aria-hidden="true">1.5.</strong> Line endings</a></li><li class="chapter-item "><a href="../git/log.html"><strong aria-hidden="true">1.6.</strong> Log</a></li><li class="chapter-item "><a href="../git/remotes.html"><strong aria-hidden="true">1.7.</strong> Remotes</a></li><li class="chapter-item "><a href="../git/stash.html"><strong aria-hidden="true">1.8.</strong> Stash</a></li><li class="chapter-item "><a href="../git/tags.html"><strong aria-hidden="true">1.9.</strong> Tags</a></li><li class="chapter-item "><a href="../git/worktrees.html"><strong aria-hidden="true">1.10.</strong> Worktrees</a></li></ol></li></ol>
             </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
-                <div class="sidebar-resize-indicator"></div>
-            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
         <!-- Track and set sidebar scroll position -->
@@ -144,6 +141,46 @@
                     <h1 class="menu-title">mura</h1>
 
                     <div class="right-buttons">
+                        <button id="language-toggle" class="icon-button" type="button"
+                                title="Change language" aria-label="Change language"
+                                aria-haspopup="true" aria-expanded="false"
+                                aria-controls="language-list">
+                            <i class="fa fa-globe"></i>
+                        </button>
+                        <ul id="language-list" class="theme-popup" aria-label="Languages" role="menu">
+                          <li role="none"><button role="menuitem" class="theme">
+                              <a id="en">English</a>
+                          </button></li>
+                          <li role="none"><button role="menuitem" class="theme">
+                              <a id="ru">Русский</a>
+                          </button></li>
+                        </ul>
+
+                        <script>
+                          let langToggle = document.getElementById("language-toggle");
+                          let langList = document.getElementById("language-list");
+                          langToggle.addEventListener("click", (event) => {
+                              langList.style.display = langList.style.display == "block" ? "none" : "block";
+                          });
+                          let selectedLang = document.getElementById("en");
+                          if (selectedLang) {
+                              selectedLang.parentNode.classList.add("theme-selected");
+                          }
+                          // The path to the root, taking the current
+                          // language into account.
+                          let full_path_to_root = "../";
+                          // The page path (mdbook only gives us
+                          // access to the path to the Markdown file).
+                          let path = "git/line_endings.md".replace(/\.md$/, ".html");
+                          for (let lang of langList.querySelectorAll("a")) {
+                              if (lang.id == "en") {
+                                  lang.href = `${full_path_to_root}${path}`;
+                              } else {
+                                  lang.href = `${full_path_to_root}${lang.id}/${path}`;
+                              }
+                          }
+                        </script>
+
                         <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
@@ -194,10 +231,13 @@
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../git/remotes.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../git/config.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
+                            <a rel="next prefetch" href="../git/log.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -205,10 +245,13 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../git/remotes.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../git/config.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
+                    <a rel="next prefetch" href="../git/log.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
             </nav>
 
         </div>

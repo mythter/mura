@@ -1,10 +1,9 @@
 <!DOCTYPE HTML>
-<html lang="en" class="light" dir="ltr">
+<html lang="ru" class="light" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Page not found - mura</title>
-        <base href="/">
+        <title>Git - mura</title>
 
 
         <!-- Custom HTML head -->
@@ -88,7 +87,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item "><a href="git/index.html"><strong aria-hidden="true">1.</strong> Git</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="git/branches.html"><strong aria-hidden="true">1.1.</strong> Branches</a></li><li class="chapter-item "><a href="git/changes.html"><strong aria-hidden="true">1.2.</strong> Changes</a></li><li class="chapter-item "><a href="git/commits.html"><strong aria-hidden="true">1.3.</strong> Commits</a></li><li class="chapter-item "><a href="git/config.html"><strong aria-hidden="true">1.4.</strong> Config</a></li><li class="chapter-item "><a href="git/line_endings.html"><strong aria-hidden="true">1.5.</strong> Line endings</a></li><li class="chapter-item "><a href="git/log.html"><strong aria-hidden="true">1.6.</strong> Log</a></li><li class="chapter-item "><a href="git/remotes.html"><strong aria-hidden="true">1.7.</strong> Remotes</a></li><li class="chapter-item "><a href="git/stash.html"><strong aria-hidden="true">1.8.</strong> Stash</a></li><li class="chapter-item "><a href="git/tags.html"><strong aria-hidden="true">1.9.</strong> Tags</a></li><li class="chapter-item "><a href="git/worktrees.html"><strong aria-hidden="true">1.10.</strong> Worktrees</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="git/index.html" class="active"><strong aria-hidden="true">1.</strong> Git</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="git/branches.html"><strong aria-hidden="true">1.1.</strong> Ветки</a></li><li class="chapter-item "><a href="git/changes.html"><strong aria-hidden="true">1.2.</strong> Изменения</a></li><li class="chapter-item "><a href="git/commits.html"><strong aria-hidden="true">1.3.</strong> Коммиты</a></li><li class="chapter-item "><a href="git/config.html"><strong aria-hidden="true">1.4.</strong> Конфигурация</a></li><li class="chapter-item "><a href="git/line_endings.html"><strong aria-hidden="true">1.5.</strong> Окончания строк</a></li><li class="chapter-item "><a href="git/log.html"><strong aria-hidden="true">1.6.</strong> Лог</a></li><li class="chapter-item "><a href="git/remotes.html"><strong aria-hidden="true">1.7.</strong> Удалённые репозиотрии</a></li><li class="chapter-item "><a href="git/stash.html"><strong aria-hidden="true">1.8.</strong> Припрятывание</a></li><li class="chapter-item "><a href="git/tags.html"><strong aria-hidden="true">1.9.</strong> Теги</a></li><li class="chapter-item "><a href="git/worktrees.html"><strong aria-hidden="true">1.10.</strong> Рабочие деревья</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -163,16 +162,16 @@
                           langToggle.addEventListener("click", (event) => {
                               langList.style.display = langList.style.display == "block" ? "none" : "block";
                           });
-                          let selectedLang = document.getElementById("en");
+                          let selectedLang = document.getElementById("ru");
                           if (selectedLang) {
                               selectedLang.parentNode.classList.add("theme-selected");
                           }
                           // The path to the root, taking the current
                           // language into account.
-                          let full_path_to_root = "";
+                          let full_path_to_root = "../";
                           // The page path (mdbook only gives us
                           // access to the path to the Markdown file).
-                          let path = "404.md".replace(/\.md$/, ".html");
+                          let path = "index.md".replace(/\.md$/, ".html");
                           for (let lang of langList.querySelectorAll("a")) {
                               if (lang.id == "en") {
                                   lang.href = `${full_path_to_root}${path}`;
@@ -187,6 +186,9 @@
                         </a>
                         <a href="https://github.com/mythter/mura" title="Git repository" aria-label="Git repository">
                             <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/mythter/mura/edit/main/src/git/index.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
                         </a>
 
                     </div>
@@ -214,14 +216,23 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="document-not-found-404"><a class="header" href="#document-not-found-404">Document not found (404)</a></h1>
-<p>This URL is invalid, sorry. Please use the navigation bar or search to continue.</p>
+                        <h1 id="git"><a class="header" href="#git">Git</a></h1>
+<h2 id="Полезные-ссылки"><a class="header" href="#Полезные-ссылки">Полезные ссылки</a></h2>
+<ul>
+<li><a href="https://ndpsoftware.com/git-cheatsheet.html">Git шпаргалка</a></li>
+<li><a href="https://training.github.com/downloads/github-git-cheat-sheet/">Шпаргалка от http://training.github.com/</a></li>
+<li><a href="https://learngitbranching.js.org/">LearnGitBranching</a></li>
+<li><a href="https://git-scm.com/book/en/v2">Книга Pro Git (2-е издание)</a> <a href="https://git-scm.com/book/ru/v2">(ru)</a></li>
+</ul>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
 
+                            <a rel="next prefetch" href="git/branches.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -230,6 +241,9 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
 
+                    <a rel="next prefetch" href="git/branches.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
             </nav>
 
         </div>
