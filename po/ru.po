@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: mura\n"
-"POT-Creation-Date: 2024-08-28T11:35:05+03:00\n"
+"POT-Creation-Date: 2024-08-29T22:22:02+03:00\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -9,8 +9,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n % 10 == 1 && n % 100 != 11 ? 0 : n % 10 >= "
-"2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n % 10 == 1 && n % 100 != 11 ? 0 : n % 10 "
+">= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? 1 : 2);\n"
 "X-Generator: Poedit 3.4.4\n"
 
 #: src\SUMMARY.md:1
@@ -129,10 +129,12 @@ msgstr ""
 #: src\git/branches.md:45
 msgid ""
 "If there is a local branch and you need to create a remote one with tracking"
-msgstr "Если есть локальная ветка и вам нужно создать удалённую с отслеживанием"
+msgstr ""
+"Если есть локальная ветка и вам нужно создать удалённую с отслеживанием"
 
 #: src\git/branches.md:51
-msgid "If there are both local and remote branches and you need to make tracking"
+msgid ""
+"If there are both local and remote branches and you need to make tracking"
 msgstr ""
 "Если есть как локальная, так и удалённая ветки и вам необходимо связать их"
 
@@ -149,8 +151,8 @@ msgid ""
 "Move branch pointer to a different commit (_destination-commit_ can be a "
 "branch name)"
 msgstr ""
-"Переместить указатель ветки на другой коммит (_destination-commit_ может быть "
-"названием ветки)"
+"Переместить указатель ветки на другой коммит (_destination-commit_ может "
+"быть названием ветки)"
 
 #: src\git/branches.md:75 src\git/changes.md:63 src\git/stash.md:45
 #: src\git/tags.md:55 src\git/worktrees.md:37
@@ -165,17 +167,17 @@ msgstr "УДАЛИТЬ удалённую ветку (_remote-name_ обычно
 msgid ""
 "  \n"
 "Don't forget to do a `git fetch --all --prune` or `git fetch --all -p` on "
-"other machines after deleting the remote branch on the server. After deleting "
-"the local branch with `git branch -d` and deleting the remote branch with `git "
-"push -d origin` other machines may still have \"obsolete tracking "
-"branches\" (to see them do `git branch -a`). To get rid of these do `git fetch "
-"--all --prune`"
+"other machines after deleting the remote branch on the server. After "
+"deleting the local branch with `git branch -d` and deleting the remote "
+"branch with `git push -d origin` other machines may still have \"obsolete "
+"tracking branches\" (to see them do `git branch -a`). To get rid of these do "
+"`git fetch --all --prune`"
 msgstr ""
 "  \n"
 "Не забудьте выполнить `git fetch --all --prune` или `git fetch --all -p` на "
 "других машинах после удаления удалённой ветки на сервере. После удаления "
-"локальной ветки с помощью `git branch -d` и удаления удалённой ветки с помощью "
-"`git push -d origin` на других машинах могут остаться \"устаревшие "
+"локальной ветки с помощью `git branch -d` и удаления удалённой ветки с "
+"помощью `git push -d origin` на других машинах могут остаться \"устаревшие "
 "отслеживаемые ветки\" (чтобы увидеть их, выполните `git branch -a`). Чтобы "
 "избавиться от них, выполните `git fetch --all --prune`"
 
@@ -185,8 +187,8 @@ msgstr "УДАЛИТЬ локальную ветку"
 
 #: src\git/branches.md:93
 msgid ""
-"The _\\-D_ option is an alias for _\\--delete_ _\\--force_, which deletes the "
-"branch \"irrespective of its merged status\""
+"The _\\-D_ option is an alias for _\\--delete_ _\\--force_, which deletes "
+"the branch \"irrespective of its merged status\""
 msgstr ""
 "Опция _\\-D_ это алиас для _\\--delete_ _\\--force_, который удаляет ветку "
 "«независимо от её объединенного статуса (merged status)»"
@@ -284,8 +286,8 @@ msgstr "Удаление изменений из Индекса и Рабоче�
 
 #: src\git/commits.md:3
 msgid ""
-"Undo the last commit and move changes to Working Directory (changes in staging "
-"area will also move to Working Directory) (_\\--mixed_ by default)"
+"Undo the last commit and move changes to Working Directory (changes in "
+"staging area will also move to Working Directory) (_\\--mixed_ by default)"
 msgstr ""
 "Отменить последний коммит и переместить изменения в Рабочую директорию "
 "(изменения в Индексе также будут перенесены в Рабочую директорию) (по "
@@ -323,10 +325,24 @@ msgstr "Открыть глобальную конфигурацию для ре
 msgid "Show global config file content in terminal"
 msgstr "Просмотреть файл глобальной конфигурации в терминале"
 
+#: src\git/config.md:15
+msgid "Configure name and email"
+msgstr "Конфигурация имени и email"
+
+#: src\git/config.md:17
+msgid ""
+"```shell\n"
+"git config --global user.name \"Your Name\"\n"
+"```"
+msgstr ""
+"```shell\n"
+"git config --global user.name \"Ваше Имя\"\n"
+"```"
+
 #: src\git/line_endings.md:3
 msgid ""
-"The `git config core.autocrlf` command is used to change how Git handles line "
-"endings. It takes a single argument."
+"The `git config core.autocrlf` command is used to change how Git handles "
+"line endings. It takes a single argument."
 msgstr ""
 "Команда `git config core.autocrlf` используется для изменения того, как Git "
 "обрабатывает окончания строк. Она принимает один аргумент."
@@ -602,8 +618,8 @@ msgstr "Удалить рабочее дерево"
 
 #: src\git/worktrees.md:45
 msgid ""
-"or [(link)](https://stackoverflow.com/questions/39707402/why-does-git-worktree-"
-"add-create-a-branch-and-can-i-delete-it)"
+"or [(link)](https://stackoverflow.com/questions/39707402/why-does-git-"
+"worktree-add-create-a-branch-and-can-i-delete-it)"
 msgstr ""
 "или [(ссылка)](https://stackoverflow.com/questions/39707402/why-does-git-"
 "worktree-add-create-a-branch-and-can-i-delete-it)"
