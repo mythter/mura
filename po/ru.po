@@ -15,11 +15,11 @@ msgstr ""
 
 #: src\SUMMARY.md:1
 msgid "Summary"
-msgstr ""
+msgstr "Краткое содержание"
 
 #: src\SUMMARY.md:3 src\git/index.md:1
 msgid "Git"
-msgstr ""
+msgstr "Git"
 
 #: src\SUMMARY.md:4 src\git/branches.md:1
 msgid "Branches"
@@ -79,7 +79,7 @@ msgstr ""
 
 #: src\git/index.md:7
 msgid "[LearnGitBranching](https://learngitbranching.js.org/)"
-msgstr ""
+msgstr "[LearnGitBranching](https://learngitbranching.js.org/)"
 
 #: src\git/index.md:8
 msgid ""
@@ -103,12 +103,12 @@ msgstr "Создать ветку и переключиться на неё"
 
 #: src\git/branches.md:13 src\git/changes.md:51
 msgid "common"
-msgstr "обычная"
+msgstr "обычная команда"
 
 #: src\git/branches.md:19 src\git/changes.md:27 src\git/changes.md:45
 #: src\git/changes.md:67 src\git/changes.md:85 src\git/stash.md:5
 msgid "new"
-msgstr "новая"
+msgstr "новая команда"
 
 #: src\git/branches.md:25
 msgid ""
@@ -149,6 +149,8 @@ msgid ""
 "Move branch pointer to a different commit (_destination-commit_ can be a "
 "branch name)"
 msgstr ""
+"Переместить указатель ветки на другой коммит (_destination-commit_ может быть "
+"названием ветки)"
 
 #: src\git/branches.md:75 src\git/changes.md:63 src\git/stash.md:45
 #: src\git/tags.md:55 src\git/worktrees.md:37
@@ -195,7 +197,7 @@ msgstr "УДАЛИТЬ локальную удалённую ветку"
 
 #: src\git/branches.md:105 src\git/branches.md:157
 msgid "long"
-msgstr "длинная"
+msgstr "длинная команда"
 
 #: src\git/branches.md:111
 msgid "RENAME"
@@ -203,11 +205,11 @@ msgstr "ПЕРЕИМЕНОВАНИЕ"
 
 #: src\git/branches.md:113
 msgid "Rename current branch"
-msgstr "Переименование текущей ветки"
+msgstr "Переименовать текущую ветку"
 
 #: src\git/branches.md:119
 msgid "Rename another branch"
-msgstr "Переименование другой ветки"
+msgstr "Переименовать другую ветки"
 
 #: src\git/branches.md:125 src\git/stash.md:25 src\git/tags.md:29
 #: src\git/worktrees.md:29
@@ -216,15 +218,15 @@ msgstr "ПРОСМОТР"
 
 #: src\git/branches.md:127
 msgid "View merged branches"
-msgstr "Просмотр объединённых веток"
+msgstr "Просмотреть объединённые ветки"
 
 #: src\git/branches.md:133
 msgid "View merged remote branches"
-msgstr "Просмотр объединённых удалённых веток"
+msgstr "Просмотреть объединённые удалённые ветки"
 
 #: src\git/branches.md:139
 msgid "View no merged branches"
-msgstr "Просмотр не объединённых веток"
+msgstr "Просмотреть не объединённые ветки"
 
 #: src\git/branches.md:145
 msgid "PRUNE"
@@ -232,23 +234,23 @@ msgstr "УДАЛЕНИЕ УСТАРЕВШИХ ВЕТОК"
 
 #: src\git/branches.md:151
 msgid "short"
-msgstr "короткая"
+msgstr "короткая команда"
 
 #: src\git/changes.md:3
 msgid "STAGE"
-msgstr "ИНДЕКС"
+msgstr "ИНДЕКСИРОВАНИЕ"
 
 #: src\git/changes.md:5
 msgid "Stage all changes"
-msgstr "Индексирование всех изменений"
+msgstr "Индексировать все изменения"
 
 #: src\git/changes.md:11
 msgid "Stage changes in interactive mode"
-msgstr "Индексирование всех изменений в интерактивном режиме"
+msgstr "Индексировать все изменения в интерактивном режиме"
 
 #: src\git/changes.md:17
 msgid "Stage changes in patch mode"
-msgstr "Индексирование всех изменений в патч режиме"
+msgstr "Индексировать все изменения в патч режиме"
 
 #: src\git/changes.md:23
 msgid "UNSTAGE"
@@ -257,21 +259,20 @@ msgstr "УДАЛЕНИЕ ИЗ ИНДЕКСА"
 #: src\git/changes.md:25
 msgid "Unstage some changes (MOVE from Index (staging area) to Workspace)"
 msgstr ""
-"Удаление изменений из Индекса (ПЕРЕМЕЩЕНИЕ из области Индекса в область "
-"Рабочей директории)"
+"Удалить изменения из Индекса (ПЕРЕМЕСТИТЬ из Индекса в Рабочую директорию)"
 
 #: src\git/changes.md:33 src\git/changes.md:57 src\git/changes.md:73
 #: src\git/changes.md:91 src\git/stash.md:19
 msgid "old"
-msgstr "старая"
+msgstr "старая команда"
 
 #: src\git/changes.md:43
 msgid "Unstage all changes"
-msgstr "Удаление изменений из Индекса"
+msgstr "Удалить изменения в Индексе"
 
 #: src\git/changes.md:65
 msgid "Delete changes in Workspace"
-msgstr "Удаление изменений из Рабочей директории"
+msgstr "Удалить изменения в Рабочей директории"
 
 #: src\git/changes.md:83
 msgid "Delete all changes in Workspace"
@@ -286,18 +287,21 @@ msgid ""
 "Undo the last commit and move changes to Working Directory (changes in staging "
 "area will also move to Working Directory) (_\\--mixed_ by default)"
 msgstr ""
+"Отменить последний коммит и переместить изменения в Рабочую директорию "
+"(изменения в Индексе также будут перенесены в Рабочую директорию) (по "
+"умолчанию _\\--mixed_)"
 
 #: src\git/commits.md:9
 msgid "Undo the last commit and move changes to the Index"
-msgstr ""
+msgstr "Отменить последний коммит и переместить изменения в Индексе"
 
 #: src\git/commits.md:15
 msgid "Undo the last commit and move changes to the Working Directory"
-msgstr ""
+msgstr "Отменить последний коммит и переместить изменения в Рабочую директорию"
 
 #: src\git/commits.md:21
 msgid "Undo the last commit and DELETE changes (uncommitted ones too)"
-msgstr ""
+msgstr "Отменить последний коммит и УДАЛИТЬ изменения (не закоммиченные тоже)"
 
 #: src\git/commits.md:27
 msgid "CHERRY PICK"
@@ -305,25 +309,27 @@ msgstr "CHERRY PICK"
 
 #: src\git/commits.md:29
 msgid "Copy one commit to current branch"
-msgstr ""
+msgstr "Копировать один коммит в текущую ветку"
 
 #: src\git/commits.md:35
 msgid "Copy range of commits to current branch"
-msgstr ""
+msgstr "Копировать диапазон коммитов в текущую ветку"
 
 #: src\git/config.md:3
 msgid "Open global config file for editing"
-msgstr ""
+msgstr "Открыть глобальную конфигурацию для редактирования"
 
 #: src\git/config.md:9
 msgid "Show global config file content in terminal"
-msgstr ""
+msgstr "Просмотреть файл глобальной конфигурации в терминале"
 
 #: src\git/line_endings.md:3
 msgid ""
 "The `git config core.autocrlf` command is used to change how Git handles line "
 "endings. It takes a single argument."
 msgstr ""
+"Команда `git config core.autocrlf` используется для изменения того, как Git "
+"обрабатывает окончания строк. Она принимает один аргумент."
 
 #: src\git/line_endings.md:11
 msgid "autocrlf"
@@ -395,6 +401,9 @@ msgid ""
 "git log --until=\"3 days ago\"\n"
 "```"
 msgstr ""
+"```shell\n"
+"git log --until=\"3 days ago\"\n"
+"```"
 
 #: src\git/log.md:25
 msgid "By author"
@@ -406,6 +415,9 @@ msgid ""
 "git log --author=\"Name\"\n"
 "```"
 msgstr ""
+"```shell\n"
+"git log --author=\"Имя\"\n"
+"```"
 
 #: src\git/log.md:31
 msgid "By commit message pattern"
@@ -417,6 +429,9 @@ msgid ""
 "git log --grep=\"pattern\"\n"
 "```"
 msgstr ""
+"```shell\n"
+"git log --grep=\"паттерн\"\n"
+"```"
 
 #: src\git/log.md:37
 msgid "By commits range"
@@ -424,31 +439,31 @@ msgstr "По диапазону коммитов"
 
 #: src\git/log.md:43
 msgid "By file name (only shows commits that changed that file)"
-msgstr "По имени файла (показывается только коммиты, которые изменяли файл)"
+msgstr "По имени файла (показываются только коммиты, в которых изменялся файл)"
 
 #: src\git/remotes.md:3
 msgid "Add remote"
-msgstr ""
+msgstr "Добавить удалённый репозиторий"
 
 #: src\git/remotes.md:9
 msgid "Change remote"
-msgstr ""
+msgstr "Изменить удалённый репозиторий"
 
 #: src\git/remotes.md:15
 msgid "View remote"
-msgstr ""
+msgstr "Просмотреть удалённый репозиторий"
 
 #: src\git/remotes.md:17
 msgid "View remote name"
-msgstr ""
+msgstr "Добавить имя удалённого репозитория"
 
 #: src\git/remotes.md:23
 msgid "View more info about remote"
-msgstr ""
+msgstr "Просмотреть больше информации об удалённом репозитории"
 
 #: src\git/remotes.md:29
 msgid "Delete remote"
-msgstr ""
+msgstr "Удалить удалённый репозиторий"
 
 #: src\git/stash.md:3
 msgid "SAVE"
@@ -460,6 +475,9 @@ msgid ""
 "git stash push -m \"message\"\n"
 "```"
 msgstr ""
+"```shell\n"
+"git stash push -m \"сообщение\"\n"
+"```"
 
 #: src\git/stash.md:21
 msgid ""
@@ -467,6 +485,9 @@ msgid ""
 "git stash save \"message\"\n"
 "```"
 msgstr ""
+"```shell\n"
+"git stash save \"сообщение\"\n"
+"```"
 
 #: src\git/stash.md:31
 msgid "EJECT"
@@ -474,19 +495,19 @@ msgstr "ИЗВЛЕЧЕНИЕ"
 
 #: src\git/stash.md:33
 msgid "Get content from stash (and delete from there)"
-msgstr ""
+msgstr "Извлечь содержимое из тайника (и удалить из него)"
 
 #: src\git/stash.md:39
 msgid "Get content from stash (and leave it there)"
-msgstr ""
+msgstr "Извлечь содержимое из тайника (и оставить его там же)"
 
 #: src\git/tags.md:5
 msgid "Create lightweight tag"
-msgstr ""
+msgstr "Создать облегчённый тег"
 
 #: src\git/tags.md:11
 msgid "Create annotated tag"
-msgstr ""
+msgstr "Создать тег с аннотацией"
 
 #: src\git/tags.md:13
 msgid ""
@@ -494,26 +515,29 @@ msgid ""
 "git tag -am \"message\" <tag_name> <SHA>\n"
 "```"
 msgstr ""
+"```shell\n"
+"git tag -am \"сообщение\" <tag_name> <SHA>\n"
+"```"
 
 #: src\git/tags.md:17
 msgid "Create a remote tag when local exists"
-msgstr ""
+msgstr "Создать удалённый тег, когда существует локальный"
 
 #: src\git/tags.md:23
 msgid "Push all local tags to remote"
-msgstr ""
+msgstr "Отправить все локальные теги на удалённый репозиотрий"
 
 #: src\git/tags.md:31
 msgid "View tag info"
-msgstr ""
+msgstr "Просмотреть информацию о теге"
 
 #: src\git/tags.md:37
 msgid "View tags list"
-msgstr ""
+msgstr "Просмотреть список тегов"
 
 #: src\git/tags.md:43
 msgid "View tags list by pattern"
-msgstr ""
+msgstr "Просмотреть список тегов по паттерну"
 
 #: src\git/tags.md:45
 msgid ""
@@ -521,53 +545,65 @@ msgid ""
 "git tag -l \"pattern\"\n"
 "```"
 msgstr ""
+"```shell\n"
+"git tag -l \"паттерн\"\n"
+"```"
 
 #: src\git/tags.md:49
 msgid "View tags list with first line of each annotation"
-msgstr ""
+msgstr "Просмотреть список тегов с первой строкой каждой аннотации"
 
 #: src\git/tags.md:57
 msgid "Delete local tag"
-msgstr ""
+msgstr "Удалить локальный тег"
 
 #: src\git/tags.md:63
 msgid "Delete remote tag"
-msgstr ""
+msgstr "Удалить удалённый тег"
 
 #: src\git/worktrees.md:5
 msgid ""
 "Create a worktree for an existing branch using the same name as the working "
 "directory"
 msgstr ""
+"Создать рабочее дерево для существующей ветки используя такое имя рабочей "
+"директории"
 
 #: src\git/worktrees.md:11
 msgid ""
 "Create a worktree for an existing branch using a different name than the "
 "working directory"
 msgstr ""
+"Создать рабочее дерево для существующей ветки используя имя отличное от "
+"рабочей директории"
 
 #: src\git/worktrees.md:17
 msgid ""
 "Create a worktree with a new branch using the same name as the working "
 "directory"
 msgstr ""
+"Создать рабочее дерево с новой веткой используя такое имя рабочей директории"
 
 #: src\git/worktrees.md:23
 msgid ""
 "Create a worktree with a new branch using a different name than the working "
 "directory"
 msgstr ""
+"Создать рабочее дерево с новой веткой используя имя отличное от рабочей "
+"директории"
 
 #: src\git/worktrees.md:31
 msgid "Show all worktrees"
-msgstr ""
+msgstr "Показать все рабочие деревья"
 
 #: src\git/worktrees.md:39
 msgid "Remove a worktree"
-msgstr ""
+msgstr "Удалить рабочее дерево"
 
 #: src\git/worktrees.md:45
 msgid ""
 "or [(link)](https://stackoverflow.com/questions/39707402/why-does-git-worktree-"
 "add-create-a-branch-and-can-i-delete-it)"
 msgstr ""
+"или [(ссылка)](https://stackoverflow.com/questions/39707402/why-does-git-"
+"worktree-add-create-a-branch-and-can-i-delete-it)"
