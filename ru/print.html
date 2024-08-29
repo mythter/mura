@@ -382,6 +382,11 @@
 <p>Просмотреть файл глобальной конфигурации в терминале</p>
 <pre><code class="language-shell">git config --global --list
 </code></pre>
+<h2 id="Конфигурация-имени-и-email"><a class="header" href="#Конфигурация-имени-и-email">Конфигурация имени и email</a></h2>
+<pre><code class="language-shell">git log --author="Ваше Имя"
+</code></pre>
+<pre><code class="language-shell">git config --global user.email test@email.com
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="Окончания-строк"><a class="header" href="#Окончания-строк">Окончания строк</a></h1>
 <p>Команда <code>git config core.autocrlf</code> используется для изменения того, как Git обрабатывает окончания строк. Она принимает один аргумент.</p>
 <pre><code class="language-shell">git config --global core.autocrlf input|true|false

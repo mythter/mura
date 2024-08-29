@@ -384,6 +384,11 @@ After deleting the local branch with <code>git branch -d</code> and deleting the
 <p>Show global config file content in terminal</p>
 <pre><code class="language-shell">git config --global --list
 </code></pre>
+<h2 id="configure-name-and-email"><a class="header" href="#configure-name-and-email">Configure name and email</a></h2>
+<pre><code class="language-shell">git config --global user.name "Your Name"
+</code></pre>
+<pre><code class="language-shell">git config --global user.email test@email.com
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="line-endings"><a class="header" href="#line-endings">Line endings</a></h1>
 <p>The <code>git config core.autocrlf</code> command is used to change how Git handles line endings. It takes a single argument.</p>
 <pre><code class="language-shell">git config --global core.autocrlf input|true|false
