@@ -218,36 +218,36 @@
                     <main>
                         <h1 id="Теги"><a class="header" href="#Теги">Теги</a></h1>
 <h2 id="СОЗДАНИЕ"><a class="header" href="#СОЗДАНИЕ">СОЗДАНИЕ</a></h2>
-<h3 id="create-lightweight-tag"><a class="header" href="#create-lightweight-tag">Create lightweight tag</a></h3>
+<h3 id="Создать-облегчённый-тег"><a class="header" href="#Создать-облегчённый-тег">Создать облегчённый тег</a></h3>
 <pre><code class="language-shell">git tag &lt;tag_name&gt; &lt;SHA&gt;
 </code></pre>
-<h3 id="create-annotated-tag"><a class="header" href="#create-annotated-tag">Create annotated tag</a></h3>
-<pre><code class="language-shell">git tag -am "message" &lt;tag_name&gt; &lt;SHA&gt;
+<h3 id="Создать-тег-с-аннотацией"><a class="header" href="#Создать-тег-с-аннотацией">Создать тег с аннотацией</a></h3>
+<pre><code class="language-shell">git tag -am "сообщение" &lt;tag_name&gt; &lt;SHA&gt;
 </code></pre>
-<h3 id="create-a-remote-tag-when-local-exists"><a class="header" href="#create-a-remote-tag-when-local-exists">Create a remote tag when local exists</a></h3>
+<h3 id="Создать-удалённый-тег-когда-существует-локальный"><a class="header" href="#Создать-удалённый-тег-когда-существует-локальный">Создать удалённый тег, когда существует локальный</a></h3>
 <pre><code class="language-shell">git push origin &lt;tag_name&gt;
 </code></pre>
-<h3 id="push-all-local-tags-to-remote"><a class="header" href="#push-all-local-tags-to-remote">Push all local tags to remote</a></h3>
+<h3 id="Отправить-все-локальные-теги-на-удалённый-репозиотрий"><a class="header" href="#Отправить-все-локальные-теги-на-удалённый-репозиотрий">Отправить все локальные теги на удалённый репозиотрий</a></h3>
 <pre><code class="language-shell">git push origin --tags
 </code></pre>
 <h2 id="ПРОСМОТР"><a class="header" href="#ПРОСМОТР">ПРОСМОТР</a></h2>
-<p>View tag info</p>
+<p>Просмотреть информацию о теге</p>
 <pre><code class="language-shell">git show &lt;tag_name&gt;
 </code></pre>
-<p>View tags list</p>
+<p>Просмотреть список тегов</p>
 <pre><code class="language-shell">git tag -l
 </code></pre>
-<p>View tags list by pattern</p>
-<pre><code class="language-shell">git tag -l "pattern"
+<p>Просмотреть список тегов по паттерну</p>
+<pre><code class="language-shell">git tag -l "паттерн"
 </code></pre>
-<p>View tags list with first line of each annotation</p>
+<p>Просмотреть список тегов с первой строкой каждой аннотации</p>
 <pre><code class="language-shell">git tag -n
 </code></pre>
 <h2 id="УДАЛЕНИЕ"><a class="header" href="#УДАЛЕНИЕ">УДАЛЕНИЕ</a></h2>
-<h3 id="delete-local-tag"><a class="header" href="#delete-local-tag">Delete local tag</a></h3>
+<h3 id="Удалить-локальный-тег"><a class="header" href="#Удалить-локальный-тег">Удалить локальный тег</a></h3>
 <pre><code class="language-shell">git tag -d &lt;tag_name&gt;
 </code></pre>
-<h3 id="delete-remote-tag"><a class="header" href="#delete-remote-tag">Delete remote tag</a></h3>
+<h3 id="Удалить-удалённый-тег"><a class="header" href="#Удалить-удалённый-тег">Удалить удалённый тег</a></h3>
 <pre><code class="language-shell">git tag -d origin &lt;tag_name&gt;
 </code></pre>
 

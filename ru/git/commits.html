@@ -217,23 +217,23 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="Коммиты"><a class="header" href="#Коммиты">Коммиты</a></h1>
-<h3 id="undo-the-last-commit-and-move-changes-to-working-directory-changes-in-staging-area-will-also-move-to-working-directory---mixed-by-default"><a class="header" href="#undo-the-last-commit-and-move-changes-to-working-directory-changes-in-staging-area-will-also-move-to-working-directory---mixed-by-default">Undo the last commit and move changes to Working Directory (changes in staging area will also move to Working Directory) (<em>--mixed</em> by default)</a></h3>
+<h3 id="Отменить-последний-коммит-и-переместить-изменения-в-Рабочую-директорию-изменения-в-Индексе-также-будут-перенесены-в-Рабочую-директорию-по-умолчанию---mixed"><a class="header" href="#Отменить-последний-коммит-и-переместить-изменения-в-Рабочую-директорию-изменения-в-Индексе-также-будут-перенесены-в-Рабочую-директорию-по-умолчанию---mixed">Отменить последний коммит и переместить изменения в Рабочую директорию (изменения в Индексе также будут перенесены в Рабочую директорию) (по умолчанию <em>--mixed</em>)</a></h3>
 <pre><code class="language-shell">git reset HEAD^
 </code></pre>
-<h3 id="undo-the-last-commit-and-move-changes-to-the-index"><a class="header" href="#undo-the-last-commit-and-move-changes-to-the-index">Undo the last commit and move changes to the Index</a></h3>
+<h3 id="Отменить-последний-коммит-и-переместить-изменения-в-Индексе"><a class="header" href="#Отменить-последний-коммит-и-переместить-изменения-в-Индексе">Отменить последний коммит и переместить изменения в Индексе</a></h3>
 <pre><code class="language-shell">git reset --soft HEAD^
 </code></pre>
-<h3 id="undo-the-last-commit-and-move-changes-to-the-working-directory"><a class="header" href="#undo-the-last-commit-and-move-changes-to-the-working-directory">Undo the last commit and move changes to the Working Directory</a></h3>
+<h3 id="Отменить-последний-коммит-и-переместить-изменения-в-Рабочую-директорию"><a class="header" href="#Отменить-последний-коммит-и-переместить-изменения-в-Рабочую-директорию">Отменить последний коммит и переместить изменения в Рабочую директорию</a></h3>
 <pre><code class="language-shell">git reset --mixed HEAD^
 </code></pre>
-<h3 id="undo-the-last-commit-and-delete-changes-uncommitted-ones-too"><a class="header" href="#undo-the-last-commit-and-delete-changes-uncommitted-ones-too">Undo the last commit and DELETE changes (uncommitted ones too)</a></h3>
+<h3 id="Отменить-последний-коммит-и-УДАЛИТЬ-изменения-не-закоммиченные-тоже"><a class="header" href="#Отменить-последний-коммит-и-УДАЛИТЬ-изменения-не-закоммиченные-тоже">Отменить последний коммит и УДАЛИТЬ изменения (не закоммиченные тоже)</a></h3>
 <pre><code class="language-shell">git reset --hard HEAD^
 </code></pre>
 <h2 id="cherry-pick"><a class="header" href="#cherry-pick">CHERRY PICK</a></h2>
-<h3 id="copy-one-commit-to-current-branch"><a class="header" href="#copy-one-commit-to-current-branch">Copy one commit to current branch</a></h3>
+<h3 id="Копировать-один-коммит-в-текущую-ветку"><a class="header" href="#Копировать-один-коммит-в-текущую-ветку">Копировать один коммит в текущую ветку</a></h3>
 <pre><code class="language-shell">git cherry-pick &lt;SHA&gt;
 </code></pre>
-<h3 id="copy-range-of-commits-to-current-branch"><a class="header" href="#copy-range-of-commits-to-current-branch">Copy range of commits to current branch</a></h3>
+<h3 id="Копировать-диапазон-коммитов-в-текущую-ветку"><a class="header" href="#Копировать-диапазон-коммитов-в-текущую-ветку">Копировать диапазон коммитов в текущую ветку</a></h3>
 <pre><code class="language-shell">git cherry-pick &lt;SHA&gt;..&lt;SHA&gt;
 </code></pre>
 

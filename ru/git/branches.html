@@ -222,10 +222,10 @@
 <pre><code class="language-shell">git branch &lt;branch-name&gt;
 </code></pre>
 <h3 id="Создать-ветку-и-переключиться-на-неё"><a class="header" href="#Создать-ветку-и-переключиться-на-неё">Создать ветку и переключиться на неё</a></h3>
-<p>обычная</p>
+<p>обычная команда</p>
 <pre><code class="language-shell">git checkout -b &lt;branch-name&gt; 
 </code></pre>
-<p>новая</p>
+<p>новая команда</p>
 <pre><code class="language-shell">git switch -c &lt;branch-name&gt;
 </code></pre>
 <h3 id="Если-есть-удалённая-ветка-но-вам-нужно-создать-локальную-и-привязаться-к-удаленной"><a class="header" href="#Если-есть-удалённая-ветка-но-вам-нужно-создать-локальную-и-привязаться-к-удаленной">Если есть удалённая ветка, но вам нужно создать локальную и привязаться к удаленной</a></h3>
@@ -248,7 +248,7 @@
 <pre><code class="language-shell">git branch --unset-upstream &lt;branch-name&gt;
 </code></pre>
 <h2 id="ПЕРЕМЕЩЕНИЕ"><a class="header" href="#ПЕРЕМЕЩЕНИЕ">ПЕРЕМЕЩЕНИЕ</a></h2>
-<h3 id="move-branch-pointer-to-a-different-commit-destination-commit-can-be-a-branch-name"><a class="header" href="#move-branch-pointer-to-a-different-commit-destination-commit-can-be-a-branch-name">Move branch pointer to a different commit (<em>destination-commit</em> can be a branch name)</a></h3>
+<h3 id="Переместить-указатель-ветки-на-другой-коммит-destination-commit-может-быть-названием-ветки"><a class="header" href="#Переместить-указатель-ветки-на-другой-коммит-destination-commit-может-быть-названием-ветки">Переместить указатель ветки на другой коммит (<em>destination-commit</em> может быть названием ветки)</a></h3>
 <pre><code class="language-shell">git reset --hard &lt;destination-commit&gt;
 </code></pre>
 <pre><code class="language-shell">git branch –f &lt;branch-name&gt; &lt;destination-commit&gt;
@@ -267,33 +267,33 @@
 <h3 id="УДАЛИТЬ-локальную-удалённую-ветку"><a class="header" href="#УДАЛИТЬ-локальную-удалённую-ветку">УДАЛИТЬ локальную удалённую ветку</a></h3>
 <pre><code class="language-shell">git branch -dr &lt;remote&gt;/&lt;branch&gt;
 </code></pre>
-<p>длинная</p>
+<p>длинная команда</p>
 <pre><code class="language-shell">git branch --delete --remotes &lt;remote&gt;/&lt;branch&gt;
 </code></pre>
 <h2 id="ПЕРЕИМЕНОВАНИЕ"><a class="header" href="#ПЕРЕИМЕНОВАНИЕ">ПЕРЕИМЕНОВАНИЕ</a></h2>
-<h3 id="Переименование-текущей-ветки"><a class="header" href="#Переименование-текущей-ветки">Переименование текущей ветки</a></h3>
+<h3 id="Переименовать-текущую-ветку"><a class="header" href="#Переименовать-текущую-ветку">Переименовать текущую ветку</a></h3>
 <pre><code class="language-shell">git branch -m &lt;branch_name&gt;
 </code></pre>
-<h3 id="Переименование-другой-ветки"><a class="header" href="#Переименование-другой-ветки">Переименование другой ветки</a></h3>
+<h3 id="Переименовать-другую-ветки"><a class="header" href="#Переименовать-другую-ветки">Переименовать другую ветки</a></h3>
 <pre><code class="language-shell">git branch -m  &lt;oldbranch_name&gt; &lt;new_branch_name&gt;
 </code></pre>
 <h2 id="ПРОСМОТР"><a class="header" href="#ПРОСМОТР">ПРОСМОТР</a></h2>
-<h3 id="Просмотр-объединённых-веток"><a class="header" href="#Просмотр-объединённых-веток">Просмотр объединённых веток</a></h3>
+<h3 id="Просмотреть-объединённые-ветки"><a class="header" href="#Просмотреть-объединённые-ветки">Просмотреть объединённые ветки</a></h3>
 <pre><code class="language-shell">git branch --merged
 </code></pre>
-<p>Просмотр объединённых удалённых веток</p>
+<p>Просмотреть объединённые удалённые ветки</p>
 <pre><code class="language-shell">git branch -r --merged
 </code></pre>
-<h3 id="Просмотр-не-объединённых-веток"><a class="header" href="#Просмотр-не-объединённых-веток">Просмотр не объединённых веток</a></h3>
+<h3 id="Просмотреть-не-объединённые-ветки"><a class="header" href="#Просмотреть-не-объединённые-ветки">Просмотреть не объединённые ветки</a></h3>
 <pre><code class="language-shell">git branch --no-merged
 </code></pre>
 <h2 id="УДАЛЕНИЕ-УСТАРЕВШИХ-ВЕТОК"><a class="header" href="#УДАЛЕНИЕ-УСТАРЕВШИХ-ВЕТОК">УДАЛЕНИЕ УСТАРЕВШИХ ВЕТОК</a></h2>
 <pre><code class="language-shell">git remote prune origin
 </code></pre>
-<p>короткая</p>
+<p>короткая команда</p>
 <pre><code class="language-shell">git fetch -p
 </code></pre>
-<p>длинная</p>
+<p>длинная команда</p>
 <pre><code class="language-shell">git fetch --prune
 </code></pre>
 

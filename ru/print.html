@@ -228,10 +228,10 @@
 <pre><code class="language-shell">git branch &lt;branch-name&gt;
 </code></pre>
 <h3 id="Создать-ветку-и-переключиться-на-неё"><a class="header" href="#Создать-ветку-и-переключиться-на-неё">Создать ветку и переключиться на неё</a></h3>
-<p>обычная</p>
+<p>обычная команда</p>
 <pre><code class="language-shell">git checkout -b &lt;branch-name&gt; 
 </code></pre>
-<p>новая</p>
+<p>новая команда</p>
 <pre><code class="language-shell">git switch -c &lt;branch-name&gt;
 </code></pre>
 <h3 id="Если-есть-удалённая-ветка-но-вам-нужно-создать-локальную-и-привязаться-к-удаленной"><a class="header" href="#Если-есть-удалённая-ветка-но-вам-нужно-создать-локальную-и-привязаться-к-удаленной">Если есть удалённая ветка, но вам нужно создать локальную и привязаться к удаленной</a></h3>
@@ -254,7 +254,7 @@
 <pre><code class="language-shell">git branch --unset-upstream &lt;branch-name&gt;
 </code></pre>
 <h2 id="ПЕРЕМЕЩЕНИЕ"><a class="header" href="#ПЕРЕМЕЩЕНИЕ">ПЕРЕМЕЩЕНИЕ</a></h2>
-<h3 id="move-branch-pointer-to-a-different-commit-destination-commit-can-be-a-branch-name"><a class="header" href="#move-branch-pointer-to-a-different-commit-destination-commit-can-be-a-branch-name">Move branch pointer to a different commit (<em>destination-commit</em> can be a branch name)</a></h3>
+<h3 id="Переместить-указатель-ветки-на-другой-коммит-destination-commit-может-быть-названием-ветки"><a class="header" href="#Переместить-указатель-ветки-на-другой-коммит-destination-commit-может-быть-названием-ветки">Переместить указатель ветки на другой коммит (<em>destination-commit</em> может быть названием ветки)</a></h3>
 <pre><code class="language-shell">git reset --hard &lt;destination-commit&gt;
 </code></pre>
 <pre><code class="language-shell">git branch –f &lt;branch-name&gt; &lt;destination-commit&gt;
@@ -273,81 +273,81 @@
 <h3 id="УДАЛИТЬ-локальную-удалённую-ветку"><a class="header" href="#УДАЛИТЬ-локальную-удалённую-ветку">УДАЛИТЬ локальную удалённую ветку</a></h3>
 <pre><code class="language-shell">git branch -dr &lt;remote&gt;/&lt;branch&gt;
 </code></pre>
-<p>длинная</p>
+<p>длинная команда</p>
 <pre><code class="language-shell">git branch --delete --remotes &lt;remote&gt;/&lt;branch&gt;
 </code></pre>
 <h2 id="ПЕРЕИМЕНОВАНИЕ"><a class="header" href="#ПЕРЕИМЕНОВАНИЕ">ПЕРЕИМЕНОВАНИЕ</a></h2>
-<h3 id="Переименование-текущей-ветки"><a class="header" href="#Переименование-текущей-ветки">Переименование текущей ветки</a></h3>
+<h3 id="Переименовать-текущую-ветку"><a class="header" href="#Переименовать-текущую-ветку">Переименовать текущую ветку</a></h3>
 <pre><code class="language-shell">git branch -m &lt;branch_name&gt;
 </code></pre>
-<h3 id="Переименование-другой-ветки"><a class="header" href="#Переименование-другой-ветки">Переименование другой ветки</a></h3>
+<h3 id="Переименовать-другую-ветки"><a class="header" href="#Переименовать-другую-ветки">Переименовать другую ветки</a></h3>
 <pre><code class="language-shell">git branch -m  &lt;oldbranch_name&gt; &lt;new_branch_name&gt;
 </code></pre>
 <h2 id="ПРОСМОТР"><a class="header" href="#ПРОСМОТР">ПРОСМОТР</a></h2>
-<h3 id="Просмотр-объединённых-веток"><a class="header" href="#Просмотр-объединённых-веток">Просмотр объединённых веток</a></h3>
+<h3 id="Просмотреть-объединённые-ветки"><a class="header" href="#Просмотреть-объединённые-ветки">Просмотреть объединённые ветки</a></h3>
 <pre><code class="language-shell">git branch --merged
 </code></pre>
-<p>Просмотр объединённых удалённых веток</p>
+<p>Просмотреть объединённые удалённые ветки</p>
 <pre><code class="language-shell">git branch -r --merged
 </code></pre>
-<h3 id="Просмотр-не-объединённых-веток"><a class="header" href="#Просмотр-не-объединённых-веток">Просмотр не объединённых веток</a></h3>
+<h3 id="Просмотреть-не-объединённые-ветки"><a class="header" href="#Просмотреть-не-объединённые-ветки">Просмотреть не объединённые ветки</a></h3>
 <pre><code class="language-shell">git branch --no-merged
 </code></pre>
 <h2 id="УДАЛЕНИЕ-УСТАРЕВШИХ-ВЕТОК"><a class="header" href="#УДАЛЕНИЕ-УСТАРЕВШИХ-ВЕТОК">УДАЛЕНИЕ УСТАРЕВШИХ ВЕТОК</a></h2>
 <pre><code class="language-shell">git remote prune origin
 </code></pre>
-<p>короткая</p>
+<p>короткая команда</p>
 <pre><code class="language-shell">git fetch -p
 </code></pre>
-<p>длинная</p>
+<p>длинная команда</p>
 <pre><code class="language-shell">git fetch --prune
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="Изменения"><a class="header" href="#Изменения">Изменения</a></h1>
-<h2 id="ИНДЕКС"><a class="header" href="#ИНДЕКС">ИНДЕКС</a></h2>
-<h3 id="Индексирование-всех-изменений"><a class="header" href="#Индексирование-всех-изменений">Индексирование всех изменений</a></h3>
+<h2 id="ИНДЕКСИРОВАНИЕ"><a class="header" href="#ИНДЕКСИРОВАНИЕ">ИНДЕКСИРОВАНИЕ</a></h2>
+<h3 id="Индексировать-все-изменения"><a class="header" href="#Индексировать-все-изменения">Индексировать все изменения</a></h3>
 <pre><code class="language-shell">git add .
 </code></pre>
-<h3 id="Индексирование-всех-изменений-в-интерактивном-режиме"><a class="header" href="#Индексирование-всех-изменений-в-интерактивном-режиме">Индексирование всех изменений в интерактивном режиме</a></h3>
+<h3 id="Индексировать-все-изменения-в-интерактивном-режиме"><a class="header" href="#Индексировать-все-изменения-в-интерактивном-режиме">Индексировать все изменения в интерактивном режиме</a></h3>
 <pre><code class="language-shell">git add -i
 </code></pre>
-<h3 id="Индексирование-всех-изменений-в-патч-режиме"><a class="header" href="#Индексирование-всех-изменений-в-патч-режиме">Индексирование всех изменений в патч режиме</a></h3>
+<h3 id="Индексировать-все-изменения-в-патч-режиме"><a class="header" href="#Индексировать-все-изменения-в-патч-режиме">Индексировать все изменения в патч режиме</a></h3>
 <pre><code class="language-shell">git add -p
 </code></pre>
 <h2 id="УДАЛЕНИЕ-ИЗ-ИНДЕКСА"><a class="header" href="#УДАЛЕНИЕ-ИЗ-ИНДЕКСА">УДАЛЕНИЕ ИЗ ИНДЕКСА</a></h2>
-<h3 id="Удаление-изменений-из-Индекса-ПЕРЕМЕЩЕНИЕ-из-области-Индекса-в-область-Рабочей-директории"><a class="header" href="#Удаление-изменений-из-Индекса-ПЕРЕМЕЩЕНИЕ-из-области-Индекса-в-область-Рабочей-директории">Удаление изменений из Индекса (ПЕРЕМЕЩЕНИЕ из области Индекса в область Рабочей директории)</a></h3>
-<p>новая</p>
+<h3 id="Удалить-изменения-из-Индекса-ПЕРЕМЕСТИТЬ-из-Индекса-в-Рабочую-директорию"><a class="header" href="#Удалить-изменения-из-Индекса-ПЕРЕМЕСТИТЬ-из-Индекса-в-Рабочую-директорию">Удалить изменения из Индекса (ПЕРЕМЕСТИТЬ из Индекса в Рабочую директорию)</a></h3>
+<p>новая команда</p>
 <pre><code class="language-shell">git restore --staged &lt;file&gt;
 </code></pre>
-<p>старая</p>
+<p>старая команда</p>
 <pre><code class="language-shell">git reset &lt;file&gt;
 </code></pre>
 <pre><code class="language-shell">git reset HEAD &lt;file&gt;
 </code></pre>
-<h3 id="Удаление-изменений-из-Индекса"><a class="header" href="#Удаление-изменений-из-Индекса">Удаление изменений из Индекса</a></h3>
-<p>новая</p>
+<h3 id="Удалить-изменения-в-Индексе"><a class="header" href="#Удалить-изменения-в-Индексе">Удалить изменения в Индексе</a></h3>
+<p>новая команда</p>
 <pre><code class="language-shell">git restore --staged .
 </code></pre>
-<p>обычная</p>
+<p>обычная команда</p>
 <pre><code class="language-shell">git reset
 </code></pre>
-<p>старая</p>
+<p>старая команда</p>
 <pre><code class="language-shell">git reset HEAD
 </code></pre>
 <h2 id="УДАЛЕНИЕ-1"><a class="header" href="#УДАЛЕНИЕ-1">УДАЛЕНИЕ</a></h2>
-<h3 id="Удаление-изменений-из-Рабочей-директории"><a class="header" href="#Удаление-изменений-из-Рабочей-директории">Удаление изменений из Рабочей директории</a></h3>
-<p>новая</p>
+<h3 id="Удалить-изменения-в-Рабочей-директории"><a class="header" href="#Удалить-изменения-в-Рабочей-директории">Удалить изменения в Рабочей директории</a></h3>
+<p>новая команда</p>
 <pre><code class="language-shell">git restore &lt;file&gt;
 </code></pre>
-<p>старая</p>
+<p>старая команда</p>
 <pre><code class="language-shell">git checkout -- &lt;file&gt;
 </code></pre>
 <pre><code class="language-shell">git checkout &lt;file&gt;
 </code></pre>
 <h3 id="Удаление-всех-изменений-из-Рабочей-директории"><a class="header" href="#Удаление-всех-изменений-из-Рабочей-директории">Удаление всех изменений из Рабочей директории</a></h3>
-<p>новая</p>
+<p>новая команда</p>
 <pre><code class="language-shell">git restore .
 </code></pre>
-<p>старая</p>
+<p>старая команда</p>
 <pre><code class="language-shell">git checkout .
 </code></pre>
 <h3 id="Удаление-изменений-из-Индекса-и-Рабочей-директории"><a class="header" href="#Удаление-изменений-из-Индекса-и-Рабочей-директории">Удаление изменений из Индекса и Рабочей директории</a></h3>
@@ -356,34 +356,34 @@
 <pre><code class="language-shell">git reset --hard HEAD
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="Коммиты"><a class="header" href="#Коммиты">Коммиты</a></h1>
-<h3 id="undo-the-last-commit-and-move-changes-to-working-directory-changes-in-staging-area-will-also-move-to-working-directory---mixed-by-default"><a class="header" href="#undo-the-last-commit-and-move-changes-to-working-directory-changes-in-staging-area-will-also-move-to-working-directory---mixed-by-default">Undo the last commit and move changes to Working Directory (changes in staging area will also move to Working Directory) (<em>--mixed</em> by default)</a></h3>
+<h3 id="Отменить-последний-коммит-и-переместить-изменения-в-Рабочую-директорию-изменения-в-Индексе-также-будут-перенесены-в-Рабочую-директорию-по-умолчанию---mixed"><a class="header" href="#Отменить-последний-коммит-и-переместить-изменения-в-Рабочую-директорию-изменения-в-Индексе-также-будут-перенесены-в-Рабочую-директорию-по-умолчанию---mixed">Отменить последний коммит и переместить изменения в Рабочую директорию (изменения в Индексе также будут перенесены в Рабочую директорию) (по умолчанию <em>--mixed</em>)</a></h3>
 <pre><code class="language-shell">git reset HEAD^
 </code></pre>
-<h3 id="undo-the-last-commit-and-move-changes-to-the-index"><a class="header" href="#undo-the-last-commit-and-move-changes-to-the-index">Undo the last commit and move changes to the Index</a></h3>
+<h3 id="Отменить-последний-коммит-и-переместить-изменения-в-Индексе"><a class="header" href="#Отменить-последний-коммит-и-переместить-изменения-в-Индексе">Отменить последний коммит и переместить изменения в Индексе</a></h3>
 <pre><code class="language-shell">git reset --soft HEAD^
 </code></pre>
-<h3 id="undo-the-last-commit-and-move-changes-to-the-working-directory"><a class="header" href="#undo-the-last-commit-and-move-changes-to-the-working-directory">Undo the last commit and move changes to the Working Directory</a></h3>
+<h3 id="Отменить-последний-коммит-и-переместить-изменения-в-Рабочую-директорию"><a class="header" href="#Отменить-последний-коммит-и-переместить-изменения-в-Рабочую-директорию">Отменить последний коммит и переместить изменения в Рабочую директорию</a></h3>
 <pre><code class="language-shell">git reset --mixed HEAD^
 </code></pre>
-<h3 id="undo-the-last-commit-and-delete-changes-uncommitted-ones-too"><a class="header" href="#undo-the-last-commit-and-delete-changes-uncommitted-ones-too">Undo the last commit and DELETE changes (uncommitted ones too)</a></h3>
+<h3 id="Отменить-последний-коммит-и-УДАЛИТЬ-изменения-не-закоммиченные-тоже"><a class="header" href="#Отменить-последний-коммит-и-УДАЛИТЬ-изменения-не-закоммиченные-тоже">Отменить последний коммит и УДАЛИТЬ изменения (не закоммиченные тоже)</a></h3>
 <pre><code class="language-shell">git reset --hard HEAD^
 </code></pre>
 <h2 id="cherry-pick"><a class="header" href="#cherry-pick">CHERRY PICK</a></h2>
-<h3 id="copy-one-commit-to-current-branch"><a class="header" href="#copy-one-commit-to-current-branch">Copy one commit to current branch</a></h3>
+<h3 id="Копировать-один-коммит-в-текущую-ветку"><a class="header" href="#Копировать-один-коммит-в-текущую-ветку">Копировать один коммит в текущую ветку</a></h3>
 <pre><code class="language-shell">git cherry-pick &lt;SHA&gt;
 </code></pre>
-<h3 id="copy-range-of-commits-to-current-branch"><a class="header" href="#copy-range-of-commits-to-current-branch">Copy range of commits to current branch</a></h3>
+<h3 id="Копировать-диапазон-коммитов-в-текущую-ветку"><a class="header" href="#Копировать-диапазон-коммитов-в-текущую-ветку">Копировать диапазон коммитов в текущую ветку</a></h3>
 <pre><code class="language-shell">git cherry-pick &lt;SHA&gt;..&lt;SHA&gt;
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="Конфигурация"><a class="header" href="#Конфигурация">Конфигурация</a></h1>
-<p>Open global config file for editing</p>
+<p>Открыть глобальную конфигурацию для редактирования</p>
 <pre><code class="language-shell">git config --global --edit
 </code></pre>
-<p>Show global config file content in terminal</p>
+<p>Просмотреть файл глобальной конфигурации в терминале</p>
 <pre><code class="language-shell">git config --global --list
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="Окончания-строк"><a class="header" href="#Окончания-строк">Окончания строк</a></h1>
-<p>The <code>git config core.autocrlf</code> command is used to change how Git handles line endings. It takes a single argument.</p>
+<p>Команда <code>git config core.autocrlf</code> используется для изменения того, как Git обрабатывает окончания строк. Она принимает один аргумент.</p>
 <pre><code class="language-shell">git config --global core.autocrlf input|true|false
 </code></pre>
 <br>
@@ -405,54 +405,54 @@
 <pre><code class="language-shell">git log --after=2.weeks --before=3.days
 </code></pre>
 <h3 id="По-автору"><a class="header" href="#По-автору">По автору</a></h3>
-<pre><code class="language-shell">git log --author="Name"
+<pre><code class="language-shell">git log --author="Имя"
 </code></pre>
 <h3 id="По-паттерну-сообщения-коммита"><a class="header" href="#По-паттерну-сообщения-коммита">По паттерну сообщения коммита</a></h3>
-<pre><code class="language-shell">git log --grep="pattern"
+<pre><code class="language-shell">git log --grep="паттерн"
 </code></pre>
 <h3 id="По-диапазону-коммитов"><a class="header" href="#По-диапазону-коммитов">По диапазону коммитов</a></h3>
 <pre><code class="language-shell">git log &lt;SHA&gt;..&lt;SHA&gt;
 </code></pre>
-<h3 id="По-имени-файла-показывается-только-коммиты-которые-изменяли-файл"><a class="header" href="#По-имени-файла-показывается-только-коммиты-которые-изменяли-файл">По имени файла (показывается только коммиты, которые изменяли файл)</a></h3>
+<h3 id="По-имени-файла-показываются-только-коммиты-в-которых-изменялся-файл"><a class="header" href="#По-имени-файла-показываются-только-коммиты-в-которых-изменялся-файл">По имени файла (показываются только коммиты, в которых изменялся файл)</a></h3>
 <pre><code class="language-shell">git log &lt;file_name&gt;
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="Удалённые-репозиотрии"><a class="header" href="#Удалённые-репозиотрии">Удалённые репозиотрии</a></h1>
-<h2 id="add-remote"><a class="header" href="#add-remote">Add remote</a></h2>
+<h2 id="Добавить-удалённый-репозиторий"><a class="header" href="#Добавить-удалённый-репозиторий">Добавить удалённый репозиторий</a></h2>
 <pre><code class="language-shell">git remote add origin &lt;repository_url&gt;
 </code></pre>
-<h2 id="change-remote"><a class="header" href="#change-remote">Change remote</a></h2>
+<h2 id="Изменить-удалённый-репозиторий"><a class="header" href="#Изменить-удалённый-репозиторий">Изменить удалённый репозиторий</a></h2>
 <pre><code class="language-shell">git remote set-url origin &lt;repository_url&gt;
 </code></pre>
-<h2 id="view-remote"><a class="header" href="#view-remote">View remote</a></h2>
-<p>View remote name</p>
+<h2 id="Просмотреть-удалённый-репозиторий"><a class="header" href="#Просмотреть-удалённый-репозиторий">Просмотреть удалённый репозиторий</a></h2>
+<p>Добавить имя удалённого репозитория</p>
 <pre><code class="language-shell">git remote
 </code></pre>
-<p>View more info about remote</p>
+<p>Просмотреть больше информации об удалённом репозитории</p>
 <pre><code class="language-shell">git remote -v
 </code></pre>
-<h2 id="delete-remote"><a class="header" href="#delete-remote">Delete remote</a></h2>
+<h2 id="Удалить-удалённый-репозиторий"><a class="header" href="#Удалить-удалённый-репозиторий">Удалить удалённый репозиторий</a></h2>
 <pre><code class="language-shell">git remote rm origin
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="Припрятывание"><a class="header" href="#Припрятывание">Припрятывание</a></h1>
 <h2 id="СОХРАНЕНИЕ"><a class="header" href="#СОХРАНЕНИЕ">СОХРАНЕНИЕ</a></h2>
-<p>новая</p>
+<p>новая команда</p>
 <pre><code class="language-shell">git stash
 </code></pre>
 <pre><code class="language-shell">git stash push
 </code></pre>
-<pre><code class="language-shell">git stash push -m "message"
+<pre><code class="language-shell">git stash push -m "сообщение"
 </code></pre>
-<p>старая</p>
-<pre><code class="language-shell">git stash save "message"
+<p>старая команда</p>
+<pre><code class="language-shell">git stash save "сообщение"
 </code></pre>
 <h2 id="ПРОСМОТР-1"><a class="header" href="#ПРОСМОТР-1">ПРОСМОТР</a></h2>
 <pre><code class="language-shell">git stash list
 </code></pre>
 <h2 id="ИЗВЛЕЧЕНИЕ"><a class="header" href="#ИЗВЛЕЧЕНИЕ">ИЗВЛЕЧЕНИЕ</a></h2>
-<h3 id="get-content-from-stash-and-delete-from-there"><a class="header" href="#get-content-from-stash-and-delete-from-there">Get content from stash (and delete from there)</a></h3>
+<h3 id="Извлечь-содержимое-из-тайника-и-удалить-из-него"><a class="header" href="#Извлечь-содержимое-из-тайника-и-удалить-из-него">Извлечь содержимое из тайника (и удалить из него)</a></h3>
 <pre><code class="language-shell">git stash pop
 </code></pre>
-<h3 id="get-content-from-stash-and-leave-it-there"><a class="header" href="#get-content-from-stash-and-leave-it-there">Get content from stash (and leave it there)</a></h3>
+<h3 id="Извлечь-содержимое-из-тайника-и-оставить-его-там-же"><a class="header" href="#Извлечь-содержимое-из-тайника-и-оставить-его-там-же">Извлечь содержимое из тайника (и оставить его там же)</a></h3>
 <pre><code class="language-shell">git stash apply
 </code></pre>
 <h2 id="УДАЛЕНИЕ-2"><a class="header" href="#УДАЛЕНИЕ-2">УДАЛЕНИЕ</a></h2>
@@ -460,61 +460,61 @@
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="Теги"><a class="header" href="#Теги">Теги</a></h1>
 <h2 id="СОЗДАНИЕ-1"><a class="header" href="#СОЗДАНИЕ-1">СОЗДАНИЕ</a></h2>
-<h3 id="create-lightweight-tag"><a class="header" href="#create-lightweight-tag">Create lightweight tag</a></h3>
+<h3 id="Создать-облегчённый-тег"><a class="header" href="#Создать-облегчённый-тег">Создать облегчённый тег</a></h3>
 <pre><code class="language-shell">git tag &lt;tag_name&gt; &lt;SHA&gt;
 </code></pre>
-<h3 id="create-annotated-tag"><a class="header" href="#create-annotated-tag">Create annotated tag</a></h3>
-<pre><code class="language-shell">git tag -am "message" &lt;tag_name&gt; &lt;SHA&gt;
+<h3 id="Создать-тег-с-аннотацией"><a class="header" href="#Создать-тег-с-аннотацией">Создать тег с аннотацией</a></h3>
+<pre><code class="language-shell">git tag -am "сообщение" &lt;tag_name&gt; &lt;SHA&gt;
 </code></pre>
-<h3 id="create-a-remote-tag-when-local-exists"><a class="header" href="#create-a-remote-tag-when-local-exists">Create a remote tag when local exists</a></h3>
+<h3 id="Создать-удалённый-тег-когда-существует-локальный"><a class="header" href="#Создать-удалённый-тег-когда-существует-локальный">Создать удалённый тег, когда существует локальный</a></h3>
 <pre><code class="language-shell">git push origin &lt;tag_name&gt;
 </code></pre>
-<h3 id="push-all-local-tags-to-remote"><a class="header" href="#push-all-local-tags-to-remote">Push all local tags to remote</a></h3>
+<h3 id="Отправить-все-локальные-теги-на-удалённый-репозиотрий"><a class="header" href="#Отправить-все-локальные-теги-на-удалённый-репозиотрий">Отправить все локальные теги на удалённый репозиотрий</a></h3>
 <pre><code class="language-shell">git push origin --tags
 </code></pre>
 <h2 id="ПРОСМОТР-2"><a class="header" href="#ПРОСМОТР-2">ПРОСМОТР</a></h2>
-<p>View tag info</p>
+<p>Просмотреть информацию о теге</p>
 <pre><code class="language-shell">git show &lt;tag_name&gt;
 </code></pre>
-<p>View tags list</p>
+<p>Просмотреть список тегов</p>
 <pre><code class="language-shell">git tag -l
 </code></pre>
-<p>View tags list by pattern</p>
-<pre><code class="language-shell">git tag -l "pattern"
+<p>Просмотреть список тегов по паттерну</p>
+<pre><code class="language-shell">git tag -l "паттерн"
 </code></pre>
-<p>View tags list with first line of each annotation</p>
+<p>Просмотреть список тегов с первой строкой каждой аннотации</p>
 <pre><code class="language-shell">git tag -n
 </code></pre>
 <h2 id="УДАЛЕНИЕ-3"><a class="header" href="#УДАЛЕНИЕ-3">УДАЛЕНИЕ</a></h2>
-<h3 id="delete-local-tag"><a class="header" href="#delete-local-tag">Delete local tag</a></h3>
+<h3 id="Удалить-локальный-тег"><a class="header" href="#Удалить-локальный-тег">Удалить локальный тег</a></h3>
 <pre><code class="language-shell">git tag -d &lt;tag_name&gt;
 </code></pre>
-<h3 id="delete-remote-tag"><a class="header" href="#delete-remote-tag">Delete remote tag</a></h3>
+<h3 id="Удалить-удалённый-тег"><a class="header" href="#Удалить-удалённый-тег">Удалить удалённый тег</a></h3>
 <pre><code class="language-shell">git tag -d origin &lt;tag_name&gt;
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="Рабочие-деревья"><a class="header" href="#Рабочие-деревья">Рабочие деревья</a></h1>
 <h2 id="СОЗДАНИЕ-2"><a class="header" href="#СОЗДАНИЕ-2">СОЗДАНИЕ</a></h2>
-<h3 id="create-a-worktree-for-an-existing-branch-using-the-same-name-as-the-working-directory"><a class="header" href="#create-a-worktree-for-an-existing-branch-using-the-same-name-as-the-working-directory">Create a worktree for an existing branch using the same name as the working directory</a></h3>
+<h3 id="Создать-рабочее-дерево-для-существующей-ветки-используя-такое-имя-рабочей-директории"><a class="header" href="#Создать-рабочее-дерево-для-существующей-ветки-используя-такое-имя-рабочей-директории">Создать рабочее дерево для существующей ветки используя такое имя рабочей директории</a></h3>
 <pre><code class="language-shell">git worktree add path/to/folder/&lt;existing-branch-name&gt;
 </code></pre>
-<h3 id="create-a-worktree-for-an-existing-branch-using-a-different-name-than-the-working-directory"><a class="header" href="#create-a-worktree-for-an-existing-branch-using-a-different-name-than-the-working-directory">Create a worktree for an existing branch using a different name than the working directory</a></h3>
+<h3 id="Создать-рабочее-дерево-для-существующей-ветки-используя-имя-отличное-от-рабочей-директории"><a class="header" href="#Создать-рабочее-дерево-для-существующей-ветки-используя-имя-отличное-от-рабочей-директории">Создать рабочее дерево для существующей ветки используя имя отличное от рабочей директории</a></h3>
 <pre><code class="language-shell">git worktree add path/to/folder/ &lt;existing-branch-name&gt;
 </code></pre>
-<h3 id="create-a-worktree-with-a-new-branch-using-the-same-name-as-the-working-directory"><a class="header" href="#create-a-worktree-with-a-new-branch-using-the-same-name-as-the-working-directory">Create a worktree with a new branch using the same name as the working directory</a></h3>
+<h3 id="Создать-рабочее-дерево-с-новой-веткой-используя-такое-имя-рабочей-директории"><a class="header" href="#Создать-рабочее-дерево-с-новой-веткой-используя-такое-имя-рабочей-директории">Создать рабочее дерево с новой веткой используя такое имя рабочей директории</a></h3>
 <pre><code class="language-shell">git worktree add -b &lt;new-branch-name&gt; path/to/folder/&lt;new-branch-name&gt;
 </code></pre>
-<h3 id="create-a-worktree-with-a-new-branch-using-a-different-name-than-the-working-directory"><a class="header" href="#create-a-worktree-with-a-new-branch-using-a-different-name-than-the-working-directory">Create a worktree with a new branch using a different name than the working directory</a></h3>
+<h3 id="Создать-рабочее-дерево-с-новой-веткой-используя-имя-отличное-от-рабочей-директории"><a class="header" href="#Создать-рабочее-дерево-с-новой-веткой-используя-имя-отличное-от-рабочей-директории">Создать рабочее дерево с новой веткой используя имя отличное от рабочей директории</a></h3>
 <pre><code class="language-shell">git worktree add -b &lt;new-branch-name&gt; path/to/folder/
 </code></pre>
 <h2 id="ПРОСМОТР-3"><a class="header" href="#ПРОСМОТР-3">ПРОСМОТР</a></h2>
-<h3 id="show-all-worktrees"><a class="header" href="#show-all-worktrees">Show all worktrees</a></h3>
+<h3 id="Показать-все-рабочие-деревья"><a class="header" href="#Показать-все-рабочие-деревья">Показать все рабочие деревья</a></h3>
 <pre><code class="language-shell">git worktree list
 </code></pre>
 <h2 id="УДАЛЕНИЕ-4"><a class="header" href="#УДАЛЕНИЕ-4">УДАЛЕНИЕ</a></h2>
-<h3 id="remove-a-worktree"><a class="header" href="#remove-a-worktree">Remove a worktree</a></h3>
+<h3 id="Удалить-рабочее-дерево"><a class="header" href="#Удалить-рабочее-дерево">Удалить рабочее дерево</a></h3>
 <pre><code class="language-shell">git worktree remove path/to/folder/
 </code></pre>
-<p>or <a href="https://stackoverflow.com/questions/39707402/why-does-git-worktree-add-create-a-branch-and-can-i-delete-it">(link)</a></p>
+<p>или <a href="https://stackoverflow.com/questions/39707402/why-does-git-worktree-add-create-a-branch-and-can-i-delete-it">(ссылка)</a></p>
 <pre><code class="language-shell">rm -rf path/to/worktree
 git worktree prune
 git branch -D &lt;branch-name&gt;

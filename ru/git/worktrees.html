@@ -218,27 +218,27 @@
                     <main>
                         <h1 id="Рабочие-деревья"><a class="header" href="#Рабочие-деревья">Рабочие деревья</a></h1>
 <h2 id="СОЗДАНИЕ"><a class="header" href="#СОЗДАНИЕ">СОЗДАНИЕ</a></h2>
-<h3 id="create-a-worktree-for-an-existing-branch-using-the-same-name-as-the-working-directory"><a class="header" href="#create-a-worktree-for-an-existing-branch-using-the-same-name-as-the-working-directory">Create a worktree for an existing branch using the same name as the working directory</a></h3>
+<h3 id="Создать-рабочее-дерево-для-существующей-ветки-используя-такое-имя-рабочей-директории"><a class="header" href="#Создать-рабочее-дерево-для-существующей-ветки-используя-такое-имя-рабочей-директории">Создать рабочее дерево для существующей ветки используя такое имя рабочей директории</a></h3>
 <pre><code class="language-shell">git worktree add path/to/folder/&lt;existing-branch-name&gt;
 </code></pre>
-<h3 id="create-a-worktree-for-an-existing-branch-using-a-different-name-than-the-working-directory"><a class="header" href="#create-a-worktree-for-an-existing-branch-using-a-different-name-than-the-working-directory">Create a worktree for an existing branch using a different name than the working directory</a></h3>
+<h3 id="Создать-рабочее-дерево-для-существующей-ветки-используя-имя-отличное-от-рабочей-директории"><a class="header" href="#Создать-рабочее-дерево-для-существующей-ветки-используя-имя-отличное-от-рабочей-директории">Создать рабочее дерево для существующей ветки используя имя отличное от рабочей директории</a></h3>
 <pre><code class="language-shell">git worktree add path/to/folder/ &lt;existing-branch-name&gt;
 </code></pre>
-<h3 id="create-a-worktree-with-a-new-branch-using-the-same-name-as-the-working-directory"><a class="header" href="#create-a-worktree-with-a-new-branch-using-the-same-name-as-the-working-directory">Create a worktree with a new branch using the same name as the working directory</a></h3>
+<h3 id="Создать-рабочее-дерево-с-новой-веткой-используя-такое-имя-рабочей-директории"><a class="header" href="#Создать-рабочее-дерево-с-новой-веткой-используя-такое-имя-рабочей-директории">Создать рабочее дерево с новой веткой используя такое имя рабочей директории</a></h3>
 <pre><code class="language-shell">git worktree add -b &lt;new-branch-name&gt; path/to/folder/&lt;new-branch-name&gt;
 </code></pre>
-<h3 id="create-a-worktree-with-a-new-branch-using-a-different-name-than-the-working-directory"><a class="header" href="#create-a-worktree-with-a-new-branch-using-a-different-name-than-the-working-directory">Create a worktree with a new branch using a different name than the working directory</a></h3>
+<h3 id="Создать-рабочее-дерево-с-новой-веткой-используя-имя-отличное-от-рабочей-директории"><a class="header" href="#Создать-рабочее-дерево-с-новой-веткой-используя-имя-отличное-от-рабочей-директории">Создать рабочее дерево с новой веткой используя имя отличное от рабочей директории</a></h3>
 <pre><code class="language-shell">git worktree add -b &lt;new-branch-name&gt; path/to/folder/
 </code></pre>
 <h2 id="ПРОСМОТР"><a class="header" href="#ПРОСМОТР">ПРОСМОТР</a></h2>
-<h3 id="show-all-worktrees"><a class="header" href="#show-all-worktrees">Show all worktrees</a></h3>
+<h3 id="Показать-все-рабочие-деревья"><a class="header" href="#Показать-все-рабочие-деревья">Показать все рабочие деревья</a></h3>
 <pre><code class="language-shell">git worktree list
 </code></pre>
 <h2 id="УДАЛЕНИЕ"><a class="header" href="#УДАЛЕНИЕ">УДАЛЕНИЕ</a></h2>
-<h3 id="remove-a-worktree"><a class="header" href="#remove-a-worktree">Remove a worktree</a></h3>
+<h3 id="Удалить-рабочее-дерево"><a class="header" href="#Удалить-рабочее-дерево">Удалить рабочее дерево</a></h3>
 <pre><code class="language-shell">git worktree remove path/to/folder/
 </code></pre>
-<p>or <a href="https://stackoverflow.com/questions/39707402/why-does-git-worktree-add-create-a-branch-and-can-i-delete-it">(link)</a></p>
+<p>или <a href="https://stackoverflow.com/questions/39707402/why-does-git-worktree-add-create-a-branch-and-can-i-delete-it">(ссылка)</a></p>
 <pre><code class="language-shell">rm -rf path/to/worktree
 git worktree prune
 git branch -D &lt;branch-name&gt;
