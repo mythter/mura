@@ -30,7 +30,7 @@
 `Ctrl+F12` – go to implementation  
 `Shift+F12` – find all references
 
-`Ctrl+Shift+space` – method argument hint  
+`Ctrl+Shift+space` – method arguments hint  
 `Ctrl+[,S` – mark current file in solution explorer  
 `Ctrl+;` – search in solution explorer  
 

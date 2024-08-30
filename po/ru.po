@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: mura\n"
-"POT-Creation-Date: 2024-08-30T22:57:14+03:00\n"
+"POT-Creation-Date: 2024-08-30T23:32:33+03:00\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -721,12 +721,12 @@ msgstr ""
 
 #: src\visual_studio/shortcuts.md:33
 msgid ""
-"`Ctrl+Shift+space` – method argument hint  \n"
+"`Ctrl+Shift+space` – method arguments hint  \n"
 "`Ctrl+[,S` – mark current file in solution explorer  \n"
 "`Ctrl+;` – search in solution explorer"
 msgstr ""
 "`Ctrl+Shift+пробел` – подсказка по аргументам метода  \n"
-"`Ctrl+[,X (Ctrl+Alt+L)` – отметить текущий файл в обозревателе решения  \n"
+"`Ctrl+[,S` – отметить текущий файл в обозревателе решения  \n"
 "`Ctrl+;` - поиск в обозревателе решения"
 
 #: src\visual_studio/shortcuts.md:37
