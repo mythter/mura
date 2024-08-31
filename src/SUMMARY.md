@@ -13,4 +13,4 @@
     - [Worktrees](git/worktrees.md)
 - [IDE](./ide/index.md)
     - [Visual Studio](ide/visual_studio.md)
-        - [Shortcuts](visual_studio/shortcuts.md)
+        - [Shortcuts](ide/visual_studio/shortcuts.md)
