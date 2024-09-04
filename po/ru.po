@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: mura\n"
-"POT-Creation-Date: 2024-08-30T23:32:33+03:00\n"
+"POT-Creation-Date: 2024-09-05T00:43:06+03:00\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -94,12 +94,8 @@ msgid "[LearnGitBranching](https://learngitbranching.js.org/)"
 msgstr "[LearnGitBranching](https://learngitbranching.js.org/)"
 
 #: src\git/index.md:8
-msgid ""
-"[Pro Git book (2nd Edition)](https://git-scm.com/book/en/v2) [(ru)](https://"
-"git-scm.com/book/ru/v2)"
-msgstr ""
-"[Книга Pro Git (2-е издание)](https://git-scm.com/book/en/v2) [(ru)](https://"
-"git-scm.com/book/ru/v2)"
+msgid "[Pro Git book (2nd Edition)](https://git-scm.com/book/en/v2)"
+msgstr "[Книга Pro Git (2-е издание)](https://git-scm.com/book/ru/v2)"
 
 #: src\git/branches.md:3 src\git/tags.md:3 src\git/worktrees.md:3
 msgid "CREATE"
@@ -636,15 +632,15 @@ msgstr ""
 "или [(ссылка)](https://stackoverflow.com/questions/39707402/why-does-git-"
 "worktree-add-create-a-branch-and-can-i-delete-it)"
 
-#: src\visual_studio/shortcuts.md:1
+#: src\ide/visual_studio/shortcuts.md:1
 msgid "Visual Studio Main Shortcuts"
 msgstr "Основные горячие клавиши Visual Studio"
 
-#: src\visual_studio/shortcuts.md:3
+#: src\ide/visual_studio/shortcuts.md:3
 msgid "Editing"
 msgstr "Редактирование"
 
-#: src\visual_studio/shortcuts.md:5
+#: src\ide/visual_studio/shortcuts.md:5
 msgid ""
 "`Ctrl+K,C` – comment line  \n"
 "`Ctrl+K,U` – uncomment line  \n"
@@ -658,7 +654,7 @@ msgstr ""
 "`Ctrl+Shift+L` – удалить строку, не добавляя её в буфер обмена  \n"
 "`Alt+<Up/Down arrows>` – переместить строку вверх/вниз"
 
-#: src\visual_studio/shortcuts.md:11
+#: src\ide/visual_studio/shortcuts.md:11
 msgid ""
 "`Ctrl+K,F` – format the selected block  \n"
 "`Ctrl+K,D` – format the entire file  \n"
@@ -670,7 +666,7 @@ msgstr ""
 "`Ctrl+K,E` – очистка кода в файле (по заданным вами правилам, например, "
 "удаление ненужных using)"
 
-#: src\visual_studio/shortcuts.md:15
+#: src\ide/visual_studio/shortcuts.md:15
 msgid ""
 "`Ctrl+K,S` – insert snippet (if, try, for block, etc.), or enclose the "
 "selected code in a block  \n"
@@ -685,11 +681,11 @@ msgstr ""
 "`Ctrl+Alt+<поместить курсор мышью>` - многокурсорный ввод (редактирование в "
 "нескольких местах одновременно)"
 
-#: src\visual_studio/shortcuts.md:19
+#: src\ide/visual_studio/shortcuts.md:19
 msgid "Navigation"
 msgstr "Навигация"
 
-#: src\visual_studio/shortcuts.md:21
+#: src\ide/visual_studio/shortcuts.md:21
 msgid ""
 "`Ctrl+G` – go to line  \n"
 "`Ctrl+K,K` – leave bookmark  \n"
@@ -699,7 +695,7 @@ msgstr ""
 "`Ctrl+K,K` – оставить закладку  \n"
 "`Ctrl+K,N` – перейти к следующей закладке"
 
-#: src\visual_studio/shortcuts.md:25
+#: src\ide/visual_studio/shortcuts.md:25
 msgid ""
 "`Ctrl+,` (`Ctrl+T`) – search by code in project  \n"
 "`Ctrl+Q` – search by IDE tools"
@@ -707,7 +703,7 @@ msgstr ""
 "`Ctrl+,` (`Ctrl+T`) - поиск по коду в проекте  \n"
 "`Ctrl+Q` – поиск по инструментам IDE"
 
-#: src\visual_studio/shortcuts.md:28
+#: src\ide/visual_studio/shortcuts.md:28
 msgid ""
 "`F12` (`Ctrl+<mouse click>`) – go to definition  \n"
 "`Alt+F12` – peek definition (definition hint in inline window)  \n"
@@ -719,7 +715,7 @@ msgstr ""
 "`Alt+F12` – подсказка реализации во всплывающем окне  \n"
 "`Shift+F12` – найти использования"
 
-#: src\visual_studio/shortcuts.md:33
+#: src\ide/visual_studio/shortcuts.md:33
 msgid ""
 "`Ctrl+Shift+space` – method arguments hint  \n"
 "`Ctrl+[,S` – mark current file in solution explorer  \n"
@@ -729,7 +725,7 @@ msgstr ""
 "`Ctrl+[,S` – отметить текущий файл в обозревателе решения  \n"
 "`Ctrl+;` - поиск в обозревателе решения"
 
-#: src\visual_studio/shortcuts.md:37
+#: src\ide/visual_studio/shortcuts.md:37
 msgid ""
 "`Ctrl+M,O` – collapse all methods to definitions  \n"
 "`Ctrl+M,P` – expand all methods  \n"
@@ -741,7 +737,7 @@ msgstr ""
 "`Ctrl+M,M` – свернуть/развернуть текущий метод  \n"
 "`Ctrl+M,L` – свернуть/развернуть все блоки кода"
 
-#: src\visual_studio/shortcuts.md:42
+#: src\ide/visual_studio/shortcuts.md:42
 msgid ""
 "`Shift+Alt+.` – Add the next matching text as a selection  \n"
 "`Shift+Alt+;` – Add all matching text as selections  \n"
@@ -753,7 +749,7 @@ msgstr ""
 "`Shift+Alt+,` – Удалить последнее выбранное вхождение\n"
 "`Shift+Alt+/` – Пропустить следующее совпадающее вхождение"
 
-#: src\visual_studio/shortcuts.md:47
+#: src\ide/visual_studio/shortcuts.md:47
 msgid ""
 "**For ASP.NET**  \n"
 "`Ctrl+M,G` – go from a controller method to a view or vice versa"
@@ -761,11 +757,11 @@ msgstr ""
 "**Для ASP.NET**  \n"
 "`Ctrl+M,G` – перейти из метода контроллера в представление или наоборот"
 
-#: src\visual_studio/shortcuts.md:50
+#: src\ide/visual_studio/shortcuts.md:50
 msgid "Refactoring"
 msgstr "Рефакторинг"
 
-#: src\visual_studio/shortcuts.md:52
+#: src\ide/visual_studio/shortcuts.md:52
 msgid ""
 "`Ctrl+.` (`Alt+Enter`) – refactoring hints  \n"
 "`Ctrl+R,R` – rename  \n"
@@ -779,11 +775,11 @@ msgstr ""
 "`Ctrl+R,I` - извлечь интерфейс из класса  \n"
 "`Ctrl+R,V` (`Ctrl+R,O`) - реорганизовать параметры метода"
 
-#: src\visual_studio/shortcuts.md:58
+#: src\ide/visual_studio/shortcuts.md:58
 msgid "Snippets"
 msgstr "Сниппеты"
 
-#: src\visual_studio/shortcuts.md:60
+#: src\ide/visual_studio/shortcuts.md:60
 msgid ""
 "`\"prop\",Tab,Tab` – create a property  \n"
 "`\"ctor\",Tab,Tab` – create a constructor  \n"
@@ -794,11 +790,11 @@ msgstr ""
 "Также Tab,Tab работает для других популярных ключевых слов (if, for, switch "
 "и т.п.)"
 
-#: src\visual_studio/shortcuts.md:64
+#: src\ide/visual_studio/shortcuts.md:64
 msgid "Debugging"
 msgstr "Отладка"
 
-#: src\visual_studio/shortcuts.md:66
+#: src\ide/visual_studio/shortcuts.md:66
 msgid ""
 "`F9` – create a breakpoint  \n"
 "`Ctrl+Alt+B` – open window with all breakpoints  \n"
