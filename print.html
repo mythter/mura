@@ -454,7 +454,8 @@ After deleting the local branch with <code>git branch -d</code> and deleting the
 <p><code>-f</code>  for the file name where ssh key get saved</p>
 <pre><code class="language-powershell">ssh-keygen -t rsa -b 4096 -C "&lt;your email&gt;" -f $env:USERPROFILE/.ssh/&lt;key_name&gt;
 </code></pre>
-<h2 id="add-ssh-keys-to-ssh-agent"><a class="header" href="#add-ssh-keys-to-ssh-agent">Add SSH keys to SSH Agent</a></h2>
+<h2 id="add-ssh-key-to-ssh-agent"><a class="header" href="#add-ssh-key-to-ssh-agent">Add SSH key to SSH Agent</a></h2>
+<p>Add SSH <strong>private</strong> key to SSH Agent</p>
 <pre><code class="language-powershell">ssh-add $env:USERPROFILE/.ssh/&lt;key_name&gt;
 </code></pre>
 <h3 id="if-previous-command-doesnt-work-try-the-following-or-see-this-link"><a class="header" href="#if-previous-command-doesnt-work-try-the-following-or-see-this-link">If previous command doesn't work try the following or see this <a href="https://stackoverflow.com/a/53606760/21737287">link</a></a></h3>
@@ -511,19 +512,34 @@ After deleting the local branch with <code>git branch -d</code> and deleting the
 <p>Add remote to local repository</p>
 <pre><code class="language-shell">git remote add origin git@github.com-&lt;username&gt;:&lt;username&gt;/&lt;repo_name&gt;.git
 </code></pre>
+<p>Change remote in local repository</p>
+<pre><code class="language-shell">git remote set-url origin git@github.com-&lt;username&gt;:&lt;username&gt;/&lt;repo_name&gt;.git
+</code></pre>
 <h2 id="finally"><a class="header" href="#finally">Finally</a></h2>
 <p>Don't forget to specify <code>user.name</code> and <code>user.email</code> in every repository freshly cloned or existing before.</p>
 <pre><code class="language-shell">git config user.name "Your name"
 </code></pre>
 <pre><code class="language-shell">git config user.email "your@email.com"
 </code></pre>
-<h2 id="usefule-commands"><a class="header" href="#usefule-commands">Usefule commands</a></h2>
-<h3 id="show-ssh-key-list"><a class="header" href="#show-ssh-key-list">Show SSH key list</a></h3>
+<h2 id="usefule"><a class="header" href="#usefule">Usefule</a></h2>
+<h3 id="commands"><a class="header" href="#commands">Commands</a></h3>
+<p>Show SSH key list</p>
 <pre><code class="language-powershell">ssh-add -l
 </code></pre>
-<h3 id="delete-ssh-key-from-ssh-agent"><a class="header" href="#delete-ssh-key-from-ssh-agent">Delete SSH key from SSH Agent</a></h3>
+<p>Delete SSH key from SSH Agent</p>
 <pre><code class="language-powershell">ssh-add -d $env:USERPROFILE/.ssh/&lt;key_name&gt;
 </code></pre>
+<p>Check if your SSH client can connect to GitHub</p>
+<pre><code class="language-shell">ssh -T git@github.com
+</code></pre>
+<p>or more verbose</p>
+<pre><code class="language-shell">ssh -vT git@github.com
+</code></pre>
+<h3 id="links"><a class="header" href="#links">Links</a></h3>
+<ul>
+<li><a href="https://stackoverflow.com/a/3860139/21737287">(Stack Overflow) Multiple GitHub accounts on the same computer?</a></li>
+<li><a href="https://gist.github.com/rahularity/86da20fe3858e6b311de068201d279e3">(GitHub Gist) How To Work With Multiple Github Accounts on a single Machine</a></li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="stash"><a class="header" href="#stash">Stash</a></h1>
 <h2 id="save"><a class="header" href="#save">SAVE</a></h2>
 <p>new</p>
