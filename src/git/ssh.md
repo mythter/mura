@@ -14,7 +14,9 @@
 ssh-keygen -t rsa -b 4096 -C "<your email>" -f $env:USERPROFILE/.ssh/<key_name>
 ```
 
-## Add SSH keys to SSH Agent
+## Add SSH key to SSH Agent
+
+Add SSH **private** key to SSH Agent
 
 ```powershell
 ssh-add $env:USERPROFILE/.ssh/<key_name>
@@ -95,6 +97,12 @@ Add remote to local repository
 git remote add origin git@github.com-<username>:<username>/<repo_name>.git
 ```
 
+Change remote in local repository
+
+```shell
+git remote set-url origin git@github.com-<username>:<username>/<repo_name>.git
+```
+
 ## Finally
 
 Don't forget to specify `user.name` and `user.email` in every repository freshly cloned or existing before.
@@ -107,16 +115,35 @@ git config user.name "Your name"
 git config user.email "your@email.com"
 ```
 
-## Usefule commands
+## Usefule
 
-### Show SSH key list
+### Commands
+
+Show SSH key list
 
 ```powershell
 ssh-add -l
 ```
 
-### Delete SSH key from SSH Agent
+Delete SSH key from SSH Agent
 
 ```powershell
 ssh-add -d $env:USERPROFILE/.ssh/<key_name>
 ```
+
+Check if your SSH client can connect to GitHub
+
+```shell
+ssh -T git@github.com
+```
+
+or more verbose
+
+```shell
+ssh -vT git@github.com
+```
+
+### Links
+
+- [(Stack Overflow) Multiple GitHub accounts on the same computer?](https://stackoverflow.com/a/3860139/21737287)
+- [(GitHub Gist) How To Work With Multiple Github Accounts on a single Machine](https://gist.github.com/rahularity/86da20fe3858e6b311de068201d279e3)
