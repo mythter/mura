@@ -1,5 +1,11 @@
 # Commits
 
+### Make an empty commit
+
+```shell
+git commit --allow-empty -m "empty commit"
+```
+
 ### Undo the last commit and move changes to Working Directory (changes in staging area will also move to Working Directory) (*--mixed* by default)
 
 ```shell
