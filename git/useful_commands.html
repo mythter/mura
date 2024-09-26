@@ -221,16 +221,20 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="useful-git-commands"><a class="header" href="#useful-git-commands">Useful Git Commands</a></h1>
-<p>{{#tabs global="example" }}
-{{#tab name="Windows" }}</p>
+<div class="mdbook-tabs-container" data-tabglobal="example">
+<nav class="mdbook-tabs">
+<button class="mdbook-tab active" data-tabname="Windows">Windows</button>
+<button class="mdbook-tab" data-tabname="Linux">Linux</button>
+</nav>
+<div class="mdbook-tab-content" data-tabname="Windows">
 <pre><code class="language-shell">git reflog show --all | FINDSTR &lt;HASH&gt;
 </code></pre>
-<p>{{#endtab }}
-{{#tab name="Linux" }}</p>
+</div>
+<div class="mdbook-tab-content hidden" data-tabname="Linux">
 <pre><code class="language-shell">git reflog show --all | grep &lt;HASH&gt;
 </code></pre>
-<p>{{#endtab }}
-{{#endtabs }}</p>
+</div>
+</div>
 
                     </main>
 
