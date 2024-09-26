@@ -124,19 +124,19 @@ git branch -m  <oldbranch_name> <new_branch_name>
 
 ## VIEW
 
-### View merged branches
+### View branches that was merged with the current branch
 
 ```shell
 git branch --merged
 ```
 
-View merged remote branches
+### View remote branches that was merged with the current branch
 
 ```shell
 git branch -r --merged
 ```
 
-### View no merged branches
+### View branches that was't merged with the current branch
 
 ```shell
 git branch --no-merged
