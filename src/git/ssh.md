@@ -115,7 +115,7 @@ git config user.name "Your name"
 git config user.email "your@email.com"
 ```
 
-## Usefule
+## Useful
 
 ### Commands
 
