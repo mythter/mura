@@ -30,6 +30,7 @@
 
         <!-- Custom theme stylesheets -->
         <link rel="stylesheet" href="../theme/css/language-picker.css">
+        <link rel="stylesheet" href="../theme/css/tabs.css">
 
     </head>
     <body class="sidebar-visible no-js">
@@ -87,7 +88,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="../git/index.html"><strong aria-hidden="true">1.</strong> Git</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../git/branches.html" class="active"><strong aria-hidden="true">1.1.</strong> Ветки</a></li><li class="chapter-item "><a href="../git/changes.html"><strong aria-hidden="true">1.2.</strong> Изменения</a></li><li class="chapter-item "><a href="../git/commits.html"><strong aria-hidden="true">1.3.</strong> Коммиты</a></li><li class="chapter-item "><a href="../git/config.html"><strong aria-hidden="true">1.4.</strong> Конфигурация</a></li><li class="chapter-item "><a href="../git/line_endings.html"><strong aria-hidden="true">1.5.</strong> Окончания строк</a></li><li class="chapter-item "><a href="../git/log.html"><strong aria-hidden="true">1.6.</strong> Лог</a></li><li class="chapter-item "><a href="../git/remotes.html"><strong aria-hidden="true">1.7.</strong> Удалённые репозиотрии</a></li><li class="chapter-item "><a href="../git/ssh.html"><strong aria-hidden="true">1.8.</strong> SSH</a></li><li class="chapter-item "><a href="../git/stash.html"><strong aria-hidden="true">1.9.</strong> Припрятывание</a></li><li class="chapter-item "><a href="../git/tags.html"><strong aria-hidden="true">1.10.</strong> Теги</a></li><li class="chapter-item "><a href="../git/worktrees.html"><strong aria-hidden="true">1.11.</strong> Рабочие деревья</a></li></ol></li><li class="chapter-item expanded "><a href="../ide/index.html"><strong aria-hidden="true">2.</strong> IDE</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../ide/visual_studio.html"><strong aria-hidden="true">2.1.</strong> Visual Studio</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../ide/visual_studio/shortcuts.html"><strong aria-hidden="true">2.1.1.</strong> Горячие клавиши</a></li></ol></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../git/index.html"><strong aria-hidden="true">1.</strong> Git</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../git/branches.html" class="active"><strong aria-hidden="true">1.1.</strong> Ветки</a></li><li class="chapter-item "><a href="../git/changes.html"><strong aria-hidden="true">1.2.</strong> Изменения</a></li><li class="chapter-item "><a href="../git/commits.html"><strong aria-hidden="true">1.3.</strong> Коммиты</a></li><li class="chapter-item "><a href="../git/config.html"><strong aria-hidden="true">1.4.</strong> Конфигурация</a></li><li class="chapter-item "><a href="../git/line_endings.html"><strong aria-hidden="true">1.5.</strong> Окончания строк</a></li><li class="chapter-item "><a href="../git/log.html"><strong aria-hidden="true">1.6.</strong> Лог</a></li><li class="chapter-item "><a href="../git/remotes.html"><strong aria-hidden="true">1.7.</strong> Удалённые репозиотрии</a></li><li class="chapter-item "><a href="../git/ssh.html"><strong aria-hidden="true">1.8.</strong> SSH</a></li><li class="chapter-item "><a href="../git/stash.html"><strong aria-hidden="true">1.9.</strong> Припрятывание</a></li><li class="chapter-item "><a href="../git/tags.html"><strong aria-hidden="true">1.10.</strong> Теги</a></li><li class="chapter-item "><a href="../git/worktrees.html"><strong aria-hidden="true">1.11.</strong> Рабочие деревья</a></li><li class="chapter-item "><a href="../git/useful_commands.html"><strong aria-hidden="true">1.12.</strong> Useful commands</a></li></ol></li><li class="chapter-item expanded "><a href="../ide/index.html"><strong aria-hidden="true">2.</strong> IDE</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../ide/visual_studio.html"><strong aria-hidden="true">2.1.</strong> Visual Studio</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../ide/visual_studio/shortcuts.html"><strong aria-hidden="true">2.1.1.</strong> Горячие клавиши</a></li></ol></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -281,13 +282,13 @@
 <pre><code class="language-shell">git branch -m  &lt;oldbranch_name&gt; &lt;new_branch_name&gt;
 </code></pre>
 <h2 id="ПРОСМОТР"><a class="header" href="#ПРОСМОТР">ПРОСМОТР</a></h2>
-<h3 id="Просмотреть-объединённые-ветки"><a class="header" href="#Просмотреть-объединённые-ветки">Просмотреть объединённые ветки</a></h3>
+<h3 id="view-branches-that-was-merged-with-the-current-branch"><a class="header" href="#view-branches-that-was-merged-with-the-current-branch">View branches that was merged with the current branch</a></h3>
 <pre><code class="language-shell">git branch --merged
 </code></pre>
-<p>Просмотреть объединённые удалённые ветки</p>
+<h3 id="view-remote-branches-that-was-merged-with-the-current-branch"><a class="header" href="#view-remote-branches-that-was-merged-with-the-current-branch">View remote branches that was merged with the current branch</a></h3>
 <pre><code class="language-shell">git branch -r --merged
 </code></pre>
-<h3 id="Просмотреть-не-объединённые-ветки"><a class="header" href="#Просмотреть-не-объединённые-ветки">Просмотреть не объединённые ветки</a></h3>
+<h3 id="view-branches-that-wast-merged-with-the-current-branch"><a class="header" href="#view-branches-that-wast-merged-with-the-current-branch">View branches that was't merged with the current branch</a></h3>
 <pre><code class="language-shell">git branch --no-merged
 </code></pre>
 <h2 id="УДАЛЕНИЕ-УСТАРЕВШИХ-ВЕТОК"><a class="header" href="#УДАЛЕНИЕ-УСТАРЕВШИХ-ВЕТОК">УДАЛЕНИЕ УСТАРЕВШИХ ВЕТОК</a></h2>
@@ -346,6 +347,7 @@
         <script src="../book.js"></script>
 
         <!-- Custom JS scripts -->
+        <script src="../theme/js/tabs.js"></script>
 
 
     </div>

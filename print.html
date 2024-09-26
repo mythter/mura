@@ -31,6 +31,7 @@
 
         <!-- Custom theme stylesheets -->
         <link rel="stylesheet" href="theme/css/language-picker.css">
+        <link rel="stylesheet" href="theme/css/tabs.css">
 
     </head>
     <body class="sidebar-visible no-js">
@@ -88,7 +89,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="git/index.html"><strong aria-hidden="true">1.</strong> Git</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="git/branches.html"><strong aria-hidden="true">1.1.</strong> Branches</a></li><li class="chapter-item "><a href="git/changes.html"><strong aria-hidden="true">1.2.</strong> Changes</a></li><li class="chapter-item "><a href="git/commits.html"><strong aria-hidden="true">1.3.</strong> Commits</a></li><li class="chapter-item "><a href="git/config.html"><strong aria-hidden="true">1.4.</strong> Config</a></li><li class="chapter-item "><a href="git/line_endings.html"><strong aria-hidden="true">1.5.</strong> Line endings</a></li><li class="chapter-item "><a href="git/log.html"><strong aria-hidden="true">1.6.</strong> Log</a></li><li class="chapter-item "><a href="git/remotes.html"><strong aria-hidden="true">1.7.</strong> Remotes</a></li><li class="chapter-item "><a href="git/ssh.html"><strong aria-hidden="true">1.8.</strong> SSH</a></li><li class="chapter-item "><a href="git/stash.html"><strong aria-hidden="true">1.9.</strong> Stash</a></li><li class="chapter-item "><a href="git/tags.html"><strong aria-hidden="true">1.10.</strong> Tags</a></li><li class="chapter-item "><a href="git/worktrees.html"><strong aria-hidden="true">1.11.</strong> Worktrees</a></li></ol></li><li class="chapter-item expanded "><a href="ide/index.html"><strong aria-hidden="true">2.</strong> IDE</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="ide/visual_studio.html"><strong aria-hidden="true">2.1.</strong> Visual Studio</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="ide/visual_studio/shortcuts.html"><strong aria-hidden="true">2.1.1.</strong> Shortcuts</a></li></ol></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="git/index.html"><strong aria-hidden="true">1.</strong> Git</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="git/branches.html"><strong aria-hidden="true">1.1.</strong> Branches</a></li><li class="chapter-item "><a href="git/changes.html"><strong aria-hidden="true">1.2.</strong> Changes</a></li><li class="chapter-item "><a href="git/commits.html"><strong aria-hidden="true">1.3.</strong> Commits</a></li><li class="chapter-item "><a href="git/config.html"><strong aria-hidden="true">1.4.</strong> Config</a></li><li class="chapter-item "><a href="git/line_endings.html"><strong aria-hidden="true">1.5.</strong> Line endings</a></li><li class="chapter-item "><a href="git/log.html"><strong aria-hidden="true">1.6.</strong> Log</a></li><li class="chapter-item "><a href="git/remotes.html"><strong aria-hidden="true">1.7.</strong> Remotes</a></li><li class="chapter-item "><a href="git/ssh.html"><strong aria-hidden="true">1.8.</strong> SSH</a></li><li class="chapter-item "><a href="git/stash.html"><strong aria-hidden="true">1.9.</strong> Stash</a></li><li class="chapter-item "><a href="git/tags.html"><strong aria-hidden="true">1.10.</strong> Tags</a></li><li class="chapter-item "><a href="git/worktrees.html"><strong aria-hidden="true">1.11.</strong> Worktrees</a></li><li class="chapter-item "><a href="git/useful_commands.html"><strong aria-hidden="true">1.12.</strong> Useful commands</a></li></ol></li><li class="chapter-item expanded "><a href="ide/index.html"><strong aria-hidden="true">2.</strong> IDE</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="ide/visual_studio.html"><strong aria-hidden="true">2.1.</strong> Visual Studio</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="ide/visual_studio/shortcuts.html"><strong aria-hidden="true">2.1.1.</strong> Shortcuts</a></li></ol></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -289,13 +290,13 @@ After deleting the local branch with <code>git branch -d</code> and deleting the
 <pre><code class="language-shell">git branch -m  &lt;oldbranch_name&gt; &lt;new_branch_name&gt;
 </code></pre>
 <h2 id="view"><a class="header" href="#view">VIEW</a></h2>
-<h3 id="view-merged-branches"><a class="header" href="#view-merged-branches">View merged branches</a></h3>
+<h3 id="view-branches-that-was-merged-with-the-current-branch"><a class="header" href="#view-branches-that-was-merged-with-the-current-branch">View branches that was merged with the current branch</a></h3>
 <pre><code class="language-shell">git branch --merged
 </code></pre>
-<p>View merged remote branches</p>
+<h3 id="view-remote-branches-that-was-merged-with-the-current-branch"><a class="header" href="#view-remote-branches-that-was-merged-with-the-current-branch">View remote branches that was merged with the current branch</a></h3>
 <pre><code class="language-shell">git branch -r --merged
 </code></pre>
-<h3 id="view-no-merged-branches"><a class="header" href="#view-no-merged-branches">View no merged branches</a></h3>
+<h3 id="view-branches-that-wast-merged-with-the-current-branch"><a class="header" href="#view-branches-that-wast-merged-with-the-current-branch">View branches that was't merged with the current branch</a></h3>
 <pre><code class="language-shell">git branch --no-merged
 </code></pre>
 <h2 id="prune"><a class="header" href="#prune">PRUNE</a></h2>
@@ -359,6 +360,13 @@ After deleting the local branch with <code>git branch -d</code> and deleting the
 <pre><code class="language-shell">git reset --hard
 </code></pre>
 <pre><code class="language-shell">git reset --hard HEAD
+</code></pre>
+<h2 id="remove-from-git"><a class="header" href="#remove-from-git">REMOVE FROM GIT</a></h2>
+<h3 id="remove-file-from-git-tracking-but-keep-it-on-disk"><a class="header" href="#remove-file-from-git-tracking-but-keep-it-on-disk">Remove file from Git tracking but keep it on disk</a></h3>
+<pre><code class="language-shell">git rm --cached &lt;file_name&gt;
+</code></pre>
+<h3 id="remove-file-from-the-git-repository-and-from-the-local-disk"><a class="header" href="#remove-file-from-the-git-repository-and-from-the-local-disk">Remove file from the git repository and from the local disk</a></h3>
+<pre><code class="language-shell">git rm &lt;file_name&gt;
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="commits"><a class="header" href="#commits">Commits</a></h1>
 <h3 id="make-an-empty-commit"><a class="header" href="#make-an-empty-commit">Make an empty commit</a></h3>
@@ -429,6 +437,10 @@ After deleting the local branch with <code>git branch -d</code> and deleting the
 <h3 id="by-file-name-only-shows-commits-that-changed-that-file"><a class="header" href="#by-file-name-only-shows-commits-that-changed-that-file">By file name (only shows commits that changed that file)</a></h3>
 <pre><code class="language-shell">git log &lt;file_name&gt;
 </code></pre>
+<h2 id="decoration"><a class="header" href="#decoration">Decoration</a></h2>
+<h3 id="print-commit-with-the-names-of-changed-files"><a class="header" href="#print-commit-with-the-names-of-changed-files">Print commit with the names of changed files</a></h3>
+<pre><code class="language-shell">git log --name-only --oneline
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="remotes"><a class="header" href="#remotes">Remotes</a></h1>
 <h2 id="add-remote"><a class="header" href="#add-remote">Add remote</a></h2>
 <pre><code class="language-shell">git remote add origin &lt;repository_url&gt;
@@ -440,8 +452,11 @@ After deleting the local branch with <code>git branch -d</code> and deleting the
 <p>View remote name</p>
 <pre><code class="language-shell">git remote
 </code></pre>
-<p>View more info about remote</p>
+<p>View remote name and url</p>
 <pre><code class="language-shell">git remote -v
+</code></pre>
+<p>View more info about remote</p>
+<pre><code class="language-shell">git remote show &lt;remote_name&gt;
 </code></pre>
 <h2 id="delete-remote"><a class="header" href="#delete-remote">Delete remote</a></h2>
 <pre><code class="language-shell">git remote rm origin
@@ -521,7 +536,7 @@ After deleting the local branch with <code>git branch -d</code> and deleting the
 </code></pre>
 <pre><code class="language-shell">git config user.email "your@email.com"
 </code></pre>
-<h2 id="usefule"><a class="header" href="#usefule">Usefule</a></h2>
+<h2 id="useful"><a class="header" href="#useful">Useful</a></h2>
 <h3 id="commands"><a class="header" href="#commands">Commands</a></h3>
 <p>Show SSH key list</p>
 <pre><code class="language-powershell">ssh-add -l
@@ -626,6 +641,17 @@ After deleting the local branch with <code>git branch -d</code> and deleting the
 git worktree prune
 git branch -D &lt;branch-name&gt;
 </code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="useful-git-commands"><a class="header" href="#useful-git-commands">Useful Git Commands</a></h1>
+<p>{{#tabs global="example" }}
+{{#tab name="Windows" }}</p>
+<pre><code class="language-shell">git reflog show --all | FINDSTR &lt;HASH&gt;
+</code></pre>
+<p>{{#endtab }}
+{{#tab name="Linux" }}</p>
+<pre><code class="language-shell">git reflog show --all | grep &lt;HASH&gt;
+</code></pre>
+<p>{{#endtab }}
+{{#endtabs }}</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="ide"><a class="header" href="#ide">IDE</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="visual-studio"><a class="header" href="#visual-studio">Visual Studio</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="visual-studio-main-shortcuts"><a class="header" href="#visual-studio-main-shortcuts">Visual Studio Main Shortcuts</a></h1>
@@ -713,6 +739,7 @@ Tab,Tab also works for other popular keywords (if, for, switch, etc.)</p>
         <script src="book.js"></script>
 
         <!-- Custom JS scripts -->
+        <script src="theme/js/tabs.js"></script>
 
         <script>
         window.addEventListener('load', function() {

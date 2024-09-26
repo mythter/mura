@@ -1,9 +1,9 @@
 <!DOCTYPE HTML>
-<html lang="en" class="light" dir="ltr">
+<html lang="ru" class="light" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>SSH - mura</title>
+        <title>Useful commands - mura</title>
 
 
         <!-- Custom HTML head -->
@@ -88,7 +88,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="../git/index.html"><strong aria-hidden="true">1.</strong> Git</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../git/branches.html"><strong aria-hidden="true">1.1.</strong> Branches</a></li><li class="chapter-item "><a href="../git/changes.html"><strong aria-hidden="true">1.2.</strong> Changes</a></li><li class="chapter-item "><a href="../git/commits.html"><strong aria-hidden="true">1.3.</strong> Commits</a></li><li class="chapter-item "><a href="../git/config.html"><strong aria-hidden="true">1.4.</strong> Config</a></li><li class="chapter-item "><a href="../git/line_endings.html"><strong aria-hidden="true">1.5.</strong> Line endings</a></li><li class="chapter-item "><a href="../git/log.html"><strong aria-hidden="true">1.6.</strong> Log</a></li><li class="chapter-item "><a href="../git/remotes.html"><strong aria-hidden="true">1.7.</strong> Remotes</a></li><li class="chapter-item expanded "><a href="../git/ssh.html" class="active"><strong aria-hidden="true">1.8.</strong> SSH</a></li><li class="chapter-item "><a href="../git/stash.html"><strong aria-hidden="true">1.9.</strong> Stash</a></li><li class="chapter-item "><a href="../git/tags.html"><strong aria-hidden="true">1.10.</strong> Tags</a></li><li class="chapter-item "><a href="../git/worktrees.html"><strong aria-hidden="true">1.11.</strong> Worktrees</a></li><li class="chapter-item "><a href="../git/useful_commands.html"><strong aria-hidden="true">1.12.</strong> Useful commands</a></li></ol></li><li class="chapter-item expanded "><a href="../ide/index.html"><strong aria-hidden="true">2.</strong> IDE</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../ide/visual_studio.html"><strong aria-hidden="true">2.1.</strong> Visual Studio</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../ide/visual_studio/shortcuts.html"><strong aria-hidden="true">2.1.1.</strong> Shortcuts</a></li></ol></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../git/index.html"><strong aria-hidden="true">1.</strong> Git</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../git/branches.html"><strong aria-hidden="true">1.1.</strong> Ветки</a></li><li class="chapter-item "><a href="../git/changes.html"><strong aria-hidden="true">1.2.</strong> Изменения</a></li><li class="chapter-item "><a href="../git/commits.html"><strong aria-hidden="true">1.3.</strong> Коммиты</a></li><li class="chapter-item "><a href="../git/config.html"><strong aria-hidden="true">1.4.</strong> Конфигурация</a></li><li class="chapter-item "><a href="../git/line_endings.html"><strong aria-hidden="true">1.5.</strong> Окончания строк</a></li><li class="chapter-item "><a href="../git/log.html"><strong aria-hidden="true">1.6.</strong> Лог</a></li><li class="chapter-item "><a href="../git/remotes.html"><strong aria-hidden="true">1.7.</strong> Удалённые репозиотрии</a></li><li class="chapter-item "><a href="../git/ssh.html"><strong aria-hidden="true">1.8.</strong> SSH</a></li><li class="chapter-item "><a href="../git/stash.html"><strong aria-hidden="true">1.9.</strong> Припрятывание</a></li><li class="chapter-item "><a href="../git/tags.html"><strong aria-hidden="true">1.10.</strong> Теги</a></li><li class="chapter-item "><a href="../git/worktrees.html"><strong aria-hidden="true">1.11.</strong> Рабочие деревья</a></li><li class="chapter-item expanded "><a href="../git/useful_commands.html" class="active"><strong aria-hidden="true">1.12.</strong> Useful commands</a></li></ol></li><li class="chapter-item expanded "><a href="../ide/index.html"><strong aria-hidden="true">2.</strong> IDE</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../ide/visual_studio.html"><strong aria-hidden="true">2.1.</strong> Visual Studio</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../ide/visual_studio/shortcuts.html"><strong aria-hidden="true">2.1.1.</strong> Горячие клавиши</a></li></ol></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -166,16 +166,16 @@
                           langToggle.addEventListener("click", (event) => {
                               langList.style.display = langList.style.display == "block" ? "none" : "block";
                           });
-                          let selectedLang = document.getElementById("en");
+                          let selectedLang = document.getElementById("ru");
                           if (selectedLang) {
                               selectedLang.parentNode.classList.add("theme-selected");
                           }
                           // The path to the root, taking the current
                           // language into account.
-                          let full_path_to_root = "../";
+                          let full_path_to_root = "../../";
                           // The page path (mdbook only gives us
                           // access to the path to the Markdown file).
-                          let path = "git/ssh.md".replace(/\.md$/, ".html");
+                          let path = "git/useful_commands.md".replace(/\.md$/, ".html");
                           for (let lang of langList.querySelectorAll("a")) {
                               if (lang.id == "en") {
                                   lang.href = `${full_path_to_root}${path}`;
@@ -191,7 +191,7 @@
                         <a href="https://github.com/mythter/mura" title="Git repository" aria-label="Git repository">
                             <i id="git-repository-button" class="fa fa-github"></i>
                         </a>
-                        <a href="https://github.com/mythter/mura/edit/main/src/git/ssh.md" title="Suggest an edit" aria-label="Suggest an edit">
+                        <a href="https://github.com/mythter/mura/edit/main/src/git/useful_commands.md" title="Suggest an edit" aria-label="Suggest an edit">
                             <i id="git-edit-button" class="fa fa-edit"></i>
                         </a>
 
@@ -220,110 +220,24 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="ssh"><a class="header" href="#ssh">SSH</a></h1>
-<h2 id="create-ssh-key"><a class="header" href="#create-ssh-key">Create SSH key</a></h2>
-<p><code>-t</code> specifies the key type</p>
-<p><code>-b</code> specifies the key size (in bits)</p>
-<p><code>-C</code> for comment to help identify your ssh key (optional)</p>
-<p><code>-f</code>  for the file name where ssh key get saved</p>
-<pre><code class="language-powershell">ssh-keygen -t rsa -b 4096 -C "&lt;your email&gt;" -f $env:USERPROFILE/.ssh/&lt;key_name&gt;
+                        <h1 id="useful-git-commands"><a class="header" href="#useful-git-commands">Useful Git Commands</a></h1>
+<p>{{#tabs global="example" }} {{#tab name="Windows" }}</p>
+<pre><code class="language-shell">git reflog show --all | FINDSTR &lt;HASH&gt;
 </code></pre>
-<h2 id="add-ssh-key-to-ssh-agent"><a class="header" href="#add-ssh-key-to-ssh-agent">Add SSH key to SSH Agent</a></h2>
-<p>Add SSH <strong>private</strong> key to SSH Agent</p>
-<pre><code class="language-powershell">ssh-add $env:USERPROFILE/.ssh/&lt;key_name&gt;
+<p>{{#endtab }} {{#tab name="Linux" }}</p>
+<pre><code class="language-shell">git reflog show --all | grep &lt;HASH&gt;
 </code></pre>
-<h3 id="if-previous-command-doesnt-work-try-the-following-or-see-this-link"><a class="header" href="#if-previous-command-doesnt-work-try-the-following-or-see-this-link">If previous command doesn't work try the following or see this <a href="https://stackoverflow.com/a/53606760/21737287">link</a></a></h3>
-<p>Check if SSH Agent service is running</p>
-<pre><code class="language-powershell">Get-Service ssh-agent
-</code></pre>
-<p>Stop SSH Agent service</p>
-<pre><code class="language-powershell">Stop-Service ssh-agent
-</code></pre>
-<p>Start SSH Agent service</p>
-<pre><code class="language-powershell">Start-Service ssh-agent
-</code></pre>
-<h2 id="add-ssh-public-key-to-the-github"><a class="header" href="#add-ssh-public-key-to-the-github">Add SSH public key to the Github</a></h2>
-<ul>
-<li>Copy content of <code>&lt;key_name&gt;.pub</code></li>
-<li>Goto <strong>Settings</strong> &gt; <strong>SSH and GPG keys</strong> &gt; <strong>New SSH Key</strong></li>
-<li>Paste your copied public key and give it a Title of your choice</li>
-</ul>
-<h2 id="create-ssh-config-file-and-add-host-entries"><a class="header" href="#create-ssh-config-file-and-add-host-entries">Create SSH Config file and add Host Entries</a></h2>
-<p>If config file not already exists then create one (<code>$env:USERPROFILE/.ssh/config</code>)</p>
-<pre><code class="language-shell">Host github.com-&lt;username&gt;
-  HostName github.com
-  User git
-  IdentityFile C:/Users/&lt;user name&gt;/.ssh/&lt;key_name&gt;
-  IdentitiesOnly yes
-</code></pre>
-<p><code>Host github.com-&lt;username&gt;</code></p>
-<ul>
-<li>This is the hostname for which these settings apply.</li>
-<li>Every time you connect to this host via SSH, the following configuration will be applied.</li>
-<li>You can use different settings for other hosts (for example, for other servers).</li>
-</ul>
-<p><code>HostName github.com</code></p>
-<ul>
-<li>Specifies the actual hostname to connect to.</li>
-</ul>
-<p><code>User git</code></p>
-<ul>
-<li>GitHub requires the user to be specified as <code>git</code> for all SSH connections.</li>
-</ul>
-<p><code>IdentityFile C:/Users/&lt;user name&gt;/.ssh/&lt;key_name&gt;</code></p>
-<ul>
-<li>Specifies the path to your private SSH key, which will be used to authenticate to GitHub.</li>
-</ul>
-<p><code>IdentitiesOnly yes</code></p>
-<ul>
-<li>Causes SSH to only use the keys specified in the configuration file (via IdentityFile) and ignore any other keys that may be loaded into the SSH agent.</li>
-<li>This helps if you have multiple keys and want to use a specific key for a specific host.</li>
-</ul>
-<h2 id="cloning-existing-repository-or-adding-remote-for-the-local-one"><a class="header" href="#cloning-existing-repository-or-adding-remote-for-the-local-one">Cloning existing repository or adding remote for the local one</a></h2>
-<p>Clone existing repository</p>
-<pre><code class="language-shell">git clone git@github.com-&lt;username&gt;:&lt;username&gt;/&lt;repo_name&gt;.git
-</code></pre>
-<p>Add remote to local repository</p>
-<pre><code class="language-shell">git remote add origin git@github.com-&lt;username&gt;:&lt;username&gt;/&lt;repo_name&gt;.git
-</code></pre>
-<p>Change remote in local repository</p>
-<pre><code class="language-shell">git remote set-url origin git@github.com-&lt;username&gt;:&lt;username&gt;/&lt;repo_name&gt;.git
-</code></pre>
-<h2 id="finally"><a class="header" href="#finally">Finally</a></h2>
-<p>Don't forget to specify <code>user.name</code> and <code>user.email</code> in every repository freshly cloned or existing before.</p>
-<pre><code class="language-shell">git config user.name "Your name"
-</code></pre>
-<pre><code class="language-shell">git config user.email "your@email.com"
-</code></pre>
-<h2 id="useful"><a class="header" href="#useful">Useful</a></h2>
-<h3 id="commands"><a class="header" href="#commands">Commands</a></h3>
-<p>Show SSH key list</p>
-<pre><code class="language-powershell">ssh-add -l
-</code></pre>
-<p>Delete SSH key from SSH Agent</p>
-<pre><code class="language-powershell">ssh-add -d $env:USERPROFILE/.ssh/&lt;key_name&gt;
-</code></pre>
-<p>Check if your SSH client can connect to GitHub</p>
-<pre><code class="language-shell">ssh -T git@github.com
-</code></pre>
-<p>or more verbose</p>
-<pre><code class="language-shell">ssh -vT git@github.com
-</code></pre>
-<h3 id="links"><a class="header" href="#links">Links</a></h3>
-<ul>
-<li><a href="https://stackoverflow.com/a/3860139/21737287">(Stack Overflow) Multiple GitHub accounts on the same computer?</a></li>
-<li><a href="https://gist.github.com/rahularity/86da20fe3858e6b311de068201d279e3">(GitHub Gist) How To Work With Multiple Github Accounts on a single Machine</a></li>
-</ul>
+<p>{{#endtab }} {{#endtabs }}</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../git/remotes.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../git/worktrees.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="../git/stash.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../ide/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -333,11 +247,11 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../git/remotes.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../git/worktrees.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="../git/stash.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../ide/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

@@ -31,6 +31,7 @@
 
         <!-- Custom theme stylesheets -->
         <link rel="stylesheet" href="theme/css/language-picker.css">
+        <link rel="stylesheet" href="theme/css/tabs.css">
 
     </head>
     <body class="sidebar-visible no-js">
@@ -88,7 +89,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="git/index.html"><strong aria-hidden="true">1.</strong> Git</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="git/branches.html"><strong aria-hidden="true">1.1.</strong> Ветки</a></li><li class="chapter-item "><a href="git/changes.html"><strong aria-hidden="true">1.2.</strong> Изменения</a></li><li class="chapter-item "><a href="git/commits.html"><strong aria-hidden="true">1.3.</strong> Коммиты</a></li><li class="chapter-item "><a href="git/config.html"><strong aria-hidden="true">1.4.</strong> Конфигурация</a></li><li class="chapter-item "><a href="git/line_endings.html"><strong aria-hidden="true">1.5.</strong> Окончания строк</a></li><li class="chapter-item "><a href="git/log.html"><strong aria-hidden="true">1.6.</strong> Лог</a></li><li class="chapter-item "><a href="git/remotes.html"><strong aria-hidden="true">1.7.</strong> Удалённые репозиотрии</a></li><li class="chapter-item "><a href="git/ssh.html"><strong aria-hidden="true">1.8.</strong> SSH</a></li><li class="chapter-item "><a href="git/stash.html"><strong aria-hidden="true">1.9.</strong> Припрятывание</a></li><li class="chapter-item "><a href="git/tags.html"><strong aria-hidden="true">1.10.</strong> Теги</a></li><li class="chapter-item "><a href="git/worktrees.html"><strong aria-hidden="true">1.11.</strong> Рабочие деревья</a></li></ol></li><li class="chapter-item expanded "><a href="ide/index.html"><strong aria-hidden="true">2.</strong> IDE</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="ide/visual_studio.html"><strong aria-hidden="true">2.1.</strong> Visual Studio</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="ide/visual_studio/shortcuts.html"><strong aria-hidden="true">2.1.1.</strong> Горячие клавиши</a></li></ol></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="git/index.html"><strong aria-hidden="true">1.</strong> Git</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="git/branches.html"><strong aria-hidden="true">1.1.</strong> Ветки</a></li><li class="chapter-item "><a href="git/changes.html"><strong aria-hidden="true">1.2.</strong> Изменения</a></li><li class="chapter-item "><a href="git/commits.html"><strong aria-hidden="true">1.3.</strong> Коммиты</a></li><li class="chapter-item "><a href="git/config.html"><strong aria-hidden="true">1.4.</strong> Конфигурация</a></li><li class="chapter-item "><a href="git/line_endings.html"><strong aria-hidden="true">1.5.</strong> Окончания строк</a></li><li class="chapter-item "><a href="git/log.html"><strong aria-hidden="true">1.6.</strong> Лог</a></li><li class="chapter-item "><a href="git/remotes.html"><strong aria-hidden="true">1.7.</strong> Удалённые репозиотрии</a></li><li class="chapter-item "><a href="git/ssh.html"><strong aria-hidden="true">1.8.</strong> SSH</a></li><li class="chapter-item "><a href="git/stash.html"><strong aria-hidden="true">1.9.</strong> Припрятывание</a></li><li class="chapter-item "><a href="git/tags.html"><strong aria-hidden="true">1.10.</strong> Теги</a></li><li class="chapter-item "><a href="git/worktrees.html"><strong aria-hidden="true">1.11.</strong> Рабочие деревья</a></li><li class="chapter-item "><a href="git/useful_commands.html"><strong aria-hidden="true">1.12.</strong> Useful commands</a></li></ol></li><li class="chapter-item expanded "><a href="ide/index.html"><strong aria-hidden="true">2.</strong> IDE</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="ide/visual_studio.html"><strong aria-hidden="true">2.1.</strong> Visual Studio</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="ide/visual_studio/shortcuts.html"><strong aria-hidden="true">2.1.1.</strong> Горячие клавиши</a></li></ol></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -287,13 +288,13 @@
 <pre><code class="language-shell">git branch -m  &lt;oldbranch_name&gt; &lt;new_branch_name&gt;
 </code></pre>
 <h2 id="ПРОСМОТР"><a class="header" href="#ПРОСМОТР">ПРОСМОТР</a></h2>
-<h3 id="Просмотреть-объединённые-ветки"><a class="header" href="#Просмотреть-объединённые-ветки">Просмотреть объединённые ветки</a></h3>
+<h3 id="view-branches-that-was-merged-with-the-current-branch"><a class="header" href="#view-branches-that-was-merged-with-the-current-branch">View branches that was merged with the current branch</a></h3>
 <pre><code class="language-shell">git branch --merged
 </code></pre>
-<p>Просмотреть объединённые удалённые ветки</p>
+<h3 id="view-remote-branches-that-was-merged-with-the-current-branch"><a class="header" href="#view-remote-branches-that-was-merged-with-the-current-branch">View remote branches that was merged with the current branch</a></h3>
 <pre><code class="language-shell">git branch -r --merged
 </code></pre>
-<h3 id="Просмотреть-не-объединённые-ветки"><a class="header" href="#Просмотреть-не-объединённые-ветки">Просмотреть не объединённые ветки</a></h3>
+<h3 id="view-branches-that-wast-merged-with-the-current-branch"><a class="header" href="#view-branches-that-wast-merged-with-the-current-branch">View branches that was't merged with the current branch</a></h3>
 <pre><code class="language-shell">git branch --no-merged
 </code></pre>
 <h2 id="УДАЛЕНИЕ-УСТАРЕВШИХ-ВЕТОК"><a class="header" href="#УДАЛЕНИЕ-УСТАРЕВШИХ-ВЕТОК">УДАЛЕНИЕ УСТАРЕВШИХ ВЕТОК</a></h2>
@@ -357,6 +358,13 @@
 <pre><code class="language-shell">git reset --hard
 </code></pre>
 <pre><code class="language-shell">git reset --hard HEAD
+</code></pre>
+<h2 id="remove-from-git"><a class="header" href="#remove-from-git">REMOVE FROM GIT</a></h2>
+<h3 id="remove-file-from-git-tracking-but-keep-it-on-disk"><a class="header" href="#remove-file-from-git-tracking-but-keep-it-on-disk">Remove file from Git tracking but keep it on disk</a></h3>
+<pre><code class="language-shell">git rm --cached &lt;file_name&gt;
+</code></pre>
+<h3 id="remove-file-from-the-git-repository-and-from-the-local-disk"><a class="header" href="#remove-file-from-the-git-repository-and-from-the-local-disk">Remove file from the git repository and from the local disk</a></h3>
+<pre><code class="language-shell">git rm &lt;file_name&gt;
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="Коммиты"><a class="header" href="#Коммиты">Коммиты</a></h1>
 <h3 id="make-an-empty-commit"><a class="header" href="#make-an-empty-commit">Make an empty commit</a></h3>
@@ -427,6 +435,10 @@
 <h3 id="По-имени-файла-показываются-только-коммиты-в-которых-изменялся-файл"><a class="header" href="#По-имени-файла-показываются-только-коммиты-в-которых-изменялся-файл">По имени файла (показываются только коммиты, в которых изменялся файл)</a></h3>
 <pre><code class="language-shell">git log &lt;file_name&gt;
 </code></pre>
+<h2 id="decoration"><a class="header" href="#decoration">Decoration</a></h2>
+<h3 id="print-commit-with-the-names-of-changed-files"><a class="header" href="#print-commit-with-the-names-of-changed-files">Print commit with the names of changed files</a></h3>
+<pre><code class="language-shell">git log --name-only --oneline
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="Удалённые-репозиотрии"><a class="header" href="#Удалённые-репозиотрии">Удалённые репозиотрии</a></h1>
 <h2 id="Добавить-удалённый-репозиторий"><a class="header" href="#Добавить-удалённый-репозиторий">Добавить удалённый репозиторий</a></h2>
 <pre><code class="language-shell">git remote add origin &lt;repository_url&gt;
@@ -438,8 +450,11 @@
 <p>Добавить имя удалённого репозитория</p>
 <pre><code class="language-shell">git remote
 </code></pre>
-<p>Просмотреть больше информации об удалённом репозитории</p>
+<p>View remote name and url</p>
 <pre><code class="language-shell">git remote -v
+</code></pre>
+<p>Просмотреть больше информации об удалённом репозитории</p>
+<pre><code class="language-shell">git remote show &lt;remote_name&gt;
 </code></pre>
 <h2 id="Удалить-удалённый-репозиторий"><a class="header" href="#Удалить-удалённый-репозиторий">Удалить удалённый репозиторий</a></h2>
 <pre><code class="language-shell">git remote rm origin
@@ -519,7 +534,7 @@
 </code></pre>
 <pre><code class="language-shell">git config user.email "your@email.com"
 </code></pre>
-<h2 id="usefule"><a class="header" href="#usefule">Usefule</a></h2>
+<h2 id="useful"><a class="header" href="#useful">Useful</a></h2>
 <h3 id="commands"><a class="header" href="#commands">Commands</a></h3>
 <p>Show SSH key list</p>
 <pre><code class="language-powershell">ssh-add -l
@@ -624,6 +639,14 @@
 git worktree prune
 git branch -D &lt;branch-name&gt;
 </code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="useful-git-commands"><a class="header" href="#useful-git-commands">Useful Git Commands</a></h1>
+<p>{{#tabs global="example" }} {{#tab name="Windows" }}</p>
+<pre><code class="language-shell">git reflog show --all | FINDSTR &lt;HASH&gt;
+</code></pre>
+<p>{{#endtab }} {{#tab name="Linux" }}</p>
+<pre><code class="language-shell">git reflog show --all | grep &lt;HASH&gt;
+</code></pre>
+<p>{{#endtab }} {{#endtabs }}</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="ide"><a class="header" href="#ide">IDE</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="visual-studio"><a class="header" href="#visual-studio">Visual Studio</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="Основные-горячие-клавиши-visual-studio"><a class="header" href="#Основные-горячие-клавиши-visual-studio">Основные горячие клавиши Visual Studio</a></h1>
@@ -708,6 +731,7 @@ git branch -D &lt;branch-name&gt;
         <script src="book.js"></script>
 
         <!-- Custom JS scripts -->
+        <script src="theme/js/tabs.js"></script>
 
         <script>
         window.addEventListener('load', function() {
