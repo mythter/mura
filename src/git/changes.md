@@ -103,3 +103,17 @@ git reset --hard
 ```shell
 git reset --hard HEAD
 ```
+
+## REMOVE FROM GIT
+
+### Remove file from Git tracking but keep it on disk
+
+```shell
+git rm --cached <file_name>
+```
+
+### Remove file from the git repository and from the local disk
+
+```shell
+git rm <file_name>
+```
