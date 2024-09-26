@@ -1,5 +1,7 @@
 # Useful Git Commands
 
+### Show the branch on which a specific commit was originally created
+
 {{#tabs global="example" }}
 {{#tab name="Windows" }}
 
