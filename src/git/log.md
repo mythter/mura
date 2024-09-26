@@ -45,3 +45,11 @@ git log <SHA>..<SHA>
 ```shell
 git log <file_name>
 ```
+
+## Decoration
+
+### Print commit with the names of changed files
+
+```shell
+git log --name-only --oneline
+```
