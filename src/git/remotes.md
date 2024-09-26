@@ -20,10 +20,16 @@ View remote name
 git remote
 ```
 
-View more info about remote
+View remote name and url
 
 ```shell
 git remote -v
+```
+
+View more info about remote
+
+```shell
+git remote show <remote_name>
 ```
 
 ## Delete remote
