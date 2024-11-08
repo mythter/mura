@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: mura\n"
-"POT-Creation-Date: 2024-09-05T00:43:06+03:00\n"
+"POT-Creation-Date: 2024-11-08T12:05:25+02:00\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -37,39 +37,51 @@ msgstr "Коммиты"
 msgid "Config"
 msgstr "Конфигурация"
 
-#: src\SUMMARY.md:8 src\git/line_endings.md:1
+#: src\SUMMARY.md:8 src\git/ignore.md:1
+msgid "Ignore"
+msgstr "Ignore"
+
+#: src\SUMMARY.md:9 src\git/line_endings.md:1
 msgid "Line endings"
 msgstr "Окончания строк"
 
-#: src\SUMMARY.md:9 src\git/log.md:1
+#: src\SUMMARY.md:10 src\git/log.md:1
 msgid "Log"
 msgstr "Лог"
 
-#: src\SUMMARY.md:10 src\git/remotes.md:1
+#: src\SUMMARY.md:11 src\git/remotes.md:1
 msgid "Remotes"
 msgstr "Удалённые репозиотрии"
 
-#: src\SUMMARY.md:11 src\git/stash.md:1
+#: src\SUMMARY.md:12 src\git/ssh.md:1
+msgid "SSH"
+msgstr "SSH"
+
+#: src\SUMMARY.md:13 src\git/stash.md:1
 msgid "Stash"
 msgstr "Припрятывание"
 
-#: src\SUMMARY.md:12 src\git/tags.md:1
+#: src\SUMMARY.md:14 src\git/tags.md:1
 msgid "Tags"
 msgstr "Теги"
 
-#: src\SUMMARY.md:13 src\git/worktrees.md:1
+#: src\SUMMARY.md:15 src\git/worktrees.md:1
 msgid "Worktrees"
 msgstr "Рабочие деревья"
 
-#: src\SUMMARY.md:14 src\ide/index.md:1
+#: src\SUMMARY.md:16
+msgid "Useful commands"
+msgstr "Полезные команды"
+
+#: src\SUMMARY.md:17 src\ide/index.md:1
 msgid "IDE"
 msgstr "IDE"
 
-#: src\SUMMARY.md:15 src\ide/visual_studio.md:1
+#: src\SUMMARY.md:18 src\ide/visual_studio.md:1
 msgid "Visual Studio"
 msgstr "Visual Studio"
 
-#: src\SUMMARY.md:16
+#: src\SUMMARY.md:19
 msgid "Shortcuts"
 msgstr "Горячие клавиши"
 
@@ -205,7 +217,7 @@ msgstr ""
 msgid "DELETE local remote-tracking branch"
 msgstr "УДАЛИТЬ локальную удалённую ветку"
 
-#: src\git/branches.md:105 src\git/branches.md:157
+#: src\git/branches.md:105 src\git/branches.md:177
 msgid "long"
 msgstr "длинная команда"
 
@@ -221,28 +233,46 @@ msgstr "Переименовать текущую ветку"
 msgid "Rename another branch"
 msgstr "Переименовать другую ветки"
 
-#: src\git/branches.md:125 src\git/stash.md:25 src\git/tags.md:29
+#: src\git/branches.md:125
+msgid "Rename the branch on the remote"
+msgstr "Переименовать удалённую ветки"
+
+#: src\git/branches.md:131
+msgid "or"
+msgstr "или"
+
+#: src\git/branches.md:133
+msgid "Push the local branch and reset the upstream branch"
+msgstr ""
+"Отправить локальную ветку на удалённый репозиторий и обновить отслеживаемую "
+"ветку"
+
+#: src\git/branches.md:139
+msgid "Delete the remote branch"
+msgstr "Удалить удалённую ветку"
+
+#: src\git/branches.md:145 src\git/stash.md:25 src\git/tags.md:29
 #: src\git/worktrees.md:29
 msgid "VIEW"
 msgstr "ПРОСМОТР"
 
-#: src\git/branches.md:127
-msgid "View merged branches"
-msgstr "Просмотреть объединённые ветки"
+#: src\git/branches.md:147
+msgid "View branches that was merged with the current branch"
+msgstr "Просмотреть ветки, которые были объединены с текущей веткой"
 
-#: src\git/branches.md:133
-msgid "View merged remote branches"
-msgstr "Просмотреть объединённые удалённые ветки"
+#: src\git/branches.md:153
+msgid "View remote branches that was merged with the current branch"
+msgstr "Просмотреть удалённые ветки, которые были объединены с текущей веткой"
 
-#: src\git/branches.md:139
-msgid "View no merged branches"
-msgstr "Просмотреть не объединённые ветки"
+#: src\git/branches.md:159
+msgid "View branches that was't merged with the current branch"
+msgstr "Просмотреть ветки, которые не были объединены с текущей веткой"
 
-#: src\git/branches.md:145
+#: src\git/branches.md:165
 msgid "PRUNE"
 msgstr "УДАЛЕНИЕ УСТАРЕВШИХ ВЕТОК"
 
-#: src\git/branches.md:151
+#: src\git/branches.md:171
 msgid "short"
 msgstr "короткая команда"
 
@@ -292,7 +322,33 @@ msgstr "Удаление всех изменений из Рабочей дир�
 msgid "Delete all changes in Index and Workspace"
 msgstr "Удаление изменений из Индекса и Рабочей директории"
 
+#: src\git/changes.md:107
+msgid "REMOVE FROM GIT"
+msgstr "УДАЛИТЬ ИЗ GIT"
+
+#: src\git/changes.md:109
+msgid "Remove file from Git tracking but keep it on disk"
+msgstr "Удалить файл из отслеживания Git, но оставить на диске"
+
+#: src\git/changes.md:115
+msgid "Remove file from the git repository and from the local disk"
+msgstr "Удалить файл из репозитория Git и с диска"
+
 #: src\git/commits.md:3
+msgid "Make an empty commit"
+msgstr "Создать пустой коммит"
+
+#: src\git/commits.md:5
+msgid ""
+"```shell\n"
+"git commit --allow-empty -m \"empty commit\"\n"
+"```"
+msgstr ""
+"```shell\n"
+"git commit --allow-empty -m \"пустой коммит\"\n"
+"```"
+
+#: src\git/commits.md:9
 msgid ""
 "Undo the last commit and move changes to Working Directory (changes in "
 "staging area will also move to Working Directory) (_\\--mixed_ by default)"
@@ -301,27 +357,27 @@ msgstr ""
 "(изменения в Индексе также будут перенесены в Рабочую директорию) (по "
 "умолчанию _\\--mixed_)"
 
-#: src\git/commits.md:9
+#: src\git/commits.md:15
 msgid "Undo the last commit and move changes to the Index"
 msgstr "Отменить последний коммит и переместить изменения в Индексе"
 
-#: src\git/commits.md:15
+#: src\git/commits.md:21
 msgid "Undo the last commit and move changes to the Working Directory"
 msgstr "Отменить последний коммит и переместить изменения в Рабочую директорию"
 
-#: src\git/commits.md:21
+#: src\git/commits.md:27
 msgid "Undo the last commit and DELETE changes (uncommitted ones too)"
 msgstr "Отменить последний коммит и УДАЛИТЬ изменения (не закоммиченные тоже)"
 
-#: src\git/commits.md:27
+#: src\git/commits.md:33
 msgid "CHERRY PICK"
 msgstr "CHERRY PICK"
 
-#: src\git/commits.md:29
+#: src\git/commits.md:35
 msgid "Copy one commit to current branch"
 msgstr "Копировать один коммит в текущую ветку"
 
-#: src\git/commits.md:35
+#: src\git/commits.md:41
 msgid "Copy range of commits to current branch"
 msgstr "Копировать диапазон коммитов в текущую ветку"
 
@@ -465,6 +521,14 @@ msgstr "По диапазону коммитов"
 msgid "By file name (only shows commits that changed that file)"
 msgstr "По имени файла (показываются только коммиты, в которых изменялся файл)"
 
+#: src\git/log.md:49
+msgid "Decoration"
+msgstr "Декорирование"
+
+#: src\git/log.md:51
+msgid "Print commit with the names of changed files"
+msgstr "Показать коммит с именами изменённых файлов"
+
 #: src\git/remotes.md:3
 msgid "Add remote"
 msgstr "Добавить удалённый репозиторий"
@@ -482,12 +546,255 @@ msgid "View remote name"
 msgstr "Добавить имя удалённого репозитория"
 
 #: src\git/remotes.md:23
+msgid "View remote name and url"
+msgstr "Просмотреть имя и URL удалённого репозитория"
+
+#: src\git/remotes.md:29
 msgid "View more info about remote"
 msgstr "Просмотреть больше информации об удалённом репозитории"
 
-#: src\git/remotes.md:29
+#: src\git/remotes.md:35
 msgid "Delete remote"
 msgstr "Удалить удалённый репозиторий"
+
+#: src\git/ssh.md:3
+msgid "Create SSH key"
+msgstr ""
+
+#: src\git/ssh.md:5
+msgid "`-t` specifies the key type"
+msgstr ""
+
+#: src\git/ssh.md:7
+msgid "`-b` specifies the key size (in bits)"
+msgstr ""
+
+#: src\git/ssh.md:9
+msgid "`-C` for comment to help identify your ssh key (optional)"
+msgstr ""
+
+#: src\git/ssh.md:11
+msgid "`-f`  for the file name where ssh key get saved"
+msgstr ""
+
+#: src\git/ssh.md:13
+msgid ""
+"```powershell\n"
+"ssh-keygen -t rsa -b 4096 -C \"<your email>\" -f $env:USERPROFILE/.ssh/"
+"<key_name>\n"
+"```"
+msgstr ""
+
+#: src\git/ssh.md:17
+msgid "Add SSH key to SSH Agent"
+msgstr ""
+
+#: src\git/ssh.md:19
+msgid "Add SSH **private** key to SSH Agent"
+msgstr ""
+
+#: src\git/ssh.md:25
+msgid ""
+"If previous command doesn't work try the following or see this [link]"
+"(https://stackoverflow.com/a/53606760/21737287)"
+msgstr ""
+
+#: src\git/ssh.md:27
+msgid "Check if SSH Agent service is running"
+msgstr ""
+
+#: src\git/ssh.md:33
+msgid "Stop SSH Agent service"
+msgstr ""
+
+#: src\git/ssh.md:39
+msgid "Start SSH Agent service"
+msgstr ""
+
+#: src\git/ssh.md:45
+msgid "Add SSH public key to the Github"
+msgstr ""
+
+#: src\git/ssh.md:47
+msgid "Copy content of `<key_name>.pub`"
+msgstr ""
+
+#: src\git/ssh.md:48
+msgid "Goto **Settings** > **SSH and GPG keys** > **New SSH Key**"
+msgstr ""
+
+#: src\git/ssh.md:49
+msgid "Paste your copied public key and give it a Title of your choice"
+msgstr ""
+
+#: src\git/ssh.md:51
+msgid "Create SSH Config file and add Host Entries"
+msgstr ""
+
+#: src\git/ssh.md:53
+msgid ""
+"If config file not already exists then create one (`$env:USERPROFILE/.ssh/"
+"config`)"
+msgstr ""
+
+#: src\git/ssh.md:63
+msgid "`Host github.com-<username>`"
+msgstr ""
+
+#: src\git/ssh.md:65
+msgid "This is the hostname for which these settings apply."
+msgstr ""
+
+#: src\git/ssh.md:66
+msgid ""
+"Every time you connect to this host via SSH, the following configuration "
+"will be applied."
+msgstr ""
+
+#: src\git/ssh.md:67
+msgid ""
+"You can use different settings for other hosts (for example, for other "
+"servers)."
+msgstr ""
+
+#: src\git/ssh.md:69
+msgid "`HostName github.com`"
+msgstr ""
+
+#: src\git/ssh.md:71
+msgid "Specifies the actual hostname to connect to."
+msgstr ""
+
+#: src\git/ssh.md:73
+msgid "`User git`"
+msgstr ""
+
+#: src\git/ssh.md:75
+msgid ""
+"GitHub requires the user to be specified as `git` for all SSH connections."
+msgstr ""
+
+#: src\git/ssh.md:77
+msgid "`IdentityFile C:/Users/<user name>/.ssh/<key_name>`"
+msgstr ""
+
+#: src\git/ssh.md:79
+msgid ""
+"Specifies the path to your private SSH key, which will be used to "
+"authenticate to GitHub."
+msgstr ""
+
+#: src\git/ssh.md:81
+msgid "`IdentitiesOnly yes`"
+msgstr ""
+
+#: src\git/ssh.md:83
+msgid ""
+"Causes SSH to only use the keys specified in the configuration file (via "
+"IdentityFile) and ignore any other keys that may be loaded into the SSH "
+"agent."
+msgstr ""
+
+#: src\git/ssh.md:84
+msgid ""
+"This helps if you have multiple keys and want to use a specific key for a "
+"specific host."
+msgstr ""
+
+#: src\git/ssh.md:86
+msgid "Cloning existing repository or adding remote for the local one"
+msgstr ""
+
+#: src\git/ssh.md:88
+msgid "Clone existing repository"
+msgstr ""
+
+#: src\git/ssh.md:94
+msgid "Add remote to local repository"
+msgstr ""
+
+#: src\git/ssh.md:100
+msgid "Change remote in local repository"
+msgstr "Изменить ссылку удалённого репозитория"
+
+#: src\git/ssh.md:106
+msgid "Finally"
+msgstr ""
+
+#: src\git/ssh.md:108
+msgid ""
+"Don't forget to specify `user.name` and `user.email` in every repository "
+"freshly cloned or existing before."
+msgstr ""
+
+#: src\git/ssh.md:110
+msgid ""
+"```shell\n"
+"git config user.name \"Your name\"\n"
+"```"
+msgstr ""
+"```shell\n"
+"git config user.name \"Ваше имя\"\n"
+"```"
+
+#: src\git/ssh.md:114
+msgid ""
+"```shell\n"
+"git config user.email \"your@email.com\"\n"
+"```"
+msgstr ""
+"```shell\n"
+"git config user.email \"your@email.com\"\n"
+"```"
+
+#: src\git/ssh.md:118
+msgid ""
+"If you set GPG signing globally you can remove this for the local repository"
+msgstr ""
+
+#: src\git/ssh.md:124
+msgid "If you have new GPG key you can set it for the local repository"
+msgstr ""
+
+#: src\git/ssh.md:130
+msgid "Useful"
+msgstr ""
+
+#: src\git/ssh.md:132
+msgid "Commands"
+msgstr "Команды"
+
+#: src\git/ssh.md:134
+msgid "Show SSH key list"
+msgstr ""
+
+#: src\git/ssh.md:140
+msgid "Delete SSH key from SSH Agent"
+msgstr ""
+
+#: src\git/ssh.md:146
+msgid "Check if your SSH client can connect to GitHub"
+msgstr ""
+
+#: src\git/ssh.md:152
+msgid "or more verbose"
+msgstr ""
+
+#: src\git/ssh.md:158
+msgid "Links"
+msgstr ""
+
+#: src\git/ssh.md:160
+msgid ""
+"[(Stack Overflow) Multiple GitHub accounts on the same computer?](https://"
+"stackoverflow.com/a/3860139/21737287)"
+msgstr ""
+
+#: src\git/ssh.md:161
+msgid ""
+"[(GitHub Gist) How To Work With Multiple Github Accounts on a single Machine]"
+"(https://gist.github.com/rahularity/86da20fe3858e6b311de068201d279e3)"
+msgstr ""
 
 #: src\git/stash.md:3
 msgid "SAVE"
@@ -631,6 +938,14 @@ msgid ""
 msgstr ""
 "или [(ссылка)](https://stackoverflow.com/questions/39707402/why-does-git-"
 "worktree-add-create-a-branch-and-can-i-delete-it)"
+
+#: src\git/useful_commands.md:1
+msgid "Useful Git Commands"
+msgstr "Полезные команды Git"
+
+#: src\git/useful_commands.md:3
+msgid "Show the branch on which a specific commit was originally created"
+msgstr "Показать ветку, на которой изначально был создан определенный коммит"
 
 #: src\ide/visual_studio/shortcuts.md:1
 msgid "Visual Studio Main Shortcuts"
@@ -803,6 +1118,15 @@ msgstr ""
 "`F9` – создать точку останова  \n"
 "`Ctrl+Alt+B` – окно со всеми точками останова  \n"
 "`Ctrl+Shift+F9` – удалить все точки останова"
+
+#~ msgid "View merged branches"
+#~ msgstr "Просмотреть объединённые ветки"
+
+#~ msgid "View merged remote branches"
+#~ msgstr "Просмотреть объединённые удалённые ветки"
+
+#~ msgid "View no merged branches"
+#~ msgstr "Просмотреть не объединённые ветки"
 
 #~ msgid ""
 #~ "`Ctrl+K,C` – comment line  \n"
