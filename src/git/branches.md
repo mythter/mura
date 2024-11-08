@@ -119,7 +119,27 @@ git branch -m <branch_name>
 ### Rename another branch
 
 ```shell
-git branch -m  <oldbranch_name> <new_branch_name>
+git branch -m <old_branch_name> <new_branch_name>
+```
+
+### Rename the branch on the remote
+
+```shell
+git push -f --mirror
+```
+
+or
+
+### Push the local branch and reset the upstream branch
+
+```shell
+git push origin -u <new_branch_name>
+```
+
+### Delete the remote branch
+
+```shell
+git push origin --delete <old_branch_name>
 ```
 
 ## VIEW
