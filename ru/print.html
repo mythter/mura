@@ -8,7 +8,7 @@
 
 
         <!-- Custom HTML head -->
-        
+
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
@@ -89,7 +89,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="git/index.html"><strong aria-hidden="true">1.</strong> Git</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="git/branches.html"><strong aria-hidden="true">1.1.</strong> Ветки</a></li><li class="chapter-item "><a href="git/changes.html"><strong aria-hidden="true">1.2.</strong> Изменения</a></li><li class="chapter-item "><a href="git/commits.html"><strong aria-hidden="true">1.3.</strong> Коммиты</a></li><li class="chapter-item "><a href="git/config.html"><strong aria-hidden="true">1.4.</strong> Конфигурация</a></li><li class="chapter-item "><a href="git/line_endings.html"><strong aria-hidden="true">1.5.</strong> Окончания строк</a></li><li class="chapter-item "><a href="git/log.html"><strong aria-hidden="true">1.6.</strong> Лог</a></li><li class="chapter-item "><a href="git/remotes.html"><strong aria-hidden="true">1.7.</strong> Удалённые репозиотрии</a></li><li class="chapter-item "><a href="git/ssh.html"><strong aria-hidden="true">1.8.</strong> SSH</a></li><li class="chapter-item "><a href="git/stash.html"><strong aria-hidden="true">1.9.</strong> Припрятывание</a></li><li class="chapter-item "><a href="git/tags.html"><strong aria-hidden="true">1.10.</strong> Теги</a></li><li class="chapter-item "><a href="git/worktrees.html"><strong aria-hidden="true">1.11.</strong> Рабочие деревья</a></li><li class="chapter-item "><a href="git/useful_commands.html"><strong aria-hidden="true">1.12.</strong> Useful commands</a></li></ol></li><li class="chapter-item expanded "><a href="ide/index.html"><strong aria-hidden="true">2.</strong> IDE</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="ide/visual_studio.html"><strong aria-hidden="true">2.1.</strong> Visual Studio</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="ide/visual_studio/shortcuts.html"><strong aria-hidden="true">2.1.1.</strong> Горячие клавиши</a></li></ol></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="git/index.html"><strong aria-hidden="true">1.</strong> Git</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="git/branches.html"><strong aria-hidden="true">1.1.</strong> Ветки</a></li><li class="chapter-item "><a href="git/changes.html"><strong aria-hidden="true">1.2.</strong> Изменения</a></li><li class="chapter-item "><a href="git/commits.html"><strong aria-hidden="true">1.3.</strong> Коммиты</a></li><li class="chapter-item "><a href="git/config.html"><strong aria-hidden="true">1.4.</strong> Конфигурация</a></li><li class="chapter-item "><a href="git/line_endings.html"><strong aria-hidden="true">1.5.</strong> Окончания строк</a></li><li class="chapter-item "><a href="git/log.html"><strong aria-hidden="true">1.6.</strong> Лог</a></li><li class="chapter-item "><a href="git/remotes.html"><strong aria-hidden="true">1.7.</strong> Удалённые репозиотрии</a></li><li class="chapter-item "><a href="git/ssh.html"><strong aria-hidden="true">1.8.</strong> SSH</a></li><li class="chapter-item "><a href="git/stash.html"><strong aria-hidden="true">1.9.</strong> Припрятывание</a></li><li class="chapter-item "><a href="git/tags.html"><strong aria-hidden="true">1.10.</strong> Теги</a></li><li class="chapter-item "><a href="git/worktrees.html"><strong aria-hidden="true">1.11.</strong> Рабочие деревья</a></li><li class="chapter-item "><a href="git/useful_commands.html"><strong aria-hidden="true">1.12.</strong> Полезные команды</a></li></ol></li><li class="chapter-item expanded "><a href="ide/index.html"><strong aria-hidden="true">2.</strong> IDE</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="ide/visual_studio.html"><strong aria-hidden="true">2.1.</strong> Visual Studio</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="ide/visual_studio/shortcuts.html"><strong aria-hidden="true">2.1.1.</strong> Горячие клавиши</a></li></ol></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -119,7 +119,7 @@
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
                         <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -285,16 +285,26 @@
 <pre><code class="language-shell">git branch -m &lt;branch_name&gt;
 </code></pre>
 <h3 id="Переименовать-другую-ветки"><a class="header" href="#Переименовать-другую-ветки">Переименовать другую ветки</a></h3>
-<pre><code class="language-shell">git branch -m  &lt;oldbranch_name&gt; &lt;new_branch_name&gt;
+<pre><code class="language-shell">git branch -m &lt;old_branch_name&gt; &lt;new_branch_name&gt;
+</code></pre>
+<h3 id="Переименовать-удалённую-ветки"><a class="header" href="#Переименовать-удалённую-ветки">Переименовать удалённую ветки</a></h3>
+<pre><code class="language-shell">git push -f --mirror
+</code></pre>
+<p>или</p>
+<h3 id="Отправить-локальную-ветку-на-удалённый-репозиторий-и-обновить-отслеживаемую-ветку"><a class="header" href="#Отправить-локальную-ветку-на-удалённый-репозиторий-и-обновить-отслеживаемую-ветку">Отправить локальную ветку на удалённый репозиторий и обновить отслеживаемую ветку</a></h3>
+<pre><code class="language-shell">git push origin -u &lt;new_branch_name&gt;
+</code></pre>
+<h3 id="Удалить-удалённую-ветку"><a class="header" href="#Удалить-удалённую-ветку">Удалить удалённую ветку</a></h3>
+<pre><code class="language-shell">git push origin --delete &lt;old_branch_name&gt;
 </code></pre>
 <h2 id="ПРОСМОТР"><a class="header" href="#ПРОСМОТР">ПРОСМОТР</a></h2>
-<h3 id="view-branches-that-was-merged-with-the-current-branch"><a class="header" href="#view-branches-that-was-merged-with-the-current-branch">View branches that was merged with the current branch</a></h3>
+<h3 id="Просмотреть-ветки-которые-были-объединены-с-текущей-веткой"><a class="header" href="#Просмотреть-ветки-которые-были-объединены-с-текущей-веткой">Просмотреть ветки, которые были объединены с текущей веткой</a></h3>
 <pre><code class="language-shell">git branch --merged
 </code></pre>
-<h3 id="view-remote-branches-that-was-merged-with-the-current-branch"><a class="header" href="#view-remote-branches-that-was-merged-with-the-current-branch">View remote branches that was merged with the current branch</a></h3>
+<h3 id="Просмотреть-удалённые-ветки-которые-были-объединены-с-текущей-веткой"><a class="header" href="#Просмотреть-удалённые-ветки-которые-были-объединены-с-текущей-веткой">Просмотреть удалённые ветки, которые были объединены с текущей веткой</a></h3>
 <pre><code class="language-shell">git branch -r --merged
 </code></pre>
-<h3 id="view-branches-that-wast-merged-with-the-current-branch"><a class="header" href="#view-branches-that-wast-merged-with-the-current-branch">View branches that was't merged with the current branch</a></h3>
+<h3 id="Просмотреть-ветки-которые-не-были-объединены-с-текущей-веткой"><a class="header" href="#Просмотреть-ветки-которые-не-были-объединены-с-текущей-веткой">Просмотреть ветки, которые не были объединены с текущей веткой</a></h3>
 <pre><code class="language-shell">git branch --no-merged
 </code></pre>
 <h2 id="УДАЛЕНИЕ-УСТАРЕВШИХ-ВЕТОК"><a class="header" href="#УДАЛЕНИЕ-УСТАРЕВШИХ-ВЕТОК">УДАЛЕНИЕ УСТАРЕВШИХ ВЕТОК</a></h2>
@@ -359,16 +369,16 @@
 </code></pre>
 <pre><code class="language-shell">git reset --hard HEAD
 </code></pre>
-<h2 id="remove-from-git"><a class="header" href="#remove-from-git">REMOVE FROM GIT</a></h2>
-<h3 id="remove-file-from-git-tracking-but-keep-it-on-disk"><a class="header" href="#remove-file-from-git-tracking-but-keep-it-on-disk">Remove file from Git tracking but keep it on disk</a></h3>
+<h2 id="УДАЛИТЬ-ИЗ-git"><a class="header" href="#УДАЛИТЬ-ИЗ-git">УДАЛИТЬ ИЗ GIT</a></h2>
+<h3 id="Удалить-файл-из-отслеживания-git-но-оставить-на-диске"><a class="header" href="#Удалить-файл-из-отслеживания-git-но-оставить-на-диске">Удалить файл из отслеживания Git, но оставить на диске</a></h3>
 <pre><code class="language-shell">git rm --cached &lt;file_name&gt;
 </code></pre>
-<h3 id="remove-file-from-the-git-repository-and-from-the-local-disk"><a class="header" href="#remove-file-from-the-git-repository-and-from-the-local-disk">Remove file from the git repository and from the local disk</a></h3>
+<h3 id="Удалить-файл-из-репозитория-git-и-с-диска"><a class="header" href="#Удалить-файл-из-репозитория-git-и-с-диска">Удалить файл из репозитория Git и с диска</a></h3>
 <pre><code class="language-shell">git rm &lt;file_name&gt;
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="Коммиты"><a class="header" href="#Коммиты">Коммиты</a></h1>
-<h3 id="make-an-empty-commit"><a class="header" href="#make-an-empty-commit">Make an empty commit</a></h3>
-<pre><code class="language-shell">git commit --allow-empty -m "empty commit"
+<h3 id="Создать-пустой-коммит"><a class="header" href="#Создать-пустой-коммит">Создать пустой коммит</a></h3>
+<pre><code class="language-shell">git commit --allow-empty -m "пустой коммит"
 </code></pre>
 <h3 id="Отменить-последний-коммит-и-переместить-изменения-в-Рабочую-директорию-изменения-в-Индексе-также-будут-перенесены-в-Рабочую-директорию-по-умолчанию---mixed"><a class="header" href="#Отменить-последний-коммит-и-переместить-изменения-в-Рабочую-директорию-изменения-в-Индексе-также-будут-перенесены-в-Рабочую-директорию-по-умолчанию---mixed">Отменить последний коммит и переместить изменения в Рабочую директорию (изменения в Индексе также будут перенесены в Рабочую директорию) (по умолчанию <em>--mixed</em>)</a></h3>
 <pre><code class="language-shell">git reset HEAD^
@@ -435,8 +445,8 @@
 <h3 id="По-имени-файла-показываются-только-коммиты-в-которых-изменялся-файл"><a class="header" href="#По-имени-файла-показываются-только-коммиты-в-которых-изменялся-файл">По имени файла (показываются только коммиты, в которых изменялся файл)</a></h3>
 <pre><code class="language-shell">git log &lt;file_name&gt;
 </code></pre>
-<h2 id="decoration"><a class="header" href="#decoration">Decoration</a></h2>
-<h3 id="print-commit-with-the-names-of-changed-files"><a class="header" href="#print-commit-with-the-names-of-changed-files">Print commit with the names of changed files</a></h3>
+<h2 id="Декорирование"><a class="header" href="#Декорирование">Декорирование</a></h2>
+<h3 id="Показать-коммит-с-именами-изменённых-файлов"><a class="header" href="#Показать-коммит-с-именами-изменённых-файлов">Показать коммит с именами изменённых файлов</a></h3>
 <pre><code class="language-shell">git log --name-only --oneline
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="Удалённые-репозиотрии"><a class="header" href="#Удалённые-репозиотрии">Удалённые репозиотрии</a></h1>
@@ -450,7 +460,7 @@
 <p>Добавить имя удалённого репозитория</p>
 <pre><code class="language-shell">git remote
 </code></pre>
-<p>View remote name and url</p>
+<p>Просмотреть имя и URL удалённого репозитория</p>
 <pre><code class="language-shell">git remote -v
 </code></pre>
 <p>Просмотреть больше информации об удалённом репозитории</p>
@@ -525,17 +535,23 @@
 <p>Add remote to local repository</p>
 <pre><code class="language-shell">git remote add origin git@github.com-&lt;username&gt;:&lt;username&gt;/&lt;repo_name&gt;.git
 </code></pre>
-<p>Change remote in local repository</p>
+<p>Изменить ссылку удалённого репозитория</p>
 <pre><code class="language-shell">git remote set-url origin git@github.com-&lt;username&gt;:&lt;username&gt;/&lt;repo_name&gt;.git
 </code></pre>
 <h2 id="finally"><a class="header" href="#finally">Finally</a></h2>
 <p>Don't forget to specify <code>user.name</code> and <code>user.email</code> in every repository freshly cloned or existing before.</p>
-<pre><code class="language-shell">git config user.name "Your name"
+<pre><code class="language-shell">git config user.name "Ваше имя"
 </code></pre>
 <pre><code class="language-shell">git config user.email "your@email.com"
 </code></pre>
+<p>If you set GPG signing globally you can remove this for the local repository</p>
+<pre><code class="language-shell">git config commit.gpgSign false
+</code></pre>
+<p>If you have new GPG key you can set it for the local repository</p>
+<pre><code class="language-shell">git config user.signingkey &lt;new-gpg-key-id&gt;
+</code></pre>
 <h2 id="useful"><a class="header" href="#useful">Useful</a></h2>
-<h3 id="commands"><a class="header" href="#commands">Commands</a></h3>
+<h3 id="Команды"><a class="header" href="#Команды">Команды</a></h3>
 <p>Show SSH key list</p>
 <pre><code class="language-powershell">ssh-add -l
 </code></pre>
@@ -639,8 +655,8 @@
 git worktree prune
 git branch -D &lt;branch-name&gt;
 </code></pre>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="useful-git-commands"><a class="header" href="#useful-git-commands">Useful Git Commands</a></h1>
-<h3 id="show-the-branch-on-which-a-specific-commit-was-originally-created"><a class="header" href="#show-the-branch-on-which-a-specific-commit-was-originally-created">Show the branch on which a specific commit was originally created</a></h3>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="Полезные-команды-git"><a class="header" href="#Полезные-команды-git">Полезные команды Git</a></h1>
+<h3 id="Показать-ветку-на-которой-изначально-был-создан-определенный-коммит"><a class="header" href="#Показать-ветку-на-которой-изначально-был-создан-определенный-коммит">Показать ветку, на которой изначально был создан определенный коммит</a></h3>
 <div class="mdbook-tabs-container" data-tabglobal="example">
 <nav class="mdbook-tabs">
 <button class="mdbook-tab active" data-tabname="Windows">Windows</button>
