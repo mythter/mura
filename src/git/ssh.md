@@ -115,6 +115,18 @@ git config user.name "Your name"
 git config user.email "your@email.com"
 ```
 
+If you set GPG signing globally you can remove this for the local repository
+
+```shell
+git config commit.gpgSign false
+```
+
+If you have new GPG key you can set it for the local repository
+
+```shell
+git config user.signingkey <new-gpg-key-id>
+```
+
 ## Useful
 
 ### Commands
