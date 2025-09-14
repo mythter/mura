@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: mura\n"
-"POT-Creation-Date: 2025-09-14T21:27:32+03:00\n"
+"POT-Creation-Date: 2025-09-14T22:15:37+03:00\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -37,63 +37,59 @@ msgstr "Коммиты"
 msgid "Config"
 msgstr "Конфигурация"
 
-#: src\SUMMARY.md:8 src\git/ignore.md:1
-msgid "Ignore"
-msgstr "Ignore"
-
-#: src\SUMMARY.md:9 src\git/line_endings.md:1
+#: src\SUMMARY.md:8 src\git/line_endings.md:1
 msgid "Line endings"
 msgstr "Окончания строк"
 
-#: src\SUMMARY.md:10 src\git/log.md:1
+#: src\SUMMARY.md:9 src\git/log.md:1
 msgid "Log"
 msgstr "Лог"
 
-#: src\SUMMARY.md:11 src\git/remotes.md:1
+#: src\SUMMARY.md:10 src\git/remotes.md:1
 msgid "Remotes"
 msgstr "Удалённые репозиотрии"
 
-#: src\SUMMARY.md:12 src\git/ssh.md:1
+#: src\SUMMARY.md:11 src\git/ssh.md:1
 msgid "SSH"
 msgstr "SSH"
 
-#: src\SUMMARY.md:13 src\git/stash.md:1
+#: src\SUMMARY.md:12 src\git/stash.md:1
 msgid "Stash"
 msgstr "Припрятывание"
 
-#: src\SUMMARY.md:14 src\git/tags.md:1
+#: src\SUMMARY.md:13 src\git/tags.md:1
 msgid "Tags"
 msgstr "Теги"
 
-#: src\SUMMARY.md:15 src\git/worktrees.md:1
+#: src\SUMMARY.md:14 src\git/worktrees.md:1
 msgid "Worktrees"
 msgstr "Рабочие деревья"
 
-#: src\SUMMARY.md:16
+#: src\SUMMARY.md:15
 msgid "Useful commands"
 msgstr "Полезные команды"
 
-#: src\SUMMARY.md:17 src\sql/index.md:1
+#: src\SUMMARY.md:16 src\sql/index.md:1
 msgid "SQL"
 msgstr "SQL"
 
-#: src\SUMMARY.md:18 src\sql/sql_server/sql_server.md:1
+#: src\SUMMARY.md:17 src\sql/sql_server/sql_server.md:1
 msgid "SQL Server"
 msgstr "SQL Server"
 
-#: src\SUMMARY.md:19 src\sql/sql_server/data_types.md:1
+#: src\SUMMARY.md:18 src\sql/sql_server/data_types.md:1
 msgid "Data Types"
 msgstr "Типы данных"
 
-#: src\SUMMARY.md:20 src\ide/index.md:1
+#: src\SUMMARY.md:19 src\ide/index.md:1
 msgid "IDE"
 msgstr "IDE"
 
-#: src\SUMMARY.md:21 src\ide/visual_studio.md:1
+#: src\SUMMARY.md:20 src\ide/visual_studio.md:1
 msgid "Visual Studio"
 msgstr "Visual Studio"
 
-#: src\SUMMARY.md:22
+#: src\SUMMARY.md:21
 msgid "Shortcuts"
 msgstr "Горячие клавиши"
 
@@ -1678,6 +1674,9 @@ msgstr ""
 "`F9` – создать точку останова  \n"
 "`Ctrl+Alt+B` – окно со всеми точками останова  \n"
 "`Ctrl+Shift+F9` – удалить все точки останова"
+
+#~ msgid "Ignore"
+#~ msgstr "Ignore"
 
 #~ msgid "or"
 #~ msgstr "или"
