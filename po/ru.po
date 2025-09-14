@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: mura\n"
-"POT-Creation-Date: 2025-09-14T20:47:57+03:00\n"
+"POT-Creation-Date: 2025-09-14T21:27:32+03:00\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -245,7 +245,7 @@ msgstr ""
 msgid "DELETE local remote-tracking branch"
 msgstr "УДАЛИТЬ локальную удалённую ветку"
 
-#: src\git/branches.md:105 src\git/branches.md:177
+#: src\git/branches.md:105 src\git/branches.md:171
 msgid "long"
 msgstr "длинная команда"
 
@@ -262,45 +262,41 @@ msgid "Rename another branch"
 msgstr "Переименовать другую ветки"
 
 #: src\git/branches.md:125
-msgid "Rename the branch on the remote"
-msgstr "Переименовать удалённую ветки"
+msgid "Rename branch on the remote"
+msgstr "Переименовать удалённую ветку"
 
-#: src\git/branches.md:131
-msgid "or"
-msgstr "или"
-
-#: src\git/branches.md:133
+#: src\git/branches.md:127
 msgid "Push the local branch and reset the upstream branch"
 msgstr ""
 "Отправить локальную ветку на удалённый репозиторий и обновить отслеживаемую "
 "ветку"
 
-#: src\git/branches.md:139
+#: src\git/branches.md:133
 msgid "Delete the remote branch"
 msgstr "Удалить удалённую ветку"
 
-#: src\git/branches.md:145 src\git/stash.md:25 src\git/tags.md:29
+#: src\git/branches.md:139 src\git/stash.md:25 src\git/tags.md:29
 #: src\git/worktrees.md:29
 msgid "VIEW"
 msgstr "ПРОСМОТР"
 
-#: src\git/branches.md:147
+#: src\git/branches.md:141
 msgid "View branches that was merged with the current branch"
 msgstr "Просмотреть ветки, которые были объединены с текущей веткой"
 
-#: src\git/branches.md:153
+#: src\git/branches.md:147
 msgid "View remote branches that was merged with the current branch"
 msgstr "Просмотреть удалённые ветки, которые были объединены с текущей веткой"
 
-#: src\git/branches.md:159
+#: src\git/branches.md:153
 msgid "View branches that was't merged with the current branch"
 msgstr "Просмотреть ветки, которые не были объединены с текущей веткой"
 
-#: src\git/branches.md:165
+#: src\git/branches.md:159
 msgid "PRUNE"
 msgstr "УДАЛЕНИЕ УСТАРЕВШИХ ВЕТОК"
 
-#: src\git/branches.md:171
+#: src\git/branches.md:165
 msgid "short"
 msgstr "короткая команда"
 
@@ -1682,6 +1678,9 @@ msgstr ""
 "`F9` – создать точку останова  \n"
 "`Ctrl+Alt+B` – окно со всеми точками останова  \n"
 "`Ctrl+Shift+F9` – удалить все точки останова"
+
+#~ msgid "or"
+#~ msgstr "или"
 
 #~ msgid "Data"
 #~ msgstr "Данные"
