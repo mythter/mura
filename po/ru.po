@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: mura\n"
-"POT-Creation-Date: 2024-11-08T12:05:25+02:00\n"
+"POT-Creation-Date: 2025-09-14T20:47:57+03:00\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n % 10 == 1 && n % 100 != 11 ? 0 : n % 10 "
 ">= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? 1 : 2);\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.7\n"
 
 #: src\SUMMARY.md:1
 msgid "Summary"
@@ -73,15 +73,27 @@ msgstr "Рабочие деревья"
 msgid "Useful commands"
 msgstr "Полезные команды"
 
-#: src\SUMMARY.md:17 src\ide/index.md:1
+#: src\SUMMARY.md:17 src\sql/index.md:1
+msgid "SQL"
+msgstr "SQL"
+
+#: src\SUMMARY.md:18 src\sql/sql_server/sql_server.md:1
+msgid "SQL Server"
+msgstr "SQL Server"
+
+#: src\SUMMARY.md:19 src\sql/sql_server/data_types.md:1
+msgid "Data Types"
+msgstr "Типы данных"
+
+#: src\SUMMARY.md:20 src\ide/index.md:1
 msgid "IDE"
 msgstr "IDE"
 
-#: src\SUMMARY.md:18 src\ide/visual_studio.md:1
+#: src\SUMMARY.md:21 src\ide/visual_studio.md:1
 msgid "Visual Studio"
 msgstr "Visual Studio"
 
-#: src\SUMMARY.md:19
+#: src\SUMMARY.md:22
 msgid "Shortcuts"
 msgstr "Горячие клавиши"
 
@@ -95,17 +107,33 @@ msgstr "[Git шпаргалка](https://ndpsoftware.com/git-cheatsheet.html)"
 
 #: src\git/index.md:6
 msgid ""
-"[Cheatsheet from http://training.github.com/](https://training.github.com/"
-"downloads/github-git-cheat-sheet/)"
+"[Cheatsheet by GitHub](https://training.github.com/downloads/github-git-"
+"cheat-sheet/)"
 msgstr ""
-"[Шпаргалка от http://training.github.com/](https://training.github.com/"
-"downloads/github-git-cheat-sheet/)"
+"[Шпаргалка от GitHub](https://training.github.com/downloads/github-git-cheat-"
+"sheet/)"
 
 #: src\git/index.md:7
+msgid ""
+"[Cheatsheet by GitLab](https://about.gitlab.com/images/press/git-cheat-"
+"sheet.pdf)"
+msgstr ""
+"Шпаргалка от GitLab](https://about.gitlab.com/images/press/git-cheat-"
+"sheet.pdf)"
+
+#: src\git/index.md:8
+msgid ""
+"[Cheatsheet by Atlassian](https://www.atlassian.com/git/tutorials/atlassian-"
+"git-cheatsheet)"
+msgstr ""
+"[Шпаргалка от Atlassian](https://www.atlassian.com/git/tutorials/atlassian-"
+"git-cheatsheet)"
+
+#: src\git/index.md:9
 msgid "[LearnGitBranching](https://learngitbranching.js.org/)"
 msgstr "[LearnGitBranching](https://learngitbranching.js.org/)"
 
-#: src\git/index.md:8
+#: src\git/index.md:10
 msgid "[Pro Git book (2nd Edition)](https://git-scm.com/book/en/v2)"
 msgstr "[Книга Pro Git (2-е издание)](https://git-scm.com/book/ru/v2)"
 
@@ -559,23 +587,25 @@ msgstr "Удалить удалённый репозиторий"
 
 #: src\git/ssh.md:3
 msgid "Create SSH key"
-msgstr ""
+msgstr "Создайте SSH ключ"
 
 #: src\git/ssh.md:5
 msgid "`-t` specifies the key type"
-msgstr ""
+msgstr "`-t` указывает тип ключа"
 
 #: src\git/ssh.md:7
 msgid "`-b` specifies the key size (in bits)"
-msgstr ""
+msgstr "`-b` указывает размер ключа (в битах)"
 
 #: src\git/ssh.md:9
 msgid "`-C` for comment to help identify your ssh key (optional)"
 msgstr ""
+"`-C` для комментария, который поможет идентифицировать ваш ключ SSH "
+"(необязательно)"
 
 #: src\git/ssh.md:11
-msgid "`-f`  for the file name where ssh key get saved"
-msgstr ""
+msgid "`-f` for the file name where ssh key get saved"
+msgstr "`-f` для имени файла, в котором сохранится SSH ключ"
 
 #: src\git/ssh.md:13
 msgid ""
@@ -584,109 +614,126 @@ msgid ""
 "<key_name>\n"
 "```"
 msgstr ""
+"```powershell\n"
+"ssh-keygen -t rsa -b 4096 -C \"<ваш email>\" -f $env:USERPROFILE/.ssh/"
+"<key_name>\n"
+"```"
 
 #: src\git/ssh.md:17
 msgid "Add SSH key to SSH Agent"
-msgstr ""
+msgstr "Добавьте SSH ключ в SSH агент"
 
 #: src\git/ssh.md:19
 msgid "Add SSH **private** key to SSH Agent"
-msgstr ""
+msgstr "Добавьте **приватный** SSH ключ в SSH агент"
 
 #: src\git/ssh.md:25
 msgid ""
 "If previous command doesn't work try the following or see this [link]"
 "(https://stackoverflow.com/a/53606760/21737287)"
 msgstr ""
+"Если предыдущая команда не сработала попробуйте следующее или попробуйте "
+"решение по ссылке [link](https://stackoverflow.com/a/53606760/21737287)"
 
 #: src\git/ssh.md:27
 msgid "Check if SSH Agent service is running"
-msgstr ""
+msgstr "Проверьте запущен ли SSH Agent"
 
 #: src\git/ssh.md:33
 msgid "Stop SSH Agent service"
-msgstr ""
+msgstr "Остановите сервис SSH Agent"
 
 #: src\git/ssh.md:39
 msgid "Start SSH Agent service"
-msgstr ""
+msgstr "Запустите SSH Agent"
 
 #: src\git/ssh.md:45
 msgid "Add SSH public key to the Github"
-msgstr ""
+msgstr "Добавьте публичный SSH ключ в GitHub аккаунт"
 
 #: src\git/ssh.md:47
 msgid "Copy content of `<key_name>.pub`"
-msgstr ""
+msgstr "Скопируйте содержимое файла `<key_name>.pub`"
 
 #: src\git/ssh.md:48
 msgid "Goto **Settings** > **SSH and GPG keys** > **New SSH Key**"
-msgstr ""
+msgstr "Перейдите в **Settings** > **SSH and GPG keys** > **New SSH Key**"
 
 #: src\git/ssh.md:49
 msgid "Paste your copied public key and give it a Title of your choice"
 msgstr ""
+"Вставьте скопированный публичный ключ и дайте ему название по вашему выбору"
 
 #: src\git/ssh.md:51
 msgid "Create SSH Config file and add Host Entries"
-msgstr ""
+msgstr "Создайте файл конфигурации SSH и добавьте Host Entries"
 
 #: src\git/ssh.md:53
 msgid ""
 "If config file not already exists then create one (`$env:USERPROFILE/.ssh/"
 "config`)"
 msgstr ""
+"Если файла конфигурации не существует, создайте его (`$env:USERPROFILE/.ssh/"
+"config`)"
 
 #: src\git/ssh.md:63
 msgid "`Host github.com-<username>`"
-msgstr ""
+msgstr "`Host github.com-<username>`"
 
 #: src\git/ssh.md:65
 msgid "This is the hostname for which these settings apply."
-msgstr ""
+msgstr "Это имя хоста, к которому применяются эти настройки."
 
 #: src\git/ssh.md:66
 msgid ""
 "Every time you connect to this host via SSH, the following configuration "
 "will be applied."
 msgstr ""
+"Каждый раз при подключении к этому хосту через SSH будет применяться "
+"следующая конфигурация."
 
 #: src\git/ssh.md:67
 msgid ""
 "You can use different settings for other hosts (for example, for other "
 "servers)."
 msgstr ""
+"Вы можете использовать другие настройки для других хостов (например, для "
+"других серверов)."
 
 #: src\git/ssh.md:69
 msgid "`HostName github.com`"
-msgstr ""
+msgstr "`HostName github.com`"
 
 #: src\git/ssh.md:71
 msgid "Specifies the actual hostname to connect to."
-msgstr ""
+msgstr "Указывает фактическое имя хоста для подключения."
 
 #: src\git/ssh.md:73
 msgid "`User git`"
-msgstr ""
+msgstr "`User git`"
 
 #: src\git/ssh.md:75
 msgid ""
 "GitHub requires the user to be specified as `git` for all SSH connections."
 msgstr ""
+"GitHub требует, чтобы для всех SSH-подключений в качестве пользователя было "
+"указано `git`."
 
 #: src\git/ssh.md:77
 msgid "`IdentityFile C:/Users/<user name>/.ssh/<key_name>`"
-msgstr ""
+msgstr "`IdentityFile C:/Users/<user name>/.ssh/<key_name>`"
 
 #: src\git/ssh.md:79
 msgid ""
 "Specifies the path to your private SSH key, which will be used to "
 "authenticate to GitHub."
 msgstr ""
+"Указывает путь к вашему приватному SSH-ключу, который будет использоваться "
+"для аутентификации на GitHub."
 
 #: src\git/ssh.md:81
 msgid "`IdentitiesOnly yes`"
-msgstr ""
+msgstr "`IdentitiesOnly yes`"
 
 #: src\git/ssh.md:83
 msgid ""
@@ -694,24 +741,30 @@ msgid ""
 "IdentityFile) and ignore any other keys that may be loaded into the SSH "
 "agent."
 msgstr ""
+"Заставляет SSH использовать только ключи, указанные в файле конфигурации "
+"(через IdentityFile), и игнорировать любые другие ключи, которые могут быть "
+"загружены в агент SSH."
 
 #: src\git/ssh.md:84
 msgid ""
 "This helps if you have multiple keys and want to use a specific key for a "
 "specific host."
 msgstr ""
+"Это полезно, если у вас несколько ключей и вы хотите использовать "
+"определенный ключ для определенного хоста."
 
 #: src\git/ssh.md:86
 msgid "Cloning existing repository or adding remote for the local one"
 msgstr ""
+"Клонирование существующего репозитория или добавление удаленного к локальному"
 
 #: src\git/ssh.md:88
 msgid "Clone existing repository"
-msgstr ""
+msgstr "Клонировать существующий репозиторий"
 
 #: src\git/ssh.md:94
 msgid "Add remote to local repository"
-msgstr ""
+msgstr "Добавить удаленный репозиторий в локальный"
 
 #: src\git/ssh.md:100
 msgid "Change remote in local repository"
@@ -719,13 +772,15 @@ msgstr "Изменить ссылку удалённого репозитори�
 
 #: src\git/ssh.md:106
 msgid "Finally"
-msgstr ""
+msgstr "И наконец то"
 
 #: src\git/ssh.md:108
 msgid ""
 "Don't forget to specify `user.name` and `user.email` in every repository "
 "freshly cloned or existing before."
 msgstr ""
+"Не забудьте указать `user.name` и `user.email` в каждом недавно "
+"клонированном или существующем ранее репозитории."
 
 #: src\git/ssh.md:110
 msgid ""
@@ -751,14 +806,18 @@ msgstr ""
 msgid ""
 "If you set GPG signing globally you can remove this for the local repository"
 msgstr ""
+"Если вы настроили глобальное подписывание GPG, вы можете удалить его для "
+"локального репозитория"
 
 #: src\git/ssh.md:124
 msgid "If you have new GPG key you can set it for the local repository"
 msgstr ""
+"Если у вас есть новый GPG ключ, вы можете установить его для локального "
+"репозитория"
 
 #: src\git/ssh.md:130
 msgid "Useful"
-msgstr ""
+msgstr "Полезное"
 
 #: src\git/ssh.md:132
 msgid "Commands"
@@ -766,35 +825,40 @@ msgstr "Команды"
 
 #: src\git/ssh.md:134
 msgid "Show SSH key list"
-msgstr ""
+msgstr "Показать список SSH ключей"
 
 #: src\git/ssh.md:140
 msgid "Delete SSH key from SSH Agent"
-msgstr ""
+msgstr "Удалить SSH ключ из SSH агента"
 
 #: src\git/ssh.md:146
 msgid "Check if your SSH client can connect to GitHub"
-msgstr ""
+msgstr "Проверка может ли ваш SSH клиент подключиться к GitHub"
 
 #: src\git/ssh.md:152
 msgid "or more verbose"
-msgstr ""
+msgstr "или более явно"
 
 #: src\git/ssh.md:158
 msgid "Links"
-msgstr ""
+msgstr "Ссылки"
 
 #: src\git/ssh.md:160
 msgid ""
 "[(Stack Overflow) Multiple GitHub accounts on the same computer?](https://"
 "stackoverflow.com/a/3860139/21737287)"
 msgstr ""
+"[(Stack Overflow) Несколько GitHub аккаунтов на одном устройстве?](https://"
+"stackoverflow.com/a/3860139/21737287)"
 
 #: src\git/ssh.md:161
 msgid ""
 "[(GitHub Gist) How To Work With Multiple Github Accounts on a single Machine]"
 "(https://gist.github.com/rahularity/86da20fe3858e6b311de068201d279e3)"
 msgstr ""
+"[(GitHub Gist) Как работать с несколькими Github аккаунтами на одном "
+"устройстве](https://gist.github.com/rahularity/"
+"86da20fe3858e6b311de068201d279e3)"
 
 #: src\git/stash.md:3
 msgid "SAVE"
@@ -946,6 +1010,506 @@ msgstr "Полезные команды Git"
 #: src\git/useful_commands.md:3
 msgid "Show the branch on which a specific commit was originally created"
 msgstr "Показать ветку, на которой изначально был создан определенный коммит"
+
+#: src\sql/index.md:3
+msgid "DML (Data Manipulation Language)"
+msgstr "DML (Data Manipulation Language)"
+
+#: src\sql/index.md:5
+msgid ""
+"DML commands are used for storing, retrieving, modifying, and deleting data."
+msgstr ""
+"Команды DML используются для хранения, извлечения, изменения и удаления "
+"данных."
+
+#: src\sql/index.md:7
+msgid "`SELECT` - retrieve data from a database"
+msgstr "`SELECT` - извлечение данных из базы данных"
+
+#: src\sql/index.md:9
+msgid "`INSERT` - insert data into a database"
+msgstr "`INSERT` - вставить данные в базу данных"
+
+#: src\sql/index.md:11
+msgid "`UPDATE` - updates existing data within a database"
+msgstr "`UPDATE` - обновление существующих данных в базе данных"
+
+#: src\sql/index.md:13
+msgid "`DELETE` - delete records from a database"
+msgstr "`DELETE` - удаление записи из базы данных"
+
+#: src\sql/index.md:15
+msgid "DDL (Data Definition Language)"
+msgstr "DDL (Data Definition Language)"
+
+#: src\sql/index.md:17
+msgid ""
+"DDL commands are used for creating, modifying, and dropping the structure of "
+"database objects."
+msgstr ""
+"Команды DDL используются для создания, изменения и удаления структуры "
+"объектов базы данных."
+
+#: src\sql/index.md:19
+msgid "`CREATE` - create database objects such as tables and views"
+msgstr ""
+"`CREATE` - создание объектов базы данных, таких как таблицы и представления"
+
+#: src\sql/index.md:21
+msgid "`ALTER` - alters the structure of the existing database"
+msgstr "`ALTER` - изменение структуры существующей базы данных"
+
+#: src\sql/index.md:23
+msgid "`DROP` - delete objects from the database"
+msgstr "`DROP` - удаление объектов из базы данных"
+
+#: src\sql/index.md:25
+msgid "`TRUNCATE` - delete all rows from the database"
+msgstr "`TRUNCATE` - удаление всех строк из базы данных"
+
+#: src\sql/index.md:27
+msgid "DCL (Data Control Language)"
+msgstr "DCL (Data Control Language)"
+
+#: src\sql/index.md:29
+msgid "DCL commands are used to implement access control on database objects."
+msgstr ""
+"Команды DCL используются для реализации контроля доступа к объектам базы "
+"данных."
+
+#: src\sql/index.md:31
+msgid "`GRANT` - give a user access privileges on database objects"
+msgstr ""
+"`GRANT` - предоставление пользователю права доступа к объектам базы данных"
+
+#: src\sql/index.md:33
+msgid ""
+"`REVOKE` - withdraw user privileges that were previously given using GRANT"
+msgstr ""
+"`REVOKE` - отзыв привилегий пользователя, которые были ранее предоставлены с "
+"помощью GRANT"
+
+#: src\sql/index.md:35
+msgid "Tutorials and docs"
+msgstr "Туториалы и документация"
+
+#: src\sql/index.md:37
+msgid "[W3Schools SQL Tutotrial](https://www.w3schools.com/sql)"
+msgstr "[SQL туториал W3Schools](https://www.w3schools.com/sql)"
+
+#: src\sql/index.md:39
+msgid "[SQLZoo](https://sqlzoo.net/wiki/SQL_Tutorial)"
+msgstr "[SQLZoo](https://sqlzoo.net/wiki/SQL_Tutorial)"
+
+#: src\sql/sql_server/data_types.md:3
+msgid "String Data Types"
+msgstr "Строковые типы данных"
+
+#: src\sql/sql_server/data_types.md:5 src\sql/sql_server/data_types.md:19
+#: src\sql/sql_server/data_types.md:35 src\sql/sql_server/data_types.md:47
+msgid "Data type"
+msgstr "Тип данных"
+
+#: src\sql/sql_server/data_types.md:5 src\sql/sql_server/data_types.md:19
+#: src\sql/sql_server/data_types.md:35 src\sql/sql_server/data_types.md:47
+msgid "Description"
+msgstr "Описание"
+
+#: src\sql/sql_server/data_types.md:5
+msgid "Max char length"
+msgstr "Максимальная длина символа"
+
+#: src\sql/sql_server/data_types.md:5 src\sql/sql_server/data_types.md:19
+#: src\sql/sql_server/data_types.md:35
+msgid "Storage"
+msgstr "Хранилище"
+
+#: src\sql/sql_server/data_types.md:7
+msgid "char(n)"
+msgstr "char(n)"
+
+#: src\sql/sql_server/data_types.md:7
+msgid "Fixed-length non-Unicode character data (n must be between 1 and 8000)"
+msgstr "Символьные не Unicode данные фиксированной длины (n от 1 до 8000)"
+
+#: src\sql/sql_server/data_types.md:7 src\sql/sql_server/data_types.md:8
+#: src\sql/sql_server/data_types.md:13 src\sql/sql_server/data_types.md:14
+msgid "8,000"
+msgstr "8,000"
+
+#: src\sql/sql_server/data_types.md:7
+msgid "n bytes (uses one byte for each character)"
+msgstr "n байтов (используется один байт для каждого символа)"
+
+#: src\sql/sql_server/data_types.md:8
+msgid "varchar(n)"
+msgstr "varchar(n)"
+
+#: src\sql/sql_server/data_types.md:8
+msgid ""
+"Variable-length non-Unicode character data (n must be between 1 and 8000)"
+msgstr "Символьные не Unicode данные переменной длины (n от 1 до 8000)"
+
+#: src\sql/sql_server/data_types.md:8
+msgid "n bytes + 2 bytes"
+msgstr "n байт + 2 байта"
+
+#: src\sql/sql_server/data_types.md:9
+msgid "varchar(max)"
+msgstr "varchar(max)"
+
+#: src\sql/sql_server/data_types.md:9
+msgid "Variable-length non-Unicode character data"
+msgstr "Символьные не Unicode данные переменной длины"
+
+#: src\sql/sql_server/data_types.md:9 src\sql/sql_server/data_types.md:12
+msgid "up to 2 GB"
+msgstr "до 2 GB"
+
+#: src\sql/sql_server/data_types.md:10
+msgid "nchar(n)"
+msgstr "nchar(n)"
+
+#: src\sql/sql_server/data_types.md:10
+msgid "Fixed-length Unicode character data (n must be between 1 and 4000)"
+msgstr "Символьные Unicode данные фиксированной длины (n от 1 до 4000)"
+
+#: src\sql/sql_server/data_types.md:10 src\sql/sql_server/data_types.md:11
+msgid "4,000"
+msgstr "4,000"
+
+#: src\sql/sql_server/data_types.md:10
+msgid "2 * n bytes (uses two bytes for each character)"
+msgstr "2 * n байт (используется два байта для каждого символа)"
+
+#: src\sql/sql_server/data_types.md:11
+msgid "nvarchar(n)"
+msgstr "nvarchar(n)"
+
+#: src\sql/sql_server/data_types.md:11
+msgid "Variable-length Unicode character data (n must be between 1 and 4000)"
+msgstr "Символьные Unicode данные переменной длины (n от 1 до 4000)"
+
+#: src\sql/sql_server/data_types.md:11
+msgid "2 * n bytes + 2 bytes (uses two bytes for each character)"
+msgstr "2 * n байт + 2 байта (используется два байта для каждого символа)"
+
+#: src\sql/sql_server/data_types.md:12
+msgid "nvarchar(max)"
+msgstr "nvarchar(max)"
+
+#: src\sql/sql_server/data_types.md:12
+msgid "Variable-length Unicode character data"
+msgstr "Символьные Unicode данные переменной длины"
+
+#: src\sql/sql_server/data_types.md:13
+msgid "binary(n)"
+msgstr "binary(n)"
+
+#: src\sql/sql_server/data_types.md:13
+msgid "Fixed-length binary data (n must be between 1 and 8000)"
+msgstr "Двоичные данные фиксированной длины (n от 1 до 8000)"
+
+#: src\sql/sql_server/data_types.md:13
+msgid "n bytes"
+msgstr "n байт"
+
+#: src\sql/sql_server/data_types.md:14
+msgid "varbinary(n)"
+msgstr "varbinary(n)"
+
+#: src\sql/sql_server/data_types.md:14
+msgid "Variable-length binary data (n must be between 1 and 8000)"
+msgstr "Двоичные данные переменной длины (n от 1 до 8000)"
+
+#: src\sql/sql_server/data_types.md:14
+msgid "actual length of data entered + 2 bytes"
+msgstr "фактическая длина введенных данных + 2 байта"
+
+#: src\sql/sql_server/data_types.md:15
+msgid "varbinary(max)"
+msgstr "varbinary(max)"
+
+#: src\sql/sql_server/data_types.md:15
+msgid "Variable-length binary data"
+msgstr "Двоичные данные переменной длины"
+
+#: src\sql/sql_server/data_types.md:15
+msgid "2GB"
+msgstr "2GB"
+
+#: src\sql/sql_server/data_types.md:17
+msgid "Numeric Data Types"
+msgstr "Числовые типы данных"
+
+#: src\sql/sql_server/data_types.md:21
+msgid "bit"
+msgstr "bit"
+
+#: src\sql/sql_server/data_types.md:21
+msgid "Integer that can be 0, 1, or NULL"
+msgstr "Целое число, может быть 0, 1 или NULL"
+
+#: src\sql/sql_server/data_types.md:22
+msgid "tinyint"
+msgstr "tinyint"
+
+#: src\sql/sql_server/data_types.md:22
+msgid "Allows whole numbers from 0 to 255"
+msgstr "Допускает целые числа от 0 до 255"
+
+#: src\sql/sql_server/data_types.md:22
+msgid "1 byte"
+msgstr "1 байт"
+
+#: src\sql/sql_server/data_types.md:23
+msgid "smallint"
+msgstr "smallint"
+
+#: src\sql/sql_server/data_types.md:23
+msgid "Allows whole numbers between -32,768 and 32,767"
+msgstr "Допускает целые числа от -32 768 до 32 767"
+
+#: src\sql/sql_server/data_types.md:23
+msgid "2 bytes"
+msgstr "2 байта"
+
+#: src\sql/sql_server/data_types.md:24
+msgid "int"
+msgstr "int"
+
+#: src\sql/sql_server/data_types.md:24
+msgid "Allows whole numbers between -2,147,483,648 and 2,147,483,647"
+msgstr "Допускает целые числа от -2 147 483 648 до 2 147 483 647"
+
+#: src\sql/sql_server/data_types.md:24 src\sql/sql_server/data_types.md:28
+#: src\sql/sql_server/data_types.md:31 src\sql/sql_server/data_types.md:39
+msgid "4 bytes"
+msgstr "4 байта"
+
+#: src\sql/sql_server/data_types.md:25
+msgid "bigint"
+msgstr "bigint"
+
+#: src\sql/sql_server/data_types.md:25
+msgid ""
+"Allows whole numbers between -9,223,372,036,854,775,808 and "
+"9,223,372,036,854,775,807"
+msgstr ""
+"Допускает целые числа от -9 223 372 036 854 775 808 до 9 223 372 036 854 775 "
+"807"
+
+#: src\sql/sql_server/data_types.md:25 src\sql/sql_server/data_types.md:29
+#: src\sql/sql_server/data_types.md:37
+msgid "8 bytes"
+msgstr "8 байт"
+
+#: src\sql/sql_server/data_types.md:26
+msgid "decimal(p,s)"
+msgstr "decimal(p,s)"
+
+#: src\sql/sql_server/data_types.md:26 src\sql/sql_server/data_types.md:27
+msgid ""
+"Fixed precision and scale numbers.<br><br> Allows numbers from -10^38 +1 to "
+"10^38 –1.<br><br> The p parameter indicates the maximum total number of "
+"digits that can be stored (both to the left and to the right of the decimal "
+"point). p must be a value from 1 to 38. Default is 18.<br><br> The s "
+"parameter indicates the maximum number of digits stored to the right of the "
+"decimal point. s must be a value from 0 to p. Default value is 0"
+msgstr ""
+"Числа с фиксированной точкой.<br><br> Допустимы числа от -10^38 +1 до 10^38 –"
+"1.<br><br> Параметр p указывает максимальное общее количество цифр, которое "
+"можно хранить (как слева, так и справа от десятичной точки). p может быть от "
+"1 до 38. Значение по умолчанию - 18.<br><br> Параметр s указывает "
+"максимальное количество цифр, которое можно сохранить справа от десятичной "
+"точки. s может быть от 0 до p. Значение по умолчанию - 0"
+
+#: src\sql/sql_server/data_types.md:26 src\sql/sql_server/data_types.md:27
+msgid "5-17 bytes"
+msgstr "5-17 байт"
+
+#: src\sql/sql_server/data_types.md:27
+msgid "numeric(p,s)"
+msgstr "numeric(p,s)"
+
+#: src\sql/sql_server/data_types.md:28
+msgid "smallmoney"
+msgstr "smallmoney"
+
+#: src\sql/sql_server/data_types.md:28
+msgid "Monetary data from -214,748.3648 to 214,748.3647"
+msgstr "Денежные данные от -214,748.3648 до 214,748.3647"
+
+#: src\sql/sql_server/data_types.md:29
+msgid "money"
+msgstr "money"
+
+#: src\sql/sql_server/data_types.md:29
+msgid ""
+"Monetary data from -922,337,203,685,477.5808 to 922,337,203,685,477.5807"
+msgstr ""
+"Денежные данные от -922,337,203,685,477.5808 до 922,337,203,685,477.5807"
+
+#: src\sql/sql_server/data_types.md:30
+msgid "float(n)"
+msgstr "float(n)"
+
+#: src\sql/sql_server/data_types.md:30
+msgid ""
+"Floating precision number data from -1.79E + 308 to 1.79E + 308.<br><br> The "
+"n parameter indicates whether the field should hold 4 or 8 bytes. float(24) "
+"holds a 4-byte field and float(53) holds an 8-byte field. Default value of n "
+"is 53."
+msgstr ""
+"Числа с плавающей точкой от -1,79E + 308 до 1,79E + 308.<br><br> Параметр n "
+"указывает, должно ли поле содержать 4 или 8 байтов. float(24) содержит 4-"
+"байтовое поле, а float(53) - 8-байтовое. Значение n по умолчанию - 53."
+
+#: src\sql/sql_server/data_types.md:30
+msgid "4 or 8 bytes"
+msgstr "4 или 8 байт"
+
+#: src\sql/sql_server/data_types.md:31
+msgid "real"
+msgstr "real"
+
+#: src\sql/sql_server/data_types.md:31
+msgid "Floating precision number data from -3.40E + 38 to 3.40E + 38"
+msgstr "Числа с плавающей точкой от -3.40E + 38 до 3.40E + 38"
+
+#: src\sql/sql_server/data_types.md:33
+msgid "Date and Time Data Types"
+msgstr "Типы данных даты и времени"
+
+#: src\sql/sql_server/data_types.md:37
+msgid "datetime"
+msgstr "datetime"
+
+#: src\sql/sql_server/data_types.md:37
+msgid ""
+"From January 1, 1753 to December 31, 9999 with an accuracy of 3.33 "
+"milliseconds"
+msgstr "С 1 января 1753 года по 31 декабря 9999 года с точностью 3,33 мс"
+
+#: src\sql/sql_server/data_types.md:38
+msgid "datetime2"
+msgstr "datetime2"
+
+#: src\sql/sql_server/data_types.md:38
+msgid ""
+"From January 1, 0001 to December 31, 9999 with an accuracy of 100 nanoseconds"
+msgstr "С 1 января 0001 года по 31 декабря 9999 года с точностью до 100 нс"
+
+#: src\sql/sql_server/data_types.md:38
+msgid "6-8 bytes"
+msgstr "6-8 байт"
+
+#: src\sql/sql_server/data_types.md:39
+msgid "smalldatetime"
+msgstr "smalldatetime"
+
+#: src\sql/sql_server/data_types.md:39
+msgid "From January 1, 1900 to June 6, 2079 with an accuracy of 1 minute"
+msgstr "С 1 января 1900 года по 6 июня 2079 года с точностью до 1 минуты"
+
+#: src\sql/sql_server/data_types.md:40
+msgid "date"
+msgstr "date"
+
+#: src\sql/sql_server/data_types.md:40
+msgid "Stores a date only. From January 1, 0001 to December 31, 9999"
+msgstr "Хранит только дату. С 1 января 0001 г. по 31 декабря 9999 г."
+
+#: src\sql/sql_server/data_types.md:40
+msgid "3 bytes"
+msgstr "3 байта"
+
+#: src\sql/sql_server/data_types.md:41
+msgid "time"
+msgstr "time"
+
+#: src\sql/sql_server/data_types.md:41
+msgid "Stores a time only to an accuracy of 100 nanoseconds"
+msgstr "Хранит время с точностью до 100 нс"
+
+#: src\sql/sql_server/data_types.md:41
+msgid "3-5 bytes"
+msgstr "3-5 байт"
+
+#: src\sql/sql_server/data_types.md:42
+msgid "datetimeoffset"
+msgstr "datetimeoffset"
+
+#: src\sql/sql_server/data_types.md:42
+msgid "The same as datetime2 with the addition of a time zone offset"
+msgstr "То же самое, что datetime2, но со смещением часового пояса"
+
+#: src\sql/sql_server/data_types.md:42
+msgid "8-10 bytes"
+msgstr "8-10 байт"
+
+#: src\sql/sql_server/data_types.md:43
+msgid "timestamp"
+msgstr "timestamp"
+
+#: src\sql/sql_server/data_types.md:43
+msgid ""
+"Stores a unique number that gets updated every time a row gets created or "
+"modified. The timestamp value is based upon an internal clock and does not "
+"correspond to real time. Each table may have only one timestamp variable"
+msgstr ""
+"Хранит уникальный номер, который обновляется каждый раз при создании или "
+"изменении строки. Значение timestamp основано на внутреннем времени и не "
+"соответствует реальному времени. Каждая таблица может иметь только одну "
+"переменную timestamp"
+
+#: src\sql/sql_server/data_types.md:45
+msgid "Other Data Types"
+msgstr "Другие типы данных"
+
+#: src\sql/sql_server/data_types.md:49
+msgid "sql_variant"
+msgstr "sql_variant"
+
+#: src\sql/sql_server/data_types.md:49
+msgid ""
+"Stores up to 8,000 bytes of data of various data types, except text, ntext, "
+"and timestamp"
+msgstr ""
+"Хранит до 8000 байт данных различных типов, за исключением text, ntext и "
+"timestamp"
+
+#: src\sql/sql_server/data_types.md:50
+msgid "uniqueidentifier"
+msgstr "uniqueidentifier"
+
+#: src\sql/sql_server/data_types.md:50
+msgid "Stores a globally unique identifier (GUID)"
+msgstr "Хранит глобальный уникальный идентификатор (GUID)"
+
+#: src\sql/sql_server/data_types.md:51
+msgid "xml"
+msgstr "xml"
+
+#: src\sql/sql_server/data_types.md:51
+msgid "Stores XML formatted data. Maximum 2GB"
+msgstr "Хранит данные в формате XML. Максимальный объём - 2 ГБ"
+
+#: src\sql/sql_server/data_types.md:52
+msgid "cursor"
+msgstr "cursor"
+
+#: src\sql/sql_server/data_types.md:52
+msgid "Stores a reference to a cursor used for database operations"
+msgstr "Хранит ссылку на курсор, используемый для операций с базой данных"
+
+#: src\sql/sql_server/data_types.md:53
+msgid "table"
+msgstr "table"
+
+#: src\sql/sql_server/data_types.md:53
+msgid "Stores a result-set for later processing"
+msgstr "Хранит набор результатов для последующей обработки"
 
 #: src\ide/visual_studio/shortcuts.md:1
 msgid "Visual Studio Main Shortcuts"
@@ -1118,6 +1682,12 @@ msgstr ""
 "`F9` – создать точку останова  \n"
 "`Ctrl+Alt+B` – окно со всеми точками останова  \n"
 "`Ctrl+Shift+F9` – удалить все точки останова"
+
+#~ msgid "Data"
+#~ msgstr "Данные"
+
+#~ msgid "Tables and DB"
+#~ msgstr "Таблиц"
 
 #~ msgid "View merged branches"
 #~ msgstr "Просмотреть объединённые ветки"
