@@ -8,7 +8,7 @@
 
 `-C` for comment to help identify your ssh key (optional)
 
-`-f`  for the file name where ssh key get saved
+`-f` for the file name where ssh key get saved
 
 ```powershell
 ssh-keygen -t rsa -b 4096 -C "<your email>" -f $env:USERPROFILE/.ssh/<key_name>
