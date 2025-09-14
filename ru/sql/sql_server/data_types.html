@@ -1,0 +1,323 @@
+<!DOCTYPE HTML>
+<html lang="ru" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Типы данных - mura</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../theme/css/language-picker.css">
+        <link rel="stylesheet" href="../../theme/css/tabs.css">
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../git/index.html"><strong aria-hidden="true">1.</strong> Git</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../git/branches.html"><strong aria-hidden="true">1.1.</strong> Ветки</a></li><li class="chapter-item "><a href="../../git/changes.html"><strong aria-hidden="true">1.2.</strong> Изменения</a></li><li class="chapter-item "><a href="../../git/commits.html"><strong aria-hidden="true">1.3.</strong> Коммиты</a></li><li class="chapter-item "><a href="../../git/config.html"><strong aria-hidden="true">1.4.</strong> Конфигурация</a></li><li class="chapter-item "><a href="../../git/line_endings.html"><strong aria-hidden="true">1.5.</strong> Окончания строк</a></li><li class="chapter-item "><a href="../../git/log.html"><strong aria-hidden="true">1.6.</strong> Лог</a></li><li class="chapter-item "><a href="../../git/remotes.html"><strong aria-hidden="true">1.7.</strong> Удалённые репозиотрии</a></li><li class="chapter-item "><a href="../../git/ssh.html"><strong aria-hidden="true">1.8.</strong> SSH</a></li><li class="chapter-item "><a href="../../git/stash.html"><strong aria-hidden="true">1.9.</strong> Припрятывание</a></li><li class="chapter-item "><a href="../../git/tags.html"><strong aria-hidden="true">1.10.</strong> Теги</a></li><li class="chapter-item "><a href="../../git/worktrees.html"><strong aria-hidden="true">1.11.</strong> Рабочие деревья</a></li><li class="chapter-item "><a href="../../git/useful_commands.html"><strong aria-hidden="true">1.12.</strong> Полезные команды</a></li></ol></li><li class="chapter-item expanded "><a href="../../sql/index.html"><strong aria-hidden="true">2.</strong> SQL</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../sql/sql_server/sql_server.html"><strong aria-hidden="true">2.1.</strong> SQL Server</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../sql/sql_server/data_types.html" class="active"><strong aria-hidden="true">2.1.1.</strong> Типы данных</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../ide/index.html"><strong aria-hidden="true">3.</strong> IDE</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../ide/visual_studio.html"><strong aria-hidden="true">3.1.</strong> Visual Studio</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../ide/visual_studio/shortcuts.html"><strong aria-hidden="true">3.1.1.</strong> Горячие клавиши</a></li></ol></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">mura</h1>
+
+                    <div class="right-buttons">
+                        <button id="language-toggle" class="icon-button" type="button"
+                                title="Change language" aria-label="Change language"
+                                aria-haspopup="true" aria-expanded="false"
+                                aria-controls="language-list">
+                            <i class="fa fa-globe"></i>
+                        </button>
+                        <ul id="language-list" class="theme-popup" aria-label="Languages" role="menu">
+                            <li role="none">
+                                <button role="menuitem" class="theme">
+                                    <a id="en">English</a>
+                                </button>
+                            </li>
+                            <li role="none">
+                                <button role="menuitem" class="theme">
+                                    <a id="ru">Русский</a>
+                                </button></li>
+                        </ul>
+
+                        <script>
+                          let langToggle = document.getElementById("language-toggle");
+                          let langList = document.getElementById("language-list");
+                          langToggle.addEventListener("click", (event) => {
+                              langList.style.display = langList.style.display == "block" ? "none" : "block";
+                          });
+                          let selectedLang = document.getElementById("ru");
+                          if (selectedLang) {
+                              selectedLang.parentNode.classList.add("theme-selected");
+                          }
+                          // The path to the root, taking the current
+                          // language into account.
+                          let full_path_to_root = "../../../";
+                          // The page path (mdbook only gives us
+                          // access to the path to the Markdown file).
+                          let path = "sql/sql_server/data_types.md".replace(/\.md$/, ".html");
+                          for (let lang of langList.querySelectorAll("a")) {
+                              if (lang.id == "en") {
+                                  lang.href = `${full_path_to_root}${path}`;
+                              } else {
+                                  lang.href = `${full_path_to_root}${lang.id}/${path}`;
+                              }
+                          }
+                        </script>
+
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/mythter/mura" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/mythter/mura/edit/main/src/sql/sql_server/data_types.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="Типы-данных"><a class="header" href="#Типы-данных">Типы данных</a></h1>
+<h2 id="Строковые-типы-данных"><a class="header" href="#Строковые-типы-данных">Строковые типы данных</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Тип данных</th><th>Описание</th><th>Максимальная длина символа</th><th>Хранилище</th></tr></thead><tbody>
+<tr><td>char(n)</td><td>Символьные не Unicode данные фиксированной длины (n от 1 до 8000)</td><td>8,000</td><td>n байтов (используется один байт для каждого символа)</td></tr>
+<tr><td>varchar(n)</td><td>Символьные не Unicode данные переменной длины (n от 1 до 8000)</td><td>8,000</td><td>n байт + 2 байта</td></tr>
+<tr><td>varchar(max)</td><td>Символьные не Unicode данные переменной длины</td><td></td><td>до 2 GB</td></tr>
+<tr><td>nchar(n)</td><td>Символьные Unicode данные фиксированной длины (n от 1 до 4000)</td><td>4,000</td><td>2 * n байт (используется два байта для каждого символа)</td></tr>
+<tr><td>nvarchar(n)</td><td>Символьные Unicode данные переменной длины (n от 1 до 4000)</td><td>4,000</td><td>2 * n байт + 2 байта (используется два байта для каждого символа)</td></tr>
+<tr><td>nvarchar(max)</td><td>Символьные Unicode данные переменной длины</td><td></td><td>до 2 GB</td></tr>
+<tr><td>binary(n)</td><td>Двоичные данные фиксированной длины (n от 1 до 8000)</td><td>8,000</td><td>n байт</td></tr>
+<tr><td>varbinary(n)</td><td>Двоичные данные переменной длины (n от 1 до 8000)</td><td>8,000</td><td>фактическая длина введенных данных + 2 байта</td></tr>
+<tr><td>varbinary(max)</td><td>Двоичные данные переменной длины</td><td></td><td>2GB</td></tr>
+</tbody></table>
+</div>
+<h2 id="Числовые-типы-данных"><a class="header" href="#Числовые-типы-данных">Числовые типы данных</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Тип данных</th><th>Описание</th><th>Хранилище</th></tr></thead><tbody>
+<tr><td>bit</td><td>Целое число, может быть 0, 1 или NULL</td><td></td></tr>
+<tr><td>tinyint</td><td>Допускает целые числа от 0 до 255</td><td>1 байт</td></tr>
+<tr><td>smallint</td><td>Допускает целые числа от -32 768 до 32 767</td><td>2 байта</td></tr>
+<tr><td>int</td><td>Допускает целые числа от -2 147 483 648 до 2 147 483 647</td><td>4 байта</td></tr>
+<tr><td>bigint</td><td>Допускает целые числа от -9 223 372 036 854 775 808 до 9 223 372 036 854 775 807</td><td>8 байт</td></tr>
+<tr><td>decimal(p,s)</td><td>Числа с фиксированной точкой.<br><br> Допустимы числа от -10^38 +1 до 10^38 –1.<br><br> Параметр p указывает максимальное общее количество цифр, которое можно хранить (как слева, так и справа от десятичной точки). p может быть от 1 до 38. Значение по умолчанию - 18.<br><br> Параметр s указывает максимальное количество цифр, которое можно сохранить справа от десятичной точки. s может быть от 0 до p. Значение по умолчанию - 0</td><td>5-17 байт</td></tr>
+<tr><td>numeric(p,s)</td><td>Числа с фиксированной точкой.<br><br> Допустимы числа от -10^38 +1 до 10^38 –1.<br><br> Параметр p указывает максимальное общее количество цифр, которое можно хранить (как слева, так и справа от десятичной точки). p может быть от 1 до 38. Значение по умолчанию - 18.<br><br> Параметр s указывает максимальное количество цифр, которое можно сохранить справа от десятичной точки. s может быть от 0 до p. Значение по умолчанию - 0</td><td>5-17 байт</td></tr>
+<tr><td>smallmoney</td><td>Денежные данные от -214,748.3648 до 214,748.3647</td><td>4 байта</td></tr>
+<tr><td>money</td><td>Денежные данные от -922,337,203,685,477.5808 до 922,337,203,685,477.5807</td><td>8 байт</td></tr>
+<tr><td>float(n)</td><td>Числа с плавающей точкой от -1,79E + 308 до 1,79E + 308.<br><br> Параметр n указывает, должно ли поле содержать 4 или 8 байтов. float(24) содержит 4-байтовое поле, а float(53) - 8-байтовое. Значение n по умолчанию - 53.</td><td>4 или 8 байт</td></tr>
+<tr><td>real</td><td>Числа с плавающей точкой от -3.40E + 38 до 3.40E + 38</td><td>4 байта</td></tr>
+</tbody></table>
+</div>
+<h2 id="Типы-данных-даты-и-времени"><a class="header" href="#Типы-данных-даты-и-времени">Типы данных даты и времени</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Тип данных</th><th>Описание</th><th>Хранилище</th></tr></thead><tbody>
+<tr><td>datetime</td><td>С 1 января 1753 года по 31 декабря 9999 года с точностью 3,33 мс</td><td>8 байт</td></tr>
+<tr><td>datetime2</td><td>С 1 января 0001 года по 31 декабря 9999 года с точностью до 100 нс</td><td>6-8 байт</td></tr>
+<tr><td>smalldatetime</td><td>С 1 января 1900 года по 6 июня 2079 года с точностью до 1 минуты</td><td>4 байта</td></tr>
+<tr><td>date</td><td>Хранит только дату. С 1 января 0001 г. по 31 декабря 9999 г.</td><td>3 байта</td></tr>
+<tr><td>time</td><td>Хранит время с точностью до 100 нс</td><td>3-5 байт</td></tr>
+<tr><td>datetimeoffset</td><td>То же самое, что datetime2, но со смещением часового пояса</td><td>8-10 байт</td></tr>
+<tr><td>timestamp</td><td>Хранит уникальный номер, который обновляется каждый раз при создании или изменении строки. Значение timestamp основано на внутреннем времени и не соответствует реальному времени. Каждая таблица может иметь только одну переменную timestamp</td><td></td></tr>
+</tbody></table>
+</div>
+<h2 id="Другие-типы-данных"><a class="header" href="#Другие-типы-данных">Другие типы данных</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Тип данных</th><th>Описание</th></tr></thead><tbody>
+<tr><td>sql_variant</td><td>Хранит до 8000 байт данных различных типов, за исключением text, ntext и timestamp</td></tr>
+<tr><td>uniqueidentifier</td><td>Хранит глобальный уникальный идентификатор (GUID)</td></tr>
+<tr><td>xml</td><td>Хранит данные в формате XML. Максимальный объём - 2 ГБ</td></tr>
+<tr><td>cursor</td><td>Хранит ссылку на курсор, используемый для операций с базой данных</td></tr>
+<tr><td>table</td><td>Хранит набор результатов для последующей обработки</td></tr>
+</tbody></table>
+</div>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../sql/sql_server/sql_server.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../ide/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../sql/sql_server/sql_server.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../ide/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../theme/js/tabs.js"></script>
+
+
+    </div>
+    </body>
+</html>
