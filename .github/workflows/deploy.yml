@@ -33,11 +33,11 @@ jobs:
       - name: Install obsidian-export
         run: |
           LATEST=$(curl -s https://api.github.com/repos/zoni/obsidian-export/releases/latest \
-            | grep '"tag_name"' | cut -d'"' -f4)
+            | grep '"tag_name"' \
+            | cut -d'"' -f4)
           echo "obsidian-export version: $LATEST"
-          curl -L \
-            "https://github.com/zoni/obsidian-export/releases/download/${LATEST}/obsidian-export-x86_64-unknown-linux-gnu.tar.xz" \
-            | tar xz -C /usr/local/bin
+          curl --proto '=https' --tlsv1.2 -LsSf https://github.com/zoni/obsidian-export/releases/download/${LATEST}/obsidian-export-installer.sh \
+            | sh
           obsidian-export --version
           
       - name: Install mdbook
