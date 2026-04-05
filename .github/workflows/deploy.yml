@@ -4,7 +4,7 @@ on:
       branches: [ "main" ]
 
 env:
-  # Update the language picker in index.hbs to link new languages.
+  # Update the language picker in head.hbs to link new languages.
   LANGUAGES: ru
   MDBOOK_VERSION: ${{ vars.MDBOOK_VERSION }}
 
@@ -23,7 +23,6 @@ jobs:
       - name: Install mdbook
         run: |
           mkdir bin
-          echo "VERSION=${MDBOOK_VERSION}"
           curl -sSL https://github.com/rust-lang/mdBook/releases/download/v${MDBOOK_VERSION}/mdbook-v${MDBOOK_VERSION}-x86_64-unknown-linux-gnu.tar.gz | tar -xz --directory=bin
           echo "$(pwd)/bin" >> ${GITHUB_PATH}
 
