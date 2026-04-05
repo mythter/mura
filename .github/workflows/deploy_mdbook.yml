@@ -11,7 +11,7 @@ env:
 
 jobs:
   deploy:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ (github.event_name == 'workflow_run' && github.event.workflow_run.head_branch == 'mura-obsidian' && github.event.workflow_run.conclusion == 'success') || (github.event_name == 'push' && github.ref == 'refs/heads/mura-mdbook')}}
     runs-on: ubuntu-latest
     permissions:
       contents: write  # To push a branch 
