@@ -17,7 +17,7 @@ jobs:
       id-token: write # To update the deployment status
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
@@ -55,12 +55,19 @@ jobs:
           cp -r .mdbook exported/.mdbook
           obsidian-export ./ exported/
 
-      - name: Print current directory contents
-        run: ls -la
+      - name: Print exported directory contents
+        run: |
+          ls -la
+          ls -la exported/
 
       - name: Convert to mdBook format (C# script)
         run: |
           dotnet run .scripts/obsidian_to_mdbook.cs -- exported/ mura-mdbook/
+
+      - name: Print mura-mdbook directory contents
+        run: |
+          ls -la
+          ls -la mura-mdbook/
 
       - name: Build Test
         run: mdbook test mura-mdbook/
