@@ -64,9 +64,6 @@ jobs:
       - name: Build Test
         run: mdbook test mura-mdbook/
 
-      - name: Build Book
-        run: mdbook build mura-mdbook/
-
       - name: Uploading mdbook to mura-mdbook branch
         uses: JamesIves/github-pages-deploy-action@v4
         with:
