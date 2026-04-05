@@ -1,7 +1,10 @@
-name: Deploy
+name: Deploy mdbook
 on:
   push:
       branches: [ "mura-mdbook" ]
+  workflow_run:
+    workflows: ["Build mdbook"]
+    types: [completed]
 
 env:
   MDBOOK_VERSION: ${{ vars.MDBOOK_VERSION }}
