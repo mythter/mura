@@ -1,0 +1,71 @@
+name: Build mdbook
+on:
+  push:
+      branches: [ "mura-obsidian" ]
+  workflow_dispatch:
+
+env:
+  MDBOOK_VERSION: ${{ vars.MDBOOK_VERSION }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # To push a branch 
+      pages: write  # To push to a GitHub Pages site
+      id-token: write # To update the deployment status
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Print current directory contents
+        run: ls -la
+
+      - name: Setup .NET 10
+        uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: "10.0.x"
+
+      - name: Install obsidian-export
+        run: |
+          LATEST=$(curl -s https://api.github.com/repos/zoni/obsidian-export/releases/latest \
+            | grep '"tag_name"' \
+            | cut -d'"' -f4)
+          echo "obsidian-export version: $LATEST"
+          curl --proto '=https' --tlsv1.2 -LsSf https://github.com/zoni/obsidian-export/releases/download/${LATEST}/obsidian-export-installer.sh \
+            | sh
+          obsidian-export --version
+          
+      - name: Install mdbook
+        run: |
+          mkdir .bin
+          curl -sSL https://github.com/rust-lang/mdBook/releases/download/v${MDBOOK_VERSION}/mdbook-v${MDBOOK_VERSION}-x86_64-unknown-linux-gnu.tar.gz | tar -xz --directory=.bin
+          echo "$(pwd)/.bin" >> ${GITHUB_PATH}
+
+      - name: Install mdbook-tabs
+        run: |
+          cargo install mdbook-tabs
+
+      - name: Export Obsidian vault (obsidian-export)
+        run: |
+          mkdir -p exported
+          cp -r .mdbook exported/.mdbook
+          obsidian-export ./ exported/
+
+      - name: Print current directory contents
+        run: ls -la
+
+      - name: Convert to mdBook format (C# script)
+        run: |
+          dotnet run .scripts/obsidian_to_mdbook.cs -- exported/ mura-mdbook/
+
+      - name: Build Test
+        run: mdbook test mura-mdbook/
+
+      - name: Uploading mdbook to mura-mdbook branch
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: mura-mdbook
+          folder: mura-mdbook
