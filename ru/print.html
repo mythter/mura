@@ -1,0 +1,896 @@
+<!DOCTYPE HTML>
+<html lang="ru" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>mura</title>
+        <meta name="robots" content="noindex">
+
+
+        <!-- Custom HTML head -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const mdbookPath = "print.md";
+                const mdbookPathToRoot = "";
+                const rightButtonsElement = document.querySelector('.right-buttons');
+                rightButtonsElement.insertAdjacentHTML("afterbegin", `
+                    <button id="language-toggle" class="icon-button" type="button"
+                            title="Change language" aria-label="Change language"
+                            aria-haspopup="true" aria-expanded="false"
+                            aria-controls="language-list">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M352 256c0 22.2-1.2 43.6-3.3 64H163.3c-2.2-20.4-3.3-41.8-3.3-64s1.2-43.6 3.3-64H348.7c2.2 20.4 3.3 41.8 3.3 64zm28.8-64H503.9c5.3 20.5 8.1 41.9 8.1 64s-2.8 43.5-8.1 64H380.8c2.1-20.6 3.2-42 3.2-64s-1.1-43.4-3.2-64zm112.6-32H376.7c-10-63.9-29.8-117.4-55.3-151.6c78.3 20.7 142 77.5 171.9 151.6zm-149.1 0H167.7c6.1-36.4 15.5-68.6 27-94.7c10.5-23.6 22.2-40.7 33.5-51.5C239.4 3.2 248.7 0 256 0s16.6 3.2 27.8 13.8c11.3 10.8 23 27.9 33.5 51.5c11.6 26 21 58.2 27 94.7zm-209 0H18.6C48.6 85.9 112.2 29.1 190.6 8.4C165.1 42.6 145.3 96.1 135.3 160zM8.1 192H131.2c-2.1 20.6-3.2 42-3.2 64s1.1 43.4 3.2 64H8.1C2.8 299.5 0 278.1 0 256s2.8-43.5 8.1-64zM194.7 446.6c-11.6-26-20.9-58.2-27-94.6H344.3c-6.1 36.4-15.5 68.6-27 94.6c-10.5 23.6-22.2 40.7-33.5 51.5C272.6 508.8 263.3 512 256 512s-16.6-3.2-27.8-13.8c-11.3-10.8-23-27.9-33.5-51.5zM135.3 352c10 63.9 29.8 117.4 55.3 151.6C112.2 482.9 48.6 426.1 18.6 352H135.3zm358.1 0c-30 74.1-93.6 130.9-171.9 151.6c25.5-34.2 45.2-87.7 55.3-151.6H493.4z"/></svg></span>
+                    </button>
+                    <ul id="language-list" class="theme-popup" aria-label="Languages" role="menu">
+                        <li role="none">
+                            <button role="menuitem" class="theme">
+                                <a id="en">English</a>
+                            </button>
+                        </li>
+                        <li role="none">
+                            <button role="menuitem" class="theme">
+                                <a id="ru">Русский</a>
+                            </button></li>
+                    </ul>
+                `);
+        
+                const language = document.documentElement.getAttribute("lang");
+                let langToggle = document.getElementById("language-toggle");
+                let langList = document.getElementById("language-list");
+                langToggle.addEventListener("click", (event) => {
+                    langList.style.display =
+                        langList.style.display == "block" ? "none" : "block";
+                });
+                let selectedLang = document.getElementById(language);
+                if (selectedLang) {
+                    selectedLang.parentNode.classList.add("theme-selected");
+                }
+        
+                // The path to the root, taking the current language into account.
+                let full_path_to_root =
+                    language == "en" ? `${mdbookPathToRoot}` : `${mdbookPathToRoot}../`;
+                // The page path (mdbook only gives us access to the path to the Markdown file).
+                let path = mdbookPath.replace(/\.md$/, ".html");
+                const langAnchors = Array.from(langList.querySelectorAll("a"));
+                for (let lang of langAnchors) {
+                    if (lang.id == "en") {
+                        lang.href = `${full_path_to_root}${path}`;
+                    } else {
+                        lang.href = `${full_path_to_root}${lang.id}/${path}`;
+                    }
+                }
+        
+                // Hide languages whose target page is not available (e.g., not deployed).
+                // This prevents users from hitting 404s on sites that only ship some locales.
+                for (let lang of langAnchors) {
+                    const url = lang.href;
+                    // Attempt a lightweight HEAD request; fall back to hiding on failure.
+                    fetch(url, { method: "HEAD" }).then((resp) => {
+                        if (!resp.ok) {
+                            const li = lang.parentNode && lang.parentNode.parentNode;
+                            if (li) li.style.display = "none";
+                        }
+                    }).catch(() => {
+                        const li = lang.parentNode && lang.parentNode.parentNode;
+                        if (li) li.style.display = "none";
+                    });
+                }
+            });
+        </script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="theme/css/language-picker-b3b28d1a.css">
+        <link rel="stylesheet" href="theme/css/tabs-52f01167.css">
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-4bd5b1c7.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc-dded6972.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">mura</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/mythter/mura" title="Git repository" aria-label="Git repository">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="git"><a class="header" href="#git">Git</a></h1>
+<h2 id="полезные-ссылки"><a class="header" href="#полезные-ссылки">Полезные ссылки</a></h2>
+<ul>
+<li><a href="https://ndpsoftware.com/git-cheatsheet.html">Git шпаргалка</a></li>
+<li><a href="https://training.github.com/downloads/github-git-cheat-sheet/">Шпаргалка от GitHub</a></li>
+<li>Шпаргалка от GitLab](https://about.gitlab.com/images/press/git-cheat-sheet.pdf)</li>
+<li><a href="https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet">Шпаргалка от Atlassian</a></li>
+<li><a href="https://learngitbranching.js.org/">LearnGitBranching</a></li>
+<li><a href="https://git-scm.com/book/ru/v2">Книга Pro Git (2-е издание)</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="ветки"><a class="header" href="#ветки">Ветки</a></h1>
+<h2 id="создание"><a class="header" href="#создание">СОЗДАНИЕ</a></h2>
+<h3 id="создать-ветку"><a class="header" href="#создать-ветку">Создать ветку</a></h3>
+<pre><code class="language-shell">git branch &lt;branch-name&gt;
+</code></pre>
+<h3 id="создать-ветку-и-переключиться-на-неё"><a class="header" href="#создать-ветку-и-переключиться-на-неё">Создать ветку и переключиться на неё</a></h3>
+<p>обычная команда</p>
+<pre><code class="language-shell">git checkout -b &lt;branch-name&gt; 
+</code></pre>
+<p>новая команда</p>
+<pre><code class="language-shell">git switch -c &lt;branch-name&gt;
+</code></pre>
+<h3 id="если-есть-удалённая-ветка-но-вам-нужно-создать-локальную-и-привязаться-к-удаленной"><a class="header" href="#если-есть-удалённая-ветка-но-вам-нужно-создать-локальную-и-привязаться-к-удаленной">Если есть удалённая ветка, но вам нужно создать локальную и привязаться к удаленной</a></h3>
+<pre><code class="language-shell">git branch --track &lt;local-branch&gt; origin/&lt;remote-branch&gt;
+</code></pre>
+<pre><code class="language-shell">git branch &lt;local-branch&gt; origin/&lt;remote-branch&gt;
+</code></pre>
+<pre><code class="language-shell">git checkout -b &lt;local-branch&gt; origin/&lt;remote-branch&gt;
+</code></pre>
+<p>Если локальная ветка с таким именем уже существует, то она будет отслеживать удалённую</p>
+<pre><code class="language-shell">git branch -f &lt;local-branch&gt; origin/&lt;remote-branch&gt;
+</code></pre>
+<h3 id="если-есть-локальная-ветка-и-вам-нужно-создать-удалённую-с-отслеживанием"><a class="header" href="#если-есть-локальная-ветка-и-вам-нужно-создать-удалённую-с-отслеживанием">Если есть локальная ветка и вам нужно создать удалённую с отслеживанием</a></h3>
+<pre><code class="language-shell">git push -u origin &lt;branch-name&gt;
+</code></pre>
+<h3 id="если-есть-как-локальная-так-и-удалённая-ветки-и-вам-необходимо-связать-их"><a class="header" href="#если-есть-как-локальная-так-и-удалённая-ветки-и-вам-необходимо-связать-их">Если есть как локальная, так и удалённая ветки и вам необходимо связать их</a></h3>
+<pre><code class="language-shell">git branch -u origin/&lt;remote-branch-name&gt; &lt;local-branch-name&gt;
+</code></pre>
+<h3 id="если-вам-нужно-удалить-отслеживание"><a class="header" href="#если-вам-нужно-удалить-отслеживание">Если вам нужно удалить отслеживание</a></h3>
+<pre><code class="language-shell">git branch --unset-upstream &lt;branch-name&gt;
+</code></pre>
+<h2 id="перемещение"><a class="header" href="#перемещение">ПЕРЕМЕЩЕНИЕ</a></h2>
+<h3 id="переместить-указатель-ветки-на-другой-коммит-destination-commit-может-быть-названием-ветки"><a class="header" href="#переместить-указатель-ветки-на-другой-коммит-destination-commit-может-быть-названием-ветки">Переместить указатель ветки на другой коммит (<em>destination-commit</em> может быть названием ветки)</a></h3>
+<pre><code class="language-shell">git reset --hard &lt;destination-commit&gt;
+</code></pre>
+<pre><code class="language-shell">git branch –f &lt;branch-name&gt; &lt;destination-commit&gt;
+</code></pre>
+<h2 id="удаление"><a class="header" href="#удаление">УДАЛЕНИЕ</a></h2>
+<h3 id="удалить-удалённую-ветку-remote-name-обычно-origin"><a class="header" href="#удалить-удалённую-ветку-remote-name-обычно-origin">УДАЛИТЬ удалённую ветку (<em>remote-name</em> обычно <em>origin</em>)</a></h3>
+<pre><code class="language-shell">git push -d &lt;remote-name&gt; &lt;branch-name&gt;
+</code></pre>
+<p>Не забудьте выполнить <code>git fetch --all --prune</code> или <code>git fetch --all -p</code> на других машинах после удаления удалённой ветки на сервере. После удаления локальной ветки с помощью <code>git branch -d</code> и удаления удалённой ветки с помощью <code>git push -d origin</code> на других машинах могут остаться “устаревшие отслеживаемые ветки” (чтобы увидеть их, выполните <code>git branch -a</code>). Чтобы избавиться от них, выполните <code>git fetch --all --prune</code></p>
+<h3 id="удалить-локальную-ветку"><a class="header" href="#удалить-локальную-ветку">УДАЛИТЬ локальную ветку</a></h3>
+<pre><code class="language-shell">git branch -d &lt;branch-name&gt;
+</code></pre>
+<p>Опция <em>-D</em> это алиас для <em>--delete</em> <em>--force</em>, который удаляет ветку «независимо от её объединенного статуса (merged status)»</p>
+<pre><code class="language-shell">git branch -D &lt;branch-name&gt;
+</code></pre>
+<h3 id="удалить-локальную-удалённую-ветку"><a class="header" href="#удалить-локальную-удалённую-ветку">УДАЛИТЬ локальную удалённую ветку</a></h3>
+<pre><code class="language-shell">git branch -dr &lt;remote&gt;/&lt;branch&gt;
+</code></pre>
+<p>длинная команда</p>
+<pre><code class="language-shell">git branch --delete --remotes &lt;remote&gt;/&lt;branch&gt;
+</code></pre>
+<h2 id="переименование"><a class="header" href="#переименование">ПЕРЕИМЕНОВАНИЕ</a></h2>
+<h3 id="переименовать-текущую-ветку"><a class="header" href="#переименовать-текущую-ветку">Переименовать текущую ветку</a></h3>
+<pre><code class="language-shell">git branch -m &lt;branch_name&gt;
+</code></pre>
+<h3 id="переименовать-другую-ветки"><a class="header" href="#переименовать-другую-ветки">Переименовать другую ветки</a></h3>
+<pre><code class="language-shell">git branch -m &lt;old_branch_name&gt; &lt;new_branch_name&gt;
+</code></pre>
+<h3 id="переименовать-удалённую-ветку"><a class="header" href="#переименовать-удалённую-ветку">Переименовать удалённую ветку</a></h3>
+<p>Отправить локальную ветку на удалённый репозиторий и обновить отслеживаемую ветку</p>
+<pre><code class="language-shell">git push origin -u &lt;new_branch_name&gt;
+</code></pre>
+<p>Удалить удалённую ветку</p>
+<pre><code class="language-shell">git push origin --delete &lt;old_branch_name&gt;
+</code></pre>
+<h2 id="просмотр"><a class="header" href="#просмотр">ПРОСМОТР</a></h2>
+<h3 id="просмотреть-ветки-которые-были-объединены-с-текущей-веткой"><a class="header" href="#просмотреть-ветки-которые-были-объединены-с-текущей-веткой">Просмотреть ветки, которые были объединены с текущей веткой</a></h3>
+<pre><code class="language-shell">git branch --merged
+</code></pre>
+<h3 id="просмотреть-удалённые-ветки-которые-были-объединены-с-текущей-веткой"><a class="header" href="#просмотреть-удалённые-ветки-которые-были-объединены-с-текущей-веткой">Просмотреть удалённые ветки, которые были объединены с текущей веткой</a></h3>
+<pre><code class="language-shell">git branch -r --merged
+</code></pre>
+<h3 id="просмотреть-ветки-которые-не-были-объединены-с-текущей-веткой"><a class="header" href="#просмотреть-ветки-которые-не-были-объединены-с-текущей-веткой">Просмотреть ветки, которые не были объединены с текущей веткой</a></h3>
+<pre><code class="language-shell">git branch --no-merged
+</code></pre>
+<h2 id="удаление-устаревших-веток"><a class="header" href="#удаление-устаревших-веток">УДАЛЕНИЕ УСТАРЕВШИХ ВЕТОК</a></h2>
+<pre><code class="language-shell">git remote prune origin
+</code></pre>
+<p>короткая команда</p>
+<pre><code class="language-shell">git fetch -p
+</code></pre>
+<p>длинная команда</p>
+<pre><code class="language-shell">git fetch --prune
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="изменения"><a class="header" href="#изменения">Изменения</a></h1>
+<h2 id="индексирование"><a class="header" href="#индексирование">ИНДЕКСИРОВАНИЕ</a></h2>
+<h3 id="индексировать-все-изменения"><a class="header" href="#индексировать-все-изменения">Индексировать все изменения</a></h3>
+<pre><code class="language-shell">git add .
+</code></pre>
+<h3 id="индексировать-все-изменения-в-интерактивном-режиме"><a class="header" href="#индексировать-все-изменения-в-интерактивном-режиме">Индексировать все изменения в интерактивном режиме</a></h3>
+<pre><code class="language-shell">git add -i
+</code></pre>
+<h3 id="индексировать-все-изменения-в-патч-режиме"><a class="header" href="#индексировать-все-изменения-в-патч-режиме">Индексировать все изменения в патч режиме</a></h3>
+<pre><code class="language-shell">git add -p
+</code></pre>
+<h2 id="удаление-из-индекса"><a class="header" href="#удаление-из-индекса">УДАЛЕНИЕ ИЗ ИНДЕКСА</a></h2>
+<h3 id="удалить-изменения-из-индекса-переместить-из-индекса-в-рабочую-директорию"><a class="header" href="#удалить-изменения-из-индекса-переместить-из-индекса-в-рабочую-директорию">Удалить изменения из Индекса (ПЕРЕМЕСТИТЬ из Индекса в Рабочую директорию)</a></h3>
+<p>новая команда</p>
+<pre><code class="language-shell">git restore --staged &lt;file&gt;
+</code></pre>
+<p>старая команда</p>
+<pre><code class="language-shell">git reset &lt;file&gt;
+</code></pre>
+<pre><code class="language-shell">git reset HEAD &lt;file&gt;
+</code></pre>
+<h3 id="удалить-изменения-в-индексе"><a class="header" href="#удалить-изменения-в-индексе">Удалить изменения в Индексе</a></h3>
+<p>новая команда</p>
+<pre><code class="language-shell">git restore --staged .
+</code></pre>
+<p>обычная команда</p>
+<pre><code class="language-shell">git reset
+</code></pre>
+<p>старая команда</p>
+<pre><code class="language-shell">git reset HEAD
+</code></pre>
+<h2 id="удаление-1"><a class="header" href="#удаление-1">УДАЛЕНИЕ</a></h2>
+<h3 id="удалить-изменения-в-рабочей-директории"><a class="header" href="#удалить-изменения-в-рабочей-директории">Удалить изменения в Рабочей директории</a></h3>
+<p>новая команда</p>
+<pre><code class="language-shell">git restore &lt;file&gt;
+</code></pre>
+<p>старая команда</p>
+<pre><code class="language-shell">git checkout -- &lt;file&gt;
+</code></pre>
+<pre><code class="language-shell">git checkout &lt;file&gt;
+</code></pre>
+<h3 id="удаление-всех-изменений-из-рабочей-директории"><a class="header" href="#удаление-всех-изменений-из-рабочей-директории">Удаление всех изменений из Рабочей директории</a></h3>
+<p>новая команда</p>
+<pre><code class="language-shell">git restore .
+</code></pre>
+<p>старая команда</p>
+<pre><code class="language-shell">git checkout .
+</code></pre>
+<h3 id="удаление-изменений-из-индекса-и-рабочей-директории"><a class="header" href="#удаление-изменений-из-индекса-и-рабочей-директории">Удаление изменений из Индекса и Рабочей директории</a></h3>
+<pre><code class="language-shell">git reset --hard
+</code></pre>
+<pre><code class="language-shell">git reset --hard HEAD
+</code></pre>
+<h2 id="удалить-из-git"><a class="header" href="#удалить-из-git">УДАЛИТЬ ИЗ GIT</a></h2>
+<h3 id="удалить-файл-из-отслеживания-git-но-оставить-на-диске"><a class="header" href="#удалить-файл-из-отслеживания-git-но-оставить-на-диске">Удалить файл из отслеживания Git, но оставить на диске</a></h3>
+<pre><code class="language-shell">git rm --cached &lt;file_name&gt;
+</code></pre>
+<h3 id="удалить-файл-из-репозитория-git-и-с-диска"><a class="header" href="#удалить-файл-из-репозитория-git-и-с-диска">Удалить файл из репозитория Git и с диска</a></h3>
+<pre><code class="language-shell">git rm &lt;file_name&gt;
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="коммиты"><a class="header" href="#коммиты">Коммиты</a></h1>
+<h3 id="создать-пустой-коммит"><a class="header" href="#создать-пустой-коммит">Создать пустой коммит</a></h3>
+<pre><code class="language-shell">git commit --allow-empty -m "пустой коммит"
+</code></pre>
+<h3 id="отменить-последний-коммит-и-переместить-изменения-в-рабочую-директорию-изменения-в-индексе-также-будут-перенесены-в-рабочую-директорию-по-умолчанию---mixed"><a class="header" href="#отменить-последний-коммит-и-переместить-изменения-в-рабочую-директорию-изменения-в-индексе-также-будут-перенесены-в-рабочую-директорию-по-умолчанию---mixed">Отменить последний коммит и переместить изменения в Рабочую директорию (изменения в Индексе также будут перенесены в Рабочую директорию) (по умолчанию <em>--mixed</em>)</a></h3>
+<pre><code class="language-shell">git reset HEAD^
+</code></pre>
+<h3 id="отменить-последний-коммит-и-переместить-изменения-в-индексе"><a class="header" href="#отменить-последний-коммит-и-переместить-изменения-в-индексе">Отменить последний коммит и переместить изменения в Индексе</a></h3>
+<pre><code class="language-shell">git reset --soft HEAD^
+</code></pre>
+<h3 id="отменить-последний-коммит-и-переместить-изменения-в-рабочую-директорию"><a class="header" href="#отменить-последний-коммит-и-переместить-изменения-в-рабочую-директорию">Отменить последний коммит и переместить изменения в Рабочую директорию</a></h3>
+<pre><code class="language-shell">git reset --mixed HEAD^
+</code></pre>
+<h3 id="отменить-последний-коммит-и-удалить-изменения-не-закоммиченные-тоже"><a class="header" href="#отменить-последний-коммит-и-удалить-изменения-не-закоммиченные-тоже">Отменить последний коммит и УДАЛИТЬ изменения (не закоммиченные тоже)</a></h3>
+<pre><code class="language-shell">git reset --hard HEAD^
+</code></pre>
+<h2 id="cherry-pick"><a class="header" href="#cherry-pick">CHERRY PICK</a></h2>
+<h3 id="копировать-один-коммит-в-текущую-ветку"><a class="header" href="#копировать-один-коммит-в-текущую-ветку">Копировать один коммит в текущую ветку</a></h3>
+<pre><code class="language-shell">git cherry-pick &lt;SHA&gt;
+</code></pre>
+<h3 id="копировать-диапазон-коммитов-в-текущую-ветку"><a class="header" href="#копировать-диапазон-коммитов-в-текущую-ветку">Копировать диапазон коммитов в текущую ветку</a></h3>
+<pre><code class="language-shell">git cherry-pick &lt;SHA&gt;..&lt;SHA&gt;
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="конфигурация"><a class="header" href="#конфигурация">Конфигурация</a></h1>
+<p>Открыть глобальную конфигурацию для редактирования</p>
+<pre><code class="language-shell">git config --global --edit
+</code></pre>
+<p>Просмотреть файл глобальной конфигурации в терминале</p>
+<pre><code class="language-shell">git config --global --list
+</code></pre>
+<h2 id="конфигурация-имени-и-email"><a class="header" href="#конфигурация-имени-и-email">Конфигурация имени и email</a></h2>
+<pre><code class="language-shell">git config --global user.name "Ваше Имя"
+</code></pre>
+<pre><code class="language-shell">git config --global user.email test@email.com
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="окончания-строк"><a class="header" href="#окончания-строк">Окончания строк</a></h1>
+<p>Команда <code>git config core.autocrlf</code> используется для изменения того, как Git обрабатывает окончания строк. Она принимает один аргумент.</p>
+<pre><code class="language-shell">git config --global core.autocrlf input|true|false
+</code></pre>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>autocrlf</th><th>commit</th><th>checkout</th><th>Когда использовать</th></tr>
+</thead>
+<tbody>
+<tr><td>input</td><td>CRLF → LF</td><td>-</td><td>Unix, MacOS</td></tr>
+<tr><td>true</td><td>CRLF → LF</td><td>LF → CRLF</td><td>Windows</td></tr>
+<tr><td>false</td><td>-</td><td>-</td><td>Единственная платформа</td></tr>
+</tbody>
+</table>
+</div>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="лог"><a class="header" href="#лог">Лог</a></h1>
+<h2 id="фильтр"><a class="header" href="#фильтр">Фильтр</a></h2>
+<h3 id="по-номеру"><a class="header" href="#по-номеру">По номеру</a></h3>
+<pre><code class="language-shell">git log -&lt;number&gt;
+</code></pre>
+<h3 id="по-дате"><a class="header" href="#по-дате">По дате</a></h3>
+<pre><code class="language-shell">git log --since=yyyy-mm-dd
+</code></pre>
+<pre><code class="language-shell">git log --until="3 days ago"
+</code></pre>
+<pre><code class="language-shell">git log --after=2.weeks --before=3.days
+</code></pre>
+<h3 id="по-автору"><a class="header" href="#по-автору">По автору</a></h3>
+<pre><code class="language-shell">git log --author="Имя"
+</code></pre>
+<h3 id="по-паттерну-сообщения-коммита"><a class="header" href="#по-паттерну-сообщения-коммита">По паттерну сообщения коммита</a></h3>
+<pre><code class="language-shell">git log --grep="паттерн"
+</code></pre>
+<h3 id="по-диапазону-коммитов"><a class="header" href="#по-диапазону-коммитов">По диапазону коммитов</a></h3>
+<pre><code class="language-shell">git log &lt;SHA&gt;..&lt;SHA&gt;
+</code></pre>
+<h3 id="по-имени-файла-показываются-только-коммиты-в-которых-изменялся-файл"><a class="header" href="#по-имени-файла-показываются-только-коммиты-в-которых-изменялся-файл">По имени файла (показываются только коммиты, в которых изменялся файл)</a></h3>
+<pre><code class="language-shell">git log &lt;file_name&gt;
+</code></pre>
+<h2 id="декорирование"><a class="header" href="#декорирование">Декорирование</a></h2>
+<h3 id="показать-коммит-с-именами-изменённых-файлов"><a class="header" href="#показать-коммит-с-именами-изменённых-файлов">Показать коммит с именами изменённых файлов</a></h3>
+<pre><code class="language-shell">git log --name-only --oneline
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="удалённые-репозиотрии"><a class="header" href="#удалённые-репозиотрии">Удалённые репозиотрии</a></h1>
+<h2 id="добавить-удалённый-репозиторий"><a class="header" href="#добавить-удалённый-репозиторий">Добавить удалённый репозиторий</a></h2>
+<pre><code class="language-shell">git remote add origin &lt;repository_url&gt;
+</code></pre>
+<h2 id="изменить-удалённый-репозиторий"><a class="header" href="#изменить-удалённый-репозиторий">Изменить удалённый репозиторий</a></h2>
+<pre><code class="language-shell">git remote set-url origin &lt;repository_url&gt;
+</code></pre>
+<h2 id="просмотреть-удалённый-репозиторий"><a class="header" href="#просмотреть-удалённый-репозиторий">Просмотреть удалённый репозиторий</a></h2>
+<p>Добавить имя удалённого репозитория</p>
+<pre><code class="language-shell">git remote
+</code></pre>
+<p>Просмотреть имя и URL удалённого репозитория</p>
+<pre><code class="language-shell">git remote -v
+</code></pre>
+<p>Просмотреть больше информации об удалённом репозитории</p>
+<pre><code class="language-shell">git remote show &lt;remote_name&gt;
+</code></pre>
+<h2 id="удалить-удалённый-репозиторий"><a class="header" href="#удалить-удалённый-репозиторий">Удалить удалённый репозиторий</a></h2>
+<pre><code class="language-shell">git remote rm origin
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="ssh"><a class="header" href="#ssh">SSH</a></h1>
+<h2 id="создайте-ssh-ключ"><a class="header" href="#создайте-ssh-ключ">Создайте SSH ключ</a></h2>
+<p><code>-t</code> указывает тип ключа</p>
+<p><code>-b</code> указывает размер ключа (в битах)</p>
+<p><code>-C</code> для комментария, который поможет идентифицировать ваш ключ SSH (необязательно)</p>
+<p><code>-f</code> для имени файла, в котором сохранится SSH ключ</p>
+<pre><code class="language-powershell">ssh-keygen -t rsa -b 4096 -C "&lt;ваш email&gt;" -f $env:USERPROFILE/.ssh/&lt;key_name&gt;
+</code></pre>
+<h2 id="добавьте-ssh-ключ-в-ssh-агент"><a class="header" href="#добавьте-ssh-ключ-в-ssh-агент">Добавьте SSH ключ в SSH агент</a></h2>
+<p>Добавьте <strong>приватный</strong> SSH ключ в SSH агент</p>
+<pre><code class="language-powershell">ssh-add $env:USERPROFILE/.ssh/&lt;key_name&gt;
+</code></pre>
+<h3 id="если-предыдущая-команда-не-сработала-попробуйте-следующее-или-попробуйте-решение-по-ссылке-link"><a class="header" href="#если-предыдущая-команда-не-сработала-попробуйте-следующее-или-попробуйте-решение-по-ссылке-link">Если предыдущая команда не сработала попробуйте следующее или попробуйте решение по ссылке <a href="https://stackoverflow.com/a/53606760/21737287">link</a></a></h3>
+<p>Проверьте запущен ли SSH Agent</p>
+<pre><code class="language-powershell">Get-Service ssh-agent
+</code></pre>
+<p>Остановите сервис SSH Agent</p>
+<pre><code class="language-powershell">Stop-Service ssh-agent
+</code></pre>
+<p>Запустите SSH Agent</p>
+<pre><code class="language-powershell">Start-Service ssh-agent
+</code></pre>
+<h2 id="добавьте-публичный-ssh-ключ-в-github-аккаунт"><a class="header" href="#добавьте-публичный-ssh-ключ-в-github-аккаунт">Добавьте публичный SSH ключ в GitHub аккаунт</a></h2>
+<ul>
+<li>Скопируйте содержимое файла <code>&lt;key_name&gt;.pub</code></li>
+<li>Перейдите в <strong>Settings</strong> &gt; <strong>SSH and GPG keys</strong> &gt; <strong>New SSH Key</strong></li>
+<li>Вставьте скопированный публичный ключ и дайте ему название по вашему выбору</li>
+</ul>
+<h2 id="создайте-файл-конфигурации-ssh-и-добавьте-host-entries"><a class="header" href="#создайте-файл-конфигурации-ssh-и-добавьте-host-entries">Создайте файл конфигурации SSH и добавьте Host Entries</a></h2>
+<p>Если файла конфигурации не существует, создайте его (<code>$env:USERPROFILE/.ssh/config</code>)</p>
+<pre><code class="language-shell">Host github.com-&lt;username&gt;
+  HostName github.com
+  User git
+  IdentityFile C:/Users/&lt;user name&gt;/.ssh/&lt;key_name&gt;
+  IdentitiesOnly yes
+</code></pre>
+<p><code>Host github.com-&lt;username&gt;</code></p>
+<ul>
+<li>Это имя хоста, к которому применяются эти настройки.</li>
+<li>Каждый раз при подключении к этому хосту через SSH будет применяться следующая конфигурация.</li>
+<li>Вы можете использовать другие настройки для других хостов (например, для других серверов).</li>
+</ul>
+<p><code>HostName github.com</code></p>
+<ul>
+<li>Указывает фактическое имя хоста для подключения.</li>
+</ul>
+<p><code>User git</code></p>
+<ul>
+<li>GitHub требует, чтобы для всех SSH-подключений в качестве пользователя было указано <code>git</code>.</li>
+</ul>
+<p><code>IdentityFile C:/Users/&lt;user name&gt;/.ssh/&lt;key_name&gt;</code></p>
+<ul>
+<li>Указывает путь к вашему приватному SSH-ключу, который будет использоваться для аутентификации на GitHub.</li>
+</ul>
+<p><code>IdentitiesOnly yes</code></p>
+<ul>
+<li>Заставляет SSH использовать только ключи, указанные в файле конфигурации (через IdentityFile), и игнорировать любые другие ключи, которые могут быть загружены в агент SSH.</li>
+<li>Это полезно, если у вас несколько ключей и вы хотите использовать определенный ключ для определенного хоста.</li>
+</ul>
+<h2 id="клонирование-существующего-репозитория-или-добавление-удаленного-к-локальному"><a class="header" href="#клонирование-существующего-репозитория-или-добавление-удаленного-к-локальному">Клонирование существующего репозитория или добавление удаленного к локальному</a></h2>
+<p>Клонировать существующий репозиторий</p>
+<pre><code class="language-shell">git clone git@github.com-&lt;username&gt;:&lt;username&gt;/&lt;repo_name&gt;.git
+</code></pre>
+<p>Добавить удаленный репозиторий в локальный</p>
+<pre><code class="language-shell">git remote add origin git@github.com-&lt;username&gt;:&lt;username&gt;/&lt;repo_name&gt;.git
+</code></pre>
+<p>Изменить ссылку удалённого репозитория</p>
+<pre><code class="language-shell">git remote set-url origin git@github.com-&lt;username&gt;:&lt;username&gt;/&lt;repo_name&gt;.git
+</code></pre>
+<h2 id="и-наконец-то"><a class="header" href="#и-наконец-то">И наконец то</a></h2>
+<p>Не забудьте указать <code>user.name</code> и <code>user.email</code> в каждом недавно клонированном или существующем ранее репозитории.</p>
+<pre><code class="language-shell">git config user.name "Ваше имя"
+</code></pre>
+<pre><code class="language-shell">git config user.email "your@email.com"
+</code></pre>
+<p>Если вы настроили глобальное подписывание GPG, вы можете удалить его для локального репозитория</p>
+<pre><code class="language-shell">git config commit.gpgSign false
+</code></pre>
+<p>Если у вас есть новый GPG ключ, вы можете установить его для локального репозитория</p>
+<pre><code class="language-shell">git config user.signingkey &lt;new-gpg-key-id&gt;
+</code></pre>
+<h2 id="полезное"><a class="header" href="#полезное">Полезное</a></h2>
+<h3 id="команды"><a class="header" href="#команды">Команды</a></h3>
+<p>Показать список SSH ключей</p>
+<pre><code class="language-powershell">ssh-add -l
+</code></pre>
+<p>Удалить SSH ключ из SSH агента</p>
+<pre><code class="language-powershell">ssh-add -d $env:USERPROFILE/.ssh/&lt;key_name&gt;
+</code></pre>
+<p>Проверка может ли ваш SSH клиент подключиться к GitHub</p>
+<pre><code class="language-shell">ssh -T git@github.com
+</code></pre>
+<p>или более явно</p>
+<pre><code class="language-shell">ssh -vT git@github.com
+</code></pre>
+<h3 id="ссылки"><a class="header" href="#ссылки">Ссылки</a></h3>
+<ul>
+<li><a href="https://stackoverflow.com/a/3860139/21737287">(Stack Overflow) Несколько GitHub аккаунтов на одном устройстве?</a></li>
+<li><a href="https://gist.github.com/rahularity/86da20fe3858e6b311de068201d279e3">(GitHub Gist) Как работать с несколькими Github аккаунтами на одном устройстве</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="припрятывание"><a class="header" href="#припрятывание">Припрятывание</a></h1>
+<h2 id="сохранение"><a class="header" href="#сохранение">СОХРАНЕНИЕ</a></h2>
+<p>новая команда</p>
+<pre><code class="language-shell">git stash
+</code></pre>
+<pre><code class="language-shell">git stash push
+</code></pre>
+<pre><code class="language-shell">git stash push -m "сообщение"
+</code></pre>
+<p>старая команда</p>
+<pre><code class="language-shell">git stash save "сообщение"
+</code></pre>
+<h2 id="просмотр-1"><a class="header" href="#просмотр-1">ПРОСМОТР</a></h2>
+<pre><code class="language-shell">git stash list
+</code></pre>
+<h2 id="извлечение"><a class="header" href="#извлечение">ИЗВЛЕЧЕНИЕ</a></h2>
+<h3 id="извлечь-содержимое-из-тайника-и-удалить-из-него"><a class="header" href="#извлечь-содержимое-из-тайника-и-удалить-из-него">Извлечь содержимое из тайника (и удалить из него)</a></h3>
+<pre><code class="language-shell">git stash pop
+</code></pre>
+<h3 id="извлечь-содержимое-из-тайника-и-оставить-его-там-же"><a class="header" href="#извлечь-содержимое-из-тайника-и-оставить-его-там-же">Извлечь содержимое из тайника (и оставить его там же)</a></h3>
+<pre><code class="language-shell">git stash apply
+</code></pre>
+<h2 id="удаление-2"><a class="header" href="#удаление-2">УДАЛЕНИЕ</a></h2>
+<pre><code class="language-shell">git stash drop
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="теги"><a class="header" href="#теги">Теги</a></h1>
+<h2 id="создание-1"><a class="header" href="#создание-1">СОЗДАНИЕ</a></h2>
+<h3 id="создать-облегчённый-тег"><a class="header" href="#создать-облегчённый-тег">Создать облегчённый тег</a></h3>
+<pre><code class="language-shell">git tag &lt;tag_name&gt; &lt;SHA&gt;
+</code></pre>
+<h3 id="создать-тег-с-аннотацией"><a class="header" href="#создать-тег-с-аннотацией">Создать тег с аннотацией</a></h3>
+<pre><code class="language-shell">git tag -am "сообщение" &lt;tag_name&gt; &lt;SHA&gt;
+</code></pre>
+<h3 id="создать-удалённый-тег-когда-существует-локальный"><a class="header" href="#создать-удалённый-тег-когда-существует-локальный">Создать удалённый тег, когда существует локальный</a></h3>
+<pre><code class="language-shell">git push origin &lt;tag_name&gt;
+</code></pre>
+<h3 id="отправить-все-локальные-теги-на-удалённый-репозиотрий"><a class="header" href="#отправить-все-локальные-теги-на-удалённый-репозиотрий">Отправить все локальные теги на удалённый репозиотрий</a></h3>
+<pre><code class="language-shell">git push origin --tags
+</code></pre>
+<h2 id="просмотр-2"><a class="header" href="#просмотр-2">ПРОСМОТР</a></h2>
+<p>Просмотреть информацию о теге</p>
+<pre><code class="language-shell">git show &lt;tag_name&gt;
+</code></pre>
+<p>Просмотреть список тегов</p>
+<pre><code class="language-shell">git tag -l
+</code></pre>
+<p>Просмотреть список тегов по паттерну</p>
+<pre><code class="language-shell">git tag -l "паттерн"
+</code></pre>
+<p>Просмотреть список тегов с первой строкой каждой аннотации</p>
+<pre><code class="language-shell">git tag -n
+</code></pre>
+<h2 id="удаление-3"><a class="header" href="#удаление-3">УДАЛЕНИЕ</a></h2>
+<h3 id="удалить-локальный-тег"><a class="header" href="#удалить-локальный-тег">Удалить локальный тег</a></h3>
+<pre><code class="language-shell">git tag -d &lt;tag_name&gt;
+</code></pre>
+<h3 id="удалить-удалённый-тег"><a class="header" href="#удалить-удалённый-тег">Удалить удалённый тег</a></h3>
+<pre><code class="language-shell">git tag -d origin &lt;tag_name&gt;
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="рабочие-деревья"><a class="header" href="#рабочие-деревья">Рабочие деревья</a></h1>
+<h2 id="создание-2"><a class="header" href="#создание-2">СОЗДАНИЕ</a></h2>
+<h3 id="создать-рабочее-дерево-для-существующей-ветки-используя-такое-имя-рабочей-директории"><a class="header" href="#создать-рабочее-дерево-для-существующей-ветки-используя-такое-имя-рабочей-директории">Создать рабочее дерево для существующей ветки используя такое имя рабочей директории</a></h3>
+<pre><code class="language-shell">git worktree add path/to/folder/&lt;existing-branch-name&gt;
+</code></pre>
+<h3 id="создать-рабочее-дерево-для-существующей-ветки-используя-имя-отличное-от-рабочей-директории"><a class="header" href="#создать-рабочее-дерево-для-существующей-ветки-используя-имя-отличное-от-рабочей-директории">Создать рабочее дерево для существующей ветки используя имя отличное от рабочей директории</a></h3>
+<pre><code class="language-shell">git worktree add path/to/folder/ &lt;existing-branch-name&gt;
+</code></pre>
+<h3 id="создать-рабочее-дерево-с-новой-веткой-используя-такое-имя-рабочей-директории"><a class="header" href="#создать-рабочее-дерево-с-новой-веткой-используя-такое-имя-рабочей-директории">Создать рабочее дерево с новой веткой используя такое имя рабочей директории</a></h3>
+<pre><code class="language-shell">git worktree add -b &lt;new-branch-name&gt; path/to/folder/&lt;new-branch-name&gt;
+</code></pre>
+<h3 id="создать-рабочее-дерево-с-новой-веткой-используя-имя-отличное-от-рабочей-директории"><a class="header" href="#создать-рабочее-дерево-с-новой-веткой-используя-имя-отличное-от-рабочей-директории">Создать рабочее дерево с новой веткой используя имя отличное от рабочей директории</a></h3>
+<pre><code class="language-shell">git worktree add -b &lt;new-branch-name&gt; path/to/folder/
+</code></pre>
+<h2 id="просмотр-3"><a class="header" href="#просмотр-3">ПРОСМОТР</a></h2>
+<h3 id="показать-все-рабочие-деревья"><a class="header" href="#показать-все-рабочие-деревья">Показать все рабочие деревья</a></h3>
+<pre><code class="language-shell">git worktree list
+</code></pre>
+<h2 id="удаление-4"><a class="header" href="#удаление-4">УДАЛЕНИЕ</a></h2>
+<h3 id="удалить-рабочее-дерево"><a class="header" href="#удалить-рабочее-дерево">Удалить рабочее дерево</a></h3>
+<pre><code class="language-shell">git worktree remove path/to/folder/
+</code></pre>
+<p>или <a href="https://stackoverflow.com/questions/39707402/why-does-git-worktree-add-create-a-branch-and-can-i-delete-it">(ссылка)</a></p>
+<pre><code class="language-shell">rm -rf path/to/worktree
+git worktree prune
+git branch -D &lt;branch-name&gt;
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="полезные-команды-git"><a class="header" href="#полезные-команды-git">Полезные команды Git</a></h1>
+<h3 id="показать-ветку-на-которой-изначально-был-создан-определенный-коммит"><a class="header" href="#показать-ветку-на-которой-изначально-был-создан-определенный-коммит">Показать ветку, на которой изначально был создан определенный коммит</a></h3>
+<div class="mdbook-tabs-container">
+<nav class="mdbook-tabs">
+<button class="mdbook-tab active" data-tabname="Windows">Windows</button>
+<button class="mdbook-tab" data-tabname="Linux">Linux</button>
+</nav>
+<div class="mdbook-tab-content" data-tabname="Windows">
+<pre><code class="language-shell">git reflog show --all | FINDSTR &lt;HASH&gt;
+</code></pre>
+</div>
+
+<div class="mdbook-tab-content hidden" data-tabname="Linux">
+<pre><code class="language-shell">git reflog show --all | grep &lt;HASH&gt;
+</code></pre>
+</div>
+
+</div>
+
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="sql"><a class="header" href="#sql">SQL</a></h1>
+<h2 id="dml-data-manipulation-language"><a class="header" href="#dml-data-manipulation-language">DML (Data Manipulation Language)</a></h2>
+<p>Команды DML используются для хранения, извлечения, изменения и удаления данных.</p>
+<p><code>SELECT</code> - извлечение данных из базы данных</p>
+<p><code>INSERT</code> - вставить данные в базу данных</p>
+<p><code>UPDATE</code> - обновление существующих данных в базе данных</p>
+<p><code>DELETE</code> - удаление записи из базы данных</p>
+<h2 id="ddl-data-definition-language"><a class="header" href="#ddl-data-definition-language">DDL (Data Definition Language)</a></h2>
+<p>Команды DDL используются для создания, изменения и удаления структуры объектов базы данных.</p>
+<p><code>CREATE</code> - создание объектов базы данных, таких как таблицы и представления</p>
+<p><code>ALTER</code> - изменение структуры существующей базы данных</p>
+<p><code>DROP</code> - удаление объектов из базы данных</p>
+<p><code>TRUNCATE</code> - удаление всех строк из базы данных</p>
+<h2 id="dcl-data-control-language"><a class="header" href="#dcl-data-control-language">DCL (Data Control Language)</a></h2>
+<p>Команды DCL используются для реализации контроля доступа к объектам базы данных.</p>
+<p><code>GRANT</code> - предоставление пользователю права доступа к объектам базы данных</p>
+<p><code>REVOKE</code> - отзыв привилегий пользователя, которые были ранее предоставлены с помощью GRANT</p>
+<h2 id="туториалы-и-документация"><a class="header" href="#туториалы-и-документация">Туториалы и документация</a></h2>
+<p><a href="https://www.w3schools.com/sql">SQL туториал W3Schools</a></p>
+<p><a href="https://sqlzoo.net/wiki/SQL_Tutorial">SQLZoo</a></p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="sql-server"><a class="header" href="#sql-server">SQL Server</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="типы-данных"><a class="header" href="#типы-данных">Типы данных</a></h1>
+<h2 id="строковые-типы-данных"><a class="header" href="#строковые-типы-данных">Строковые типы данных</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Тип данных</th><th>Описание</th><th>Максимальная длина символа</th><th>Хранилище</th></tr>
+</thead>
+<tbody>
+<tr><td>char(n)</td><td>Символьные не Unicode данные фиксированной длины (n от 1 до 8000)</td><td>8,000</td><td>n байтов (используется один байт для каждого символа)</td></tr>
+<tr><td>varchar(n)</td><td>Символьные не Unicode данные переменной длины (n от 1 до 8000)</td><td>8,000</td><td>n байт + 2 байта</td></tr>
+<tr><td>varchar(max)</td><td>Символьные не Unicode данные переменной длины</td><td></td><td>до 2 GB</td></tr>
+<tr><td>nchar(n)</td><td>Символьные Unicode данные фиксированной длины (n от 1 до 4000)</td><td>4,000</td><td>2 * n байт (используется два байта для каждого символа)</td></tr>
+<tr><td>nvarchar(n)</td><td>Символьные Unicode данные переменной длины (n от 1 до 4000)</td><td>4,000</td><td>2 * n байт + 2 байта (используется два байта для каждого символа)</td></tr>
+<tr><td>nvarchar(max)</td><td>Символьные Unicode данные переменной длины</td><td></td><td>до 2 GB</td></tr>
+<tr><td>binary(n)</td><td>Двоичные данные фиксированной длины (n от 1 до 8000)</td><td>8,000</td><td>n байт</td></tr>
+<tr><td>varbinary(n)</td><td>Двоичные данные переменной длины (n от 1 до 8000)</td><td>8,000</td><td>фактическая длина введенных данных + 2 байта</td></tr>
+<tr><td>varbinary(max)</td><td>Двоичные данные переменной длины</td><td></td><td>2GB</td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="числовые-типы-данных"><a class="header" href="#числовые-типы-данных">Числовые типы данных</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Тип данных</th><th>Описание</th><th>Хранилище</th></tr>
+</thead>
+<tbody>
+<tr><td>bit</td><td>Целое число, может быть 0, 1 или NULL</td><td></td></tr>
+<tr><td>tinyint</td><td>Допускает целые числа от 0 до 255</td><td>1 байт</td></tr>
+<tr><td>smallint</td><td>Допускает целые числа от -32 768 до 32 767</td><td>2 байта</td></tr>
+<tr><td>int</td><td>Допускает целые числа от -2 147 483 648 до 2 147 483 647</td><td>4 байта</td></tr>
+<tr><td>bigint</td><td>Допускает целые числа от -9 223 372 036 854 775 808 до 9 223 372 036 854 775 807</td><td>8 байт</td></tr>
+<tr><td>decimal(p,s)</td><td>Числа с фиксированной точкой.<br><br> Допустимы числа от -10^38 +1 до 10^38 –1.<br><br> Параметр p указывает максимальное общее количество цифр, которое можно хранить (как слева, так и справа от десятичной точки). p может быть от 1 до 38. Значение по умолчанию - 18.<br><br> Параметр s указывает максимальное количество цифр, которое можно сохранить справа от десятичной точки. s может быть от 0 до p. Значение по умолчанию - 0</td><td>5-17 байт</td></tr>
+<tr><td>numeric(p,s)</td><td>Числа с фиксированной точкой.<br><br> Допустимы числа от -10^38 +1 до 10^38 –1.<br><br> Параметр p указывает максимальное общее количество цифр, которое можно хранить (как слева, так и справа от десятичной точки). p может быть от 1 до 38. Значение по умолчанию - 18.<br><br> Параметр s указывает максимальное количество цифр, которое можно сохранить справа от десятичной точки. s может быть от 0 до p. Значение по умолчанию - 0</td><td>5-17 байт</td></tr>
+<tr><td>smallmoney</td><td>Денежные данные от -214,748.3648 до 214,748.3647</td><td>4 байта</td></tr>
+<tr><td>money</td><td>Денежные данные от -922,337,203,685,477.5808 до 922,337,203,685,477.5807</td><td>8 байт</td></tr>
+<tr><td>float(n)</td><td>Числа с плавающей точкой от -1,79E + 308 до 1,79E + 308.<br><br> Параметр n указывает, должно ли поле содержать 4 или 8 байтов. float(24) содержит 4-байтовое поле, а float(53) - 8-байтовое. Значение n по умолчанию - 53.</td><td>4 или 8 байт</td></tr>
+<tr><td>real</td><td>Числа с плавающей точкой от -3.40E + 38 до 3.40E + 38</td><td>4 байта</td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="типы-данных-даты-и-времени"><a class="header" href="#типы-данных-даты-и-времени">Типы данных даты и времени</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Тип данных</th><th>Описание</th><th>Хранилище</th></tr>
+</thead>
+<tbody>
+<tr><td>datetime</td><td>С 1 января 1753 года по 31 декабря 9999 года с точностью 3,33 мс</td><td>8 байт</td></tr>
+<tr><td>datetime2</td><td>С 1 января 0001 года по 31 декабря 9999 года с точностью до 100 нс</td><td>6-8 байт</td></tr>
+<tr><td>smalldatetime</td><td>С 1 января 1900 года по 6 июня 2079 года с точностью до 1 минуты</td><td>4 байта</td></tr>
+<tr><td>date</td><td>Хранит только дату. С 1 января 0001 г. по 31 декабря 9999 г.</td><td>3 байта</td></tr>
+<tr><td>time</td><td>Хранит время с точностью до 100 нс</td><td>3-5 байт</td></tr>
+<tr><td>datetimeoffset</td><td>То же самое, что datetime2, но со смещением часового пояса</td><td>8-10 байт</td></tr>
+<tr><td>timestamp</td><td>Хранит уникальный номер, который обновляется каждый раз при создании или изменении строки. Значение timestamp основано на внутреннем времени и не соответствует реальному времени. Каждая таблица может иметь только одну переменную timestamp</td><td></td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="другие-типы-данных"><a class="header" href="#другие-типы-данных">Другие типы данных</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Тип данных</th><th>Описание</th></tr>
+</thead>
+<tbody>
+<tr><td>sql_variant</td><td>Хранит до 8000 байт данных различных типов, за исключением text, ntext и timestamp</td></tr>
+<tr><td>uniqueidentifier</td><td>Хранит глобальный уникальный идентификатор (GUID)</td></tr>
+<tr><td>xml</td><td>Хранит данные в формате XML. Максимальный объём - 2 ГБ</td></tr>
+<tr><td>cursor</td><td>Хранит ссылку на курсор, используемый для операций с базой данных</td></tr>
+<tr><td>table</td><td>Хранит набор результатов для последующей обработки</td></tr>
+</tbody>
+</table>
+</div>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="ide"><a class="header" href="#ide">IDE</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="visual-studio"><a class="header" href="#visual-studio">Visual Studio</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="основные-горячие-клавиши-visual-studio"><a class="header" href="#основные-горячие-клавиши-visual-studio">Основные горячие клавиши Visual Studio</a></h1>
+<h2 id="редактирование"><a class="header" href="#редактирование">Редактирование</a></h2>
+<p><code>Ctrl+K,C</code> – закомментировать строку<br><code>Ctrl+K,U</code> – раскомментировать строку<br><code>Ctrl+D</code> – продублировать строку<br><code>Ctrl+Shift+L</code> – удалить строку, не добавляя её в буфер обмена<br><code>Alt+&lt;Up/Down arrows&gt;</code> – переместить строку вверх/вниз</p>
+<p><code>Ctrl+K,F</code> – отформатировать выделенный блок<br><code>Ctrl+K,D</code> – отформатировать весь файл<br><code>Ctrl+K,E</code> – очистка кода в файле (по заданным вами правилам, например, удаление ненужных using)</p>
+<p><code>Ctrl+K,S</code> – вставка сниппета (блок if, try, for и т.п.), либо заключить выделенный код в блок<br><code>Alt+Shift+&lt;стрелки&gt;</code> (<code>Alt+&lt;выделение мышью&gt;</code>) - редактирование по колонкам<br><code>Ctrl+Alt+&lt;поместить курсор мышью&gt;</code> - многокурсорный ввод (редактирование в нескольких местах одновременно)</p>
+<h2 id="навигация"><a class="header" href="#навигация">Навигация</a></h2>
+<p><code>Ctrl+G</code> – перейти к линии<br><code>Ctrl+K,K</code> – оставить закладку<br><code>Ctrl+K,N</code> – перейти к следующей закладке</p>
+<p><code>Ctrl+,</code> (<code>Ctrl+T</code>) - поиск по коду в проекте<br><code>Ctrl+Q</code> – поиск по инструментам IDE</p>
+<p><code>F12</code> <code>(Ctrl+&lt;щелчок мыши&gt;)</code> – перейти к определению<br><code>Ctrl+F12</code> – перейти к реализации<br><code>Alt+F12</code> – подсказка реализации во всплывающем окне<br><code>Shift+F12</code> – найти использования</p>
+<p><code>Ctrl+Shift+пробел</code> – подсказка по аргументам метода<br><code>Ctrl+[,S</code> – отметить текущий файл в обозревателе решения<br><code>Ctrl+;</code> - поиск в обозревателе решения</p>
+<p><code>Ctrl+M,O</code> - свернуть все методы<br><code>Ctrl+M,P</code> - развернуть все методы<br><code>Ctrl+M,M</code> – свернуть/развернуть текущий метод<br><code>Ctrl+M,L</code> – свернуть/развернуть все блоки кода</p>
+<p><code>Shift+Alt+.</code> – Добавить следующий совпадающий текст как выделение <code>Shift+Alt+;</code> – Добавить весь совпадающий текст как выделение <code>Shift+Alt+,</code> – Удалить последнее выбранное вхождение <code>Shift+Alt+/</code> – Пропустить следующее совпадающее вхождение</p>
+<p><strong>Для ASP.NET</strong><br><code>Ctrl+M,G</code> – перейти из метода контроллера в представление или наоборот</p>
+<h2 id="рефакторинг"><a class="header" href="#рефакторинг">Рефакторинг</a></h2>
+<p><code>Ctrl+.</code> (<code>Alt+Enter</code>) – подсказки рефакторинга<br><code>Ctrl+R,R</code> – переименовать<br><code>Ctrl+R,M</code> – извлечь выделенный код в метод<br><code>Ctrl+R,I</code> - извлечь интерфейс из класса<br><code>Ctrl+R,V</code> (<code>Ctrl+R,O</code>) - реорганизовать параметры метода</p>
+<h2 id="сниппеты"><a class="header" href="#сниппеты">Сниппеты</a></h2>
+<p><code>"prop",Tab,Tab</code> – создать свойство<br><code>"ctor",Tab,Tab</code> – создать конструктор<br>Также Tab,Tab работает для других популярных ключевых слов (if, for, switch и т.п.)</p>
+<h2 id="отладка"><a class="header" href="#отладка">Отладка</a></h2>
+<p><code>F9</code> – создать точку останова<br><code>Ctrl+Alt+B</code> – окно со всеми точками останова<br><code>Ctrl+Shift+F9</code> – удалить все точки останова</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
+
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="theme/js/tabs-6977231d.js"></script>
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+
+    </div>
+    </body>
+</html>

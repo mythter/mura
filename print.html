@@ -97,6 +97,7 @@
         <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="theme/css/language-picker-b3b28d1a.css">
         <link rel="stylesheet" href="theme/css/tabs-52f01167.css">
 
 
@@ -105,10 +106,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-ed6498ce.js";
+            window.path_to_searchindex_js = "searchindex-38f300bf.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-265d4d98.js"></script>
+        <script src="toc-cc82f70a.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -299,7 +300,7 @@
 <h3 id="delete-remote-branch-remote-name-usually-origin"><a class="header" href="#delete-remote-branch-remote-name-usually-origin">DELETE remote branch (<em>remote-name</em> usually <em>origin</em>)</a></h3>
 <pre><code class="language-shell">git push -d &lt;remote-name&gt; &lt;branch-name&gt;
 </code></pre>
-<p>Don’t forget to do a <code>git fetch --all --prune</code> or <code>git fetch --all -p</code> on other machines after deleting the remote branch on the server.
+<p><br>Don’t forget to do a <code>git fetch --all --prune</code> or <code>git fetch --all -p</code> on other machines after deleting the remote branch on the server.
 After deleting the local branch with <code>git branch -d</code> and deleting the remote branch with <code>git push -d origin</code> other machines may still have “obsolete tracking branches” (to see them do <code>git branch -a</code>). To get rid of these do <code>git fetch --all --prune</code></p>
 <h3 id="delete-local-branch"><a class="header" href="#delete-local-branch">DELETE local branch</a></h3>
 <pre><code class="language-shell">git branch -d &lt;branch-name&gt;
@@ -444,8 +445,6 @@ After deleting the local branch with <code>git branch -d</code> and deleting the
 </code></pre>
 <pre><code class="language-shell">git config --global user.email test@email.com
 </code></pre>
-<div style="break-before: page; page-break-before: always;"></div>
-<h1 id="ignore"><a class="header" href="#ignore">Ignore</a></h1>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="line-endings"><a class="header" href="#line-endings">Line endings</a></h1>
 <p>The <code>git config core.autocrlf</code> command is used to change how Git handles line endings. It takes a single argument.</p>
@@ -676,26 +675,6 @@ After deleting the local branch with <code>git branch -d</code> and deleting the
 <pre><code class="language-shell">git tag -d origin &lt;tag_name&gt;
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div>
-<h1 id="useful-git-commands"><a class="header" href="#useful-git-commands">Useful Git Commands</a></h1>
-<h3 id="show-the-branch-on-which-a-specific-commit-was-originally-created"><a class="header" href="#show-the-branch-on-which-a-specific-commit-was-originally-created">Show the branch on which a specific commit was originally created</a></h3>
-<div class="mdbook-tabs-container">
-<nav class="mdbook-tabs">
-<button class="mdbook-tab active" data-tabname="Windows">Windows</button>
-<button class="mdbook-tab" data-tabname="Linux">Linux</button>
-</nav>
-<div class="mdbook-tab-content" data-tabname="Windows">
-<pre><code class="language-shell">git reflog show --all | FINDSTR &lt;HASH&gt;
-</code></pre>
-</div>
-
-<div class="mdbook-tab-content hidden" data-tabname="Linux">
-<pre><code class="language-shell">git reflog show --all | grep &lt;HASH&gt;
-</code></pre>
-</div>
-
-</div>
-
-<div style="break-before: page; page-break-before: always;"></div>
 <h1 id="worktrees"><a class="header" href="#worktrees">Worktrees</a></h1>
 <h2 id="create-2"><a class="header" href="#create-2">CREATE</a></h2>
 <h3 id="create-a-worktree-for-an-existing-branch-using-the-same-name-as-the-working-directory"><a class="header" href="#create-a-worktree-for-an-existing-branch-using-the-same-name-as-the-working-directory">Create a worktree for an existing branch using the same name as the working directory</a></h3>
@@ -724,29 +703,25 @@ git worktree prune
 git branch -D &lt;branch-name&gt;
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div>
-<h1 id="ide"><a class="header" href="#ide">IDE</a></h1>
-<div style="break-before: page; page-break-before: always;"></div>
-<h1 id="visual-studio"><a class="header" href="#visual-studio">Visual Studio</a></h1>
-<div style="break-before: page; page-break-before: always;"></div>
-<h1 id="visual-studio-main-shortcuts"><a class="header" href="#visual-studio-main-shortcuts">Visual Studio Main Shortcuts</a></h1>
-<h2 id="editing"><a class="header" href="#editing">Editing</a></h2>
-<p><code>Ctrl+K,C</code> – comment line<br><code>Ctrl+K,U</code> – uncomment line<br><code>Ctrl+D</code> – duplicate line<br><code>Ctrl+Shift+L</code> – delete line without adding it to the clipboard<br><code>Alt+&lt;Up/Down arrows&gt;</code> – move line up/down</p>
-<p><code>Ctrl+K,F</code> – format the selected block<br><code>Ctrl+K,D</code> – format the entire file<br><code>Ctrl+K,E</code> – clean up the code in the file (according to the rules you set, for example, removing unnecessary usings)</p>
-<p><code>Ctrl+K,S</code> – insert snippet (if, try, for block, etc.), or enclose the selected code in a block<br><code>Alt+Shift+&lt;arrows&gt;</code> (<code>Alt+&lt;mouse selection&gt;</code>) – edit by columns<br><code>Ctrl+Alt+&lt;place the cursor with the mouse&gt;</code> – multi-cursor input (edit in several places at once)</p>
-<h2 id="navigation"><a class="header" href="#navigation">Navigation</a></h2>
-<p><code>Ctrl+G</code> – go to line<br><code>Ctrl+K,K</code> – leave bookmark<br><code>Ctrl+K,N</code> – go to next bookmark</p>
-<p><code>Ctrl+,</code> (<code>Ctrl+T</code>) – search by code in project<br><code>Ctrl+Q</code> – search by IDE tools</p>
-<p><code>F12</code> (<code>Ctrl+&lt;mouse click&gt;</code>) – go to definition<br><code>Alt+F12</code> – peek definition (definition hint in inline window)<br><code>Ctrl+F12</code> – go to implementation<br><code>Shift+F12</code> – find all references</p>
-<p><code>Ctrl+Shift+space</code> – method arguments hint<br><code>Ctrl+[,S</code> – mark current file in solution explorer<br><code>Ctrl+;</code> – search in solution explorer</p>
-<p><code>Ctrl+M,O</code> – collapse all methods to definitions<br><code>Ctrl+M,P</code> – expand all methods<br><code>Ctrl+M,M</code> – collapse/expand the current method<br><code>Ctrl+M,L</code> – collapse/expand all outlining</p>
-<p><code>Shift+Alt+.</code> – Add the next matching text as a selection<br><code>Shift+Alt+;</code> – Add all matching text as selections<br><code>Shift+Alt+,</code> – Remove last selected occurrence<br><code>Shift+Alt+/</code> – Skip next matching occurrence</p>
-<p><strong>For ASP.NET</strong><br><code>Ctrl+M,G</code> – go from a controller method to a view or vice versa</p>
-<h2 id="refactoring"><a class="header" href="#refactoring">Refactoring</a></h2>
-<p><code>Ctrl+.</code> (<code>Alt+Enter</code>) – refactoring hints<br><code>Ctrl+R,R</code> – rename<br><code>Ctrl+R,M</code> – extract selected code to method<br><code>Ctrl+R,I</code> – extract interface from class<br><code>Ctrl+R,V</code> (<code>Ctrl+R,O</code>) – reorganize method parameters</p>
-<h2 id="snippets"><a class="header" href="#snippets">Snippets</a></h2>
-<p><code>"prop",Tab,Tab</code> – create a property<br><code>"ctor",Tab,Tab</code> – create a constructor<br>Tab,Tab also works for other popular keywords (if, for, switch, etc.)</p>
-<h2 id="debugging"><a class="header" href="#debugging">Debugging</a></h2>
-<p><code>F9</code> – create a breakpoint<br><code>Ctrl+Alt+B</code> – open window with all breakpoints<br><code>Ctrl+Shift+F9</code> – delete all breakpoints</p>
+<h1 id="useful-git-commands"><a class="header" href="#useful-git-commands">Useful Git Commands</a></h1>
+<h3 id="show-the-branch-on-which-a-specific-commit-was-originally-created"><a class="header" href="#show-the-branch-on-which-a-specific-commit-was-originally-created">Show the branch on which a specific commit was originally created</a></h3>
+<div class="mdbook-tabs-container">
+<nav class="mdbook-tabs">
+<button class="mdbook-tab active" data-tabname="Windows">Windows</button>
+<button class="mdbook-tab" data-tabname="Linux">Linux</button>
+</nav>
+<div class="mdbook-tab-content" data-tabname="Windows">
+<pre><code class="language-shell">git reflog show --all | FINDSTR &lt;HASH&gt;
+</code></pre>
+</div>
+
+<div class="mdbook-tab-content hidden" data-tabname="Linux">
+<pre><code class="language-shell">git reflog show --all | grep &lt;HASH&gt;
+</code></pre>
+</div>
+
+</div>
+
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="sql"><a class="header" href="#sql">SQL</a></h1>
 <h2 id="dml-data-manipulation-language"><a class="header" href="#dml-data-manipulation-language">DML (Data Manipulation Language)</a></h2>
@@ -844,6 +819,30 @@ git branch -D &lt;branch-name&gt;
 </tbody>
 </table>
 </div>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="ide"><a class="header" href="#ide">IDE</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="visual-studio"><a class="header" href="#visual-studio">Visual Studio</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="visual-studio-main-shortcuts"><a class="header" href="#visual-studio-main-shortcuts">Visual Studio Main Shortcuts</a></h1>
+<h2 id="editing"><a class="header" href="#editing">Editing</a></h2>
+<p><code>Ctrl+K,C</code> – comment line<br><code>Ctrl+K,U</code> – uncomment line<br><code>Ctrl+D</code> – duplicate line<br><code>Ctrl+Shift+L</code> – delete line without adding it to the clipboard<br><code>Alt+&lt;Up/Down arrows&gt;</code> – move line up/down</p>
+<p><code>Ctrl+K,F</code> – format the selected block<br><code>Ctrl+K,D</code> – format the entire file<br><code>Ctrl+K,E</code> – clean up the code in the file (according to the rules you set, for example, removing unnecessary usings)</p>
+<p><code>Ctrl+K,S</code> – insert snippet (if, try, for block, etc.), or enclose the selected code in a block<br><code>Alt+Shift+&lt;arrows&gt;</code> (<code>Alt+&lt;mouse selection&gt;</code>) – edit by columns<br><code>Ctrl+Alt+&lt;place the cursor with the mouse&gt;</code> – multi-cursor input (edit in several places at once)</p>
+<h2 id="navigation"><a class="header" href="#navigation">Navigation</a></h2>
+<p><code>Ctrl+G</code> – go to line<br><code>Ctrl+K,K</code> – leave bookmark<br><code>Ctrl+K,N</code> – go to next bookmark</p>
+<p><code>Ctrl+,</code> (<code>Ctrl+T</code>) – search by code in project<br><code>Ctrl+Q</code> – search by IDE tools</p>
+<p><code>F12</code> (<code>Ctrl+&lt;mouse click&gt;</code>) – go to definition<br><code>Alt+F12</code> – peek definition (definition hint in inline window)<br><code>Ctrl+F12</code> – go to implementation<br><code>Shift+F12</code> – find all references</p>
+<p><code>Ctrl+Shift+space</code> – method arguments hint<br><code>Ctrl+[,S</code> – mark current file in solution explorer<br><code>Ctrl+;</code> – search in solution explorer</p>
+<p><code>Ctrl+M,O</code> – collapse all methods to definitions<br><code>Ctrl+M,P</code> – expand all methods<br><code>Ctrl+M,M</code> – collapse/expand the current method<br><code>Ctrl+M,L</code> – collapse/expand all outlining</p>
+<p><code>Shift+Alt+.</code> – Add the next matching text as a selection<br><code>Shift+Alt+;</code> – Add all matching text as selections<br><code>Shift+Alt+,</code> – Remove last selected occurrence<br><code>Shift+Alt+/</code> – Skip next matching occurrence</p>
+<p><strong>For ASP.NET</strong><br><code>Ctrl+M,G</code> – go from a controller method to a view or vice versa</p>
+<h2 id="refactoring"><a class="header" href="#refactoring">Refactoring</a></h2>
+<p><code>Ctrl+.</code> (<code>Alt+Enter</code>) – refactoring hints<br><code>Ctrl+R,R</code> – rename<br><code>Ctrl+R,M</code> – extract selected code to method<br><code>Ctrl+R,I</code> – extract interface from class<br><code>Ctrl+R,V</code> (<code>Ctrl+R,O</code>) – reorganize method parameters</p>
+<h2 id="snippets"><a class="header" href="#snippets">Snippets</a></h2>
+<p><code>"prop",Tab,Tab</code> – create a property<br><code>"ctor",Tab,Tab</code> – create a constructor<br>Tab,Tab also works for other popular keywords (if, for, switch, etc.)</p>
+<h2 id="debugging"><a class="header" href="#debugging">Debugging</a></h2>
+<p><code>F9</code> – create a breakpoint<br><code>Ctrl+Alt+B</code> – open window with all breakpoints<br><code>Ctrl+Shift+F9</code> – delete all breakpoints</p>
 
                     </main>
 
