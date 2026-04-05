@@ -1,7 +1,8 @@
 name: Deploy
 on:
   push:
-      branches: [ "main" ]
+      branches: [ "mura-obsidian" ]
+  workflow_dispatch:
 
 env:
   # Update the language picker in head.hbs to link new languages.
@@ -16,9 +17,28 @@ jobs:
       pages: write  # To push to a GitHub Pages site
       id-token: write # To update the deployment status
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
+      - name: Print current directory contents
+        run: ls -la
+
+      - name: Setup .NET 10
+        uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: "10.0.x"
+
+      - name: Install obsidian-export
+        run: |
+          LATEST=$(curl -s https://api.github.com/repos/zoni/obsidian-export/releases/latest \
+            | grep '"tag_name"' | cut -d'"' -f4)
+          echo "obsidian-export version: $LATEST"
+          curl -L \
+            "https://github.com/zoni/obsidian-export/releases/download/${LATEST}/obsidian-export-x86_64-unknown-linux-gnu.tar.gz" \
+            | tar xz -C /usr/local/bin
+          obsidian-export --version
           
       - name: Install mdbook
         run: |
@@ -26,44 +46,31 @@ jobs:
           curl -sSL https://github.com/rust-lang/mdBook/releases/download/v${MDBOOK_VERSION}/mdbook-v${MDBOOK_VERSION}-x86_64-unknown-linux-gnu.tar.gz | tar -xz --directory=bin
           echo "$(pwd)/bin" >> ${GITHUB_PATH}
 
-      - name: Install mdbook-i18n-helpers
-        run: |
-          cargo install mdbook-i18n-helpers --locked --version 0.4.0
-
       - name: Install mdbook-tabs
         run: |
           cargo install mdbook-tabs
-          
-      - name: Build Book
-        run: mdbook build
 
-      - name: Build all translations
+      - name: Export Obsidian vault (obsidian-export)
         run: |
-          for po_lang in ${{ env.LANGUAGES }}; do
-            echo "::group::Building $po_lang translation"
-            # Set language and adjust site URL. Clear the redirects
-            # since they are in sync with the source files, not the
-            # translation.
-            MDBOOK_BOOK__LANGUAGE=$po_lang \
-            mdbook build -d book/$po_lang
-            echo "::endgroup::"
-          done
+          mkdir -p exported
+          cp -r .mdbook exported/.mdbook
+          obsidian-export ./ exported/
 
-      - name: Uploading files to gh-pages branch
+      - name: Print current directory contents
+        run: ls -la
+
+      - name: Convert to mdBook format (C# script)
+        run: |
+          dotnet run .scripts/obsidian_to_mdbook.cs -- exported/ mura-mdbook/
+
+      - name: Build Test
+        run: mdbook test mura-mdbook/
+
+      - name: Build Book
+        run: mdbook build mura-mdbook/
+
+      - name: Uploading mdbook to mura-mdbook branch
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages
-          folder: book
-          
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-        
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          # Upload entire repository
-          path: 'book'
-          
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          branch: mura-mdbook
+          folder: mura-mdbook
