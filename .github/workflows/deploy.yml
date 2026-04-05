@@ -9,7 +9,7 @@ env:
   MDBOOK_VERSION: ${{ vars.MDBOOK_VERSION }}
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
     permissions:
       contents: write  # To push a branch 
