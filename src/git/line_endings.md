@@ -6,8 +6,6 @@ The `git config core.autocrlf` command is used to change how Git handles line en
 git config --global core.autocrlf input|true|false
 ```
 
-<br>
-
 | autocrlf | commit      | checkout    | When to Use                  |
 |----------|-------------|-------------|------------------------------|
 | input    | CRLF → LF   |      -      | Unix, MacOS                  |
