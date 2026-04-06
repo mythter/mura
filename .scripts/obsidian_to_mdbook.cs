@@ -23,7 +23,7 @@ HashSet<string> CHAPTER_FILE_NAMES = new(StringComparer.OrdinalIgnoreCase) { "in
 // obsidian-export has already converted [[WikiLinks]] → regular links.
 // This script takes the exported/ folder as input and writes to book_src/.
 var exportedDir = Path.GetFullPath(args.Length > 0 ? args[0] : "exported");
-var outputDir   = Path.GetFullPath(args.Length > 1 ? args[1] : "book_src");
+var outputDir = Path.GetFullPath(args.Length > 1 ? args[1] : "book_src");
 
 var mdBookSrcPath = Path.Combine(outputDir, MDBOOK_SRC_DIRECTORY);
 
@@ -53,7 +53,7 @@ foreach (var srcFile in Directory.EnumerateFiles(mdBookInitialPath, "*", SearchO
     }
 
     var relative = Path.GetRelativePath(mdBookInitialPath, srcFile);
-    var dstFile  = Path.Combine(outputDir, relative);
+    var dstFile = Path.Combine(outputDir, relative);
 
     Directory.CreateDirectory(Path.GetDirectoryName(dstFile)!);
     File.Copy(srcFile, dstFile, overwrite: true);
@@ -62,7 +62,7 @@ foreach (var srcFile in Directory.EnumerateFiles(mdBookInitialPath, "*", SearchO
 // ─── File Conversion ──────────────────────────────────────────────────────
 
 int converted = 0;
-int skipped   = 0;
+int skipped = 0;
 
 foreach (var srcFile in Directory.EnumerateFiles(exportedDir, "*", SearchOption.AllDirectories))
 {
@@ -79,7 +79,7 @@ foreach (var srcFile in Directory.EnumerateFiles(exportedDir, "*", SearchOption.
     }
 
     var relative = Path.GetRelativePath(exportedDir, srcFile);
-    var dstFile  = Path.Combine(outputDir, relative);
+    var dstFile = Path.Combine(outputDir, relative);
 
     // Non-markdown files are copied as-is
     if (!Path.GetExtension(srcFile).Equals(".md", StringComparison.OrdinalIgnoreCase) ||
@@ -99,6 +99,7 @@ foreach (var srcFile in Directory.EnumerateFiles(exportedDir, "*", SearchOption.
         var text = File.ReadAllText(srcFile, Encoding.UTF8);
         text = StripFrontmatter(text);
         text = ConvertCallouts(text);
+        text = ConvertTabs(text);
         text = FixImagePaths(text, relative);
         text = RemoveObsidianTags(text);
         text = NormalizeHeadings(text);
@@ -132,7 +133,7 @@ foreach (var dir in RESOURCES_DIRECTORIES)
 // ─── SUMMARY.md Generation ────────────────────────────────────────────────────
 
 var summaryPath = Path.Combine(mdBookSrcPath, "SUMMARY.md");
-var summary     = BuildSummary(mdBookSrcPath);
+var summary = BuildSummary(mdBookSrcPath);
 File.WriteAllText(summaryPath, summary, Encoding.UTF8);
 
 Console.WriteLine($"\n✅ Done: {converted} files converted, {skipped} skipped");
@@ -176,20 +177,20 @@ static string ConvertCallouts(string text)
     // Icons for callout types
     var icons = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
     {
-        ["note"]      = "📝",
-        ["info"]      = "ℹ️",
-        ["tip"]       = "💡",
+        ["note"] = "📝",
+        ["info"] = "ℹ️",
+        ["tip"] = "💡",
         ["important"] = "❗",
-        ["warning"]   = "⚠️",
-        ["caution"]   = "🔥",
-        ["danger"]    = "🚨",
-        ["success"]   = "✅",
-        ["question"]  = "❓",
-        ["failure"]   = "❌",
-        ["bug"]       = "🐛",
-        ["example"]   = "📌",
-        ["quote"]     = "💬",
-        ["abstract"]  = "📄",
+        ["warning"] = "⚠️",
+        ["caution"] = "🔥",
+        ["danger"] = "🚨",
+        ["success"] = "✅",
+        ["question"] = "❓",
+        ["failure"] = "❌",
+        ["bug"] = "🐛",
+        ["example"] = "📌",
+        ["quote"] = "💬",
+        ["abstract"] = "📄",
     };
 
     return Regex.Replace(
@@ -198,10 +199,10 @@ static string ConvertCallouts(string text)
         @"^> \[!(\w+)\][+-]?[ \t]*(.*?)\n((?:>[ \t]?.*\n?)*)",
         m =>
         {
-            var kind   = m.Groups[1].Value.ToLower();
-            var title  = m.Groups[2].Value.Trim();
-            var body   = m.Groups[3].Value;
-            var icon   = icons.GetValueOrDefault(kind, "📌");
+            var kind = m.Groups[1].Value.ToLower();
+            var title = m.Groups[2].Value.Trim();
+            var body = m.Groups[3].Value;
+            var icon = icons.GetValueOrDefault(kind, "📌");
 
             // Remove leading "> " from each line in the body
             body = Regex.Replace(body, @"^>[ \t]?", "", RegexOptions.Multiline).TrimEnd();
@@ -224,6 +225,133 @@ static string ConvertCallouts(string text)
 }
 
 /// <summary>
+/// Converts Obsidian tabs plugin syntax to mdbook-tabs preprocessor syntax.
+///
+/// Input:
+///   ````tabs
+///   tab: Windows
+///   ```shell
+///   git reflog show --all | FINDSTR &lt;HASH&gt;
+///   ```
+///   tab: Linux
+///   ```shell
+///   git reflog show --all | grep &lt;HASH&gt;
+///   ```
+///   ````
+///
+/// Output:
+///   {{#tabs}}
+///   {{#tab name="Windows"}}
+///   ```shell
+///   git reflog show --all | FINDSTR &lt;HASH&gt;
+///   ```
+///   {{#endtab}}
+///   {{#tab name="Linux"}}
+///   ```shell
+///   git reflog show --all | grep &lt;HASH&gt;
+///   ```
+///   {{#endtab}}
+///   {{#endtabs}}
+/// </summary>
+static string ConvertTabs(string text)
+{
+    // Find every ````tabs ... ```` block (4+ backticks).
+    // We scan manually to support variable fence length
+    // and to preserve code fences inside tab bodies verbatim.
+    var result = new StringBuilder();
+    var pos = 0;
+    var fenceStart = new Regex(@"^(?<fence>`{4,})tabs[ \t]*$", RegexOptions.Multiline);
+
+    foreach (Match startMatch in fenceStart.Matches(text))
+    {
+        // Append everything before this block verbatim
+        result.Append(text, pos, startMatch.Index - pos);
+
+        var fence = startMatch.Groups["fence"].Value;         // e.g. "````"
+        var afterFence = startMatch.Index + startMatch.Length + 1; // skip '\n'
+
+        if (afterFence > text.Length)
+        {
+            // Malformed — leave as-is
+            result.Append(startMatch.Value);
+            pos = startMatch.Index + startMatch.Length;
+            continue;
+        }
+
+        // Find the matching closing fence (same backtick count, alone on a line)
+        var closingPattern = new Regex(
+            $@"^{Regex.Escape(fence)}[ \t]*$",
+            RegexOptions.Multiline
+        );
+        var closeMatch = closingPattern.Match(text, afterFence);
+
+        if (!closeMatch.Success)
+        {
+            // No closing fence — leave block untouched
+            result.Append(startMatch.Value);
+            pos = startMatch.Index + startMatch.Length;
+            continue;
+        }
+
+        var inner = text.Substring(afterFence, closeMatch.Index - afterFence);
+        result.Append(ConvertTabsBlock(inner));
+
+        pos = closeMatch.Index + closeMatch.Length;
+        if (pos < text.Length && text[pos] == '\n') pos++; // skip trailing newline
+    }
+
+    result.Append(text, pos, text.Length - pos);
+    return result.ToString();
+}
+
+static string ConvertTabsBlock(string inner)
+{
+    var sb = new StringBuilder();
+    sb.AppendLine("{{#tabs}}");
+
+    // Split on lines that start a new tab: "tab: Name"
+    // We use a manual scan to preserve code block content verbatim.
+    var lines = inner.Split('\n');
+    var tabName = (string?)null;
+    var tabBody = new StringBuilder();
+
+    void FlushTab()
+    {
+        if (tabName is null) return;
+
+        sb.AppendLine($"{{{{#tab name=\"{tabName}\"}}}}");
+        sb.Append(tabBody.ToString().TrimEnd('\n', '\r'));
+        sb.AppendLine();
+        sb.AppendLine("{{#endtab}}");
+
+        tabName = null;
+        tabBody.Clear();
+    }
+
+    foreach (var raw in lines)
+    {
+        // "tab: Name" — start of a new tab (but not inside a code fence)
+        var tabHeader = Regex.Match(raw, @"^tab:\s*(.+)$");
+
+        if (tabHeader.Success)
+        {
+            FlushTab();
+            tabName = tabHeader.Groups[1].Value.Trim();
+        }
+        else
+        {
+            // String belongs to the body of the current tab
+            tabBody.AppendLine(raw);
+        }
+    }
+
+    FlushTab();
+
+    sb.Append("{{#endtabs}}");
+    return sb.ToString();
+}
+
+/// <summary>
 /// Fixes image paths.
 /// obsidian-export places them next to the file or in a subfolder,
 /// but mdBook expects paths relative to the book_src/ root.
@@ -236,7 +364,7 @@ static string FixImagePaths(string text, string relativeFilePath)
         @"!\[([^\]]*)\]\(([^)]+)\)",
         m =>
         {
-            var alt  = m.Groups[1].Value;
+            var alt = m.Groups[1].Value;
             var path = m.Groups[2].Value.Replace('\\', '/');
 
             // Already absolute or external link — leave unchanged
