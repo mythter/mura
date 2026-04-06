@@ -73,7 +73,7 @@ foreach (var srcFile in Directory.EnumerateFiles(exportedDir, "*", SearchOption.
         continue;
     }
 
-    if (HasFolderInPath(srcFile, MDBOOK_SETUP_DIRECTORY))
+    if (RESOURCES_DIRECTORIES.Union([MDBOOK_SETUP_DIRECTORY]).Any(d => HasFolderInPath(srcFile, d)))
     {
         continue;
     }
@@ -115,7 +115,7 @@ foreach (var srcFile in Directory.EnumerateFiles(exportedDir, "*", SearchOption.
 }
 
 
-// ─── Asset Copying ─────────────────────────────────────────────────────
+// ─── Assets Copying ─────────────────────────────────────────────────────
 
 foreach (var dir in RESOURCES_DIRECTORIES)
 {
@@ -124,7 +124,7 @@ foreach (var dir in RESOURCES_DIRECTORIES)
     if (!Directory.Exists(source))
         continue;
 
-    var dest = Path.Combine(outputDir, dir);
+    var dest = Path.Combine(mdBookSrcPath, dir);
 
     CopyDirectory(source, dest);
 }
