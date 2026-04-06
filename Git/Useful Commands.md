@@ -2,22 +2,16 @@
 
 ### Show the branch on which a specific commit was originally created
 
-{{#tabs}}
 
-{{#tab name="Windows"}}
+````tabs
 
+tab: Windows
 ```shell
 git reflog show --all | FINDSTR <HASH>
 ```
-
-{{#endtab}}
-
-{{#tab name="Linux"}}
-
+tab: Linux
 ```shell
 git reflog show --all | grep <HASH>
 ```
 
-{{#endtab}}
-
-{{#endtabs}}
+````
