@@ -3,21 +3,15 @@
 ### Show the branch on which a specific commit was originally created
 
 {{#tabs}}
-
 {{#tab name="Windows"}}
 
-````shell
+```shell
 git reflog show --all | FINDSTR <HASH>
-````
-
+```
 {{#endtab}}
-
 {{#tab name="Linux"}}
-
-````shell
+```shell
 git reflog show --all | grep <HASH>
-````
-
+```
 {{#endtab}}
-
 {{#endtabs}}
