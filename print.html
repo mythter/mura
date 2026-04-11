@@ -37,10 +37,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-ed6498ce.js";
+            window.path_to_searchindex_js = "searchindex-c4fd5a32.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-265d4d98.js"></script>
+        <script src="toc-dd1edaec.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -678,6 +678,130 @@ git branch -D &lt;branch-name&gt;
 <p><code>"prop",Tab,Tab</code> – create a property<br><code>"ctor",Tab,Tab</code> – create a constructor<br>Tab,Tab also works for other popular keywords (if, for, switch, etc.)</p>
 <h2 id="debugging"><a class="header" href="#debugging">Debugging</a></h2>
 <p><code>F9</code> – create a breakpoint<br><code>Ctrl+Alt+B</code> – open window with all breakpoints<br><code>Ctrl+Shift+F9</code> – delete all breakpoints</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="collections"><a href="#collections" class="header">Collections</a></h1>
+<h3 id="show-all-collections-in-the-current-database"><a class="header" href="#show-all-collections-in-the-current-database">Show all collections in the current database</a></h3>
+<pre><code>show collections
+</code></pre>
+<h3 id="create-collection"><a class="header" href="#create-collection">Create collection</a></h3>
+<pre><code>db.CreateCollection("my_collection")
+</code></pre>
+<pre><code>db.createCollection("my_collection", { capped: true, size: 5242880, max: 5000 })
+</code></pre>
+<h3 id="rename-collection"><a class="header" href="#rename-collection">Rename collection</a></h3>
+<pre><code>db.my_collection.renameCollection("new_collection")
+</code></pre>
+<h3 id="count-documents"><a class="header" href="#count-documents">Count documents</a></h3>
+<pre><code>db.my_collection.countDocuments()
+</code></pre>
+<pre><code>db.my_collection.countDocuments({ active: true })
+</code></pre>
+<h3 id="delete-collection"><a class="header" href="#delete-collection">Delete collection</a></h3>
+<pre><code>db.my_collection.drop()
+</code></pre>
+<h3 id="show-collection-statistics"><a class="header" href="#show-collection-statistics">Show collection statistics</a></h3>
+<pre><code>db.my_collection.stats()
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="data-types-1"><a href="#data-types-1" class="header">Data Types</a></h1>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th><strong>Data type</strong></th><th><strong>Description</strong></th><th><strong>Example</strong></th></tr>
+</thead>
+<tbody>
+<tr><td><code>String</code></td><td>UTF-8 encoded text string</td><td><code>"Alice"</code></td></tr>
+<tr><td><code>Integer</code></td><td>32-bit signed integer (int32)</td><td><code>25</code></td></tr>
+<tr><td><code>Long</code></td><td>64-bit signed integer (int64) for large values</td><td><code>NumberLong(9999999999)</code></td></tr>
+<tr><td><code>Double</code></td><td>64-bit IEEE 754 floating-point number</td><td><code>19.99</code></td></tr>
+<tr><td><code>Decimal128</code></td><td>128-bit high-precision decimal</td><td><code>NumberDecimal("99.99")</code></td></tr>
+<tr><td><code>Boolean</code></td><td>Logical true / false value</td><td><code>true</code></td></tr>
+<tr><td><code>ObjectId</code></td><td>12-byte unique identifier, auto-generated for _id fields</td><td><code>ObjectId('69d2bdb643fd93140a3e2a90')</code></td></tr>
+<tr><td><code>Date</code></td><td>Date and time stored as milliseconds since Unix epoch</td><td><code>new Date("2024-01-01")</code></td></tr>
+<tr><td><code>Array</code></td><td>Ordered list of values of any type</td><td><code>["js", "db"]</code></td></tr>
+<tr><td><code>Object</code></td><td>Embedded (nested) document</td><td><code>{ "city": "Kyiv" }</code></td></tr>
+<tr><td><code>Null</code></td><td>Represents the absence of a value</td><td><code>null</code></td></tr>
+<tr><td><code>Binary</code></td><td>Raw binary data (files, hashes)</td><td><code>BinData(0, "base64==")</code></td></tr>
+<tr><td><code>Regex</code></td><td>Regular expression stored as a native BSON type</td><td><code>/^abc/i</code></td></tr>
+<tr><td><code>Timestamp</code></td><td>Internal MongoDB type used for replication (not for storing dates)</td><td><code>Timestamp(1, 1)</code></td></tr>
+<tr><td><code>MinKey / MaxKey</code></td><td>Special values that compare lower / higher than any other BSON value</td><td><code>used in indexes</code></td></tr>
+<tr><td><code>Symbol</code></td><td>Deprecated string-like type – not recommended for use</td><td><code>Symbol("name")</code></td></tr>
+<tr><td><code>JavaScript</code></td><td>Stores a JavaScript function or code snippet directly in a document. Historically used with $where queries – largely deprecated in modern MongoDB due to security concerns</td><td><code>{ "$code": "function() { return this.age &gt; 18; }" }</code></td></tr>
+</tbody>
+</table>
+</div>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="databases"><a href="#databases" class="header">Databases</a></h1>
+<h3 id="show-all-databases"><a class="header" href="#show-all-databases">Show all databases</a></h3>
+<pre><code>show databases
+</code></pre>
+<pre><code>show dbs
+</code></pre>
+<h3 id="show-current-database"><a class="header" href="#show-current-database">Show current database</a></h3>
+<pre><code>db
+</code></pre>
+<h3 id="switch--create-a-database"><a class="header" href="#switch--create-a-database">Switch / create a database</a></h3>
+<pre><code>use &lt;db_name&gt;
+</code></pre>
+<h3 id="delete-current-database"><a class="header" href="#delete-current-database">Delete current database</a></h3>
+<pre><code>db.dropDatabase()
+</code></pre>
+<h3 id="show-database-statistics"><a class="header" href="#show-database-statistics">Show database statistics</a></h3>
+<p>Returns size, collection count, document count, and other metrics</p>
+<pre><code>db.stats()
+</code></pre>
+<h3 id="list-database-methods"><a class="header" href="#list-database-methods">List database methods</a></h3>
+<p>Shows all available commands for the current database</p>
+<pre><code>db.help()
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="delete-5"><a href="#delete-5" class="header">Delete</a></h1>
+<h3 id="delete-one-document"><a class="header" href="#delete-one-document">Delete one document</a></h3>
+<pre><code>db.my_colelction.deleteOne({ field1: "value1" })
+</code></pre>
+<h3 id="delete-multiple-documents"><a class="header" href="#delete-multiple-documents">Delete multiple documents</a></h3>
+<pre><code>db.my_colelction.deleteMany({ field2: 99 })
+</code></pre>
+<h3 id="delete-all-documents"><a class="header" href="#delete-all-documents">Delete all documents</a></h3>
+<pre><code>db.my_colelction.deleteMany({})
+</code></pre>
+<h3 id="find-and-delete"><a class="header" href="#find-and-delete">Find and Delete</a></h3>
+<p>Finds a document, deletes it, and returns the deleted document</p>
+<pre><code>db.my_colelction.findOneAndDelete({ field1: "value1" })
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="insert"><a href="#insert" class="header">Insert</a></h1>
+<h3 id="insert-one-document"><a class="header" href="#insert-one-document">Insert one document</a></h3>
+<pre><code>db.my_colelction.insertOne({
+	field1: "value1",
+	field2: 30
+})
+</code></pre>
+<h3 id="insert-multiple-documents"><a class="header" href="#insert-multiple-documents">Insert multiple documents</a></h3>
+<pre><code>db.my_colelction.insertMany([
+	{ field1: "value1", field2: 25 },
+	{ field11: "value11", field22: 28 }
+])
+</code></pre>
+<h3 id="unordered-insert"><a class="header" href="#unordered-insert">Unordered insert</a></h3>
+<p>ordered: false – continues inserting even if some documents fail</p>
+<pre><code>db.my_colelction.insertMany([...], { ordered: false })
+</code></pre>
+<h3 id="insert-or-update-upsert"><a class="header" href="#insert-or-update-upsert">Insert or update (upsert)</a></h3>
+<p>Inserts a new document if not found; updates the existing one if found</p>
+<pre><code>db.my_colelction.updateOne(
+	{ field1: "value1" },
+	{ $set: { field2: 99 } },
+	{ upsert: true }
+)
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="search"><a href="#search" class="header">Search</a></h1>
+<h3 id="search-all-documents"><a class="header" href="#search-all-documents">Search all documents</a></h3>
+<pre><code>db.my_collection.find()
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="update"><a href="#update" class="header">Update</a></h1>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="sql"><a class="header" href="#sql">SQL</a></h1>
 <h2 id="dml-data-manipulation-language"><a class="header" href="#dml-data-manipulation-language">DML (Data Manipulation Language)</a></h2>
