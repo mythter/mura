@@ -501,11 +501,11 @@ void WalkDirectory(DirectoryInfo dir, StringBuilder sb, int depth, string root)
 FileInfo? GetChapterFile(DirectoryInfo dir)
 {
     return dir.EnumerateFiles("*.md")
-              .FirstOrDefault(f => f.Name.Equals(dir.Name, StringComparison.OrdinalIgnoreCase) || CHAPTER_FILE_NAMES.Contains(f.Name));
+              .FirstOrDefault(f => Path.GetFileNameWithoutExtension(f.Name).Equals(dir.Name, StringComparison.OrdinalIgnoreCase) || CHAPTER_FILE_NAMES.Contains(f.Name));
 }
 
 IEnumerable<FileInfo> GetChapterFiles(DirectoryInfo dir)
 {
     return dir.EnumerateFiles("*.md")
-              .Where(f => !f.Name.Equals(dir.Name, StringComparison.OrdinalIgnoreCase) && !CHAPTER_FILE_NAMES.Contains(f.Name));
+              .Where(f => !Path.GetFileNameWithoutExtension(f.Name).Equals(dir.Name, StringComparison.OrdinalIgnoreCase) && !CHAPTER_FILE_NAMES.Contains(f.Name));
 }
