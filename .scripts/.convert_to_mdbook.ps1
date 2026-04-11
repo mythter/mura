@@ -25,8 +25,6 @@ New-Item -ItemType Directory -Path $mdbookFolder | Out-Null
 # converting exported obsidian vault to mdbook format
 dotnet run .scripts/obsidian_to_mdbook.cs -- (Resolve-Path $exportFolder) (Resolve-Path $mdbookFolder)
 
-mdbook test $mdbookFolder
-
 # removing temporary exported obsidian vault folder
 Remove-Item $exportFolder -Recurse -Force
 

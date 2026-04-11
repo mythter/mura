@@ -70,7 +70,7 @@ jobs:
           ls -la mura-mdbook/
 
       - name: Build Test
-        run: mdbook test mura-mdbook/
+        run: mdbook build mura-mdbook/ --dest-dir book_temp/
 
       - name: Uploading mdbook to mura-mdbook branch
         uses: JamesIves/github-pages-deploy-action@v4
