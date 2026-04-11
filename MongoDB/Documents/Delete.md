@@ -1,3 +1,4 @@
+# Delete
 ### Delete one document
 ```
 db.my_colelction.deleteOne({ field1: "value1" })
