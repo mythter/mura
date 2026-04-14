@@ -69,6 +69,12 @@ git reset --hard <destination-commit>
 ````
 
 ````shell
+git update-ref <branch-name> <commit>
+````
+
+the following works for non-checked out branch
+
+````shell
 git branch –f <branch-name> <destination-commit>
 ````
 
