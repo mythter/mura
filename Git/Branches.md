@@ -69,9 +69,14 @@ git reset --hard <destination-commit>
 ```
 
 ```shell
-git branch –f <branch-name> <destination-commit>
+git update-ref <branch-name> <commit>
 ```
 
+the following works for non-checked out branch
+
+```shell
+git branch –f <branch-name> <destination-commit>
+```
 ## DELETE
 
 ### DELETE remote branch (*remote-name* usually *origin*)
