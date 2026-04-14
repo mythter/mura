@@ -1,4 +1,6 @@
-﻿### Show all databases
+﻿# Databases
+
+### Show all databases
 
 ````
 show databases

@@ -1,4 +1,6 @@
-﻿### Show all collections in the current database
+﻿# Collections
+
+### Show all collections in the current database
 
 ````
 show collections

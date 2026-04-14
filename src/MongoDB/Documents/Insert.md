@@ -1,4 +1,6 @@
-﻿### Insert one document
+﻿# Insert
+
+### Insert one document
 
 ````
 db.my_colelction.insertOne({

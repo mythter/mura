@@ -1,4 +1,6 @@
-﻿|**Data type**|**Description**|**Example**|
+﻿# Data Types
+
+|**Data type**|**Description**|**Example**|
 |---------|-----------|-------|
 |`String`|UTF-8 encoded text string|`"Alice"`|
 |`Integer`|32-bit signed integer (int32)|`25`|
