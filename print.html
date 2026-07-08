@@ -37,10 +37,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-fd0659be.js";
+            window.path_to_searchindex_js = "searchindex-63a2b5e8.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-dd1edaec.js"></script>
+        <script src="toc-305901c4.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -228,7 +228,7 @@
 <pre><code class="language-shell">git update-ref &lt;branch-name&gt; &lt;commit&gt;
 </code></pre>
 <p>the following works for non-checked out branch</p>
-<pre><code class="language-shell">git branch –f &lt;branch-name&gt; &lt;destination-commit&gt;
+<pre><code class="language-shell">git branch -f &lt;branch-name&gt; &lt;destination-commit&gt;
 </code></pre>
 <h2 id="delete"><a class="header" href="#delete">DELETE</a></h2>
 <h3 id="delete-remote-branch-remote-name-usually-origin"><a class="header" href="#delete-remote-branch-remote-name-usually-origin">DELETE remote branch (<em>remote-name</em> usually <em>origin</em>)</a></h3>
@@ -449,6 +449,43 @@ After deleting the local branch with <code>git branch -d</code> and deleting the
 <pre><code class="language-shell">git remote rm origin
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div>
+<h1 id="repositories"><a class="header" href="#repositories">Repositories</a></h1>
+<h2 id="mirror-remote-repository"><a class="header" href="#mirror-remote-repository">Mirror remote repository</a></h2>
+<ol>
+<li>Create a mirror clone of the remote repository</li>
+</ol>
+<pre><code class="language-bash">git clone --mirror git@github.com:owner/old-repo.git  
+cd old-repo.git
+</code></pre>
+<ol start="2">
+<li>Update the remote URL to point to the new repository</li>
+</ol>
+<pre><code class="language-bash">git remote set-url origin git@github.com:owner/new-repo.git
+</code></pre>
+<ol start="3">
+<li>Push the mirror</li>
+</ol>
+<pre><code class="language-bash">git push --mirror
+</code></pre>
+<h2 id="mirror-local-repository"><a class="header" href="#mirror-local-repository">Mirror local repository</a></h2>
+<ol>
+<li>Create a mirror clone of the local repository</li>
+</ol>
+<pre><code class="language-bash">cd old-repo
+git clone --mirror . ../old-repo-mirror.git  
+cd ../old-repo-mirror.git
+</code></pre>
+<ol start="2">
+<li>Update the remote URL to point to the new repository</li>
+</ol>
+<pre><code class="language-bash">git remote set-url origin git@github.com:owner/new-repo.git
+</code></pre>
+<ol start="3">
+<li>Push the mirror</li>
+</ol>
+<pre><code class="language-bash">git push --mirror
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
 <h1 id="ssh"><a class="header" href="#ssh">SSH</a></h1>
 <h2 id="create-ssh-key"><a class="header" href="#create-ssh-key">Create SSH key</a></h2>
 <p><code>-t</code> specifies the key type</p>
@@ -574,6 +611,61 @@ After deleting the local branch with <code>git branch -d</code> and deleting the
 </code></pre>
 <h2 id="delete-2"><a class="header" href="#delete-2">DELETE</a></h2>
 <pre><code class="language-shell">git stash drop
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="submodules"><a class="header" href="#submodules">Submodules</a></h1>
+<h2 id="add-submodule"><a class="header" href="#add-submodule">Add submodule</a></h2>
+<pre><code class="language-bash">git submodule add &lt;repo-url&gt; &lt;path&gt;
+</code></pre>
+<p>for example</p>
+<pre><code class="language-bash">git submodule add git@github.com:company/lib.git libs/lib
+</code></pre>
+<p>don’t forget to commit</p>
+<pre><code class="language-bash">git add .gitmodules libs/lib  
+git commit -m "Add submodule"
+</code></pre>
+<h2 id="update-submodule"><a class="header" href="#update-submodule">Update Submodule</a></h2>
+<pre><code class="language-bash">git submodule update
+</code></pre>
+<h3 id="update-submodules-to-the-latest-remote-commit"><a class="header" href="#update-submodules-to-the-latest-remote-commit">Update Submodules to the Latest Remote Commit</a></h3>
+<pre><code class="language-bash">git submodule update --remote
+</code></pre>
+<p>Or a specific submodule</p>
+<pre><code class="language-bash">git submodule update --remote libs/lib
+</code></pre>
+<h2 id="remove-submodule"><a class="header" href="#remove-submodule">Remove Submodule</a></h2>
+<pre><code class="language-bash">git rm &lt;path&gt;
+</code></pre>
+<p>Example:</p>
+<pre><code class="language-bash">git rm libs/lib
+</code></pre>
+<p>Remove the remaining metadata</p>
+<div class="mdbook-tabs-container">
+<nav class="mdbook-tabs">
+<button class="mdbook-tab active" data-tabname="Windows">Windows</button>
+<button class="mdbook-tab" data-tabname="Linux/macOS">Linux/macOS</button>
+</nav>
+<div class="mdbook-tab-content" data-tabname="Windows">
+<pre><code class="language-powershell">Remove-Item -Recurse -Force .git\modules\libs\lib
+</code></pre>
+</div>
+
+<div class="mdbook-tab-content hidden" data-tabname="Linux/macOS">
+<pre><code class="language-bash">rm -rf .git/modules/libs/lib
+</code></pre>
+</div>
+
+</div>
+
+Commit the changes
+<pre><code>git commit -m "Remove submodule"
+</code></pre>
+<h2 id="clone-repository-with-submodules"><a class="header" href="#clone-repository-with-submodules">Clone Repository with Submodules</a></h2>
+<h3 id="clone-including-all-submodules"><a class="header" href="#clone-including-all-submodules">Clone including all submodules</a></h3>
+<pre><code class="language-bash">git clone --recurse-submodules &lt;repository-url&gt;
+</code></pre>
+<h3 id="if-the-repository-is-already-cloned"><a class="header" href="#if-the-repository-is-already-cloned">If the repository is already cloned</a></h3>
+<pre><code class="language-bash">git submodule update --init --recursive
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="tags"><a class="header" href="#tags">Tags</a></h1>
