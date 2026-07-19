@@ -37,10 +37,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-d9de2514.js";
+            window.path_to_searchindex_js = "searchindex-a099e5ed.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-984b59da.js"></script>
+        <script src="toc-95608430.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -898,6 +898,1090 @@ git branch -D &lt;branch-name&gt;
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="update"><a class="header" href="#update">Update</a></h1>
 <div style="break-before: page; page-break-before: always;"></div>
+<h1 id="powershell"><a href="#powershell" class="header">PowerShell</a></h1>
+<h2 id="what-is-powershell"><a class="header" href="#what-is-powershell">What is PowerShell</a></h2>
+<ul>
+<li>Object-based shell and scripting language (not just text streams like bash).</li>
+<li>Cmdlets follow a <strong>Verb-Noun</strong> naming pattern: <code>Get-Process</code>, <code>Stop-Service</code>, <code>New-Item</code>.</li>
+<li>Cross-platform since PowerShell 6+ (PowerShell Core / <code>pwsh</code>).</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="basics--help-system"><a class="header" href="#basics--help-system">Basics &amp; Help System</a></h1>
+<h2 id="getting-help"><a class="header" href="#getting-help">Getting Help</a></h2>
+<pre><code class="language-powershell">Get-Help Get-Process              # Basic help
+Get-Help Get-Process -Full        # Full help with all sections
+Get-Help Get-Process -Examples    # Just examples
+Get-Help Get-Process -Online      # Opens web docs
+Update-Help                       # Downloads latest help files (run as admin)
+Get-Command *service*             # Find cmdlets by keyword
+Get-Command -Verb Get             # List all "Get" cmdlets
+Get-Command -Module ActiveDirectory
+</code></pre>
+<h2 id="discovering-objects"><a class="header" href="#discovering-objects">Discovering Objects</a></h2>
+<pre><code class="language-powershell">Get-Member                        # Show properties/methods of piped object
+Get-Process | Get-Member
+(Get-Process)[0] | Get-Member -MemberType Method
+</code></pre>
+<h2 id="aliases"><a class="header" href="#aliases">Aliases</a></h2>
+<pre><code class="language-powershell">Get-Alias                         # List all aliases
+Get-Alias ls                      # What does 'ls' map to?
+Get-Alias -Definition Get-ChildItem
+New-Alias -Name gci2 -Value Get-ChildItem
+</code></pre>
+<p>Common built-ins:</p>
+<ul>
+<li><code>ls</code>/<code>dir</code> → <code>Get-ChildItem</code></li>
+<li><code>cat</code> → <code>Get-Content</code></li>
+<li><code>cp</code> → <code>Copy-Item</code></li>
+<li><code>rm</code>/<code>del</code> → <code>Remove-Item</code></li>
+<li><code>pwd</code> → <code>Get-Location</code></li>
+<li><code>cd</code> → <code>Set-Location</code></li>
+<li><code>echo</code> → <code>Write-Output</code></li>
+<li><code>ps</code> → <code>Get-Process</code></li>
+<li><code>kill</code> → <code>Stop-Process</code></li>
+<li><code>%</code> → <code>ForEach-Object</code></li>
+<li><code>?</code> → <code>Where-Object</code></li>
+</ul>
+<h2 id="comments"><a class="header" href="#comments">Comments</a></h2>
+<pre><code class="language-powershell"># Single line comment
+
+&lt;#
+  Multi-line
+  comment block
+#&gt;
+
+&lt;#
+.SYNOPSIS
+  Short description (used in comment-based help for functions)
+.DESCRIPTION
+  Longer description
+.EXAMPLE
+  My-Function -Name "Test"
+#&gt;
+</code></pre>
+<h2 id="tab-completion--console-tips"><a class="header" href="#tab-completion--console-tips">Tab Completion &amp; Console Tips</a></h2>
+<ul>
+<li><code>Tab</code> cycles through matching cmdlet/param/file names.</li>
+<li><code>Ctrl+Space</code> shows a menu of completions (PSReadLine).</li>
+<li><code>F7</code> shows command history as a popup (Windows console host).</li>
+<li><code>$PSVersionTable</code> shows PowerShell/OS version info.</li>
+<li><code>Clear-Host</code> or <code>cls</code> clears the screen.</li>
+<li><code>exit</code> closes the session.</li>
+</ul>
+<h2 id="profiles"><a class="header" href="#profiles">Profiles</a></h2>
+<pre><code class="language-powershell">$PROFILE                          # Path to current user's profile script
+Test-Path $PROFILE
+New-Item -Path $PROFILE -ItemType File -Force
+notepad $PROFILE                  # Edit startup script (aliases, functions, etc.)
+</code></pre>
+<h2 id="running-scripts"><a class="header" href="#running-scripts">Running Scripts</a></h2>
+<pre><code class="language-powershell">.\script.ps1                      # Run a script (needs ./ prefix on the path)
+powershell -File script.ps1       # Run from cmd/another shell
+powershell -Command "Get-Process" # Run inline command
+pwsh -NoProfile -NonInteractive -File script.ps1
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="control-flow"><a class="header" href="#control-flow">Control Flow</a></h1>
+<h2 id="if--elseif--else"><a class="header" href="#if--elseif--else">If / ElseIf / Else</a></h2>
+<pre><code class="language-powershell">if ($age -lt 18) {
+    "Minor"
+} elseif ($age -lt 65) {
+    "Adult"
+} else {
+    "Senior"
+}
+</code></pre>
+<h2 id="switch"><a class="header" href="#switch">Switch</a></h2>
+<pre><code class="language-powershell">switch ($value) {
+    1       { "One"; break }
+    2       { "Two"; break }
+    default { "Other" }
+}
+
+# Switch with wildcards / regex / conditions
+switch -Wildcard ($name) {
+    "A*" { "Starts with A" }
+}
+switch -Regex ($text) {
+    '^\d+$' { "All digits" }
+}
+switch ($num) {
+    { $_ -gt 10 } { "Greater than 10" }   # Script block condition
+}
+
+# Switch over a collection processes every matching item (no auto-break)
+switch (1,2,3) { {$_ -gt 1} { "match: $_" } }
+</code></pre>
+<h2 id="for-loop"><a class="header" href="#for-loop">For Loop</a></h2>
+<pre><code class="language-powershell">for ($i = 0; $i -lt 5; $i++) {
+    "Iteration $i"
+}
+</code></pre>
+<h2 id="foreach-statement-fast-in-memory"><a class="header" href="#foreach-statement-fast-in-memory">ForEach (statement, fast, in-memory)</a></h2>
+<pre><code class="language-powershell">foreach ($item in 1..5) {
+    "Item: $item"
+}
+</code></pre>
+<h2 id="foreach-object-pipeline-streams-objects-one-at-a-time"><a class="header" href="#foreach-object-pipeline-streams-objects-one-at-a-time">ForEach-Object (pipeline, streams objects one at a time)</a></h2>
+<pre><code class="language-powershell">1..5 | ForEach-Object { "Item: $_" }
+Get-Process | ForEach-Object { $_.Name }
+# Parallel (PowerShell 7+)
+1..5 | ForEach-Object -Parallel { Start-Sleep 1; $_ * 2 } -ThrottleLimit 5
+</code></pre>
+<h2 id="while"><a class="header" href="#while">While</a></h2>
+<pre><code class="language-powershell">$i = 0
+while ($i -lt 5) {
+    "i = $i"
+    $i++
+}
+</code></pre>
+<h2 id="do-while--do-until"><a class="header" href="#do-while--do-until">Do-While / Do-Until</a></h2>
+<pre><code class="language-powershell">$i = 0
+do {
+    "i = $i"
+    $i++
+} while ($i -lt 5)
+
+do {
+    "i = $i"
+    $i++
+} until ($i -ge 5)
+</code></pre>
+<h2 id="break--continue"><a class="header" href="#break--continue">Break / Continue</a></h2>
+<pre><code class="language-powershell">foreach ($i in 1..10) {
+    if ($i -eq 5) { break }      # Exit the loop entirely
+    if ($i % 2 -eq 0) { continue } # Skip to next iteration
+    $i
+}
+</code></pre>
+<h2 id="labeled-loops-breakcontinue-out-of-nested-loops"><a class="header" href="#labeled-loops-breakcontinue-out-of-nested-loops">Labeled Loops (break/continue out of nested loops)</a></h2>
+<pre><code class="language-powershell">:outer foreach ($i in 1..3) {
+    foreach ($j in 1..3) {
+        if ($j -eq 2) { continue outer }
+        "i=$i j=$j"
+    }
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="csv-json-xml"><a class="header" href="#csv-json-xml">CSV, JSON, XML</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="error-handling"><a class="header" href="#error-handling">Error Handling</a></h1>
+<h2 id="error-types"><a class="header" href="#error-types">Error Types</a></h2>
+<ul>
+<li><strong>Terminating errors</strong>: stop execution of the current scope, catchable with try/catch.</li>
+<li><strong>Non-terminating errors</strong>: reported but execution continues (most cmdlet errors by default).</li>
+</ul>
+<h2 id="try--catch--finally"><a class="header" href="#try--catch--finally">Try / Catch / Finally</a></h2>
+<pre><code class="language-powershell">try {
+    1 / 0
+} catch {
+    "Error: $($_.Exception.Message)"
+} finally {
+    "Cleanup always runs"
+}
+</code></pre>
+<h2 id="catching-specific-exception-types"><a class="header" href="#catching-specific-exception-types">Catching Specific Exception Types</a></h2>
+<pre><code class="language-powershell">try {
+    Get-Item "C:\doesnotexist.txt" -ErrorAction Stop
+} catch [System.Management.Automation.ItemNotFoundException] {
+    "File not found!"
+} catch [System.UnauthorizedAccessException] {
+    "Access denied!"
+} catch {
+    "Some other error: $_"
+}
+</code></pre>
+<h2 id="forcing-non-terminating-errors-to-be-catchable"><a class="header" href="#forcing-non-terminating-errors-to-be-catchable">Forcing Non-Terminating Errors to be Catchable</a></h2>
+<pre><code class="language-powershell"># Many cmdlets emit non-terminating errors by default; force them to terminate:
+Get-Item "C:\missing.txt" -ErrorAction Stop
+</code></pre>
+<h2 id="-erroraction-values"><a class="header" href="#-erroraction-values">-ErrorAction Values</a></h2>
+<pre><code>Continue          # Default; show error, continue
+SilentlyContinue  # Suppress error, continue
+Stop              # Turn into terminating error (catchable)
+Inquire           # Prompt the user
+Ignore            # Suppress and don't add to $Error
+</code></pre>
+<pre><code class="language-powershell">Get-ChildItem C:\missing -ErrorAction SilentlyContinue
+$ErrorActionPreference = "Stop"     # Change default for the whole session/script
+</code></pre>
+<h2 id="throwing-custom-errors"><a class="header" href="#throwing-custom-errors">Throwing Custom Errors</a></h2>
+<pre><code class="language-powershell">throw "Something went wrong"
+throw [System.InvalidOperationException]::new("Bad state")
+
+# Advanced: write structured, non-terminating errors
+Write-Error "Custom error message" -Category InvalidArgument
+</code></pre>
+<h2 id="error-automatic-variable"><a class="header" href="#error-automatic-variable">$Error Automatic Variable</a></h2>
+<pre><code class="language-powershell">$Error[0]                          # Most recent error
+$Error[0].Exception.Message
+$Error.Clear()                     # Clear the error history
+$Error.Count
+</code></pre>
+<h2 id="inspecting-the-caught-error-_"><a class="header" href="#inspecting-the-caught-error-_">Inspecting the Caught Error ($_)</a></h2>
+<pre><code class="language-powershell">try { throw "Oops" } catch {
+    $_.Exception.Message
+    $_.Exception.GetType().FullName
+    $_.InvocationInfo.ScriptLineNumber
+    $_.ScriptStackTrace
+}
+</code></pre>
+<h2 id="trap-older-style-applies-to-entire-scope"><a class="header" href="#trap-older-style-applies-to-entire-scope">Trap (older style, applies to entire scope)</a></h2>
+<pre><code class="language-powershell">trap {
+    "Caught: $_"
+    continue        # or 'break' to stop
+}
+1/0
+"This still runs if 'continue' used"
+</code></pre>
+<h2 id="-whatif---confirm-safe-execution-pattern"><a class="header" href="#-whatif---confirm-safe-execution-pattern">-WhatIf / -Confirm (safe execution pattern)</a></h2>
+<pre><code class="language-powershell">function Remove-Stuff {
+    [CmdletBinding(SupportsShouldProcess=$true)]
+    param($Path)
+    if ($PSCmdlet.ShouldProcess($Path, "Delete")) {
+        Remove-Item $Path
+    }
+}
+Remove-Stuff -Path "C:\Temp\file.txt" -WhatIf
+Remove-Stuff -Path "C:\Temp\file.txt" -Confirm
+</code></pre>
+<h2 id="best-practices"><a class="header" href="#best-practices">Best Practices</a></h2>
+<pre><code class="language-powershell"># Always use -ErrorAction Stop inside try blocks when calling cmdlets
+try {
+    $result = Invoke-RestMethod -Uri $url -ErrorAction Stop
+} catch {
+    Write-Error "Request failed: $($_.Exception.Message)"
+} finally {
+    # Release resources, close connections, etc.
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="file-system--registry"><a class="header" href="#file-system--registry">File System &amp; Registry</a></h1>
+<p>PowerShell drives (<code>PSDrive</code>) give a uniform way to browse the file
+system, registry, certificates, and more using the same cmdlets.</p>
+<h2 id="navigating"><a class="header" href="#navigating">Navigating</a></h2>
+<pre><code class="language-powershell">Get-Location                       # pwd
+Set-Location C:\Temp               # cd
+Push-Location C:\Temp; Pop-Location # Save/restore location
+Get-PSDrive                        # List all drives (C:, HKLM:, Env:, etc.)
+</code></pre>
+<h2 id="listing--testing"><a class="header" href="#listing--testing">Listing &amp; Testing</a></h2>
+<pre><code class="language-powershell">Get-ChildItem                       # ls / dir
+Get-ChildItem -Recurse
+Get-ChildItem -Filter *.log
+Get-ChildItem -Include *.txt,*.csv -Recurse
+Get-ChildItem -Force               # Include hidden/system items
+Get-ChildItem -Directory            # Folders only
+Get-ChildItem -File                 # Files only
+Test-Path C:\Temp\file.txt
+Test-Path C:\Temp -PathType Container
+</code></pre>
+<h2 id="creating--removing"><a class="header" href="#creating--removing">Creating &amp; Removing</a></h2>
+<pre><code class="language-powershell">New-Item -Path C:\Temp\newfolder -ItemType Directory
+New-Item -Path C:\Temp\file.txt -ItemType File
+Remove-Item C:\Temp\file.txt
+Remove-Item C:\Temp\folder -Recurse -Force
+Copy-Item C:\a.txt C:\b.txt
+Copy-Item C:\folder C:\dest -Recurse
+Move-Item C:\a.txt C:\Temp\a.txt
+Rename-Item C:\a.txt newname.txt
+</code></pre>
+<h2 id="reading--writing-content"><a class="header" href="#reading--writing-content">Reading &amp; Writing Content</a></h2>
+<pre><code class="language-powershell">Get-Content C:\file.txt
+Get-Content C:\file.txt -Raw       # Whole file as single string
+Get-Content C:\file.txt -Tail 10   # Last 10 lines
+Get-Content C:\file.txt -Wait      # Like `tail -f`
+
+Set-Content C:\file.txt "New content"   # Overwrite
+Add-Content C:\file.txt "Extra line"    # Append
+
+Out-File -FilePath C:\file.txt -InputObject $data
+$data | Out-File C:\file.txt -Append -Encoding UTF8
+</code></pre>
+<h2 id="file-metadata"><a class="header" href="#file-metadata">File Metadata</a></h2>
+<pre><code class="language-powershell">$f = Get-Item C:\file.txt
+$f.Length; $f.LastWriteTime; $f.CreationTime; $f.Extension; $f.FullName
+Get-ChildItem | Where-Object { $_.LastWriteTime -gt (Get-Date).AddDays(-7) }
+</code></pre>
+<h2 id="paths"><a class="header" href="#paths">Paths</a></h2>
+<pre><code class="language-powershell">Join-Path C:\Temp "file.txt"       # -&gt; C:\Temp\file.txt
+Split-Path C:\Temp\file.txt        # -&gt; C:\Temp
+Split-Path C:\Temp\file.txt -Leaf  # -&gt; file.txt
+[System.IO.Path]::GetExtension("file.txt")    # -&gt; .txt
+Resolve-Path .\relative\path
+</code></pre>
+<h2 id="hashing--comparing-files"><a class="header" href="#hashing--comparing-files">Hashing &amp; Comparing Files</a></h2>
+<pre><code class="language-powershell">Get-FileHash C:\file.txt -Algorithm SHA256
+</code></pre>
+<h2 id="zipping"><a class="header" href="#zipping">Zipping</a></h2>
+<pre><code class="language-powershell">Compress-Archive -Path C:\Temp\* -DestinationPath C:\archive.zip
+Expand-Archive -Path C:\archive.zip -DestinationPath C:\Temp\extracted
+</code></pre>
+<h2 id="registry-windows"><a class="header" href="#registry-windows">Registry (Windows)</a></h2>
+<pre><code class="language-powershell">Get-ChildItem HKLM:\SOFTWARE
+Get-ItemProperty -Path "HKLM:\SOFTWARE\MyApp"
+Set-ItemProperty -Path "HKLM:\SOFTWARE\MyApp" -Name "Version" -Value "2.0"
+New-Item -Path "HKLM:\SOFTWARE\MyApp"
+Remove-Item -Path "HKLM:\SOFTWARE\MyApp" -Recurse
+</code></pre>
+<h2 id="file-system-watcher-event-driven-monitoring"><a class="header" href="#file-system-watcher-event-driven-monitoring">File System Watcher (event-driven monitoring)</a></h2>
+<pre><code class="language-powershell">$watcher = New-Object System.IO.FileSystemWatcher "C:\Temp", "*.txt"
+$watcher.EnableRaisingEvents = $true
+Register-ObjectEvent $watcher Changed -Action { Write-Host "$($Event.SourceEventArgs.FullPath) changed" }
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="formatting--output"><a class="header" href="#formatting--output">Formatting &amp; Output</a></h1>
+<h2 id="output-vs-display"><a class="header" href="#output-vs-display">Output vs Display</a></h2>
+<ul>
+<li><code>Write-Output</code> (or bare expressions) sends objects down the pipeline – use this for data.</li>
+<li><code>Write-Host</code> writes directly to the console (bypasses the pipeline) – use only for
+user-facing messages, not data you need to reuse.</li>
+</ul>
+<pre><code class="language-powershell">Write-Output "This goes to the pipeline"
+Write-Host "This is just console text" -ForegroundColor Green
+Write-Verbose "Only shown with -Verbose"
+Write-Debug "Only shown with -Debug"
+Write-Warning "Yellow warning text"
+Write-Error "Red error text"
+Write-Progress -Activity "Copying" -Status "50%" -PercentComplete 50
+</code></pre>
+<h2 id="format--cmdlets-last-in-a-pipeline--changes-display-only"><a class="header" href="#format--cmdlets-last-in-a-pipeline--changes-display-only">Format-* Cmdlets (last in a pipeline – changes display only)</a></h2>
+<pre><code class="language-powershell">Get-Process | Format-Table Name, Id, CPU -AutoSize
+Get-Process | Format-Table -Wrap
+Get-Process | Format-List *
+Get-Process | Format-Wide Name -Column 4
+</code></pre>
+<blockquote>
+<p>Once you use a <code>Format-*</code> cmdlet, the objects can no longer be
+processed further in the pipeline – put it last.</p>
+</blockquote>
+<h2 id="out--cmdlets-send-to-a-destination"><a class="header" href="#out--cmdlets-send-to-a-destination">Out-* Cmdlets (send to a destination)</a></h2>
+<pre><code class="language-powershell">Get-Process | Out-File -FilePath procs.txt
+Get-Process | Out-GridView                # Interactive GUI table (Windows / needs module)
+Get-Process | Out-Printer
+Get-Process | Out-Null                    # Discard output
+Get-Process | Out-String                  # Convert formatted output to a single string
+</code></pre>
+<h2 id="convertto--cmdlets-data-conversion-not-just-display"><a class="header" href="#convertto--cmdlets-data-conversion-not-just-display">ConvertTo-* Cmdlets (data conversion, not just display)</a></h2>
+<pre><code class="language-powershell">Get-Process | Select-Object Name,Id | ConvertTo-Csv -NoTypeInformation
+Get-Process | Select-Object Name,Id | ConvertTo-Json
+Get-Process | Select-Object Name,Id | ConvertTo-Html | Out-File report.html
+Get-Process | Select-Object Name,Id | ConvertTo-Xml
+</code></pre>
+<h2 id="sorting-column-output"><a class="header" href="#sorting-column-output">Sorting Column Output</a></h2>
+<pre><code class="language-powershell">Get-Process | Sort-Object CPU -Descending | Format-Table -AutoSize
+</code></pre>
+<h2 id="custom-table-columns"><a class="header" href="#custom-table-columns">Custom Table Columns</a></h2>
+<pre><code class="language-powershell">Get-Process | Format-Table Name, @{Label="Memory(MB)"; Expression={[math]::Round($_.WS/1MB,2)}}
+</code></pre>
+<h2 id="colored-console-output"><a class="header" href="#colored-console-output">Colored Console Output</a></h2>
+<pre><code class="language-powershell">Write-Host "Success!" -ForegroundColor Green
+Write-Host "Warning!" -ForegroundColor Yellow -BackgroundColor Black
+$PSStyle.Foreground.Green + "Styled text" + $PSStyle.Reset   # PS 7.2+
+</code></pre>
+<h2 id="string-building-for-output"><a class="header" href="#string-building-for-output">String Building for Output</a></h2>
+<pre><code class="language-powershell">$report = @()
+$report += "Line 1"
+$report += "Line 2"
+$report -join "`n" | Out-File report.txt
+</code></pre>
+<h2 id="suppressing-output"><a class="header" href="#suppressing-output">Suppressing Output</a></h2>
+<pre><code class="language-powershell">$null = Some-Command
+Some-Command | Out-Null
+[void](Some-Command)
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="functions--scripts"><a class="header" href="#functions--scripts">Functions &amp; Scripts</a></h1>
+<h2 id="basic-function"><a class="header" href="#basic-function">Basic Function</a></h2>
+<pre><code class="language-powershell">function Get-Greeting {
+    param(
+        [string]$Name = "World"
+    )
+    "Hello, $Name!"
+}
+
+Get-Greeting -Name "Alice"
+</code></pre>
+<h2 id="parameters"><a class="header" href="#parameters">Parameters</a></h2>
+<pre><code class="language-powershell">function New-User {
+    param(
+        [Parameter(Mandatory=$true)]
+        [string]$Username,
+
+        [Parameter(Mandatory=$false)]
+        [int]$Age = 18,
+
+        [ValidateSet("Admin","User","Guest")]
+        [string]$Role = "User",
+
+        [ValidateRange(1,120)]
+        [int]$ValidatedAge,
+
+        [ValidateNotNullOrEmpty()]
+        [string]$Required,
+
+        [switch]$Force               # Boolean flag, use -Force to set $true
+    )
+    "$Username ($Age) - $Role - Force:$Force"
+}
+</code></pre>
+<h2 id="advanced-function-cmdletbinding"><a class="header" href="#advanced-function-cmdletbinding">Advanced Function (CmdletBinding)</a></h2>
+<pre><code class="language-powershell">function Get-Data {
+    [CmdletBinding()]
+    param(
+        [Parameter(Mandatory, ValueFromPipeline=$true)]
+        [string]$Id
+    )
+    begin   { "Starting..." }
+    process { "Processing $Id" }     # Runs once per pipeline item
+    end     { "Done." }
+}
+
+1,2,3 | Get-Data
+</code></pre>
+<p><code>[CmdletBinding()]</code> enables common parameters: <code>-Verbose</code>, <code>-Debug</code>,
+<code>-ErrorAction</code>, <code>-WarningAction</code>, <code>-Confirm</code>, <code>-WhatIf</code> (with <code>SupportsShouldProcess</code>).</p>
+<h2 id="return-values"><a class="header" href="#return-values">Return Values</a></h2>
+<pre><code class="language-powershell">function Get-Square($n) {
+    return $n * $n
+}
+
+# Any unassigned/unsuppressed output in a function is also "returned"
+function Get-Info {
+    "line 1"     # This becomes part of the output too
+    "line 2"
+    return "final"
+}
+</code></pre>
+<h2 id="pipeline-input"><a class="header" href="#pipeline-input">Pipeline Input</a></h2>
+<pre><code class="language-powershell">function Show-Item {
+    param(
+        [Parameter(ValueFromPipeline=$true)]
+        $InputObject
+    )
+    process { "Got: $InputObject" }
+}
+
+1,2,3 | Show-Item
+</code></pre>
+<h2 id="script-blocks"><a class="header" href="#script-blocks">Script Blocks</a></h2>
+<pre><code class="language-powershell">$sb = { param($x) $x * 2 }
+&amp; $sb 5                  # Invoke with call operator -&gt; 10
+Invoke-Command -ScriptBlock $sb -ArgumentList 5
+</code></pre>
+<h2 id="splatting-pass-many-parameters-as-a-hashtable"><a class="header" href="#splatting-pass-many-parameters-as-a-hashtable">Splatting (pass many parameters as a hashtable)</a></h2>
+<pre><code class="language-powershell">$params = @{
+    Path        = "C:\Temp"
+    Recurse     = $true
+    ErrorAction = "SilentlyContinue"
+}
+
+Get-ChildItem @params
+</code></pre>
+<h2 id="comment-based-help"><a class="header" href="#comment-based-help">Comment-Based Help</a></h2>
+<pre><code class="language-powershell">function Get-Greeting {
+    &lt;#
+    .SYNOPSIS
+        Returns a greeting message.
+    .PARAMETER Name
+        The name to greet.
+    .EXAMPLE
+        Get-Greeting -Name "Bob"
+    #&gt;
+    param([string]$Name)
+    "Hello, $Name"
+}
+
+Get-Help Get-Greeting -Full
+</code></pre>
+<h2 id="modules-made-of-functions"><a class="header" href="#modules-made-of-functions">Modules Made of Functions</a></h2>
+<pre><code class="language-powershell"># Save functions in MyModule.psm1, then:
+Import-Module .\MyModule.psm1
+Export-ModuleMember -Function Get-Greeting   # Inside the .psm1 to control what's public
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="modules--packages"><a class="header" href="#modules--packages">Modules &amp; Packages</a></h1>
+<h2 id="exploring-modules"><a class="header" href="#exploring-modules">Exploring Modules</a></h2>
+<pre><code class="language-powershell">Get-Module                          # Modules loaded in the current session
+Get-Module -ListAvailable           # All modules installed on the system
+Get-Command -Module ActiveDirectory # Cmdlets in a specific module
+</code></pre>
+<h2 id="importing--removing"><a class="header" href="#importing--removing">Importing / Removing</a></h2>
+<pre><code class="language-powershell">Import-Module ActiveDirectory
+Import-Module .\MyModule.psm1
+Import-Module MyModule -Force       # Reload after changes
+Remove-Module MyModule
+</code></pre>
+<h2 id="powershell-gallery-psgallery"><a class="header" href="#powershell-gallery-psgallery">PowerShell Gallery (PSGallery)</a></h2>
+<pre><code class="language-powershell">Find-Module -Name Az                # Search the gallery
+Install-Module -Name Az -Scope CurrentUser
+Install-Module -Name Az -Scope AllUsers   # Requires admin
+Update-Module -Name Az
+Uninstall-Module -Name Az
+Get-InstalledModule                 # List modules installed via Install-Module
+</code></pre>
+<h3 id="powershellget-v3--microsoftpowershellpsresourceget-newer"><a class="header" href="#powershellget-v3--microsoftpowershellpsresourceget-newer">PowerShellGet v3 / Microsoft.PowerShell.PSResourceGet (newer)</a></h3>
+<pre><code class="language-powershell">Find-PSResource -Name Az
+Install-PSResource -Name Az
+Update-PSResource -Name Az
+</code></pre>
+<h2 id="trusting-the-repository"><a class="header" href="#trusting-the-repository">Trusting the Repository</a></h2>
+<pre><code class="language-powershell">Get-PSRepository
+Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
+</code></pre>
+<h2 id="module-structure"><a class="header" href="#module-structure">Module Structure</a></h2>
+<pre><code>MyModule/
+├── MyModule.psd1     # Manifest: version, author, exported functions, dependencies
+├── MyModule.psm1     # Root module: function definitions
+└── Public/, Private/ # Common convention for organizing functions
+</code></pre>
+<h2 id="creating-a-module-manifest"><a class="header" href="#creating-a-module-manifest">Creating a Module Manifest</a></h2>
+<pre><code class="language-powershell">New-ModuleManifest -Path .\MyModule.psd1 `
+    -RootModule "MyModule.psm1" `
+    -Author "Me" `
+    -ModuleVersion "1.0.0" `
+    -FunctionsToExport @("Get-Greeting")
+Test-ModuleManifest .\MyModule.psd1
+</code></pre>
+<h2 id="controlling-exports-inside-psm1"><a class="header" href="#controlling-exports-inside-psm1">Controlling Exports (inside .psm1)</a></h2>
+<pre><code class="language-powershell">function Get-Greeting { "Hello" }
+function InternalHelper { "not exported" }
+Export-ModuleMember -Function Get-Greeting
+</code></pre>
+<h2 id="module-auto-loading"><a class="header" href="#module-auto-loading">Module Auto-Loading</a></h2>
+<p>Modules under paths in <code>$env:PSModulePath</code> load automatically when
+one of their commands is used – explicit <code>Import-Module</code> is often unnecessary.</p>
+<pre><code class="language-powershell">$env:PSModulePath -split [IO.Path]::PathSeparator
+</code></pre>
+<h2 id="useful-built-in--common-modules"><a class="header" href="#useful-built-in--common-modules">Useful Built-in / Common Modules</a></h2>
+<pre><code>Microsoft.PowerShell.Management   # Core cmdlets (Get-Process, Get-Service, ...)
+Microsoft.PowerShell.Utility      # Format-*, ConvertTo-*, Measure-Object, ...
+PSReadLine                        # Command-line editing/history
+ActiveDirectory                   # AD cmdlets (RSAT)
+Az / AzureRM                      # Azure management
+AWS.Tools.*                       # AWS management
+ImportExcel                       # Read/write Excel without Excel installed
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="networking"><a class="header" href="#networking">Networking</a></h1>
+<h2 id="connectivity-testing"><a class="header" href="#connectivity-testing">Connectivity Testing</a></h2>
+<pre><code class="language-powershell">Test-Connection google.com                       # Cross-platform ping (PS 6+)
+Test-Connection google.com -Count 1 -Quiet        # Returns $true/$false
+Test-NetConnection google.com                     # Windows-only, richer diagnostics
+Test-NetConnection google.com -Port 443
+Test-NetConnection -ComputerName Server01 -Port 5985 -InformationLevel Detailed
+</code></pre>
+<h2 id="dns"><a class="header" href="#dns">DNS</a></h2>
+<pre><code class="language-powershell">Resolve-DnsName google.com                        # Windows
+[System.Net.Dns]::GetHostAddresses("google.com")  # Cross-platform
+[System.Net.Dns]::GetHostEntry("google.com")
+</code></pre>
+<h2 id="http-requests"><a class="header" href="#http-requests">HTTP Requests</a></h2>
+<pre><code class="language-powershell"># Invoke-RestMethod: auto-parses JSON/XML responses into objects
+$data = Invoke-RestMethod -Uri "https://api.example.com/users" -Method Get
+Invoke-RestMethod -Uri $url -Method Post -Body ($body | ConvertTo-Json) -ContentType "application/json"
+Invoke-RestMethod -Uri $url -Headers @{ Authorization = "Bearer $token" }
+
+# Invoke-WebRequest: raw response object (status code, headers, raw content)
+$resp = Invoke-WebRequest -Uri "https://example.com"
+$resp.StatusCode
+$resp.Headers
+$resp.Content
+
+# Download a file
+Invoke-WebRequest -Uri $url -OutFile "file.zip"
+# or, faster for large files:
+Start-BitsTransfer -Source $url -Destination "file.zip"   # Windows
+</code></pre>
+<h2 id="network-adapter--ip-info-windows"><a class="header" href="#network-adapter--ip-info-windows">Network Adapter / IP Info (Windows)</a></h2>
+<pre><code class="language-powershell">Get-NetIPAddress
+Get-NetAdapter
+Get-NetAdapter | Where-Object Status -eq "Up"
+Get-DnsClientServerAddress
+Get-NetRoute
+ipconfig /all                                      # Still works via legacy tools
+</code></pre>
+<h2 id="ports--sockets"><a class="header" href="#ports--sockets">Ports &amp; Sockets</a></h2>
+<pre><code class="language-powershell">Get-NetTCPConnection                                # Windows equivalent of netstat
+Get-NetTCPConnection -State Listen
+Test-NetConnection -ComputerName localhost -Port 8080
+</code></pre>
+<h2 id="working-with-a-tcpclient-directly"><a class="header" href="#working-with-a-tcpclient-directly">Working with a TcpClient Directly</a></h2>
+<pre><code class="language-powershell">$client = New-Object System.Net.Sockets.TcpClient
+$client.Connect("example.com", 80)
+$client.Connected
+$client.Close()
+</code></pre>
+<h2 id="web-sockets--ssh-powershell-7"><a class="header" href="#web-sockets--ssh-powershell-7">Web Sockets / SSH (PowerShell 7+)</a></h2>
+<pre><code class="language-powershell">Enter-PSSession -HostName server01 -UserName bob -SSHTransport
+</code></pre>
+<h2 id="sending-email-via-smtp-directly--send-mailmessage-is-deprecated"><a class="header" href="#sending-email-via-smtp-directly--send-mailmessage-is-deprecated">Sending Email (via SMTP directly – Send-MailMessage is deprecated)</a></h2>
+<pre><code class="language-powershell">$smtp = New-Object System.Net.Mail.SmtpClient("smtp.example.com", 587)
+$smtp.EnableSsl = $true
+$smtp.Credentials = New-Object System.Net.NetworkCredential("user","pass")
+$smtp.Send("from@example.com", "to@example.com", "Subject", "Body text")
+</code></pre>
+<h2 id="common-status-code-handling"><a class="header" href="#common-status-code-handling">Common Status Code Handling</a></h2>
+<pre><code class="language-powershell">try {
+    $resp = Invoke-WebRequest -Uri $url -ErrorAction Stop
+} catch {
+    $status = $_.Exception.Response.StatusCode.value__
+    "Request failed with status $status"
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="operators"><a class="header" href="#operators">Operators</a></h1>
+<h2 id="arithmetic"><a class="header" href="#arithmetic">Arithmetic</a></h2>
+<pre><code class="language-powershell">5 + 3    # 8
+5 - 3    # 2
+5 * 3    # 15
+5 / 3    # 1.666...
+5 % 3    # 2 (modulo)
+2 -shl 3 # bitwise left shift
+16 -shr 2 # bitwise right shift
+5++      # not valid; use $x++ on a variable
+$x = 5; $x++   # increment
+$x--           # decrement
+</code></pre>
+<h2 id="assignment"><a class="header" href="#assignment">Assignment</a></h2>
+<pre><code class="language-powershell">$x = 5
+$x += 1     # 6
+$x -= 1     # 5
+$x *= 2     # 10
+$x /= 2     # 5
+$x %= 2     # 1
+</code></pre>
+<h2 id="comparison-case-insensitive-by-default-for-strings"><a class="header" href="#comparison-case-insensitive-by-default-for-strings">Comparison (case-insensitive by default for strings)</a></h2>
+<pre><code class="language-powershell">-eq   # equal
+-ne   # not equal
+-gt   # greater than
+-ge   # greater or equal
+-lt   # less than
+-le   # less or equal
+
+# Case-sensitive variants: prefix with 'c' -&gt; -ceq, -cne, -cgt ...
+# Explicit case-insensitive: prefix with 'i' -&gt; -ieq, -ine ...
+
+"abc" -eq "ABC"    # True (case-insensitive)
+"abc" -ceq "ABC"   # False (case-sensitive)
+</code></pre>
+<h2 id="containment--matching"><a class="header" href="#containment--matching">Containment &amp; Matching</a></h2>
+<pre><code class="language-powershell">-contains   # collection contains value:   1,2,3 -contains 2
+-notcontains
+-in         # value in collection:         2 -in 1,2,3
+-notin
+-like       # wildcard match:              "file.txt" -like "*.txt"
+-notlike
+-match      # regex match:                 "abc123" -match '\d+'
+-notmatch
+-replace    # regex replace:                "abc" -replace 'a','x'
+</code></pre>
+<h2 id="logical"><a class="header" href="#logical">Logical</a></h2>
+<pre><code class="language-powershell">-and
+-or
+-not / !
+-xor
+
+if ($a -gt 5 -and $b -lt 10) { "both true" }
+</code></pre>
+<h2 id="type-operators"><a class="header" href="#type-operators">Type Operators</a></h2>
+<pre><code class="language-powershell">-is         # $x -is [int]
+-isnot
+-as         # attempt safe cast: "42" -as [int]
+</code></pre>
+<h2 id="string--format-operator"><a class="header" href="#string--format-operator">String / Format Operator</a></h2>
+<pre><code class="language-powershell">"{0} is {1} years old" -f "John", 30    # -f format operator
+"a" + "b"          # Concatenation -&gt; "ab"
+"ab" * 3           # Repetition   -&gt; "ababab"
+</code></pre>
+<h2 id="null-coalescing-powershell-7"><a class="header" href="#null-coalescing-powershell-7">Null-Coalescing (PowerShell 7+)</a></h2>
+<pre><code class="language-powershell">$val ??= "default"        # Assign if $val is $null
+$result = $val ?? "fallback"   # Use fallback if $val is $null
+$x ? "yes" : "no"          # Ternary operator (PS 7+)
+</code></pre>
+<h2 id="range--splitjoin"><a class="header" href="#range--splitjoin">Range &amp; Split/Join</a></h2>
+<pre><code class="language-powershell">1..5              # Range operator -&gt; 1,2,3,4,5
+"a,b,c" -split ","        # -&gt; a, b, c
+@("a","b","c") -join "-"  # -&gt; "a-b-c"
+</code></pre>
+<h2 id="redirection"><a class="header" href="#redirection">Redirection</a></h2>
+<pre><code class="language-powershell">Get-Process &gt; out.txt        # Redirect stdout, overwrite
+Get-Process &gt;&gt; out.txt       # Append
+Get-Process 2&gt; err.txt       # Redirect errors (stream 2)
+Get-Process 2&gt;&amp;1             # Merge error stream into stdout
+Get-Process *&gt; all.txt       # Redirect all streams
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="pipeline--object-manipulation"><a class="header" href="#pipeline--object-manipulation">Pipeline &amp; Object Manipulation</a></h1>
+<p>PowerShell’s pipeline passes <strong>objects</strong>, not text, between cmdlets.</p>
+<h2 id="select-object"><a class="header" href="#select-object">Select-Object</a></h2>
+<pre><code class="language-powershell">Get-Process | Select-Object Name, Id, CPU
+Get-Process | Select-Object -First 5
+Get-Process | Select-Object -Last 5
+Get-Process | Select-Object -Unique
+Get-Process | Select-Object -Property Name -ExpandProperty Name
+Get-Process | Select-Object *                     # All properties
+Get-Process | Select-Object Name, @{Name="MB";Expression={$_.WS/1MB}}  # Calculated property
+</code></pre>
+<h2 id="where-object-filtering"><a class="header" href="#where-object-filtering">Where-Object (filtering)</a></h2>
+<pre><code class="language-powershell">Get-Process | Where-Object { $_.CPU -gt 100 }
+Get-Process | Where-Object CPU -gt 100             # Simplified syntax (single condition)
+Get-Service | Where-Object { $_.Status -eq "Running" -and $_.Name -like "W*" }
+</code></pre>
+<h2 id="sort-object"><a class="header" href="#sort-object">Sort-Object</a></h2>
+<pre><code class="language-powershell">Get-Process | Sort-Object CPU
+Get-Process | Sort-Object CPU -Descending
+Get-Process | Sort-Object -Property Name, Id
+Get-Process | Sort-Object -Unique Name
+</code></pre>
+<h2 id="group-object"><a class="header" href="#group-object">Group-Object</a></h2>
+<pre><code class="language-powershell">Get-Process | Group-Object Company
+Get-ChildItem | Group-Object Extension | Sort-Object Count -Descending
+</code></pre>
+<h2 id="measure-object"><a class="header" href="#measure-object">Measure-Object</a></h2>
+<pre><code class="language-powershell">Get-Process | Measure-Object CPU -Sum -Average -Maximum -Minimum
+Get-ChildItem | Measure-Object Length -Sum
+"one two three" | Measure-Object -Word -Character -Line
+</code></pre>
+<h2 id="foreach-object"><a class="header" href="#foreach-object">ForEach-Object</a></h2>
+<pre><code class="language-powershell">Get-Process | ForEach-Object { $_.Name.ToUpper() }
+1..3 | ForEach-Object -Begin { "start" } -Process { $_ } -End { "end" }
+</code></pre>
+<h2 id="tee-object-split-pipeline-output-to-filevariable-and-continue"><a class="header" href="#tee-object-split-pipeline-output-to-filevariable-and-continue">Tee-Object (split pipeline output to file/variable and continue)</a></h2>
+<pre><code class="language-powershell">Get-Process | Tee-Object -FilePath procs.txt | Where-Object CPU -gt 50
+</code></pre>
+<h2 id="compare-object"><a class="header" href="#compare-object">Compare-Object</a></h2>
+<pre><code class="language-powershell">Compare-Object $arr1 $arr2
+Compare-Object $arr1 $arr2 -IncludeEqual -PassThru
+</code></pre>
+<h2 id="foreach--where-as-methods-fast-ps-4"><a class="header" href="#foreach--where-as-methods-fast-ps-4">ForEach / Where as Methods (fast, PS 4+)</a></h2>
+<pre><code class="language-powershell">(Get-Process).Where({ $_.CPU -gt 100 })
+(Get-Process).ForEach({ $_.Name })
+</code></pre>
+<h2 id="building-a-custom-pipeline-chain"><a class="header" href="#building-a-custom-pipeline-chain">Building a Custom Pipeline Chain</a></h2>
+<pre><code class="language-powershell">Get-Process |
+    Where-Object CPU -gt 50 |
+    Sort-Object CPU -Descending |
+    Select-Object -First 10 Name, CPU, Id |
+    Format-Table -AutoSize
+</code></pre>
+<h2 id="object-type-discovery-recap"><a class="header" href="#object-type-discovery-recap">Object Type Discovery Recap</a></h2>
+<pre><code class="language-powershell">Get-Process | Get-Member                 # Properties &amp; methods
+(Get-Process)[0].PSObject.Properties.Name  # List property names directly
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="remoting--background-jobs"><a class="header" href="#remoting--background-jobs">Remoting &amp; Background Jobs</a></h1>
+<h2 id="enabling-remoting-run-once-as-admin-on-target-machine"><a class="header" href="#enabling-remoting-run-once-as-admin-on-target-machine">Enabling Remoting (run once, as admin, on target machine)</a></h2>
+<pre><code class="language-powershell">Enable-PSRemoting -Force
+Set-Item WSMan:\localhost\Client\TrustedHosts -Value "*" -Force  # For workgroup/non-domain setups
+</code></pre>
+<h2 id="interactive-remote-session"><a class="header" href="#interactive-remote-session">Interactive Remote Session</a></h2>
+<pre><code class="language-powershell">Enter-PSSession -ComputerName Server01
+Enter-PSSession -ComputerName Server01 -Credential (Get-Credential)
+Exit-PSSession                      # or type: exit
+</code></pre>
+<h2 id="running-commands-remotely"><a class="header" href="#running-commands-remotely">Running Commands Remotely</a></h2>
+<pre><code class="language-powershell">Invoke-Command -ComputerName Server01 -ScriptBlock { Get-Process }
+Invoke-Command -ComputerName Server01,Server02 -ScriptBlock { hostname }
+Invoke-Command -ComputerName Server01 -FilePath .\script.ps1
+Invoke-Command -ComputerName Server01 -ScriptBlock { param($n) "Hi $n" } -ArgumentList "Bob"
+</code></pre>
+<h2 id="persistent-sessions-reuse-connection-keep-state"><a class="header" href="#persistent-sessions-reuse-connection-keep-state">Persistent Sessions (reuse connection, keep state)</a></h2>
+<pre><code class="language-powershell">$session = New-PSSession -ComputerName Server01
+Invoke-Command -Session $session -ScriptBlock { $x = 5 }
+Invoke-Command -Session $session -ScriptBlock { $x * 2 }   # $x persists -&gt; 10
+Remove-PSSession $session
+Get-PSSession
+</code></pre>
+<h2 id="copying-files-over-a-session-ps-5"><a class="header" href="#copying-files-over-a-session-ps-5">Copying Files Over a Session (PS 5+)</a></h2>
+<pre><code class="language-powershell">Copy-Item -Path C:\local\file.txt -Destination C:\remote\ -ToSession $session
+Copy-Item -Path C:\remote\file.txt -Destination C:\local\ -FromSession $session
+</code></pre>
+<h2 id="ssh-based-remoting-cross-platform-ps-7"><a class="header" href="#ssh-based-remoting-cross-platform-ps-7">SSH-Based Remoting (cross-platform, PS 7+)</a></h2>
+<pre><code class="language-powershell">Enter-PSSession -HostName server01 -UserName bob -SSHTransport
+Invoke-Command -HostName server01 -UserName bob -SSHTransport -ScriptBlock { uptime }
+</code></pre>
+<h2 id="background-jobs"><a class="header" href="#background-jobs">Background Jobs</a></h2>
+<pre><code class="language-powershell">Start-Job -ScriptBlock { Get-Process }
+Start-Job -Name "MyJob" -ScriptBlock { Start-Sleep 10; "done" }
+Get-Job                             # List all jobs
+Get-Job -Name MyJob | Receive-Job   # Retrieve output (once, unless -Keep)
+Wait-Job -Name MyJob                # Block until finished
+Stop-Job -Name MyJob
+Remove-Job -Name MyJob
+</code></pre>
+<h2 id="thread-jobs-lighter-weight-than-start-job-ps-7--module"><a class="header" href="#thread-jobs-lighter-weight-than-start-job-ps-7--module">Thread Jobs (lighter weight than Start-Job, PS 7+ / module)</a></h2>
+<pre><code class="language-powershell">Start-ThreadJob -ScriptBlock { 1..5 | ForEach-Object { $_ * 2 } }
+</code></pre>
+<h2 id="parallel-foreach-object-ps-7-no-job-management-needed"><a class="header" href="#parallel-foreach-object-ps-7-no-job-management-needed">Parallel ForEach-Object (PS 7+, no job management needed)</a></h2>
+<pre><code class="language-powershell">$results = 1..10 | ForEach-Object -Parallel {
+    Start-Sleep 1
+    $_ * $_
+} -ThrottleLimit 5
+</code></pre>
+<h2 id="scheduled--remote-execution-alternatives"><a class="header" href="#scheduled--remote-execution-alternatives">Scheduled / Remote Execution Alternatives</a></h2>
+<pre><code class="language-powershell"># Register a scheduled job to run on a timer
+Register-ScheduledJob -Name "Nightly" -ScriptBlock { Get-Date } `
+    -Trigger (New-JobTrigger -Daily -At "2:00AM")
+Get-ScheduledJob
+</code></pre>
+<h2 id="checking-connectivity-before-remoting"><a class="header" href="#checking-connectivity-before-remoting">Checking Connectivity Before Remoting</a></h2>
+<pre><code class="language-powershell">Test-WSMan Server01
+Test-NetConnection Server01 -Port 5985
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="security--execution-policy"><a class="header" href="#security--execution-policy">Security &amp; Execution Policy</a></h1>
+<h2 id="execution-policy"><a class="header" href="#execution-policy">Execution Policy</a></h2>
+<p>Controls whether/how scripts run – a safety guardrail, not a full security boundary.</p>
+<pre><code class="language-powershell">Get-ExecutionPolicy
+Get-ExecutionPolicy -List           # Show policy per scope
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+</code></pre>
+<p>Common values:</p>
+<pre><code>Restricted     # No scripts allowed (default on client Windows)
+AllSigned      # All scripts must be digitally signed
+RemoteSigned   # Local scripts run freely; downloaded ones need a signature
+Unrestricted   # All scripts run, warns for downloaded ones
+Bypass         # Nothing blocked, no warnings
+</code></pre>
+<p>Scopes (checked in order): <code>MachinePolicy</code>, <code>UserPolicy</code>, <code>Process</code>, <code>CurrentUser</code>, <code>LocalMachine</code>.</p>
+<pre><code class="language-powershell"># One-off bypass without changing the persistent setting
+powershell -ExecutionPolicy Bypass -File .\script.ps1
+</code></pre>
+<h2 id="credentials"><a class="header" href="#credentials">Credentials</a></h2>
+<pre><code class="language-powershell">$cred = Get-Credential                        # Prompts for username/password
+$cred.UserName
+$cred.GetNetworkCredential().Password          # Plaintext (use carefully)
+
+# Build a credential without prompting (e.g., from a vault)
+$securePwd = ConvertTo-SecureString "P@ssw0rd" -AsPlainText -Force
+$cred = New-Object System.Management.Automation.PSCredential("user", $securePwd)
+</code></pre>
+<h2 id="securestring"><a class="header" href="#securestring">SecureString</a></h2>
+<pre><code class="language-powershell">$secure = Read-Host -AsSecureString -Prompt "Enter password"
+$secure = ConvertTo-SecureString "text" -AsPlainText -Force
+$plain  = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto(
+    [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($secure))
+
+# Persist a secure string, encrypted for the current user/machine only
+$secure | ConvertFrom-SecureString | Out-File secret.txt
+$loaded = Get-Content secret.txt | ConvertTo-SecureString
+</code></pre>
+<h2 id="signing-scripts"><a class="header" href="#signing-scripts">Signing Scripts</a></h2>
+<pre><code class="language-powershell">$cert = Get-ChildItem Cert:\CurrentUser\My -CodeSigningCert
+Set-AuthenticodeSignature -FilePath .\script.ps1 -Certificate $cert[0]
+Get-AuthenticodeSignature .\script.ps1
+</code></pre>
+<h2 id="running-as-a-different-user--elevated"><a class="header" href="#running-as-a-different-user--elevated">Running as a Different User / Elevated</a></h2>
+<pre><code class="language-powershell">Start-Process powershell -Verb RunAs                    # Elevate (UAC prompt)
+Start-Process powershell -Credential $cred -ArgumentList "-File script.ps1"
+</code></pre>
+<h2 id="constrained-language-mode-hardened-environments"><a class="header" href="#constrained-language-mode-hardened-environments">Constrained Language Mode (hardened environments)</a></h2>
+<pre><code class="language-powershell">$ExecutionContext.SessionState.LanguageMode
+# FullLanguage | ConstrainedLanguage | RestrictedLanguage | NoLanguage
+</code></pre>
+<h2 id="secrets-management-module-recommended-over-plaintext-files"><a class="header" href="#secrets-management-module-recommended-over-plaintext-files">Secrets Management Module (recommended over plaintext files)</a></h2>
+<pre><code class="language-powershell">Install-Module Microsoft.PowerShell.SecretManagement
+Install-Module Microsoft.PowerShell.SecretStore
+Register-SecretVault -Name LocalVault -ModuleName Microsoft.PowerShell.SecretStore
+Set-Secret -Name "ApiKey" -Secret "abc123" -Vault LocalVault
+Get-Secret -Name "ApiKey" -Vault LocalVault -AsPlainText
+</code></pre>
+<h2 id="avoiding-common-pitfalls"><a class="header" href="#avoiding-common-pitfalls">Avoiding Common Pitfalls</a></h2>
+<ul>
+<li>Never hardcode plaintext passwords in scripts checked into source control.</li>
+<li>Prefer <code>SecretManagement</code>/vaults or <code>Export-Clixml</code> (user/machine-bound encryption) over plain text.</li>
+<li><code>ConvertTo-SecureString -AsPlainText -Force</code> is only as secure as the source string that fed it.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="strings--regex"><a class="header" href="#strings--regex">Strings &amp; Regex</a></h1>
+<h2 id="string-basics"><a class="header" href="#string-basics">String Basics</a></h2>
+<pre><code class="language-powershell">$s = "Hello, World!"
+$s.Length
+$s.ToUpper()
+$s.ToLower()
+$s.Trim()
+$s.TrimStart(); $s.TrimEnd()
+$s.Substring(0,5)          # "Hello"
+$s.Replace("World","PS")
+$s.Contains("World")
+$s.StartsWith("Hello")
+$s.EndsWith("!")
+$s.IndexOf("World")
+$s.PadLeft(20,'*')
+$s.PadRight(20,'*')
+$s.Split(",")
+</code></pre>
+<h2 id="splitting--joining"><a class="header" href="#splitting--joining">Splitting &amp; Joining</a></h2>
+<pre><code class="language-powershell">"a,b,c" -split ","                # -&gt; a,b,c array
+"a,b;c" -split '[,;]'             # multi-char split via regex
+"a b   c" -split '\s+'            # collapse whitespace
+@("a","b","c") -join "-"          # -&gt; "a-b-c"
+</code></pre>
+<h2 id="string-interpolation--formatting"><a class="header" href="#string-interpolation--formatting">String Interpolation &amp; Formatting</a></h2>
+<pre><code class="language-powershell">$name = "Alice"
+"Hello, $name"
+"Sum is $(1+2)"                   # Expression inside subexpression
+"{0} is {1}" -f $name, "here"     # -f format operator
+"{0:C}" -f 19.99                  # Currency
+"{0:N2}" -f 3.14159                # 2 decimal places -&gt; 3.14
+"{0:D4}" -f 7                      # Zero-padded -&gt; 0007
+$s = "score: {0:P0}" -f 0.856      # Percentage -&gt; 86%
+</code></pre>
+<h2 id="here-strings"><a class="header" href="#here-strings">Here-Strings</a></h2>
+<pre><code class="language-powershell">$text = @"
+Multi-line
+text with $variable interpolation
+"@
+
+$literal = @'
+No interpolation here: $variable
+'@
+</code></pre>
+<h2 id="regex--match"><a class="header" href="#regex--match">Regex – Match</a></h2>
+<pre><code class="language-powershell">"abc123" -match '\d+'             # $true, sets $matches
+$matches[0]                       # "123"
+
+if ("user@example.com" -match '^[\w.]+@[\w.]+\.\w+$') { "Valid email" }
+
+[regex]::Match("abc123", '\d+').Value
+[regex]::Matches("a1b2c3", '\d') | ForEach-Object { $_.Value }
+</code></pre>
+<h2 id="regex--replace"><a class="header" href="#regex--replace">Regex – Replace</a></h2>
+<pre><code class="language-powershell">"abc123" -replace '\d+', 'X'      # -&gt; "abcX"
+[regex]::Replace("abc123", '\d+', 'X')
+
+# Backreferences
+"John Smith" -replace '(\w+) (\w+)', '$2 $1'   # -&gt; "Smith John"
+</code></pre>
+<h2 id="regex--named-groups"><a class="header" href="#regex--named-groups">Regex – Named Groups</a></h2>
+<pre><code class="language-powershell">if ("2024-01-15" -match '(?&lt;year&gt;\d{4})-(?&lt;month&gt;\d{2})-(?&lt;day&gt;\d{2})') {
+    $matches['year']    # "2024"
+    $matches['month']   # "01"
+}
+</code></pre>
+<h2 id="common-regex-patterns"><a class="header" href="#common-regex-patterns">Common Regex Patterns</a></h2>
+<pre><code>\d       digit                \D  not digit
+\w       word char             \W  not word char
+\s       whitespace             \S  not whitespace
+^        start of string        $   end of string
+.        any char
+*        0 or more     +   1 or more    ?   0 or 1
+{n,m}    n to m times
+[abc]    char class            [^abc]  negated class
+</code></pre>
+<h2 id="string-to-number--number-to-string"><a class="header" href="#string-to-number--number-to-string">String to Number / Number to String</a></h2>
+<pre><code class="language-powershell">[int]"42"
+[double]"3.14"
+(42).ToString()
+(3.14159).ToString("N2")
+</code></pre>
+<h2 id="case-insensitive-matching"><a class="header" href="#case-insensitive-matching">Case-Insensitive Matching</a></h2>
+<pre><code class="language-powershell">"ABC" -match "abc"                # True by default (case-insensitive)
+"ABC" -cmatch "abc"                # False (case-sensitive)
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="variables--data-types"><a class="header" href="#variables--data-types">Variables &amp; Data Types</a></h1>
+<h2 id="declaring-variables"><a class="header" href="#declaring-variables">Declaring Variables</a></h2>
+<pre><code class="language-powershell">$name = "John"
+$age = 30
+$isAdmin = $true
+$nothing = $null
+
+[int]$count = 5                   # Explicit type
+[string]$id = 42                  # Cast to string
+
+Remove-Variable name              # Delete a variable
+Clear-Variable age                # Reset to $null / default
+</code></pre>
+<h2 id="common-types"><a class="header" href="#common-types">Common Types</a></h2>
+<pre><code class="language-powershell">[int]        # 32-bit integer
+[long]       # 64-bit integer
+[double]     # Floating point
+[decimal]    # High-precision decimal
+[string]     # Text
+[bool]       # $true / $false
+[datetime]   # Date/time value
+[array]      # Collection
+[hashtable]  # Key-value pairs
+[pscustomobject]  # Custom object
+</code></pre>
+<h2 id="type-checking--casting"><a class="header" href="#type-checking--casting">Type Checking &amp; Casting</a></h2>
+<pre><code class="language-powershell">$x.GetType()                      # Get runtime type
+$x -is [int]                      # Type check
+[int]"42"                         # Cast string to int
+[string]42                        # Cast int to string
+[datetime]"2024-01-15"
+</code></pre>
+<h2 id="strings"><a class="header" href="#strings">Strings</a></h2>
+<pre><code class="language-powershell">$s1 = 'Single quotes: no interpolation, $name stays literal'
+$s2 = "Double quotes: interpolates $name and $(1+2)"
+$multi = @"
+Here-string
+spans multiple lines, supports "$name" interpolation
+"@
+$literal = @'
+Literal here-string, no interpolation
+'@
+</code></pre>
+<h2 id="arrays"><a class="header" href="#arrays">Arrays</a></h2>
+<pre><code class="language-powershell">$arr = 1,2,3,4
+$arr = @(1,2,3,4)
+$arr = @()                        # Empty array
+$arr[0]                           # First element
+$arr[-1]                          # Last element
+$arr[1..3]                        # Slice
+$arr += 5                         # Append (creates a new array under the hood)
+$arr.Count / $arr.Length
+[System.Collections.ArrayList]$list = @()  # Mutable, faster for many appends
+$list.Add("item") | Out-Null
+</code></pre>
+<h2 id="hashtables-dictionaries"><a class="header" href="#hashtables-dictionaries">Hashtables (Dictionaries)</a></h2>
+<pre><code class="language-powershell">$h = @{ Name = "John"; Age = 30 }
+$h["Name"]
+$h.Name
+$h["City"] = "NYC"                # Add/update key
+$h.Remove("Age")
+$h.Keys
+$h.Values
+$h.ContainsKey("Name")
+foreach ($key in $h.Keys) { "$key = $($h[$key])" }
+
+# Ordered hashtable (preserves insertion order)
+$oh = [ordered]@{ First = 1; Second = 2 }
+</code></pre>
+<h2 id="custom-objects"><a class="header" href="#custom-objects">Custom Objects</a></h2>
+<pre><code class="language-powershell">$obj = [pscustomobject]@{
+    Name = "John"
+    Age  = 30
+}
+$obj.Name
+
+New-Object -TypeName PSObject -Property @{ Name = "John"; Age = 30 }
+</code></pre>
+<h2 id="variable-scope"><a class="header" href="#variable-scope">Variable Scope</a></h2>
+<pre><code class="language-powershell">$global:x = 1     # Global scope
+$script:y = 2     # Script scope
+$local:z = 3      # Local (default) scope
+function Test { $using:x }   # Access outer variable in remote/job context
+</code></pre>
+<h2 id="environment-variables"><a class="header" href="#environment-variables">Environment Variables</a></h2>
+<pre><code class="language-powershell">$env:PATH
+$env:USERNAME
+$env:MY_VAR = "value"             # Set for current session
+[Environment]::SetEnvironmentVariable("MY_VAR","value","User")  # Persistent
+</code></pre>
+<h2 id="automatic-variables-built-in"><a class="header" href="#automatic-variables-built-in">Automatic Variables (built-in)</a></h2>
+<pre><code class="language-powershell">$_          # Current pipeline object
+$?          # Success status of last command
+$LASTEXITCODE # Exit code of the last executed external program
+$Error      # Array of recent errors
+$PSVersionTable # Information about the PowerShell version and runtime environment
+$Args       # Arguments passed to a script/function
+$Home       # User's home directory
+$PWD        # Current working directory
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
 <h1 id="sql"><a class="header" href="#sql">SQL</a></h1>
 <h2 id="dml-data-manipulation-language"><a class="header" href="#dml-data-manipulation-language">DML (Data Manipulation Language)</a></h2>
 <p>DML commands are used for storing, retrieving, modifying, and deleting data.</p>
@@ -1239,7 +2323,7 @@ wsl --import &lt;Distro&gt; &lt;InstallLoc&gt; &lt;file.tar&gt;  # Restore/impor
 <li><code>wsl --shutdown</code> fully stops the WSL2 VM (all distros), useful after changing <code>.wslconfig</code></li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div>
-<h1 id="networking"><a class="header" href="#networking">Networking</a></h1>
+<h1 id="networking-1"><a class="header" href="#networking-1">Networking</a></h1>
 <h2 id="from-inside-wsl-1"><a class="header" href="#from-inside-wsl-1">From inside WSL</a></h2>
 <pre><code class="language-bash">ip addr show eth0                   # Get WSL instance's IP address
 cat /etc/resolv.conf                # Check DNS config
