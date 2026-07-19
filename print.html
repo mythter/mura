@@ -37,10 +37,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-63a2b5e8.js";
+            window.path_to_searchindex_js = "searchindex-d6a3067b.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-305901c4.js"></script>
+        <script src="toc-984b59da.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -994,6 +994,172 @@ git branch -D &lt;branch-name&gt;
 </tbody>
 </table>
 </div>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="wsl"><a class="header" href="#wsl">WSL</a></h1>
+<h2 id="quick-reference"><a class="header" href="#quick-reference">Quick Reference</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Command</th><th>Purpose</th></tr>
+</thead>
+<tbody>
+<tr><td><code>wsl -l -v</code></td><td>List distros with version/state</td></tr>
+<tr><td><code>wsl --shutdown</code></td><td>Restart the WSL VM</td></tr>
+<tr><td><code>wsl -d &lt;name&gt;</code></td><td>Launch specific distro</td></tr>
+<tr><td><code>wsl --set-default &lt;name&gt;</code></td><td>Set default distro</td></tr>
+<tr><td><code>wsl --export</code> / <code>--import</code></td><td>Backup/restore distro</td></tr>
+<tr><td><code>wsl --update</code></td><td>Update WSL kernel</td></tr>
+<tr><td><code>explorer.exe .</code></td><td>Open Linux folder in Explorer</td></tr>
+<tr><td><code>code .</code></td><td>Open folder in VS Code (WSL mode)</td></tr>
+</tbody>
+</table>
+</div>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="configuration"><a class="header" href="#configuration">Configuration</a></h1>
+<h2 id="wslconfig--global-settings"><a class="header" href="#wslconfig--global-settings"><code>.wslconfig</code> – global settings</a></h2>
+<p>Location: <code>C:\Users\&lt;YourName&gt;\.wslconfig</code></p>
+<pre><code class="language-ini">[wsl2]
+memory=4GB
+processors=2
+swap=2GB
+localhostForwarding=true
+</code></pre>
+<h2 id="wslconf--per-distro-settings"><a class="header" href="#wslconf--per-distro-settings"><code>wsl.conf</code> – per-distro settings</a></h2>
+<p>Location (inside distro): <code>/etc/wsl.conf</code></p>
+<pre><code class="language-ini">[boot]
+systemd=true
+
+[automount]
+enabled=true
+options="metadata,umask=22,fmask=11"
+
+[network]
+generateResolvConf=true
+</code></pre>
+<h2 id="apply-changes"><a class="header" href="#apply-changes">Apply changes</a></h2>
+<p>Changes to either file require a full VM restart to take effect:</p>
+<pre><code class="language-powershell">wsl --shutdown
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="useful-diagnostics"><a class="header" href="#useful-diagnostics">Useful Diagnostics</a></h1>
+<h2 id="from-windows"><a class="header" href="#from-windows">From Windows</a></h2>
+<pre><code class="language-powershell">wsl --status                        # Show default distro/version and WSL config
+wsl --update                        # Update the WSL kernel
+wsl --update --rollback             # Roll back kernel update
+</code></pre>
+<h2 id="from-inside-wsl"><a class="header" href="#from-inside-wsl">From inside WSL</a></h2>
+<pre><code class="language-bash">lsb_release -a                      # Distro version info
+uname -a                            # Kernel info from inside WSL
+cat /proc/version                   # Kernel build info
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="docker-with-wsl2"><a class="header" href="#docker-with-wsl2">Docker with WSL2</a></h1>
+<pre><code class="language-bash">docker --version                    # Verify Docker CLI is available (via Docker Desktop WSL integration)
+docker ps                           # List running containers
+</code></pre>
+<h2 id="setup"><a class="header" href="#setup">Setup</a></h2>
+<p>Enable WSL integration in:</p>
+<p><strong>Docker Desktop → Settings → Resources → WSL Integration</strong></p>
+<p>Then toggle on the distro(s) you want Docker available in.</p>
+<h2 id="notes"><a class="header" href="#notes">Notes</a></h2>
+<ul>
+<li>Docker Desktop uses WSL2 as its backend on Windows — no separate Docker install needed inside the distro</li>
+<li>Alternatively, install Docker Engine natively inside WSL (via systemd, see <code>09-systemd.md</code>) for a Docker Desktop-free setup</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="file-system-access"><a class="header" href="#file-system-access">File System Access</a></h1>
+<h2 id="from-inside-wsl--windows-drives"><a class="header" href="#from-inside-wsl--windows-drives">From inside WSL → Windows drives</a></h2>
+<pre><code class="language-bash">/mnt/c/Users/&lt;YourName&gt;/            # C: drive
+/mnt/d/                             # D: drive
+</code></pre>
+<pre><code class="language-powershell">explorer.exe .                      # Open current WSL folder in File Explorer (run inside WSL)
+</code></pre>
+<h2 id="from-windows--wsl-files"><a class="header" href="#from-windows--wsl-files">From Windows → WSL files</a></h2>
+<pre><code>\\wsl$\&lt;Distro&gt;\home\&lt;user&gt;\        # File Explorer path
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="installation-and-setup"><a class="header" href="#installation-and-setup">Installation and Setup</a></h1>
+<p>Run these from Windows PowerShell (as Administrator for the first install).</p>
+<pre><code class="language-powershell">wsl --install                      # Install WSL + default Ubuntu distro
+wsl --install -d &lt;Distro&gt;          # Install a specific distro (e.g. Debian, Kali-Linux)
+wsl --list --online                # List distros available to install
+wsl --set-default-version 2        # Set WSL2 as default for new installs
+wsl --version                      # Show WSL component versions
+</code></pre>
+<h2 id="notes-1"><a class="header" href="#notes-1">Notes</a></h2>
+<ul>
+<li>A system restart is usually required after the first <code>wsl --install</code></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="interop-windows--linux"><a class="header" href="#interop-windows--linux">Interop (Windows ↔ Linux)</a></h1>
+<h2 id="run-linux-commands-from-windows"><a class="header" href="#run-linux-commands-from-windows">Run Linux commands from Windows</a></h2>
+<pre><code class="language-powershell">wsl ls -la
+wsl cat /etc/os-release
+</code></pre>
+<h2 id="run-windows-executables-from-wsl"><a class="header" href="#run-windows-executables-from-wsl">Run Windows executables from WSL</a></h2>
+<pre><code class="language-bash">notepad.exe file.txt
+code .                              # Open current folder in VS Code (with WSL extension)
+cmd.exe /c dir
+</code></pre>
+<h2 id="pipe-between-windows-and-linux-tools"><a class="header" href="#pipe-between-windows-and-linux-tools">Pipe between Windows and Linux tools</a></h2>
+<pre><code class="language-bash">ls | grep.exe "txt"
+</code></pre>
+<h2 id="notes-2"><a class="header" href="#notes-2">Notes</a></h2>
+<ul>
+<li>Install the <strong>WSL</strong> extension in VS Code, then run <code>code .</code> from inside your WSL distro to open the folder in “WSL: <distro>” remote mode</distro></li>
+<li>Windows <code>.exe</code> tools are available in WSL’s <code>$PATH</code> by default (via <code>/mnt/c/...</code>), which is what makes <code>notepad.exe</code>, <code>code</code>, etc. work directly</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="launching"><a class="header" href="#launching">Launching</a></h1>
+<pre><code class="language-powershell">wsl                                 # Launch default distro
+wsl -d &lt;Distro&gt;                     # Launch a specific distro
+wsl -d &lt;Distro&gt; -u &lt;user&gt;           # Launch as a specific user
+</code></pre>
+<h2 id="examples"><a class="header" href="#examples">Examples</a></h2>
+<pre><code class="language-powershell">wsl -d Ubuntu -e ls -la
+wsl -d Ubuntu -u root
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="managing-distros"><a class="header" href="#managing-distros">Managing Distros</a></h1>
+<pre><code class="language-powershell">wsl --list --verbose               # List installed distros, version, state (short: wsl -l -v)
+wsl --list --online                # List distros available to install (short: wsl -l -o)
+wsl --list --running               # List currently running distros
+wsl --set-default &lt;Distro&gt;         # Set default distro
+wsl --set-version &lt;Distro&gt; 2       # Convert a distro to WSL2 (use 1 for WSL1)
+wsl --terminate &lt;Distro&gt;           # Stop a specific distro
+wsl --shutdown                     # Stop the WSL VM and all distros
+wsl --unregister &lt;Distro&gt;          # Remove a distro completely (deletes its data!)
+wsl --export &lt;Distro&gt; &lt;file.tar&gt;   # Backup a distro to a tar file
+wsl --import &lt;Distro&gt; &lt;InstallLoc&gt; &lt;file.tar&gt;  # Restore/import a distro from tar
+</code></pre>
+<h2 id="notes-3"><a class="header" href="#notes-3">Notes</a></h2>
+<ul>
+<li><code>wsl --unregister</code> is irreversible – export a backup first if you want to keep the data</li>
+<li><code>wsl --export</code> / <code>--import</code> is also a handy way to clone or move a distro to another machine</li>
+<li><code>wsl --shutdown</code> fully stops the WSL2 VM (all distros), useful after changing <code>.wslconfig</code></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="networking"><a class="header" href="#networking">Networking</a></h1>
+<h2 id="from-inside-wsl-1"><a class="header" href="#from-inside-wsl-1">From inside WSL</a></h2>
+<pre><code class="language-bash">ip addr show eth0                   # Get WSL instance's IP address
+cat /etc/resolv.conf                # Check DNS config
+</code></pre>
+<h2 id="from-windows-powershell"><a class="header" href="#from-windows-powershell">From Windows PowerShell</a></h2>
+<pre><code class="language-powershell">wsl hostname -I                     # Get WSL IP from Windows side
+</code></pre>
+<h2 id="notes-4"><a class="header" href="#notes-4">Notes</a></h2>
+<ul>
+<li>WSL2 uses a virtual network adapter; the IP changes on each restart unless configured otherwise</li>
+<li><code>localhostForwarding=true</code> in <code>.wslconfig</code> lets you reach WSL services via <code>localhost</code> from Windows (enabled by default in most setups)</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="running-commands"><a class="header" href="#running-commands">Running Commands</a></h1>
+<pre><code class="language-powershell">wsl -e &lt;command&gt;                    # Run a single command and exit
+wsl -- &lt;command&gt; arg1 arg2          # Run a command with arguments
+</code></pre>
+<h2 id="examples-1"><a class="header" href="#examples-1">Examples</a></h2>
+<pre><code class="language-powershell">wsl -- htop
+</code></pre>
 
                     </main>
 
